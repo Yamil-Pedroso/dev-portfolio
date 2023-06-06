@@ -7,7 +7,7 @@ import { github } from '../assets'
 import { SectionWrapper } from '../hoc'
 import { projects } from '../constants'
 import { fadeIn, textVariant } from '../utils/motion'
-import Tabs from './Tabs'
+import TabCards from './TabCards'
 
 const Works = () => {
   return (
@@ -34,13 +34,8 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-20 text-black1 flex justify-center">
-        {/*{projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
-        ))}*/}
-        <Tabs />
-        {/*<Fade left big>
-        </Fade>*/}
+      <div className="mt-20 text-white flex justify-center">
+        <TabCards />
       </div>
     </>
   )
