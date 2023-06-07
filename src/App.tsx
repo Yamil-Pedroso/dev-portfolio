@@ -11,6 +11,7 @@ const App = () => {
         </div>
         <MyComponent.About />
         <MyComponent.Experience />
+        <MyComponent.Tech />
         <MyComponent.Works />
         <MyComponent.TerminalDev />
         <div className="relative z-0">

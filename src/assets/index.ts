@@ -1,5 +1,6 @@
 import logo from "./logo1.png";
 import avatar from "./avatar/yami.png";
+import fullstack from "./back-front.png";
 import frontend from "./frontend.png";
 import backend from "./backend.png";
 import react from "./react.png";
@@ -43,6 +44,7 @@ import tripguide from "./tripguide.png";
 export {
   avatar,
   logo,
+  fullstack,
   backend,
   frontend,
   ux,

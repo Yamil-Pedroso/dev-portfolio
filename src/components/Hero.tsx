@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { avatar } from '../assets/index'
+import { avatar } from '../assets'
+import { fullstack } from '../assets'
 import Typical from 'react-typical'
 import { styles } from '../style'
 
@@ -38,12 +39,12 @@ const Hero = () => {
         <div>
           <div className="flex flex-row justify-center items-center h-screen flex-wrap">
             <div
-              className={`w-[25rem] h-[25rem] border-[#fafafa] border-[16px] overflow-hidden rounded-full shadow-[0_2px_60px_-15px_rgba(0,0,0,0.3)]`}
+              className={`w-[35rem] h-[50rem] border-[#fafafa]  overflow-hidden shadow-[0_2px_60px_-15px_rgba(0,0,0,0.3)]`}
             >
               <img
-                src={avatar}
+                src={fullstack}
                 alt="avatar"
-                className="w-full h-full object-cover"
+                className="w-[50rem] h-full object-cover"
               />
             </div>
             <div className="pl-[7.5rem] relative">

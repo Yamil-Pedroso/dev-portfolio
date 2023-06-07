@@ -38,31 +38,41 @@ const ContactCard = () => {
     <div className="container" style={{ color: 'black' }}>
       <div className="flex justify-around">
         <div className="w-[28vw] h-[22vh] border-black border-[5px] shadow-card flex flex-col justify-center px-8 relative mx-8">
-          <div
-            className={`cursor-pointer w-[5vw] h-[9vh] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] bg-white text-2xl transition ease-in-out delay-200 text-red-500  hover:bg-red-500 hover:text-white hover:-translate-y-1 hover:scale-110`}
-          >
-            <FaPhoneAlt className="text-[#46ca9e]" />
+          <div className="">
+            <div
+              className={`cursor-pointer w-[5rem] h-[5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#46ca9e] hover:-translate-y-1 hover:scale-110`}
+            >
+              <FaPhoneAlt className="text-[#46ca9e] hover:text-white" />
+            </div>
           </div>
-          <p className="text-[#fff] font-bold text-[1.5em]">{cardOne.header}</p>
-          <p className="text-[#fff] card-text text-[1.2em]">{cardOne.phone}</p>
+          <p className="text-[#f2f2f2] font-bold text-[1.5em]">
+            {cardOne.header}
+          </p>
+          <p className="text-[#f2f2f2] card-text text-[1.2em]">
+            {cardOne.phone}
+          </p>
         </div>
         <div className="w-[28vw] h-[22vh] border-black border-[5px] shadow-card flex flex-col justify-center px-8 relative mx-8">
-          <div className="cursor-pointer w-[5vw] h-[9vh] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] bg-white text-2xl transition ease-in-out delay-200 text-red-500 hover:bg-red-500 hover:text-white hover:-translate-y-1 hover:scale-110">
-            <FaEnvelope className="text-[#46ca9e]" />
+          <div className="cursor-pointer w-[5rem] h-[5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#46ca9e] hover:-translate-y-1 hover:scale-110">
+            <FaEnvelope className="text-[#46ca9e] hover:text-white" />
           </div>
-          <h5 className="text-black1 font-bold text-[1.5em]">
+          <h5 className="text-[#f2f2f2] font-bold text-[1.5em]">
             {cardTwo.header}
           </h5>
-          <p className="card-text text-[1.2em]">{cardTwo.email}</p>
+          <p className="text-[#f2f2f2] card-text text-[1.2em]">
+            {cardTwo.email}
+          </p>
         </div>
         <div className="w-[28vw] h-[22vh] border-black border-[5px] shadow-card flex flex-col justify-center px-8 relative mx-8">
-          <div className="cursor-pointer w-[5vw] h-[9vh] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] bg-white text-2xl transition ease-in-out delay-200 text-red-500 hover:bg-red-500 hover:text-white hover:-translate-y-1 hover:scale-110">
-            <FaMapMarkerAlt className="text-[#46ca9e]" />
+          <div className="cursor-pointer w-[5rem] h-[5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#46ca9e] hover:-translate-y-1 hover:scale-110">
+            <FaMapMarkerAlt className="text-[#46ca9e] hover:text-white" />
           </div>
-          <h5 className="text-black1 font-bold text-[1.5em]">
+          <h5 className="text-[#f2f2f2] font-bold text-[1.5em]">
             {cardThree.header}
           </h5>
-          <p className="card-text text-[1.2em]">{cardThree.location}</p>
+          <p className="text-[#f2f2f2] card-text text-[1.2em]">
+            {cardThree.location}
+          </p>
         </div>
       </div>
 

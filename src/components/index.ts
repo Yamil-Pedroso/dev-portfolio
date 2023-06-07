@@ -2,6 +2,7 @@ import Hero from './Hero';
 import Navbar from './Navbar';
 import About from './About';
 import Experience from './Experience';
+import Tech from './Tech';
 import Works from './Works';
 import TerminalDev from './TerminalDev';
 import Feedbacks from './Feedbacks';
@@ -12,6 +13,7 @@ export {
   Navbar,
   About,
   Experience,
+  Tech,
   Works,
   TerminalDev,
   Feedbacks,
