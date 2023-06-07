@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import { styles } from '../style'
-import { navLinks } from '../constants'
-import { logo, menu, close } from '../assets'
+import { styles } from "../style";
+import { navLinks } from "../constants";
+import { logo, menu, close } from "../assets";
+import { BsGithub } from "react-icons/bs";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const Navbar = () => {
-  const [active, setActive] = useState('')
-  const [toggle, setToggle] = useState(false)
+  const [active, setActive] = useState("");
+  const [toggle, setToggle] = useState(false);
 
   return (
     <nav
@@ -18,8 +20,8 @@ const Navbar = () => {
           to="/"
           className="flex items-center gap-2"
           onClick={() => {
-            setActive('')
-            window.scrollTo(0, 0)
+            setActive("");
+            window.scrollTo(0, 0);
           }}
         >
           {/*<img src={logo} alt="logo" className="w-12 h-12 object-contain" />*/}
@@ -29,7 +31,7 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title ? 'text-[#46ca9e]' : 'text-[#fafafa]'
+                active === link.title ? "text-[#46ca9e]" : "text-[#fafafa]"
               } hover:text-[#46ca9e] text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
@@ -48,7 +50,7 @@ const Navbar = () => {
 
           <div
             className={`${
-              toggle ? 'hidden' : 'flex'
+              toggle ? "hidden" : "flex"
             } p-6 black-gradient absolute top-20 right-0 mx-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className="list-none flex justify-end items-start flex-col gap-4">
@@ -56,11 +58,11 @@ const Navbar = () => {
                 <li
                   key={link.id}
                   className={`${
-                    active === link.title ? 'text-white' : 'text-secondary'
+                    active === link.title ? "text-white" : "text-secondary"
                   } font-poppins font-medium cursor-pointer text-[16px]`}
                   onClick={() => {
-                    setToggle(!toggle)
-                    setActive(link.title)
+                    setToggle(!toggle);
+                    setActive(link.title);
                   }}
                 >
                   <a href={`#${link.id}`}>{link.title}</a>
@@ -70,8 +72,16 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <div className="flex">
+        <Link to="https://github.com/Yamil-Pedroso" target="_blank">
+          <BsGithub className="text-[#cecece] text-[2rem] mx-6" />
+        </Link>
+        <Link to="https://www.linkedin.com/in/yamil-pedroso/" target="_blank">
+          <FaLinkedinIn className="text-[#cecece] text-[2rem]" />
+        </Link>
+      </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
