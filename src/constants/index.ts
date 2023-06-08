@@ -260,37 +260,6 @@ import {
     },
   ];
 
-  const techBox = [
-    {
-      id: 1,
-      title: 'Javascript',
-    },
-    {
-      id: 2,
-      title: 'Python',
-    },
-    {
-      id: 3,
-      title: 'Ruby',
-    },
-    {
-      id: 4,
-      title: 'React',
-    },
-    {
-      id: 5,
-      title: 'Django',
-    },
-    {
-      id: 6,
-      title: 'Angular',
-    },
-    {
-      id: 7,
-      title: 'Ruby on Rails',
-    },
-  ]
-
   const enviroment = [
     {
       title: "Terminal Environment",
@@ -391,4 +360,4 @@ import {
     },
   ];
 
-  export { services, technologies, experiences, techBox, testimonials, projects, enviroment };
+  export { services, technologies, experiences, testimonials, projects, enviroment };
