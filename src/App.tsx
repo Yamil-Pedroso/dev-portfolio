@@ -7,13 +7,12 @@ const App = () => {
       <div className="relative z-0 bg-[#1a1a1a]">
         <div className="">
           <MyComponent.Navbar />
-          <MyComponent.Hero />
         </div>
+        <MyComponent.Hero />
         <MyComponent.About />
         <MyComponent.Experience />
         <MyComponent.Tech />
         <MyComponent.Works />
-        <MyComponent.TerminalDev />
         <div className="relative z-0">
           <MyComponent.Contact />
         </div>

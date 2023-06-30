@@ -4,7 +4,7 @@ import About from './About';
 import Experience from './Experience';
 import Tech from './Tech';
 import Works from './Works';
-import TerminalDev from './TerminalDev';
+import Game from "./Game";
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 
@@ -15,7 +15,7 @@ export {
   Experience,
   Tech,
   Works,
-  TerminalDev,
+  Game,
   Feedbacks,
   Contact,
 }
