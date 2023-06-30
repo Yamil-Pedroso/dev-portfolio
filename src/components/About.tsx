@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { styles } from '../style'
-import { services } from '../constants'
-import { SectionWrapper } from '../hoc'
-import { fadeIn, textVariant } from '../utils/motion'
+import { styles } from "../style";
+import { services } from "../constants";
+import { SectionWrapper } from "../hoc";
+import { fadeIn, textVariant } from "../utils/motion";
 
 const ServiceCard = ({ index, title, icon, description }: any) => {
-  const [selectedCard, setSelectedCard] = useState(null)
+  const [selectedCard, setSelectedCard] = useState(null);
 
   return (
-    <div
-      className={`flex flex-col items-center justify-evenly p-4 border-black border-[5px] w-[350px] h-[380px] shadow-card ${
-        index % 2 === 0 ? 'bg-greenMid' : 'bg-ocreMid'
-      }`}
-    >
-      <img src={icon} alt="icon services" className="w-[60px] h-[60px]" />
-      <h2 className="text-black">{title}</h2>
-      <p className="text-black text-[15px] max-w-[250px] leading-[20px] text-center">
-        {description}
-      </p>
-    </div>
-  )
-}
+      <div
+        className={`flex flex-col items-center justify-evenly p-4 border-black border-[5px] w-[350px] h-[380px] shadow-card ${
+          index % 2 === 0 ? "bg-greenMid" : "bg-ocreMid"
+        }`}
+      >
+        <img src={icon} alt="icon services" className="w-[60px] h-[60px]" />
+        <h2 className="text-black">{title}</h2>
+        <p className="text-black text-[15px] max-w-[250px] leading-[20px] text-center">
+          {description}
+        </p>
+      </div>
+  );
+};
 
 const About = () => {
   return (
@@ -35,7 +35,7 @@ const About = () => {
       </motion.div>
 
       <motion.p
-        variants={fadeIn('', '', 0.1, 1)}
+        variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-[#a1a1aa] text-[17px] max-w-3xl leading-[30px]"
       >
         I'm a full stack software developer with experience in TypeScript and
@@ -46,13 +46,13 @@ const About = () => {
         your ideas to life!
       </motion.p>
 
-      <div className="mt-20 flex gap-10">
+      <div className="mt-20 flex justify-center gap-8 flex-wrap">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SectionWrapper(About, 'about')
+export default SectionWrapper(About, "about");

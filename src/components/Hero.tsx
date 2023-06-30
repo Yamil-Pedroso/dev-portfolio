@@ -36,25 +36,25 @@ const Hero = () => {
     <>
       <div className="w-[20vw] h-[30vh] bg-[#2c8064] absolute z-0 top-[5rem] right-[-2rem] blur-[7rem]"></div>
       <section className="flex justify-center items-center" id="home">
-        <div className="flex lg:flex-row items-center md:flex-col  md:justify-center md:items-center sm:flex-col sm:my-40 sm:justify-center sm:items-center xs:justify-center xs:items-center xs:flex-col">
+        <div className="flex justify-center mt-40 lg:flex-row items-center md:flex-col sm:flex-col xs:flex-col">
           <div
-            className={`flex md:justify-center md:items-center lg:w-[35rem] lg:h-[40rem] bg-slate-800 md:mt-40 md:w-[30rem] md:h-[35rem] sm:w-[25rem] sm:h-[30rem]`}
-          ></div>
-          <div className="flex md:justify-center md:items-center md:flex-col md:my-12 sm:flex-col sm:my-12 sm:justify-center sm:items-center xs:flex-col xs:my-12 xs:justify-center xs:items-center xs:p-10">
+          className={`flex justify-center transition-all lg:w-[35rem] lg:h-[40rem] bg-slate-800  md:w-[30rem] md:h-[35rem] sm:w-[25rem] sm:h-[30rem] xs:w-[20rem] xs:h-[25rem]`}>
+          </div>
+          <div className="flex flex-col md:justify-center md:items-center sm:justify-center sm:items-center xs:justify-center xs:items-center xs:p-10">
             <h1 className={`${styles.heroHeadText}`}>
-              <span className="text-[#fafafa] lg:text-[5rem] md:text-[3rem] sm:text-[3rem]">
+              <span className="text-[#fafafa] lg:text-[5rem] md:text-[3rem] sm:text-[3rem] xs:text-[3rem] min-[450px]:text-center">
                 {heroText.greetings}
               </span>
             </h1>
-            <div className="bg-gradient-to-r from-[#46ca9e] via-[#55b1bf] to-[#4e67a5] bg-clip-text text-transparent text-[4em] font-bold">
+          <div className="bg-gradient-to-r text-center from-[#46ca9e] via-[#55b1bf] to-[#4e67a5] bg-clip-text text-transparent lg:text-[4em] font-bold md:text-[3rem] md:w-full sm:w-full sm:text-[3rem] xs:text-[3rem]">
               <Typical
                 steps={['Full Stack', 100, 'Software Dev', 6000]}
                 loop={Infinity}
                 wrapper="h2"
               />
             </div>
-            <h2 className="text-[#fafafa] text-[60px]">{heroText.city}</h2>
-            <div className="flex items-center px-4 bg-[#1c1c1e] lg:w-[27vw] h-[4vh] border-[#2b2a2a] border-[1px] rounded-[.5rem] md:w-full sm:w-full">
+            <h2 className="text-[#fafafa] lg:text-[5rem] md:text-[3rem] sm:text-[3rem] xs:text-[3rem]">{heroText.city}</h2>
+            <div className="flex items-center px-4 bg-[#1c1c1e] lg:w-[24rem] lg:h-[2.5rem] border-[#2b2a2a] border-[1px] rounded-[.5rem] md:text-[.8rem] sm:text-[.8rem] xs:text-[.8rem] ">
               <p className="text-[#46ca9e]">{heroText.icon}</p>
               <p className="text-[#a4a3a3] ml-2">{heroText.prefix}</p>
               <p className="text-[#2c8064] text-[1.1em] tracking-wide ml-2">
@@ -64,7 +64,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      <div className="xs:bottom-10 mt-[5rem] w-full flex justify-center items-center">
+      <div className="xs:bottom-10 mt-[3rem] w-full flex justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-black1 flex justify-center items-start p-2">
             <motion.div

@@ -145,7 +145,7 @@ const Tech = () => {
   </motion.div>*/}
 
       <div
-        className="flex flex-wrap w-[80rem] mx-auto justify-center text-center text-[2rem]"
+        className="flex flex-wrap w-[80vw] md:w-[60rem] mx-auto justify-center text-center text-[2rem]"
         id="tech"
       >
         {techBox.map((box) => (

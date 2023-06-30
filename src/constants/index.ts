@@ -90,6 +90,18 @@ import {
       icon: ux,
       color: "#e9a13b",
     },
+    {
+      title: "UI/UX Designer",
+      description: "Building intuitive and visually interfaces, pleasing but also enhance the user experience.",
+      icon: ux,
+      color: "#e9a13b",
+    },
+    {
+      title: "UI/UX Designer",
+      description: "Building intuitive and visually interfaces, pleasing but also enhance the user experience.",
+      icon: ux,
+      color: "#e9a13b",
+    },
   ];
 
   const technologies = [
