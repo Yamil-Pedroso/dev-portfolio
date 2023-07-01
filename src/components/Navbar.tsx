@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import PlayfulAni from "./playful-animation/PlayfulAni";
 
 import { styles } from "../style";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
+import { m } from "framer-motion";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
+  const myHamburgerIcon = () => {
+    return (
+      <>
+        <div className="open-close-icon">
+          {toggle ? <span className="open"></span> : <span></span>}
+          {toggle ? <span className="open"></span> : <span></span>}
+          {toggle ? <span className="open"></span> : <span></span>}
+        </div>
+      </>
+    );
+  };
+
+  const handleClicked = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-[#19191d] border-b-[1px] border-[#515151] z-50`}
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 bg-[#19191d] border-b-[1px] border-[#515151] z-50`}
     >
+      <PlayfulAni />
       <div className="w-full flex justify-around items-center  max-auto">
         <Link
           to="/"
@@ -41,25 +59,22 @@ const Navbar = () => {
         </ul>
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="w-[28] h-[28px] object-contain cursor-pointer"
-            onClick={() => setToggle(!toggle)}
-          />
+          <div onClick={handleClicked} className="mt-2">
+           {myHamburgerIcon()}
+          </div>
 
           <div
             className={`${
-              toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-2 min-w-[140px] z-10 rounded-xl`}
+              toggle ? "opacity-100 transition-all duration-1000 slide-in-right" : "opacity-0 slide-out-right duration-1000"
+            } absolute top-20 right-0 w-full p-8 bg-[#19191d] border-t-[1px] border-[#515151] z-50`}
           >
             <ul className="list-none flex justify-end items-start flex-col gap-4">
               {navLinks.map((link) => (
                 <li
                   key={link.id}
                   className={`${
-                    active === link.title ? "text-white" : "text-secondary"
-                  } font-poppins font-medium cursor-pointer text-[16px]`}
+                    active === link.title ? "text-[#46ca9e]" : "text-[#fafafa]"
+                  } hover:text-[#46ca9e] text-[18px] font-medium cursor-pointer`}
                   onClick={() => {
                     setToggle(!toggle);
                     setActive(link.title);

@@ -1,7 +1,6 @@
 import React from 'react'
+import PlayfulAni from './playful-animation/PlayfulAni'
 import { motion } from 'framer-motion'
-import { avatar } from '../assets'
-import { fullstack } from '../assets'
 import Typical from 'react-typical'
 import { styles } from '../style'
 
