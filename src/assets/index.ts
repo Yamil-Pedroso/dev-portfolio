@@ -31,6 +31,8 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import terminal from "./terminal.png";
+import codingBackend from "./coding-backend.png";
+import designFrontend from "./design-frontend.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -42,6 +44,8 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
 export {
+  codingBackend,
+  designFrontend,
   avatar,
   logo,
   fullstack,

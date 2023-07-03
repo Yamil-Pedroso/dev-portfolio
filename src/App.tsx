@@ -5,10 +5,7 @@ import BackToTopBtn from './components/back-to-top-btn/BackToTopBtn'
 const App = () => {
   return (
     <Router>
-      <div className="relative z-0 bg-[#1a1a1a]">
-        <div className="">
-          <MyComponent.Navbar />
-        </div>
+        <MyComponent.Navbar />
         <MyComponent.Hero />
         <MyComponent.About />
         <MyComponent.Experience />
@@ -17,7 +14,6 @@ const App = () => {
         <div className="relative z-0">
           <MyComponent.Contact />
         </div>
-      </div>
       <BackToTopBtn />
     </Router>
   )
