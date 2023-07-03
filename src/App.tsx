@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import * as MyComponent from './components'
+import BackToTopBtn from './components/back-to-top-btn/BackToTopBtn'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <MyComponent.Contact />
         </div>
       </div>
+      <BackToTopBtn />
     </Router>
   )
 }

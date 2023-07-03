@@ -37,7 +37,7 @@ const Hero = () => {
       <section className="flex justify-center items-center" id="home">
         <div className="flex justify-center mt-40 lg:flex-row items-center md:flex-col sm:flex-col xs:flex-col">
           <div
-          className={`flex justify-center transition-all lg:w-[35rem] lg:h-[40rem] bg-slate-800  md:w-[30rem] md:h-[35rem] sm:w-[25rem] sm:h-[30rem] xs:w-[20rem] xs:h-[25rem]`}>
+          className={`flex justify-center transition-all lg:w-[35rem] lg:h-[40rem] bg-transparent  md:w-[30rem] md:h-[35rem] sm:w-[25rem] sm:h-[30rem] xs:w-[20rem] xs:h-[25rem]`}>
           </div>
           <div className="flex flex-col md:justify-center md:items-center sm:justify-center sm:items-center xs:justify-center xs:items-center xs:p-10">
             <h1 className={`${styles.heroHeadText}`}>

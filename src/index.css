@@ -147,11 +147,14 @@
   100% {
     transform: translateX(0);
   }
+  60% {
+    transform: translateX(100%);
+  }
 }
 
 @layer utilities {
   .slide-in-right {
-    animation: slideIn 0.5s forwards;
+    animation: slideIn 1s forwards;
   }
 }
 
@@ -162,11 +165,22 @@
   100% {
     transform: translateX(100%);
   }
+  60% {
+    transform: translateX(0);
+  }
 }
 
 @layer utilities {
   .slide-out-right {
-    animation: slideOut 0.5s forwards;
+    animation: slideOut 1s forwards;
   }
+}
+
+.upY {
+  transition: all 0.3s ease-in-out;
+}
+
+.upY:hover {
+  transform: translateY(-5px);
 }
 
