@@ -13,9 +13,9 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant(1)} id="projects">
-        <p className={`${styles.sectionSubText} `}>My work</p>
+        <p className={`${styles.sectionSubText} lg:text-[3.75rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]`}>My work</p>
         <h2
-          className={`${styles.sectionHeadText} bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent`}
+          className={`${styles.sectionHeadText} bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent  lg:text-[3.5rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem] font-bold`}
         >
           Projects.
         </h2>
@@ -24,7 +24,7 @@ const Works = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn('', '', 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className="mt-3 text-secondary text-[1rem] max-sm:text-[.8rem] max-w-3xl leading-[30px]"
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with

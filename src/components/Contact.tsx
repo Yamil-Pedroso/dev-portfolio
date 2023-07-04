@@ -68,23 +68,23 @@ const Contact = () => {
     <>
       <ContactCard />
       <div
-        className={`xl:mt-[12.5rem] flex xl:flex-row flex-col-reverse gap-10 bg-[#efecde] border-black border-[8px] shadow-card relative`}
+        className={`xl:mt-[12.5rem] flex xl:flex-row gap-10 bg-[#efecde] border-black border-[8px] shadow-card relative max-md:h-[80vh]`}
       >
+      
         <motion.div
           variants={slideIn('left', 'tween', 0.2, 1)}
           className="flex-[0.75] p-8 rounded-2xl"
         >
-          <div className="border-black border-[8px] w-[18vw] h-[10vh] flex items-center justify-center bg-white absolute top-[-4.2rem] left-[-8px]">
-            <h3 className={styles.sectionHeadText}>Contact</h3>
+          <div className="border-black border-[8px] w-[23rem] h-[10vh] flex items-center justify-center bg-white absolute lg:top-[-4.2rem] lg:left-[-8px] md:top-[-4.2rem]">
+            <h3 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent lg:text-[3.5rem] md:text-[2.7rem]">Contact</h3>
           </div>
 
           <form
             //ref={formRef}
             onSubmit={handleSubmit}
-            className="mt-12 flex flex-col gap-8"
-          >
-            <label className="flex flex-col">
-              <input
+            className="mt-12 flex flex-col gap-8 max-md:mt-[10rem]">
+              <label className="flex flex-col">
+                <input
                 type="text"
                 name="name"
                 value={form.name}

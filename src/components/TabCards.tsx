@@ -103,7 +103,7 @@ const TabCards = () => {
       <div className="flex justify-between space-x-8 rounded-lg px-4 py-2 w-full">
         <button
           onClick={() => handleClick('menu1')}
-          className={` ${checkActiveTab('menu1', 'w-[6rem] text-[1.6em]')}`}
+          className={` ${checkActiveTab('menu1', 'w-[6rem] text-[1.6em] max-md:text-[1.4em]')}`}
         >
           React
         </button>
@@ -111,7 +111,7 @@ const TabCards = () => {
           onClick={() => handleClick('menu2')}
           className={`text-white ${checkActiveTab(
             'menu2',
-            'w-[6rem] text-[1.6em]',
+            'w-[6rem] text-[1.6em] max-md:text-[1.4em]',
           )}`}
         >
           Python
@@ -120,13 +120,13 @@ const TabCards = () => {
           onClick={() => handleClick('menu3')}
           className={`text-white ${checkActiveTab(
             'menu3',
-            'w-[6rem] text-[1.6em]',
+            'w-[6rem] text-[1.6em] max-md:text-[1.4em]',
           )}`}
         >
           Typescript
         </button>
       </div>
-      <div className="flex justify-center w-full rounded-md">
+      <div className="flex justify-center flex-wrap w-full rounded-md">
         {menu1.map((item, index) => (
           <div
             key={index}
@@ -135,7 +135,7 @@ const TabCards = () => {
               'active',
             )}`}
           >
-            <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] text-black">
+            <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black">
               <div className="">
                 <h1 className="text-xl font-bold">{item.title}</h1>
                 <Link
@@ -161,7 +161,7 @@ const TabCards = () => {
               'active',
             )}`}
           >
-            <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] text-black">
+            <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black">
               <div>
                 <h1 className="text-xl font-bold">{item.title}</h1>
                 <Link
@@ -185,7 +185,7 @@ const TabCards = () => {
               'active',
             )}`}
           >
-            <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] text-black">
+            <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black">
               <div>
                 <h1 className="text-xl font-bold">{item.title}</h1>
                 <Link
