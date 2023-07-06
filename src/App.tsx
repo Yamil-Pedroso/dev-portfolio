@@ -1,20 +1,14 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import * as MyComponent from './components'
-import BackToTopBtn from './components/back-to-top-btn/BackToTopBtn'
+import Home from './pages/HomePage'
+import Portfolio from './pages/Portfolio'
 
 const App = () => {
   return (
     <Router>
-        <MyComponent.Navbar />
-        <MyComponent.Hero />
-        <MyComponent.About />
-        <MyComponent.Experience />
-        <MyComponent.Tech />
-        <MyComponent.Works />
-        <div className="relative z-0">
-          <MyComponent.Contact />
-        </div>
-      <BackToTopBtn />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+      </Routes>
     </Router>
   )
 }

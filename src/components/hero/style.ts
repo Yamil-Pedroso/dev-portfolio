@@ -15,6 +15,10 @@ export const BoxWrapperOne = styled.div`
     border: 5px solid #2c8064;
     width: 30rem;
     height: 30rem;
+    
+    img.active {
+      transform: rotate(50deg)
+    }
 
     @media (max-width: 960px) {
         width: 20rem;

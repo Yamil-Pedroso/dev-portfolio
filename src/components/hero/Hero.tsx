@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Typical from "react-typical";
 import { styles } from "../../style";
 import HeroCreative from "./HeroCreative";

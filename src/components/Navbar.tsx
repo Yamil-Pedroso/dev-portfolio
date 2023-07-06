@@ -44,6 +44,7 @@ const Navbar = () => {
         >
           {/*<img src={logo} alt="logo" className="w-12 h-12 object-contain" />*/}
         </Link>
+        
         <ul className="list-none hidden sm:flex flex-row gap-10" id="nav">
           {navLinks.map((link) => (
             <li
