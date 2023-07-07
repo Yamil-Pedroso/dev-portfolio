@@ -53,7 +53,7 @@ export const Dock = ({ children }: DockProps) => {
           scale: zoomLevel
             .to({
               range: [DOCK_ZOOM_LIMIT[0], 1, DOCK_ZOOM_LIMIT[1]],
-              output: [2, 1, 0.5],
+              output: [1, 5, 0.5],
             })
             .to(value => clamp(0.1, 2, value)),
         }}>

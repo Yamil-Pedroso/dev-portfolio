@@ -42,6 +42,7 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import wave from "./wave.gif";
 
 export {
   codingBackend,
@@ -85,4 +86,5 @@ export {
   carrent,
   jobit,
   tripguide,
+  wave,
 };

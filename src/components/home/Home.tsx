@@ -66,9 +66,6 @@ const Home = (props: HomeProps) => {
 
   return (
     <>
-      <JavaScript />
-      <Rocket />
-      <DB />
       <ValueAnimation />
     </>
   );

@@ -11,21 +11,21 @@ const menu1 = [
     content: 'New',
     color: 'bg-red-500',
     src: react,
-    link: 'https://www.google.com',
+    link: 'https://www.squib.app',
   },
   {
     title: 'React 2',
     content: 'New',
     src: react,
     color: 'bg-blue-500',
-    link: 'https://www.google.com',
+    link: 'https://ecom-app-seven.vercel.app/',
   },
   {
     title: 'React 3',
     content: 'New',
     src: react,
     color: 'bg-green-500',
-    link: 'https://www.google.com',
+    link: 'https://www.therapiecalderone.ch/',
   },
 ]
 const menu2 = [
@@ -143,7 +143,7 @@ const TabCards = () => {
                   className="text-sm font-bold"
                   target="_blank"
                 >
-                  {/*{item.link}*/}
+                  *{item.link}
                 </Link>
               </div>
               <div>

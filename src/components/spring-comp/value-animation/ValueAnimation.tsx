@@ -28,11 +28,17 @@ const myIcons = [
 
 const GRADIENTS = [
   './bag.png',
-  './python.png',
-  './reactjs.png',
-  './typescript.png',
-  './nodejs.png',
+  './linkedin.png',
+  './github.png',
+  './gitlab.png',
+  './functionality.png',
   './figma.png',
+]
+
+const myUrls = [
+  '/portfolio',
+  'https://www.linkedin.com/in/yamil-pedroso/',
+  'https://github.com/Yamil-Pedroso',
 ]
 
 
@@ -41,11 +47,12 @@ const ValueAnimation = () => {
 
   return (
     <div className={styles.body}>
+      <p>👋 Hi guys, feel free to visit my content.</p>
       <Dock>
         {GRADIENTS.map((src, index) =>
           src ? (
             <DockCard key={src}>
-              <Card src={src} />
+              <Card src={src} url={myUrls[index]} />
             </DockCard>
           ) : (
             <DockDivider key={index} />
