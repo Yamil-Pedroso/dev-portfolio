@@ -30,3 +30,18 @@
       transform: rotate(-45deg);
     }
   }
+
+  .dockWrapper {
+    opacity: 0;
+    animation: appear 1s forwards;
+    -webkit-animation: appear 3s forwards;
+}
+  
+  @keyframes appear {
+    from {
+      opacity: 0; 
+    }
+    to {
+      opacity: 1; 
+    }
+  }

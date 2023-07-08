@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HomeWrapper, BoxWrapper, BoxLink } from "./style";
-import Rocket from "../rocket-comp/Rocket";
-import JavaScript from "../rocket-comp/CompTwo";
-import DB from "../rocket-comp/CompThree";
 import ValueAnimation from "../spring-comp/value-animation/ValueAnimation";
 import {
   BsBriefcaseFill,
