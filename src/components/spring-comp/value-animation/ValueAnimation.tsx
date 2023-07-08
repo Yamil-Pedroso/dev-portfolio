@@ -45,17 +45,20 @@ const GRADIENTS = [
   "./figma.png",
 ];
 
-const myUrls = [
-  "/portfolio",
-  "https://www.linkedin.com/in/yamil-pedroso/",
-  "https://github.com/Yamil-Pedroso",
-];
 
 const ValueAnimation = () => {
+  const navigate = useNavigate();
+
+  const myUrls = [
+     "/portfolio",
+    "https://www.linkedin.com/in/yamil-pedroso/",
+    "https://github.com/Yamil-Pedroso",
+  ];
   return (
     <div className={styles.body}>
       <div className={styles.dockWrapper}>
       <p>👋 Hi guys, feel free to visit my content.</p>
+      <Link to="/portfolio">Portfolio</Link>
         <Dock>
           {GRADIENTS.map((src, index) =>
             src ? (

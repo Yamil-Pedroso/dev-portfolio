@@ -2,11 +2,17 @@ import React from 'react'
 import * as MyComponent from '../components'
 import BackToTopBtn from '../components/back-to-top-btn/BackToTopBtn'
 import ValueAnimation from '../components/spring-comp/value-animation/ValueAnimation'
+import { FaArrowAltCircleLeft } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import  styles from './styles.module.scss'
 
 const Portfolio = () => {
   return (
-    <>
-      <MyComponent.Navbar />
+    <div className={styles.portfolioWrapper}>
+        <Link className={styles.backContentArrow} to="/">
+            <FaArrowAltCircleLeft />
+        </Link>
+        <MyComponent.Navbar />
         <MyComponent.Hero />
         <MyComponent.About />
         <MyComponent.Experience />
@@ -16,7 +22,7 @@ const Portfolio = () => {
           <MyComponent.Contact />
         </div>
         <BackToTopBtn />
-    </>
+    </div>
   )
 }
 
