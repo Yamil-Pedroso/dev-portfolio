@@ -35,20 +35,6 @@ const myIcons = [
   <SiFigma />,
 ];
 
-const myLinks = [
-  "/portfolio",
-  "https://www.linkedin.com/in/yamil-pedroso/",
-  <Link to="#" />,
-  <Link to="#" />,
-  <Link to="#" />,
-  <Link to="#" />,
-  <Link to="#" />,
-  <Link to="#" />,
-  <Link to="#" />,
-  <Link to="#" />,
-  <Link to="#" />,
-  <Link to="#" />,
-];
 
 const Home = (props: HomeProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
