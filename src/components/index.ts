@@ -8,6 +8,7 @@ import Game from "./Game";
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 
+
 export {
   Hero,
   Navbar,

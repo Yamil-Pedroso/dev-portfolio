@@ -44,6 +44,10 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import wave from "./wave.gif";
 
+import porfolioOne from "./portfolio-work/portfolioOne.png";
+import porfolioTwo from "./portfolio-work/portfolioTwo.jpg";
+import porfolioThree from "./portfolio-work/portfolioThree.jpg";
+
 export {
   codingBackend,
   designFrontend,
@@ -87,4 +91,7 @@ export {
   jobit,
   tripguide,
   wave,
+  porfolioOne,
+  porfolioTwo,
+  porfolioThree,
 };
