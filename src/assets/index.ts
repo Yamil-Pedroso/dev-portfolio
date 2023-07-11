@@ -5,6 +5,8 @@ import frontend from "./frontend.png";
 import backend from "./backend.png";
 import react from "./react.png";
 import ux from "./ux.png";
+import hosting from "./hosting.png";
+import digitalart from "./digitalart.png";
 import rocket from "./experience/rocket.gif";
 import laptop from "./experience/laptop.gif";
 import paint from "./experience/paint.gif";
@@ -57,6 +59,8 @@ export {
   backend,
   frontend,
   ux,
+  hosting,
+  digitalart,
   react,
   rocket,
   laptop,

@@ -42,7 +42,9 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          {/*<img src={logo} alt="logo" className="w-12 h-12 object-contain" />*/}
+          <h1>
+            [ <span className="text-[#46ca9e]">YP-NEXTGEN</span> ] <span className="text-[#46ca9e]">.</span>
+          </h1>
         </Link>
         
         <ul className="list-none hidden sm:flex flex-row gap-10" id="nav">

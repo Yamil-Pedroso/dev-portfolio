@@ -26,7 +26,7 @@ const ServiceCard = ({ index, title, icon, description }: any) => {
 
 const About = () => {
   return (
-    <>
+    <div className="mt-[10rem] max-xs:mt-[3rem]">
       <motion.div variants={textVariant(0.01)}>
         <h2 className="text-[#fafafa] lg:text-[3.75rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]">Introduction.</h2>
         <h2 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent lg:text-[3.5rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem] font-bold">
@@ -48,10 +48,10 @@ const About = () => {
 
       <div className="mt-20 flex justify-center gap-8 flex-wrap">
         {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
+          <ServiceCard key={service.title} index={index} { ...service } />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

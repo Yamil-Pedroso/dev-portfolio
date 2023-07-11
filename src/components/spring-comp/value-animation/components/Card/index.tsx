@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 interface CardProps {
-  src: string;
+  src: string | object | any;
   onClick?: () => void;
   url?: string | object | any;
 }

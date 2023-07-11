@@ -68,21 +68,41 @@ const Contact = () => {
     <>
       <ContactCard />
       <div
-        className={`xl:mt-[12.5rem] flex xl:flex-row gap-10 bg-[#303030] border-black border-[8px] shadow-card relative max-md:h-[80vh]`}
+        className={`xl:mt-[18rem] mt-[16rem] max-md:mt-[12rem] max-xs:mt-[8rem] pt-[3rem] flex justify-center items-center bg-[#303030] border-black border-[8px] shadow-card relative flex-col`}
       >
-      
+        
         <motion.div
           variants={slideIn('left', 'tween', 0.2, 1)}
           className="flex-[0.75] p-8 rounded-2xl"
         >
-          <div className="border-black border-[8px] w-[23rem] h-[10vh] flex items-center justify-center bg-white absolute lg:top-[-4.2rem] lg:left-[-8px] md:top-[-4.2rem]">
-            <h3 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent lg:text-[3.5rem] md:text-[2.7rem]">Contact</h3>
+          <div className="ml-[7rem]">
+            <div className="border-black border-[8px] w-[18rem] h-[8vh] flex items-center justify-center bg-[#303030] absolute top-[-6.5rem] max-lg:top-[-6.5rem] max-lg:left-[9.3rem] max-md:left-[10.5rem] max-md:top-[-6.2rem] max-md:w-[16rem] max-md:h-[6rem] max-xs:left-[9.2rem] max-xs:w-[15rem] max-xs:h-[5rem] max-xs:top-[-5.8rem] max-xs:border-[5px] max-xs:ml-[1.5rem]">
+              <h3 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent text-[2.8rem] max-md:text-[2.3rem] max-xs:text-[2rem]">Contact</h3>
+            </div>
           </div>
+
+          <motion.div
+          variants={slideIn('right', 'tween', 0.2, 1)}
+          className="xl:flex-1 xl:h-auto"
+        >
+          <div className="flex flex-col justify-center items-center w-[32rem]">
+            <div className="flex flex-col items-center gap-4">
+              <h3 className="text-[2.2rem] font-bold text-[#d2d2d2] max-md:text-[2.2rem] max-sm:text-[1.8rem]">
+                Get in touch
+              </h3>
+              <p className="text-[#a7a7a7] font-normal text-center lg:text-[1.2rem] max-md:w-[22rem] md:text-[1.1rem] max-sm:text-[.8rem] max-sm:w-[18rem]">
+                If you have a
+                project that you want to get started, think you need my help
+                with something or just fancy saying hey, then get in touch.
+              </p>
+            </div>
+            </div>
+        </motion.div>
 
           <form
             //ref={formRef}
             onSubmit={handleSubmit}
-            className="mt-12 flex flex-col gap-8 max-md:mt-[10rem]">
+            className="mt-12 flex flex-col gap-8 w-full max-md:w-[20rem] max-md:mx-auto max-xs:w-[18rem] max-md:gap-6 max-md:mt-11 max-xs:gap-4 max-xs:mt-10">
               <label className="flex flex-col">
                 <input
                 type="text"
@@ -90,7 +110,7 @@ const Contact = () => {
                 value={form.name}
                 onChange={handleChange}
                 placeholder="NAME"
-                className="bg-gray-500 text-white  p-4"
+                className="bg-gray-500 text-white p-4 outline-none max-md:p-3 max-md:text-md max-xs:p-2 max-xs:text-xs"
               />
             </label>
             <label className="flex flex-col">
@@ -100,7 +120,7 @@ const Contact = () => {
                 value={form.email}
                 onChange={handleChange}
                 placeholder="EMAIL"
-                className="bg-gray-500 text-white  p-4"
+                className="bg-gray-500 text-white p-4 outline-none max-xs:p-2 max-xs:text-xs"
               />
             </label>
             <label className="flex flex-col">
@@ -110,25 +130,20 @@ const Contact = () => {
                 value={form.message}
                 onChange={handleChange}
                 placeholder="MESSAGE"
-                className="bg-gray-500 text-white p-4 border"
+                className="bg-gray-500 text-white p-4 outline-none max-xs:p-2 max-xs:text-xs"
               />
             </label>
 
             <button
               type="submit"
-              className="py-3 px-8 border-black border-[3px] outline-none w-fit text-black1 font-bold shadow-md"
+              className="py-3 px-8 max-xs:py-1 max-xs:px-6 max-xs:text-xs border-black border-[3px]  m-2 cursor-pointer hover:border-[#194939] outline-none w-fit text-[#515151] hover:text-[#2f8367] transition duration-500 ease-in-out font-bold shadow-md"
             >
               {loading ? 'Sending...' : 'Send'}
             </button>
           </form>
         </motion.div>
 
-        <motion.div
-          variants={slideIn('right', 'tween', 0.2, 1)}
-          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
-        >
-          {/*<EarthCanvas />*/}
-        </motion.div>
+        
       </div>
     </>
   )

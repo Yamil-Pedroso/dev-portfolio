@@ -10,7 +10,7 @@ const Portfolio = () => {
   return (
     <div className={styles.portfolioWrapper}>
         <Link className={styles.backContentArrow} to="/">
-            <FaArrowAltCircleLeft />
+            <FaArrowAltCircleLeft className={styles.backArrow} />
         </Link>
         <MyComponent.Navbar />
         <MyComponent.Hero />

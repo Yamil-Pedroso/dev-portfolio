@@ -30,6 +30,17 @@ export const BoxWrapperOne = styled.div`
             height: 10rem;
         }
     }
+
+    @media (max-width: 768px) {
+        width: 15rem;
+        height: 15rem;
+        transition: 0.8s all ease;
+
+        img {
+            width: 8rem;
+            height: 8rem;
+        }
+    }
 `;
 
 export const BoxWrapperTwo = styled.div`
@@ -46,7 +57,7 @@ export const Section = styled.div`
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
-  margin-bottom: 25rem;
+  margin-bottom: 10rem;
   margin-top: 12rem;
   width: 75%;
 
@@ -58,7 +69,7 @@ export const Section = styled.div`
         flex-direction: column;
         align-items: center;
         margin-top: 9rem;
-        margin-bottom: 10rem;
+        margin-bottom: 4rem;
     }
 `;
 
@@ -88,6 +99,17 @@ export const HeroRightContent = styled.div`
         }
     }
         
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.7rem;
+        }
+    }
 `;
 
 export const TitleDev = styled.h2`
@@ -104,6 +126,15 @@ export const TitleDev = styled.h2`
     @media (max-width: 960px) {
         font-size: 3rem;
     }
+
+    @media (max-width: 768px) {
+        font-size: 2.3rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.5rem;
+    }
+
 `;
 
 export const CityName = styled.p`
@@ -116,6 +147,14 @@ export const CityName = styled.p`
 
     @media (max-width: 960px) {
         font-size: 3rem;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.5rem;
     }
 `;
 
@@ -141,6 +180,16 @@ export const TerminalSim = styled.div`
   p:nth-child(3) {
     color: #2c8064;
   }
+
+    @media (max-width: 960px) {
+        width: 25rem;
+        font-size: .9rem;
+    }
+
+    @media (max-width: 768px) {
+        width: 15rem;
+        font-size: 0.5rem;
+    }
 `;
 
 

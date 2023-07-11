@@ -35,6 +35,30 @@
     opacity: 0;
     animation: appear 1s forwards;
     -webkit-animation: appear 3s forwards;
+
+    @media screen and (max-width: 960px) {
+       p {
+        font-size: 1.7rem;
+        text-align: center;     
+        transition: all 0.3s ease-in-out;
+    }
+  }
+
+    @media screen and (max-width: 768px) {
+       p {
+        font-size: 1.5rem;
+        text-align: center;
+         transition: all 0.3s ease-in-out;
+    }
+  }
+
+    @media screen and (max-width: 480px) {
+       p {
+        font-size: 1.3rem;
+        text-align: center;
+         transition: all 0.3s ease-in-out;
+    }
+  }
 }
   
   @keyframes appear {

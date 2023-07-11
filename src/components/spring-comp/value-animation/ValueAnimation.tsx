@@ -37,39 +37,44 @@ const myIcons = [
 ];
 
 const GRADIENTS = [
-  "./bag.png",
-  "./linkedin.png",
+  "./linkedinGray.png",
   "./github.png",
-  "./gitlab.png",
-  "./functionality.png",
-  "./figma.png",
+  "./gitlabGray.png",
+  "./settingsGray.png",
+  "./figmaGray.png",
 ];
 
 
 const ValueAnimation = () => {
+  interface keyProps {
+    key: React.Key | null | undefined;
+  }
   const navigate = useNavigate();
 
   const myUrls = [
-     "/portfolio",
     "https://www.linkedin.com/in/yamil-pedroso/",
     "https://github.com/Yamil-Pedroso",
+    "https://gitlab.com/Yamirovinci",
+    "https://yp-dev-functionalities.netlify.app/",
+    "https://yp-ui-design.netlify.app/",
   ];
+  
   return (
     <div className={styles.body}>
       <div className={styles.dockWrapper}>
-      <p>👋 Hi guys, feel free to visit my content.</p>
-      <Link to="/portfolio">Portfolio</Link>
-        <Dock>
-          {GRADIENTS.map((src, index) =>
-            src ? (
-              <DockCard key={src}>
-                <Card src={src} url={myUrls[index]} />
-              </DockCard>
-            ) : (
-              <DockDivider key={index} />
-            )
-          )}
-        </Dock>
+        <p>👋 Hi guys, feel free to visit my content.</p>
+        <Link to="/portfolio"><div className="text-[#46ca9e] text-center mt-[4rem]">Portfolio</div></Link>
+          <Dock>
+            {GRADIENTS.map((src, index) =>
+              src ? (
+                <DockCard key={src}>
+                  <Card src={src} url={myUrls[index]} />
+                </DockCard>
+              ) : (
+                <DockDivider key={index} />
+              )
+            )}
+          </Dock>
       </div>
     </div>
   );
