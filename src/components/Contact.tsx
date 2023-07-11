@@ -68,7 +68,7 @@ const Contact = () => {
     <>
       <ContactCard />
       <div
-        className={`xl:mt-[12.5rem] flex xl:flex-row gap-10 bg-[#efecde] border-black border-[8px] shadow-card relative max-md:h-[80vh]`}
+        className={`xl:mt-[12.5rem] flex xl:flex-row gap-10 bg-[#303030] border-black border-[8px] shadow-card relative max-md:h-[80vh]`}
       >
       
         <motion.div
