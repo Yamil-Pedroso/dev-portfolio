@@ -9,9 +9,6 @@ import  styles from './styles.module.scss'
 const Portfolio = () => {
   return (
     <div className={styles.portfolioWrapper}>
-        <Link className={styles.backContentArrow} to="/">
-            <FaArrowAltCircleLeft className={styles.backArrow} />
-        </Link>
         <MyComponent.Navbar />
         <MyComponent.Hero />
         <MyComponent.About />

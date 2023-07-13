@@ -131,7 +131,7 @@ const Tech = () => {
   })
 
   return (
-    <div className="mt-[5rem] flex flex-col">
+    <div className="mt-[5rem] flex flex-col" id="tech">
       {/*<motion.div
         variants={textVariant(1)}
         id="projects"

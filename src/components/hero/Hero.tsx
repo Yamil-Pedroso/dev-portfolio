@@ -36,11 +36,10 @@ const Hero = () => {
     <>
       <BlurStyle />
       <Section id="home">
-        
-          <HeroCreative />
-        
-        
-          <HeroRightContent>
+        <HeroCreative />
+
+        <HeroRightContent>
+          <div className="hero-content-wrapper">
             <h1 className={`${styles.heroHeadText}`}>
               <span>{heroText.greetings}</span>
             </h1>
@@ -57,7 +56,8 @@ const Hero = () => {
               <p className="">{heroText.prefix}</p>
               <p className="">{heroText.text}</p>
             </TerminalSim>
-          </HeroRightContent>
+          </div>
+        </HeroRightContent>
       </Section>
       <div className="mt-[2rem] w-full flex justify-center items-center max-xs:mt-0">
         <a href="#about">

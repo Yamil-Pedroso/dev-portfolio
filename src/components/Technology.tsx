@@ -18,6 +18,7 @@ const Technology = ({ tech }: any) => {
 
   return (
     <div 
+      id="technology"
     ref={setNodeRef}
     style={style}
     {...attributes}

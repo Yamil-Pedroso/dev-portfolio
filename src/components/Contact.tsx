@@ -65,7 +65,7 @@ const Contact = () => {
   }
 
   return (
-    <>
+    <div id="contact">
       <ContactCard />
       <div
         className={`xl:mt-[18rem] mt-[16rem] max-md:mt-[12rem] max-xs:mt-[8rem] pt-[3rem] flex justify-center items-center bg-[#303030] border-black border-[8px] shadow-card relative flex-col`}
@@ -145,7 +145,7 @@ const Contact = () => {
 
         
       </div>
-    </>
+    </div>
   )
 }
 

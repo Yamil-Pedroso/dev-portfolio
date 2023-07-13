@@ -30,12 +30,14 @@ export const BoxWrapperOne = styled.div`
             height: 10rem;
         }
     }
-
+    
     @media (max-width: 768px) {
         width: 15rem;
         height: 15rem;
+        align-items: center;
         transition: 0.8s all ease;
-
+       
+        
         img {
             width: 8rem;
             height: 8rem;
@@ -65,9 +67,13 @@ export const Section = styled.div`
     padding: 0 1rem;
     }
 
+    @media (max-width: 960px) {
+        justify-content: center;
+        align-items: center;
+    }
+
     @media (max-width: 768px) {
         flex-direction: column;
-        align-items: center;
         margin-top: 9rem;
         margin-bottom: 4rem;
     }
@@ -108,6 +114,15 @@ export const HeroRightContent = styled.div`
     @media (max-width: 480px) {
         h1 {
             font-size: 1.7rem;
+        }
+    }
+
+    .hero-content-wrapper {
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     }
 `;

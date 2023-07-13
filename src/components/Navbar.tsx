@@ -6,6 +6,7 @@ import { styles } from "../style";
 import { navLinks } from "../constants";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
+import { HiDocumentText } from "react-icons/hi";
 import { m } from "framer-motion";
 
 const Navbar = () => {
@@ -96,6 +97,9 @@ const Navbar = () => {
         </Link>
         <Link to="https://www.linkedin.com/in/yamil-pedroso/" target="_blank">
           <FaLinkedinIn className="text-[#cecece] text-[2rem]" />
+        </Link>
+        <Link to="./docs/cv_yamil_pedroso_2023.pdf" target="_blank">
+          <HiDocumentText className="text-[#cecece] text-[2rem] mx-6" />
         </Link>
       </div>
     </nav>

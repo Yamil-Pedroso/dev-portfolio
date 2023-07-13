@@ -99,7 +99,7 @@ import {
     {
       id: 5,
       title: "Digital Art",
-      description: "Creating characters, logos, icons, are born in Adobe Photoshop and Illustration.",
+      description: "Creating characters, logos, icons, are born in Adobe Photoshop and Illustrator.",
       icon: digitalart,
       color: "#e9a13b",
     },

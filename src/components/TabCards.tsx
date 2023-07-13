@@ -12,9 +12,10 @@ import {
   porfolioThree,
 } from "../assets";
 
+
 const menu1 = [
   {
-    title: "React 1",
+    title: "React-Typescript",
     content: "New",
     color: "bg-red-500",
     src: react,
@@ -22,7 +23,7 @@ const menu1 = [
     image: porfolioOne,
   },
   {
-    title: "React 2",
+    title: "React-Nexjs",
     content: "New",
     src: react,
     color: "bg-blue-500",
@@ -30,7 +31,7 @@ const menu1 = [
     image: porfolioTwo,
   },
   {
-    title: "React 3",
+    title: "React",
     content: "New",
     src: react,
     color: "bg-green-500",
@@ -108,6 +109,16 @@ const TabCards = () => {
     }
   };
 
+  const titleOverTheImage = (index: any) => {
+    if (index === "menu1") {
+      return menu1.map((text) => (
+          <h1>
+            {text.title}
+          </h1>
+      ));
+    }
+  };
+
   return (
     <div className="flex flex-col space-y-4 w-full">
       <div className="flex justify-between space-x-8 rounded-lg px-4 py-2 w-full">
@@ -139,23 +150,31 @@ const TabCards = () => {
           Typescript
         </button>
       </div>
-      <div className="flex justify-center flex-wrap w-full rounded-md">
+      <div className="flex justify-center overflow-hidden  flex-wrap w-full rounded-md">
         {menu1.map((item, index) => (
-          <Link to={item.link} target="_blank">
+          <><Link to={item.link} target="_blank">
             <div
               key={index}
-              className={`flex flex-col space-y-2 p-[.3rem] panel dark-overlay cursor-pointer ${checkActiveTab(
-                "menu1",
-                "active"
-              )}`}
+              className={`flex flex-col space-y-2 p-[.3rem] panel
+            dark-overlay
+            cursor-pointer ${checkActiveTab(
+              "menu1",
+              "active"
+            )}`}
             >
-              <img
-                src={item.image}
-                alt=""
-                className="w-[22rem] h-[40vh] object-cover max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black"
-              />
+
+            <div>
+              <h1 className="text-overlay max-md:text-sm">{item.title}</h1>
             </div>
+
+            <img
+              src={item.image}
+              alt=""
+              className="w-[22rem] h-[40vh] object-cover zoom-img max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black" />
+
+          </div>
           </Link>
+          </>
         ))}
         {menu2.map((item, index) => (
           <div

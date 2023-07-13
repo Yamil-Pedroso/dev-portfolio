@@ -26,7 +26,7 @@ const ServiceCard = ({ index, title, icon, description }: any) => {
 
 const About = () => {
   return (
-    <div className="mt-[10rem] max-xs:mt-[3rem]">
+    <div className="mt-[10rem] max-xs:mt-[3rem]" id="about">
       <motion.div variants={textVariant(0.01)}>
         <h2 className="text-[#fafafa] lg:text-[3.75rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]">Introduction.</h2>
         <h2 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent lg:text-[3.5rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem] font-bold">
