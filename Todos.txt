@@ -1,0 +1,7 @@
+[] - Make smaller the logo in resposive design
+[] - Change the Hero component
+[] - Fix some element in the resposive landscape view
+[] - Modify some aspects in Contact components
+
+Implementation:
+ - Include more cool things on the page

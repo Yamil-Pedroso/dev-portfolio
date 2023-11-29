@@ -1,0 +1,41 @@
+.portfolioWrapper {
+    opacity: 0;
+    animation: appear 1s forwards;
+    -webkit-animation: appear 3s forwards;
+}
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .backContentArrow {
+    color: #2c8064;
+    position: fixed;
+    font-size: 3rem;
+    top: 50%;
+    left: 2%;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+    
+    &:hover {
+      color: #42b992;
+      cursor: pointer;
+      transform: translateX(-5px);
+      -webkit-transform: translateX(-5px);
+      -moz-transform: translateX(-5px);
+      -ms-transform: translateX(-5px);
+      -o-transform: translateX(-5px);
+    }
+  }
+  
+  @media screen and (max-width: 960px) {
+    .backContentArrow .backArrow {
+      font-size: 2rem;
+      transition: all 0.3s ease-in-out;
+  }
+}

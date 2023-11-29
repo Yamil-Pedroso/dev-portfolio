@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+    padding-left: 2rem;
+    height: 50rem;
+}
+
+#board {
+    width: 700px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+svg:hover {
+    fill: #84919e; 
+}
+
+.white-piece {
+    fill: #dcdfe2;
+    
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    border: 1px solid black;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.square svg {
+    width: 60px;
+    height: 60px;
+    position:  relative;
+    z-index: -9;
+}
+
+path {
+    position: relative;
+    z-index: -10;
+}
+
+.piece {
+    position: relative;
+    z-index: 9;
+}
+
+
+.beige {
+    background-color: rgb(110, 110, 98);
+}
+
+.brown {
+    background-color: rgb(169, 43, 43);
+}
+
+.black-piece {
+    color: black;
+}
+
+.white-piece {
+    color: #d9e1e2;
+}
+
+.player-info {
+    margin-top: 10rem;
+}
