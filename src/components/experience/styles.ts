@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     justify-content: center;
-    
+
     div {
         margin: .7rem;
     }
@@ -31,7 +31,7 @@ export const LeftSide = styled.div`
         font-size: .8rem;
         margin: 1rem;
         letter-spacing: -.01rem;
-    
+
     }
 `;
 
@@ -57,7 +57,7 @@ export const RightSide = styled.div`
         font-size: .8rem;
         margin: 1rem;
         letter-spacing: -.01rem;
-    
+
     }
 `;
 
@@ -75,8 +75,14 @@ export const ExperienceWrapper = styled.div`
     flex-direction: column;
     background: #070707;
     border-radius: .6rem;
+    border : 1px solid #1f3328;
     box-shadow: 0px 0px 80px 1rem rgba(12, 17, 15, 0.1);
     cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-.5rem);
+    }
 `;
 
 export const Experience = styled.div`
@@ -92,7 +98,7 @@ export const Experience = styled.div`
         font-size: .8rem;
         margin: 1rem;
         letter-spacing: -.01rem;
-    
+
     }
 
 `;

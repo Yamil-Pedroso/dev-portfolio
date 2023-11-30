@@ -18,7 +18,6 @@ export {
   Navbar,
   About,
   MyExperience,
-  Modal,
   Experience,
   Tech,
   SmallFunnyProjects,
