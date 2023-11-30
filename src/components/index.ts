@@ -2,8 +2,7 @@ import Hero from './hero/Hero';
 import Navbar from './Navbar';
 import About from './About';
 import MyExperience from './experience/MyExperience';
-import Modal from './modal2/ModalTwo';
-import Experience from './Experience';
+import FloatingElem from './floating-elements/FloatingElem';
 import Tech from './Tech';
 import SmallFunnyProjects from './SmallFunnyProjects';
 import Works from './works/Works';
@@ -18,7 +17,7 @@ export {
   Navbar,
   About,
   MyExperience,
-  Experience,
+  FloatingElem,
   Tech,
   SmallFunnyProjects,
   Works,

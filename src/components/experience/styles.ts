@@ -1,4 +1,20 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const waveAnimation = keyframes`
+  0% {
+    transform: translateX(-100%) scaleX(0);
+    transform-origin: 0% 50%;
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+    transform-origin: 100% 50%;
+    opacity: 0;
+  }
+`;
 
 export const Container = styled.div`
     display: flex;
@@ -15,8 +31,8 @@ export const LeftSide = styled.div`
   background:#101010;
   box-shadow: 0px 0px 80px 1rem rgba(24, 35, 29, 0.1);
   border-radius: 1.2rem;
-  border: 1px solid #201f1f;
   padding: 1rem;
+  border: 1px solid #2a2b2a;
 
     h2 {
         color: #fff;
@@ -41,8 +57,8 @@ export const RightSide = styled.div`
     background-color: #101010;
     border-radius: 1.2rem;
     box-shadow: 0px 0px 80px 1rem rgba(24, 35, 29, 0.1);
-    border: 1px solid #101010;
     padding: 1rem;
+    border: 1px solid #2a2b2a;
 
     h2 {
         color: #fff;
@@ -79,10 +95,26 @@ export const ExperienceWrapper = styled.div`
     box-shadow: 0px 0px 80px 1rem rgba(12, 17, 15, 0.1);
     cursor: pointer;
     transition: all .2s ease-in-out;
+    position: relative;
 
     &:hover {
-        transform: translateY(-.5rem);
+    color: #fff;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(30, 144, 255, 0.1) 0%, #1e90ff 50%, #87ceeb 100%);
+      transform-origin: 0 50%;
+      transform: translateX(100%) scaleX(0);
+      opacity: 0;
+      animation: ${waveAnimation} 0.5s forwards;
+      z-index: 999;
+      pointer-events: none;
     }
+  }
 `;
 
 export const Experience = styled.div`

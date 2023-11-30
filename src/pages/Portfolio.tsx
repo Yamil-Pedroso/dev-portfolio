@@ -9,13 +9,8 @@ const Portfolio = () => {
       <MyComponent.Navbar />
       <MyComponent.Hero />
       <MyComponent.About />
-      <MyComponent.MyExperience
-        open={false}
-        buttonClick={() => console.log('button clicked')}
-        bodyText={''}
-        buttonName={''}
-      />
-      <MyComponent.Experience />
+      <MyComponent.MyExperience />
+      <MyComponent.FloatingElem />
       <MyComponent.Tech />
       <MyComponent.Works />
       <MyComponent.ContactCard />

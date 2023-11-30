@@ -66,6 +66,7 @@ import team from "./team.png";
 import chess from "./chess.png";
 import zudoku from "./zudoku.png";
 import map from "./map.png";
+import pc from "./pc.jpg";
 
 export {
   codingBackend,
@@ -131,4 +132,5 @@ export {
   zudoku,
   map,
   linktoMe,
+  pc,
 };
