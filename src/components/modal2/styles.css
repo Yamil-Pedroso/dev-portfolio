@@ -46,7 +46,7 @@
   border-radius: 3px;
   background-color: #070707;
   border: 1px solid #2c3e32;
-  border-radius: 1rem;
+  border-radius: 4rem;
   margin-top: -50%;
   margin-left: 50%;
   right: 15rem;
@@ -67,7 +67,7 @@
 }
 
 .inner-modal-open::-webkit-scrollbar-track {
-  background-color: #070707;
+  background-color: transparent;
 }
 
 .content-wrapper {
@@ -81,6 +81,7 @@
 .content-open {
   visibility: visible;
   opacity: 1;
+  border-radius: 1rem;
   -webkit-transition: all 0.3s ease-out 350ms;
 }
 

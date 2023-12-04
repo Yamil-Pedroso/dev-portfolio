@@ -1,6 +1,8 @@
 import { useRef } from "react";
+import { animate, useAnimation } from "framer-motion";
 import { useSpring, animated, to } from "@react-spring/web";
 import { useGesture } from "react-use-gesture";
+import Reveal from "../reveal-animation/Reveal";
 import imgs from "../../data/data";
 import {
   SiJavascript,
@@ -18,107 +20,107 @@ import {
   SiAdobeillustrator,
   SiAdobeindesign,
   SiAdobelightroom,
-} from 'react-icons/si'
-import { FaReact, FaAngular } from 'react-icons/fa'
-import { IoLogoNodejs } from 'react-icons/io'
-import { TbSql } from 'react-icons/tb'
+} from "react-icons/si";
+import { FaReact, FaAngular } from "react-icons/fa";
+import { IoLogoNodejs } from "react-icons/io";
+import { TbSql } from "react-icons/tb";
 
 import { Card, Container, IconTech, GradientIcon } from "./styles";
 
 const techBox = [
   {
     id: 1,
-    title: 'Javascript',
+    title: "Javascript",
     icon: <SiJavascript />,
   },
   {
     id: 2,
-    title: 'Python',
+    title: "Python",
     icon: <SiPython />,
   },
   {
     id: 3,
-    title: 'Ruby',
+    title: "Ruby",
     icon: <SiRuby />,
   },
   {
     id: 4,
-    title: 'React',
+    title: "React",
     icon: <FaReact />,
   },
   {
     id: 5,
-    title: 'Django',
+    title: "Django",
     icon: <IoLogoNodejs />,
   },
   {
     id: 6,
-    title: 'Angular',
+    title: "Angular",
     icon: <FaAngular />,
   },
   {
     id: 7,
-    title: 'Ruby on Rails',
+    title: "Ruby on Rails",
     icon: <SiRubyonrails />,
   },
   {
     id: 8,
-    title: 'Typescript',
+    title: "Typescript",
     icon: <SiTypescript />,
   },
   {
     id: 9,
-    title: 'HTML5',
+    title: "HTML5",
     icon: <SiHtml5 />,
   },
   {
     id: 10,
-    title: 'CSS3',
+    title: "CSS3",
     icon: <SiCss3 />,
   },
   {
     id: 11,
-    title: 'Django',
+    title: "Django",
     icon: <SiDjango />,
   },
   {
     id: 12,
-    title: 'Docker',
+    title: "Docker",
     icon: <SiDocker />,
   },
   {
     id: 13,
-    title: 'Postgresql',
+    title: "Postgresql",
     icon: <SiPostgresql />,
   },
   {
     id: 14,
-    title: 'Figma',
+    title: "Figma",
     icon: <SiFigma />,
   },
   {
     id: 15,
-    title: 'Adobe Photoshop',
+    title: "Adobe Photoshop",
     icon: <SiAdobephotoshop />,
   },
   {
     id: 16,
-    title: 'Adobe Illustrator',
+    title: "Adobe Illustrator",
     icon: <SiAdobeillustrator />,
   },
   {
     id: 17,
-    title: 'Adobe InDesign',
+    title: "Adobe InDesign",
     icon: <SiAdobeindesign />,
   },
   {
     id: 18,
-    title: 'Adobe Lightroom',
+    title: "Adobe Lightroom",
     icon: <SiAdobelightroom />,
   },
   {
     id: 19,
-    title: 'SQL',
+    title: "SQL",
     icon: <TbSql />,
   },
 ];
@@ -137,6 +139,16 @@ const FloatingElem = () => {
   const domTargets = useRef(
     Array.from({ length: imgs.length }).map(() => useRef(null))
   );
+  const controls = useAnimation();
+
+  const handleJumpAnimation = async () => {
+    // Puedes ajustar las propiedades de la animación según tus preferencias
+    await controls.start({
+      y: [0, -20, 0], // Hace que el icono haga un pequeño salto en el eje Y
+      transition: { duration: 0.5, ease: "easeOut" },
+    });
+    await controls.start({ y: 0 }); // Reinicia la posición del icono
+  };
 
   const createCardProps = () => {
     return {
@@ -162,7 +174,7 @@ const FloatingElem = () => {
     useGesture(
       {
         onDrag: ({ active, offset: [x, y] }) =>
-          api({ x, y, rotateX: 0, rotateY: 0, scale: active ? 2: 1.1 }),
+          api({ x, y, rotateX: 0, rotateY: 0, scale: active ? 2 : 1.1 }),
         onPinch: ({ offset: [d, a] }) => api({ zoom: d / 200, rotateZ: a }),
         onMove: ({ xy: [px, py], dragging }) =>
           !dragging &&
@@ -173,7 +185,7 @@ const FloatingElem = () => {
           }),
         onHover: ({ hovering }) =>
           !hovering && api({ rotateX: 0, rotateY: 0, scale: 1 }),
-          
+
         onWheel: ({ event, offset: [, y] }) => {
           event.preventDefault();
           wheelApi.set({ wheelY: y });
@@ -185,42 +197,43 @@ const FloatingElem = () => {
     domTargets.current[i] = domTarget;
 
     return (
-      <AnimatedCard
-        key={i}
-        ref={domTarget}
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          backgroundSize: 'cover',
-          backgroundColor: '#1A1A1A',
-          backgroundPosition: 'center center',
-          borderRadius: '5px',
-          transform: 'perspective(600px)',
-          border: '1px solid #515151',
-          x,
-          y,
-          scale: to([scale, zoom], (s, z) => s + z),
-          rotateX,
-          rotateY,
-          rotateZ,
-        }}
-      >
-        <IconTech>
-          {tech.icon}
-        </IconTech>
-      </AnimatedCard>
+      <Reveal>
+        <AnimatedCard
+          key={i}
+          ref={domTarget}
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            backgroundSize: "cover",
+            backgroundColor: "#1A1A1A",
+            backgroundPosition: "center center",
+            borderRadius: "5px",
+            transform: "perspective(600px)",
+            border: "1px solid #515151",
+            x,
+            y,
+            scale: to([scale, zoom], (s, z) => s + z),
+            rotateX,
+            rotateY,
+            rotateZ,
+          }}
+        >
+          <IconTech>
+            {tech.icon}
+            </IconTech>
+        </AnimatedCard>
+      </Reveal>
     );
-  }
-  );
+  });
 
   //const cards = imgs.map((img, i) => {
   //  const domTarget = useRef(null);
   //  const [{ x, y, rotateX, rotateY, rotateZ, zoom, scale }, api] = useSpring(
   //    () => createCardProps()
   //  );
-//
+  //
   //  const [{ wheelY }, wheelApi] = useSpring(() => ({ wheelY: 0 }));
-//
+  //
   //  useGesture(
   //    {
   //      onDrag: ({ active, offset: [x, y] }) =>
@@ -242,9 +255,9 @@ const FloatingElem = () => {
   //    },
   //    { domTarget, eventOptions: { passive: false } }
   //  );
-//
+  //
   //  domTargets.current[i] = domTarget;
-//
+  //
   //  return (
   //    <AnimatedCard
   //      key={i}
@@ -268,11 +281,7 @@ const FloatingElem = () => {
   //  );
   //});
 
-  return <Container>
-    {
-      iconos
-    }
-    </Container>;
+  return <Container>{iconos}</Container>;
 };
 
 export default FloatingElem;

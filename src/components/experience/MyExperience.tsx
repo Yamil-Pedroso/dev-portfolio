@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Modal from "../modal2/ModalTwo";
 import { motion, useAnimation } from "framer-motion";
-import { textVariant } from "../../utils/motion";
+import { fadeIn, textVariant } from "../../utils/motion";
+import Reveal from "../reveal-animation/Reveal";
 import {
   Container,
   LeftSide,
@@ -11,10 +12,9 @@ import {
   Experience,
 } from "./styles";
 import { styles } from "../../style";
-import { pc }from "../../assets/index";
+import { pc } from "../../assets/index";
 import { FaJournalWhills } from "react-icons/fa";
 import MyCarousel from "../slider2/MyCarrusel";
-
 
 //interface ModalProps {
 //  open: boolean;
@@ -126,75 +126,84 @@ const MyExperience = () => {
   };
 
   return (
-    <div id="work">
-      <motion.div className="mb-20">
-        <p
+    <div className="mt-[6rem] max-xs:mt-[3rem]" id="work">
+      <Reveal>
+      <div
+        className="mb-20"
+      >
+        <motion.p
+          variants={fadeIn("", "", 0.1, 2)}
           className={`${styles.sectionSubText} text-center lg:text-[3.75rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]`}
         >
           My Journey So Far.
-        </p>
+        </motion.p>
         <h2
           className={`${styles.sectionHeadText} bg-gradient-to-r from-[#46ca9e] to-[#6289ef] bg-clip-text text-transparent text-center lg:text-[3.5rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]`}
         >
           Experience.
         </h2>
-      </motion.div>
-      <Container>
-        <LeftSide>
-          <FaJournalWhills size={40} />
-          <motion.div initial="hidden" animate="visible" className="mb-10">
-            <h2># My Full Stack Journey.</h2>
-          </motion.div>
-          <p>
-            As a passionate Full Stack Developer, my journey in the world of
-            software development has been an exciting exploration of both
-            front-end and back-end technologies. ## Frontend
-            Wizardry ✨ In the realm of front-end development, I've crafted
-            seamless user interfaces using cutting-edge technologies like
-            React.js. From responsive design to intuitive user experiences, I
-            thrive on transforming ideas into visually stunning and
-            user-friendly applications🚀.
-        
-          </p>
-          <img 
-           style={{ 
-              marginTop: '4.5rem',
-              filter: "brightness(70%) contrast(120%) grayscale(20%)"
-            }}
-          src={pc} alt="developer" />
-        </LeftSide>
-        <RightSide>
-          <h2>Feel free to explore...</h2>
-          <p>
-          ## Full Stack Fusion
-            🌐 Bringing it all together, my Full Stack journey is a fusion of
-            creativity and functionality. I've embraced the challenges of
-            bridging the gap between frontend and backend, ensuring seamless
-            communication and delivering holistic solutions. Join me as I
-            continue to evolve, learn, and contribute to the ever-evolving
-            landscape of Full Stack Development!
-          </p>
+      </div>
+      </Reveal>
+      <Reveal>
+        <Container>
+          <LeftSide>
+            <FaJournalWhills size={40} />
+            <motion.div initial="hidden" animate="visible" className="mb-10">
+              <h2># My Full Stack Journey.</h2>
+            </motion.div>
+            <motion.p
+              variants={fadeIn("", "", 0.1, 2)}
+            >
+              As a passionate Full Stack Developer, my journey in the world of
+              software development has been an exciting exploration of both
+              front-end and back-end technologies. ## Frontend Wizardry ✨ In
+              the realm of front-end development, I've crafted seamless user
+              interfaces using cutting-edge technologies like React.js. From
+              responsive design to intuitive user experiences, I thrive on
+              transforming ideas into visually stunning and user-friendly
+              applications🚀.
+            </motion.p>
+            <img
+              style={{
+                marginTop: "4.5rem",
+                filter: "brightness(70%) contrast(120%) grayscale(20%)",
+              }}
+              src={pc}
+              alt="developer"
+            />
+          </LeftSide>
+          <RightSide>
+            <h2>Feel free to explore...🤓</h2>
+            <p>
+              ## Full Stack Fusion 🌐 Bringing it all together, my Full Stack
+              journey is a fusion of creativity and functionality. I've embraced
+              the challenges of bridging the gap between frontend and backend,
+              ensuring seamless communication and delivering holistic solutions.
+              Join me as I continue to evolve, learn, and contribute to the
+              ever-evolving landscape of Full Stack Development!
+            </p>
 
-          <ExperienceContainer>
-            {experienceData.map((experience) => (
-              <ExperienceWrapper key={experience.id}>
-                <Experience onClick={() => handleButtonClick(experience.id)}>
-                  <Modal
-                    open={openModalId === experience.id}
-                    buttonClick={handleCloseModal}
-                    date={experience.date}
-                    location={experience.location}
-                    bodyText={experience.description1}
-                    bodyText2={experience.description2}
-                    buttonName={experience.title}
-                  />
-                </Experience>
-              </ExperienceWrapper>
-            ))}
-          </ExperienceContainer>
-          <MyCarousel />
-        </RightSide>
-      </Container>
+            <ExperienceContainer>
+              {experienceData.map((experience) => (
+                <ExperienceWrapper key={experience.id}>
+                  <Experience onClick={() => handleButtonClick(experience.id)}>
+                    <Modal
+                      open={openModalId === experience.id}
+                      buttonClick={handleCloseModal}
+                      date={experience.date}
+                      location={experience.location}
+                      bodyText={experience.description1}
+                      bodyText2={experience.description2}
+                      buttonName={experience.title}
+                    />
+                  </Experience>
+                </ExperienceWrapper>
+              ))}
+            </ExperienceContainer>
+            <MyCarousel />
+          </RightSide>
+        </Container>
+      </Reveal>
     </div>
   );
 };

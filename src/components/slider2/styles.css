@@ -1,0 +1,8 @@
+.typical-text {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.typical-text.typed {
+  opacity: 1;
+}
