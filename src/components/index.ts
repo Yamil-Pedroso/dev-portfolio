@@ -3,7 +3,6 @@ import Navbar from './Navbar';
 import About from './About';
 import MyExperience from './experience/MyExperience';
 import FloatingElem from './floating-elements/FloatingElem';
-import Tech from './Tech';
 import SmallFunnyProjects from './SmallFunnyProjects';
 import Works from './works/Works';
 import Game from "./Game";
@@ -18,7 +17,6 @@ export {
   About,
   MyExperience,
   FloatingElem,
-  Tech,
   SmallFunnyProjects,
   Works,
   Game,

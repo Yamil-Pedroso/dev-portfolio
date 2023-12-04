@@ -11,7 +11,6 @@ const Portfolio = () => {
       <MyComponent.About />
       <MyComponent.MyExperience />
       <MyComponent.FloatingElem />
-      <MyComponent.Tech />
       <MyComponent.Works />
       <MyComponent.ContactCard />
       <div className="relative z-0">
