@@ -1,6 +1,7 @@
 import Hero from './hero/Hero';
 import Navbar from './Navbar';
 import About from './About';
+import CardAnimation from './card-animation/CardAnimation';
 import MyExperience from './experience/MyExperience';
 import FloatingElem from './floating-elements/FloatingElem';
 import SmallFunnyProjects from './SmallFunnyProjects';
@@ -15,6 +16,7 @@ export {
   Hero,
   Navbar,
   About,
+  CardAnimation,
   MyExperience,
   FloatingElem,
   SmallFunnyProjects,

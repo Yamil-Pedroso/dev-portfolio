@@ -1,9 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import Typical from "react-typical";
-import { styles } from "../../style";
-import HeroCreative from "./HeroCreative";
+import React from 'react'
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import Typical from 'react-typical'
+import { styles } from '../../style'
+import HeroCreative from './HeroCreative'
+import HeroAnimation from './hero-animation/HeroAnimation'
 import {
   BlurStyle,
   CityName,
@@ -11,32 +12,32 @@ import {
   Section,
   TerminalSim,
   TitleDev,
-} from "./style";
+} from './style'
 
 interface HeroProps {
-  text: string;
-  greetings: string;
-  proffesion: string[];
-  city: string;
-  icon: string;
-  prefix: string;
+  text: string
+  greetings: string
+  proffesion: string[]
+  city: string
+  icon: string
+  prefix: string
 }
 
 const heroText: HeroProps = {
-  text: "yamil@latest init welcome-to-my-world",
+  text: 'yamil@latest init welcome-to-my-world',
   greetings: "Hola, I'm Yamil",
-  proffesion: ["FS Developer", "UX Designer", "UI Designer"],
-  city: "based in Zurich.",
-  prefix: "npx",
-  icon: "%",
-};
+  proffesion: ['FS Developer', 'UX Designer', 'UI Designer'],
+  city: 'based in Zurich.',
+  prefix: 'npx',
+  icon: '%',
+}
 
 const Hero = () => {
   return (
     <>
       <BlurStyle />
       <Section id="home">
-        <HeroCreative />
+        <HeroAnimation />
 
         <HeroRightContent>
           <div className="hero-content-wrapper">
@@ -45,7 +46,7 @@ const Hero = () => {
             </h1>
             <TitleDev>
               <Typical
-                steps={["Full Stack", 100, "Software Dev", 6000]}
+                steps={['Full Stack', 100, 'Software Dev', 6000]}
                 loop={Infinity}
                 wrapper="h2"
               />
@@ -69,7 +70,7 @@ const Hero = () => {
               transition={{
                 duration: 1.5,
                 repeat: Infinity,
-                repeatType: "loop",
+                repeatType: 'loop',
               }}
               className="w-3 h-3 rounded-full bg-[#46ca9e] mb-1 max-xs:w-3 max-xs:h-3"
             />
@@ -77,7 +78,7 @@ const Hero = () => {
         </a>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
