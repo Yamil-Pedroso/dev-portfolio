@@ -53,13 +53,10 @@ const About = () => {
         your ideas to life!
       </motion.p>
 
-      {/*<div className="mt-20 flex justify-center gap-8 flex-wrap">
+      <div className="mt-20 flex justify-center gap-8 flex-wrap">
         {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} { ...service } />
+          <ServiceCard key={service.title} index={index} {...service} />
         ))}
-      </div> */}
-      <div className="mt-[10rem] flex justify-center gap-8 flex-wrap">
-        <CardAnimation />
       </div>
     </div>
   )
