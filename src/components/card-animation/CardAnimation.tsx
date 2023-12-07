@@ -3,14 +3,14 @@ import { useSprings, animated, to as interpolate } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 
 import styles from './styles.module.css'
+import { exp1, exp2, exp3, exp4, exp5 } from '../../assets'
 
 const cards = [
-  'https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_06_Lovers.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/690px-RWS_Tarot_02_High_Priestess.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg',
+  exp5,
+  exp4,
+  exp3,
+  exp2,
+  exp1,
 ]
 
 const texts = [
@@ -38,7 +38,7 @@ const trans = (r: number, s: number) =>
 
 function Deck() {
   const [gone] = useState(() => new Set())
-  const [props, api] = useSprings(texts.length, (i) => ({
+  const [props, api] = useSprings(cards.length, (i) => ({
     ...to(i),
     from: from(i),
   }))
@@ -52,7 +52,7 @@ function Deck() {
         const isGone = gone.has(index)
         const x = isGone ? (200 + window.innerWidth) * dir : down ? mx : 0
         const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0)
-        const scale = down ? 1.1 : 1
+        const scale = down ? 2 : 1
         return {
           x,
           rot,
@@ -61,7 +61,7 @@ function Deck() {
           config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 },
         }
       })
-      if (!down && gone.size === texts.length)
+      if (!down && gone.size === cards.length)
         setTimeout(() => {
           gone.clear()
           api.start((i) => to(i))
@@ -84,6 +84,8 @@ function Deck() {
               display: 'flex',
               alignItems: 'center',
               marginTop: '10rem',
+              backgroundImage: `url(${cards[i]})`,
+              backgroundSize: 'cover',
             }}
           >
             <p
@@ -94,7 +96,6 @@ function Deck() {
                 textAlign: 'center',
               }}
             >
-              {texts[i]}
             </p>
           </animated.div>
         </animated.div>

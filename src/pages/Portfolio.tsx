@@ -7,10 +7,10 @@ const Portfolio = () => {
   return (
     <div className={styles.portfolioWrapper}>
       <MyComponent.Navbar />
+      <MyComponent.LogoProfile />
       <MyComponent.Hero />
       <MyComponent.About />
       <MyComponent.MyExperience />
-      <MyComponent.FloatingElem />
       <MyComponent.Works />
       <MyComponent.ContactCard />
       <div className="relative z-0">

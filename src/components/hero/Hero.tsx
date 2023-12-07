@@ -34,7 +34,7 @@ const heroText: HeroProps = {
 
 const Hero = () => {
   return (
-    <>
+    <div className="">
       <BlurStyle />
       <Section id="home">
         <HeroAnimation />
@@ -77,7 +77,7 @@ const Hero = () => {
           </div>
         </a>
       </div>
-    </>
+    </div>
   )
 }
 

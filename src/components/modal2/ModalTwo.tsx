@@ -71,7 +71,7 @@ const Content: React.FC<ContentProps> = ({ open, date, location, bodyText, bodyT
     <div className={open ? 'content-wrapper content-open' : 'content-wrapper'}>
       <i className="fa fa-times-circle" onClick={buttonClick}></i>
      <h3 className="modal-title">{location}</h3>
-     <h4 className="modal-title">{date}</h4>
+     <h4 className="modal-date">{date}</h4>
       <p className="modal-content">{bodyText}</p>
       <p className="modal-content">{bodyText2}</p>
     </div>
@@ -86,6 +86,7 @@ interface ButtonProps {
   location?: string
   buttonClick: () => void
   buttonName: string
+  className?: string
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -96,6 +97,7 @@ export const Button: React.FC<ButtonProps> = ({
   bodyText2,
   buttonClick,
   buttonName,
+  className,
 }) => {
   return (
     <div id="modal-button">
@@ -110,6 +112,7 @@ export const Button: React.FC<ButtonProps> = ({
         bodyText={bodyText}
         bodyText2={bodyText2}
         buttonName={''}
+        className={className}
       />
     </div>
   )
@@ -121,9 +124,10 @@ interface ModalProps {
   bodyText: string
   bodyText2?: string
   buttonName: string
+  className?: string
 }
 
-const Modal: React.FC<ModalProps> = ({date, location, bodyText, buttonName, bodyText2 }) => {
+const Modal: React.FC<ModalProps> = ({date, location, bodyText, buttonName, bodyText2, className }) => {
   const [open, setOpen] = useState(false)
 
   const buttonClick = () => {
@@ -139,6 +143,7 @@ const Modal: React.FC<ModalProps> = ({date, location, bodyText, buttonName, body
       bodyText={bodyText}
       bodyText2={bodyText2}
       buttonName={buttonName}
+      className={className}
     />
   )
 }

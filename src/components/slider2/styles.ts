@@ -41,8 +41,30 @@ export const ToolTip = styled.div`
         font-size: 1.2rem;
         text-align: center;
         text-align: left;
+
+        @media (max-width: 1024px) {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 0.8rem;
+        }
     }
-    `;
+
+    @media (max-width: 1024px) {
+        width: 15rem;
+        height: 9rem;
+        padding: 1rem;
+        overflow-y: hidden;
+    }
+
+    @media (max-width: 768px) {
+        width: 10rem;
+        height: 6rem;
+        padding: 0.1rem;
+        overflow-y: hidden;
+    }
+`;
 
 export const ToolTipTextWrapper = styled.div`
      width: 15rem;
@@ -58,10 +80,27 @@ export const ToolTipTextWrapper = styled.div`
 
     &::-webkit-scrollbar {
       width: 0.5rem;
+
+      @media (max-width: 1024px) {
+        width: 0.3rem;
+      }
+
+        @media (max-width: 768px) {
+            width: 0.2rem;
+        }
+       
     }
     
     &::-webkit-scrollbar {
         width: 0.5rem;
+
+        @media (max-width: 1024px) {
+            width: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            width: 0.2rem;
+        }
     }
     &::-webkit-scrollbar-track {
         background: #1b1b1b;
@@ -69,6 +108,7 @@ export const ToolTipTextWrapper = styled.div`
     &::-webkit-scrollbar-thumb {
         background: #e9a13b;
     }
+
 `;
 
 

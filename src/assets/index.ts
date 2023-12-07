@@ -68,6 +68,12 @@ import zudoku from "./zudoku.png";
 import map from "./map.png";
 import pc from "./pc.jpg";
 
+import exp1 from "./card-img/exp-1.jpg";
+import exp2 from "./card-img/exp-2.jpg";
+import exp3 from "./card-img/exp-3.jpg";
+import exp4 from "./card-img/exp-4.png";
+import exp5 from "./card-img/exp-5.jpg";
+
 export {
   codingBackend,
   designFrontend,
@@ -133,4 +139,9 @@ export {
   map,
   linktoMe,
   pc,
+  exp1,
+  exp2,
+  exp3,
+  exp4,
+  exp5,
 };

@@ -1,5 +1,6 @@
 import Hero from './hero/Hero';
 import Navbar from './Navbar';
+import LogoProfile from './logo-profile/LogoProfile';
 import About from './About';
 import CardAnimation from './card-animation/CardAnimation';
 import MyExperience from './experience/MyExperience';
@@ -15,6 +16,7 @@ import Contact from './Contact';
 export {
   Hero,
   Navbar,
+  LogoProfile,
   About,
   CardAnimation,
   MyExperience,

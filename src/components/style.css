@@ -45,3 +45,18 @@
     right: -2px;
     left: initial;
   }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-wrapper h1 {
+    margin-left: 5px;
+  }
+
+  @media (max-width: 1060px) {
+    .logo-wrapper {
+      display: none;
+    }
+  }

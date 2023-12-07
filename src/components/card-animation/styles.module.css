@@ -12,6 +12,8 @@
     align-items: center;
     justify-content: center;
     touch-action: none;
+    z-index: 1;
+
   }
 
   .deck > div {
@@ -19,11 +21,18 @@
     background-size: auto 85%;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 45vh;
-    max-width: 150px;
-    height: 85vh;
-    max-height: 285px;
+    width: 48vh;
+    max-width: 100px;
+    height: 87vh;
+    max-height: 200px;
     will-change: transform;
     border-radius: 10px;
-    box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    filter: brightness(0.8);
+  }
+
+  @media (max-width: 1024px) {
+    .deck > div {
+      margin-right: 0;
+    }
   }

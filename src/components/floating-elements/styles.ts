@@ -4,6 +4,7 @@ export const Card = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   position: relative;
   width: 200px;
   height: 200px;
@@ -34,7 +35,17 @@ export const Card = styled.div`
       margin: 0vw 0;
     }
   }
-  `;
+
+    @media (max-width: 1024px) {
+      width: 150px;
+      height: 150px;
+    }
+
+    @media (max-width: 960px) {
+      width: 100px;
+      height: 100px;
+    }
+`;
 
   export const Container = styled.div`
     margin: 12rem auto;
@@ -48,6 +59,17 @@ export const Card = styled.div`
     ${Card} {
       margin: 1rem;
     }
+    
+    @media (max-width: 1024px) {
+      width: 40rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 960px) {
+      width: 30rem;
+      padding-right: 2rem;
+    }
+
   `;
 
 export const IconTech = styled.div`

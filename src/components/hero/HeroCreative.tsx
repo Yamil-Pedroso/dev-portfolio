@@ -17,7 +17,6 @@ const HeroCreative = () => {
 
   return (
     <HeroContainer>
-
         <BoxWrapperOne>
               <img src={codingBackend} alt="coding" width={232} />
         </BoxWrapperOne>

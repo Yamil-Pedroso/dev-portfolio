@@ -105,17 +105,18 @@ const Fade = forwardRef<HTMLDivElement, FadeProps>(function Fade(props, ref) {
   );
 });
 
+
 const style = {
-  position: "absolute" as "absolute",
+  position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 1200,
-  bgcolor: "background.paper",
+  backgroundColor: "background.paper",
   border: "2px solid #2eab6c",
-  boxShadow: 24,
-  p: 4,
+  padding: 4,
 };
+
 
 const MyModal = () => {
   const [open, setOpen] = useState(false);
@@ -163,7 +164,7 @@ const MyModal = () => {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <div style={style as any}>
             <div>
               {selectedProject && (
                 <>
@@ -173,7 +174,7 @@ const MyModal = () => {
                 </>
               )}
             </div>
-          </Box>
+          </div>
         </Fade>
       </Modal>
     </div>

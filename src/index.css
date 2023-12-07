@@ -246,6 +246,6 @@ body {
 
 @media (max-width: 960px) {
   body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
   }
 }

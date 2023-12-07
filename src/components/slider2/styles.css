@@ -6,3 +6,28 @@
 .typical-text.typed {
   opacity: 1;
 }
+
+@media (max-width: 1024px) {
+  .carrousel-wrapper {
+    position: absolute;
+    top: 26rem;
+    width: 35.5rem;
+  }
+
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carrousel-wrapper {
+    top: 31.5rem;
+    width: 22.5rem;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}

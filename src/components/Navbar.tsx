@@ -4,6 +4,7 @@ import PlayfulAni from "./playful-animation/PlayfulAni";
 import { yamiBlue2 } from "../assets";
 
 import { styles } from "../style";
+import "./style.css";
 import { navLinks } from "../constants";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -44,14 +45,17 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <div className="w-8 h-8 overflow-hidden border-[1px] border-[#29785e]">
-           <img src={yamiBlue2} alt="logo" className="w-8 h-8" />
+          <div className="logo-wrapper">
+            <div className="w-8 h-8 overflow-hidden border-[1px] border-[#29785e]">
+              <img src={yamiBlue2} alt="logo" className="w-8 h-8" />
+            </div>
+            <h1>
+              [ <span className="text-[#46ca9e]">YP-NEXTGEN</span> ]{" "}
+              <span className="text-[#46ca9e]">.</span>
+            </h1>
           </div>
-          <h1>
-            [ <span className="text-[#46ca9e]">YP-NEXTGEN</span> ] <span className="text-[#46ca9e]">.</span>
-          </h1>
         </Link>
-        
+
         <ul className="list-none hidden sm:flex flex-row gap-10" id="nav">
           {navLinks.map((link) => (
             <li
@@ -68,12 +72,14 @@ const Navbar = () => {
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <div onClick={handleClicked} className="mt-2">
-           {myHamburgerIcon()}
+            {myHamburgerIcon()}
           </div>
 
           <div
             className={`${
-              toggle ? "opacity-100 transition-all duration-1000 slide-in-right" : "slide-out-right duration-1000"
+              toggle
+                ? "opacity-100 transition-all duration-1000 slide-in-right"
+                : "slide-out-right duration-1000"
             } absolute top-20 right-0 w-full p-8 bg-[#19191d] border-t-[1px] border-[#515151] z-50`}
           >
             <ul className="list-none flex justify-end items-start flex-col gap-4">
@@ -82,7 +88,7 @@ const Navbar = () => {
                   key={link.id}
                   className={`${
                     active === link.title ? "text-[#46ca9e]" : "text-[#fafafa]"
-                  } hover:text-[#46ca9e] text-[18px] font-medium cursor-pointer`}
+                  } hover:text-[#46ca9e] lg:text-[18px] font-medium cursor-pointer`}
                   onClick={() => {
                     setToggle(!toggle);
                     setActive(link.title);

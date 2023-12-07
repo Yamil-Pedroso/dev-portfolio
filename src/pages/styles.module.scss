@@ -38,4 +38,21 @@
       font-size: 2rem;
       transition: all 0.3s ease-in-out;
   }
+
+  .portfolioWrapper {
+    overflow-x: hidden;
+  }
 }
+
+@media screen and (max-width: 768px) {
+  .portfolioWrapper {
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolioWrapper {
+    overflow-x: hidden;
+  }
+}
+
