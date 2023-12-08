@@ -1,3 +1,9 @@
+import { IconType } from 'react-icons';
+import { FaNodeJs, FaReact, FaHtml5, FaCss3, FaBootstrap, FaDatabase } from "react-icons/fa";
+import { SiMongodb, SiTypescript, SiJavascript, SiStyledcomponents, SiTailwindcss, SiAdobephotoshop, SiAdobeillustrator, SiFramer, SiBlender } from "react-icons/si";
+import { PiFileSqlFill } from "react-icons/pi";
+import { LiaFigma } from "react-icons/lia";
+import { TbWorldPlus, TbWorldWww } from "react-icons/tb";
 
 import {
     backend,
@@ -50,10 +56,6 @@ import {
       title: "Work",
     },
     {
-      id: "tech",
-      title: "Tech",
-    },
-    {
       id: "projects",
       title: "Projects",
     },
@@ -67,12 +69,29 @@ import {
     "https://ecom-etlmgjnmy-yamil-pedroso.vercel.app/"
   ]
 
-  const services = [
+  interface Service {
+    id: number;
+    title: string;
+    description: string;
+    icon: string; // Suponiendo que frontend es una cadena que representa la ruta de la imagen
+    icons?: IconType[];
+    color: string;
+  }
+  
+
+  const services: Service[] = [
     {
       id: 1,
       title: "Frontend Developer",
       description: "Creating interactive and engaging user interfaces using the latest frontend technologies.",
       icon: frontend,
+      icons: [
+        FaReact,
+        SiTypescript,
+        FaHtml5,
+        FaCss3,
+      ],
+      
       color: "#61b272",
     },
     {
@@ -80,6 +99,12 @@ import {
       title: "Backend Developer",
       description: "building scalable and robust systems. Developing server-side applications using modern technologies.",
       icon: backend,
+      icons: [
+        SiTypescript,
+        FaNodeJs,
+        PiFileSqlFill,
+        SiMongodb,
+      ],
       color: "#e9a13b",
     },
     {
@@ -87,6 +112,12 @@ import {
       title: "React Native Developer",
       description: "Creating highly performant and visually apps that work seamlessly on both iOS and Android platforms.",
       icon: react,
+      icons: [
+        FaReact,
+        SiTypescript,
+        SiTailwindcss,
+        SiStyledcomponents,
+      ],
       color: "#61b272",
     },
     {
@@ -94,6 +125,12 @@ import {
       title: "UI/UX Designer",
       description: "Building intuitive and visually interfaces, pleasing but also enhance the user experience.",
       icon: ux,
+      icons: [
+        LiaFigma,
+        SiAdobephotoshop,
+        SiAdobeillustrator,
+        SiFramer,
+      ],
       color: "#e9a13b",
     },
     {
@@ -101,6 +138,11 @@ import {
       title: "Digital Art",
       description: "Creating characters, logos, icons, are born in Adobe Photoshop and Illustrator.",
       icon: digitalart,
+      icons: [
+        SiAdobephotoshop,
+        SiAdobeillustrator,
+        SiBlender,
+      ],
       color: "#e9a13b",
     },
     {
@@ -108,6 +150,10 @@ import {
       title: "Hosting",
       description: "Upload your website to the hosting of your choice. Watch your website on the Internet.",
       icon: hosting,
+      icons: [
+        TbWorldPlus,
+        TbWorldWww,
+      ],
       color: "#e9a13b",
     },
   ];
