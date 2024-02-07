@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser'
 import { styles } from '../style'
 import { SectionWrapper } from '../hoc'
 import { slideIn } from '../utils/motion'
-import ContactCard from './ContactCard'
+import ContactCard from './contact-card/ContactCard'
 
 const Contact = () => {
   const formRef = useRef()
@@ -69,40 +69,42 @@ const Contact = () => {
       <div
         className={`mt-[-25rem] max-lg:mt-[8rem] max-md:mt-[-15rem] max-xs:mt-[-18rem] pt-[3rem] flex justify-center items-center bg-[#303030] border-black border-[8px] shadow-card relative flex-col`}
       >
-        
         <motion.div
           variants={slideIn('left', 'tween', 0.2, 1)}
           className="flex-[0.75] p-8 rounded-2xl"
         >
           <div className="ml-[7rem]">
             <div className="border-black border-[8px] w-[18rem] h-[8vh] flex items-center justify-center bg-[#303030] absolute top-[-6.5rem] max-lg:top-[-6.5rem] max-lg:left-[9.3rem] max-md:left-[10.5rem] max-md:top-[-6.2rem] max-md:w-[16rem] max-md:h-[6rem] max-xs:left-[9.2rem] max-xs:w-[15rem] max-xs:h-[5rem] max-xs:top-[-5.8rem] max-xs:border-[5px] max-xs:ml-[1.5rem]">
-              <h3 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent text-[2.8rem] max-md:text-[2.3rem] max-xs:text-[2rem]">Contact</h3>
+              <h3 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent text-[2.8rem] max-md:text-[2.3rem] max-xs:text-[2rem]">
+                Contact
+              </h3>
             </div>
           </div>
 
           <motion.div
-          variants={slideIn('right', 'tween', 0.2, 1)}
-          className="xl:flex-1 xl:h-auto"
-        >
-          <div className="flex flex-col justify-center items-center w-[32rem]">
-            <div className="flex flex-col items-center gap-4">
-              <h3 className="text-[2.2rem] font-bold text-[#d2d2d2] max-md:text-[2.2rem] max-sm:text-[1.8rem]">
-                Get in touch
-              </h3>
-              <p className="text-[#a7a7a7] font-normal text-center lg:text-[1.2rem] max-md:w-[22rem] md:text-[1.1rem] max-sm:text-[.8rem] max-sm:w-[18rem]">
-                If you have a
-                project that you want to get started, think you need my help
-                with something or just fancy saying hey, then get in touch.
-              </p>
+            variants={slideIn('right', 'tween', 0.2, 1)}
+            className="xl:flex-1 xl:h-auto"
+          >
+            <div className="flex flex-col justify-center items-center w-[32rem]">
+              <div className="flex flex-col items-center gap-4">
+                <h3 className="text-[2.2rem] font-bold text-[#d2d2d2] max-md:text-[2.2rem] max-sm:text-[1.8rem]">
+                  Get in touch
+                </h3>
+                <p className="text-[#a7a7a7] font-normal text-center lg:text-[1.2rem] max-md:w-[22rem] md:text-[1.1rem] max-sm:text-[.8rem] max-sm:w-[18rem]">
+                  If you have a project that you want to get started, think you
+                  need my help with something or just fancy saying hey, then get
+                  in touch.
+                </p>
+              </div>
             </div>
-            </div>
-        </motion.div>
+          </motion.div>
 
           <form
             onSubmit={handleSubmit}
-            className="mt-12 flex flex-col gap-8 w-full max-md:w-[20rem] max-md:mx-auto max-xs:w-[18rem] max-md:gap-6 max-md:mt-11 max-xs:gap-4 max-xs:mt-10">
-              <label className="flex flex-col">
-                <input
+            className="mt-12 flex flex-col gap-8 w-full max-md:w-[20rem] max-md:mx-auto max-xs:w-[18rem] max-md:gap-6 max-md:mt-11 max-xs:gap-4 max-xs:mt-10"
+          >
+            <label className="flex flex-col">
+              <input
                 type="text"
                 name="name"
                 value={form.name}
@@ -140,8 +142,6 @@ const Contact = () => {
             </button>
           </form>
         </motion.div>
-
-        
       </div>
     </div>
   )

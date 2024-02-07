@@ -9,7 +9,7 @@ import SmallFunnyProjects from './SmallFunnyProjects';
 import Works from './works/Works';
 import Game from "./Game";
 import Feedbacks from './Feedbacks';
-import ContactCard from './ContactCard';
+import ContactCard from './contact-card/ContactCard';
 import Contact from './Contact';
 
 

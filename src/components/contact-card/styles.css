@@ -1,0 +1,23 @@
+.border-card {
+  box-shadow: 2px 2px 2rem 0rem rgba(0, 0, 0, 0.5);
+  border: 1px solid transparent;
+  animation: borderAnimation 8s linear infinite;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: #258466;
+  }
+  25% {
+    border-color: #bdc52a;
+  }
+  50% {
+    border-color: #258466;
+  }
+  75% {
+    border-color: #bdc52a;
+  }
+  100% {
+    border-color: #258466;
+  }
+}

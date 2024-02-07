@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 
-import { styles } from "../../style";
+import { styles } from '../../style'
 //import Fade from 'react-reveal/Fade'
-import { github } from "../../assets";
-import { SectionWrapper } from "../../hoc";
-import { projects } from "../../constants";
-import { fadeIn, textVariant } from "../../utils/motion";
-import TabCards from "../TabCards";
-import { linktoMe } from "../../assets";
-import "./styles.css"
+import { github } from '../../assets'
+import { SectionWrapper } from '../../hoc'
+import { projects } from '../../constants'
+import { fadeIn, textVariant } from '../../utils/motion'
+import TabCards from '../TabCards'
+import { linktoMe } from '../../assets'
+import './styles.css'
 
 const Works = () => {
   return (
@@ -29,7 +29,7 @@ const Works = () => {
 
       <div className="w-full flex">
         <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
+          variants={fadeIn('', '', 0.1, 1)}
           className="mt-3 text-secondary text-[1rem] max-sm:text-[.8rem] max-w-3xl leading-[30px]"
         >
           Following projects showcases my skills and experience through
@@ -40,21 +40,19 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-20 p-20 text-white justify-center space-x-8 flex items-center linkto-me-text-wrapper">
-        <a href="https://linkto-me.netlify.app/" target="_blank" rel="noreferrer">
-          <img src={linktoMe} alt="linkto-me image" width={300} className="linktome-img" />
-        </a>
+      <div className="p-20 text-white justify-center space-x-8 flex items-center linkto-me-text-wrapper">
         <div className="flex flex-col text-center text-wrapper">
-          <p className="text-[#46ca9e] text-[1rem]">[ Node React Typescript ]</p>
-          <p className="text-[#46ca9e] text-[.8rem]">Social network with cool features</p>
+          <p>
+            REFACTORING <br /> PROJECTS
+          </p>
         </div>
       </div>
 
-      <div className="mt-20 text-white flex justify-center">
+      <div className="text-white flex justify-center">
         <TabCards />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, '')

@@ -27,8 +27,7 @@
 }
 
 .linkto-me-text-wrapper:hover .text-wrapper {
-    transform: scale(1) translateX(10%);
-    font-size: 0.3em;
+
 }
 
 .linkto-me-text-wrapper:hover {
@@ -53,7 +52,6 @@
 
 @media (max-width: 500px) {
    .text-wrapper p {
-        
+
    }
 }
-
