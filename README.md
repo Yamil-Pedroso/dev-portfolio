@@ -1,6 +1,8 @@
 # Dev-portfolio
 ![dev-portfolio](src/assets/images/png/dev-portfolio.png)
 
+## :clipboard: Table of Contents
+
 1. [Intro](#intro)
 2. [Tech Stack](#tech-stack)
 
