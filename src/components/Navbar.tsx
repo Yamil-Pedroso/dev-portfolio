@@ -108,7 +108,7 @@ const Navbar = () => {
         <Link to="https://www.linkedin.com/in/yamil-pedroso/" target="_blank">
           <FaLinkedinIn className="text-[#cecece] text-[2rem]" />
         </Link>
-        <Link to="./docs/cv-2024.pdf" target="_blank">
+        <Link to="./docs/cv-yamil-2024.pdf" target="_blank">
           <HiDocumentText className="text-[#cecece] text-[2rem] mx-6" />
         </Link>
       </div>
