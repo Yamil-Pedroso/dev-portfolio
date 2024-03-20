@@ -18,7 +18,7 @@ import {
 const menu1 = [
   {
     title: 'React-TS-Node',
-    content: 'New',
+    content: 'Squib Company Ltd.',
     color: 'bg-red-500',
     src: react,
     link: 'https://www.squib.app',
@@ -146,6 +146,7 @@ const TabCards = () => {
                   <h1 className="text-overlay max-md:text-sm w-full text-center">
                     {item.title}
                   </h1>
+                    {item.content}
                 </div>
 
                 <img

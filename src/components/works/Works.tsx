@@ -8,7 +8,7 @@ import { SectionWrapper } from '../../hoc'
 import { projects } from '../../constants'
 import { fadeIn, textVariant } from '../../utils/motion'
 import TabCards from '../TabCards'
-import { linktoMe } from '../../assets'
+import { FaNetworkWired } from "react-icons/fa";
 import './styles.css'
 
 const Works = () => {
@@ -40,11 +40,12 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="p-20 text-white justify-center space-x-8 flex items-center linkto-me-text-wrapper">
+      <div className="p-20 text-white justify-center space-x-8 flex items-center">
         <div className="flex flex-col text-center text-wrapper">
-          <p>
-            REFACTORING <br /> PROJECTS
-          </p>
+          <h2>
+            REFACTORING <br /> PROJECTS...
+            <FaNetworkWired className="refactor-icon" />
+          </h2>
         </div>
       </div>
 

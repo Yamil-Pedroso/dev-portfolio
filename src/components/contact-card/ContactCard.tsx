@@ -58,7 +58,7 @@ const ContactCard = () => {
   return (
     <div className="container" style={{ color: 'black', margin: '5rem auto' }}>
       <div className="flex justify-around max-md:items-center max-sm:justify-center max-md:flex-col max-lg:flex-col">
-        <div className="w-[25rem] h-[17rem] max-md:w-[20rem] max-sm:w-[16rem] max-md:items-center max-md:h-[8rem] flex flex-col justify-center px-8 relative mx-8 max-lg:mb-20 max-sm:mb-2 border-card">
+        <div className="w-[25rem] h-[17rem] max-md:mt-12 max-md:w-[20rem] max-sm:w-[16rem] max-md:items-center max-md:h-[8rem] border-black border-[1px] shadow-card flex flex-col justify-center px-8 relative mx-8  max-lg:mb-20 max-sm:mb-2  border-card">
           <div className="">
             <div
               onClick={handlePhoneClick}
@@ -74,7 +74,7 @@ const ContactCard = () => {
             {cardOne.phone}
           </p>
         </div>
-        <div className="w-[25rem] h-[17rem] max-md:mt-12 max-md:w-[20rem] max-sm:w-[16rem] max-md:items-center max-md:h-[8rem] border-black border-[5px] shadow-card flex flex-col justify-center px-8 relative mx-8  max-lg:mb-20 max-sm:mb-2">
+        <div className="w-[25rem] h-[17rem] max-md:mt-12 max-md:w-[20rem] max-sm:w-[16rem] max-md:items-center max-md:h-[8rem] border-black border-[1px] shadow-card flex flex-col justify-center px-8 relative mx-8  max-lg:mb-20 max-sm:mb-2  border-card">
           <div
             onClick={handleEmailClick}
             className="hover:text-white cursor-pointer w-[5rem] h-[5rem] max-md:w-[3.5rem] max-sm:w-[3.2rem] max-sm:h-[3.2rem] max-md:h-[3.5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] max-md:top-[-30px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#46ca9e] hover:-translate-y-1 hover:scale-110"
@@ -88,7 +88,7 @@ const ContactCard = () => {
             {cardTwo.email}
           </p>
         </div>
-        <div className="w-[25rem] h-[17rem] max-md:mt-12 max-md:w-[20rem] max-sm:w-[16rem] max-md:items-center max-md:h-[8rem] border-black border-[5px] shadow-card flex flex-col justify-center px-8 relative mx-8">
+        <div className="w-[25rem] h-[17rem] max-md:mt-12 max-md:w-[20rem] max-sm:w-[16rem] max-md:items-center max-md:h-[8rem] border-black border-[1px] shadow-card flex flex-col justify-center px-8 relative mx-8  max-lg:mb-20 max-sm:mb-2  border-card">
           <div
             onClick={handleMapClick}
             className="hover:text-white cursor-pointer w-[5rem] h-[5rem] max-md:w-[3.5rem] max-sm:w-[3.2rem] max-sm:h-[3.2rem] max-md:h-[3.5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] max-md:top-[-30px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#46ca9e] hover:-translate-y-1 hover:scale-110"
