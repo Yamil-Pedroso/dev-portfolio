@@ -7,7 +7,7 @@
 2. [Tech Stack](#tech-stack)
 
 ## Intro
-is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+Hello there! 👋 I'm [ Yamil ], a passionate and creative Full Stack Web Developer dedicated to building responsive, user-friendly, and impactful web applications. With a background in [ Science of information, Switzerland Bootcamps and self-taught programming ], I have cultivated a deep understanding of web development fundamentals, modern frameworks, and best practices.
 
 ## Tech Stack
 - [React](#react)
