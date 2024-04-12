@@ -62,6 +62,7 @@ import reminder from "./reminder.png";
 import rocketGirl from "./rocket.png";
 import hiring from "./hiring.png";
 import team from "./team.png";
+import game from "./game.jpg";
 
 import chess from "./chess.png";
 import zudoku from "./zudoku.png";
@@ -138,6 +139,7 @@ export {
   zudoku,
   map,
   linktoMe,
+  game,
   pc,
   exp1,
   exp2,

@@ -6,6 +6,7 @@ import CardAnimation from './card-animation/CardAnimation';
 import MyExperience from './experience/MyExperience';
 import FloatingElem from './floating-elements/FloatingElem';
 import SmallFunnyProjects from './SmallFunnyProjects';
+import Functionality from './functionality/Functionality';
 import Works from './works/Works';
 import Game from "./Game";
 import Feedbacks from './Feedbacks';
@@ -22,6 +23,7 @@ export {
   MyExperience,
   FloatingElem,
   SmallFunnyProjects,
+  Functionality,
   Works,
   Game,
   Feedbacks,

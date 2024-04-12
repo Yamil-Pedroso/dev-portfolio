@@ -11,6 +11,7 @@ const Portfolio = () => {
       <MyComponent.Hero />
       <MyComponent.About />
       <MyComponent.MyExperience />
+      <MyComponent.Functionality />
       <MyComponent.Works />
       <MyComponent.ContactCard />
       <div className="relative z-0">
