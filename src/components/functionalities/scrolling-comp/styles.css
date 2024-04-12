@@ -1,0 +1,24 @@
+@keyframes show {
+    from {
+        opacity: 0;
+        scale: 25%;
+    }
+
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+.my-images {
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 3rem rgba(59, 188, 91, 0.2);
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: show;
+
+    animation-range: entry 25% cover 50% exit 75%;
+    animation-fill-mode: both;
+}

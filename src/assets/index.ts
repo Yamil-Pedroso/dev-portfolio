@@ -62,6 +62,10 @@ import reminder from "./reminder.png";
 import rocketGirl from "./rocket.png";
 import hiring from "./hiring.png";
 import team from "./team.png";
+
+import potionBg from "./bg/potion.jpg";
+import basketFruits from "./bg/basket-fruits.jpg";
+import download from "./bg/download.jpg";
 import game from "./game.jpg";
 
 import chess from "./chess.png";
@@ -74,6 +78,19 @@ import exp2 from "./card-img/exp-2.jpg";
 import exp3 from "./card-img/exp-3.jpg";
 import exp4 from "./card-img/exp-4.png";
 import exp5 from "./card-img/exp-5.jpg";
+
+import bottle1 from "./potion-bottles/bottle1.png";
+import bottle2 from "./potion-bottles/bottle2.png";
+import bottle3 from "./potion-bottles/bottle3.png";
+import bottle4 from "./potion-bottles/bottle4.png";
+import bottle5 from "./potion-bottles/bottle5.png";
+import bottle6 from "./potion-bottles/bottle6.png";
+import bottle7 from "./potion-bottles/bottle7.png";
+import bottle8 from "./potion-bottles/bottle8.png";
+import bottle9 from "./potion-bottles/bottle9.png";
+import bottle10 from "./potion-bottles/bottle10.png";
+import bottle11 from "./potion-bottles/bottle11.png";
+import bottle12 from "./potion-bottles/bottle12.png";
 
 export {
   codingBackend,
@@ -139,6 +156,9 @@ export {
   zudoku,
   map,
   linktoMe,
+  potionBg,
+  basketFruits,
+  download,
   game,
   pc,
   exp1,
@@ -146,4 +166,16 @@ export {
   exp3,
   exp4,
   exp5,
+  bottle1,
+  bottle2,
+  bottle3,
+  bottle4,
+  bottle5,
+  bottle6,
+  bottle7,
+  bottle8,
+  bottle9,
+  bottle10,
+  bottle11,
+  bottle12,
 };

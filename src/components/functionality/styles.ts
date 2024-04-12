@@ -1,5 +1,24 @@
 import styled, { keyframes } from 'styled-components';
 
+const borderAnimation = keyframes`
+    0% {
+      border-color: #b3b3b3;
+    }
+    25% {
+      border-color: #8d8d8d;
+    }
+    50% {
+      border-color: #323232;
+    }
+    75% {
+      border-color: #454545;
+    }
+    100% {
+      border-color: #2d2d2d;
+    }
+`;
+  
+
 
 const leftToRightWidth = keyframes`
     from {
@@ -34,11 +53,11 @@ const slideOut = keyframes`
 
 const slideIn = keyframes`
       from {
-      transform: translateY(-100%);
+      transform: translateX(-5%);
       opacity: 0;
     }
     to {
-      transform: translateY(0);
+      transform: translateX(0);
       opacity: 1;
     }
 `;
@@ -54,15 +73,24 @@ export const Container = styled.div`
     .header-wrapper {
         margin: 0;
         position: relative;
+        .header-text {
+            font-size: 1.5rem;
+            color: #b7b7b7;
+        }
         h1 {
             font-size: 3rem;
             margin-right: 15rem;
         }
         span {
             font-size: 3rem;
-            color: #45c347;
+            color: #4ac3a7;
             position: absolute;
             margin-left: 1rem;
+        }
+
+        .desc {
+            width: 40rem;
+            color: #b7b7b7;
         }
     }
     .card-wrapper {
@@ -71,7 +99,7 @@ export const Container = styled.div`
         align-items: center;
         flex-wrap: wrap;
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
         width: 60%;
 
 
@@ -97,7 +125,7 @@ export const Container = styled.div`
 
             }
             &:hover img {
-                transform: scale(1.1); // Mover el efecto de scale a la tarjeta en hover
+                transform: scale(1.1); 
             }
 
 
@@ -133,4 +161,35 @@ export const Container = styled.div`
             }
         }
     }
+
+    .box-wrapper {
+       position: relative;
+
+       .door-icon {
+              position: absolute;
+              top: 3rem;
+              right: 2rem;
+              font-size: 2rem;
+              color: #2a2a2a;
+              cursor: pointer;
+       }
+   
+    .box-content {
+        width: 60rem;
+        height: 40rem;
+        padding: 1rem;
+        margin-top: 2rem;
+        box-shadow: 2px 2px 2rem 0rem rgba(0, 0, 0, 0.5);
+        border: 1px solid #323232;
+        border-radius: .5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: scroll;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
 `;
