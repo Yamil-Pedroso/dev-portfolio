@@ -1,5 +1,5 @@
 import React from 'react';
-import { UseAuth } from '../../hook/AuthContext'; // Make sure to provide the correct path
+import { useAuth } from '../../hook/'; // Make sure to provide the correct path
 
 // Styled components
 import {
@@ -11,13 +11,17 @@ import {
 } from './styles';
 
 const Navbar: React.FC = () => {
-  const { isLogged, user } = UseAuth();
+  const { user, logout } = useAuth() as any;
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <Container>
       <UlList>
         <LiList>
-          {isLogged && (
+          {user && (
             <UserProperWrapper>
               <div>
                 <p>
@@ -36,6 +40,7 @@ const Navbar: React.FC = () => {
           )}
         </LiList>
       </UlList>
+      <button onClick={handleLogout}>Logout</button>
     </Container>
   );
 };

@@ -94,15 +94,22 @@ export const useProvideAuth = () => {
         try {
             const { data } = await axios.get(`${API_BASE_URL}/logout`);
             if (data.success) {
+                console.log('Data', data.success);
+                setUser(null);
                 removeItemFromLocalStorage('user');
                 removeItemFromLocalStorage('token');
-                setUser(null);
-            } 
+                console.log('Logout successful');
+                return { success: true, message: 'Logged out successfully' }
+            } else {
+                console.log('Logout failed:', data.message);
+                return { success: false, message: data.message || 'Failed to logout' }
+            }
         } catch (error: any) {
-            console.log(error);
-            return { success: false, message: 'Error logging out' }
+            console.log('Error during logout:', error.response?.data?.message || error.message);
+            return { success: false, message: error.response?.data?.message || 'Error logging out' }
         }
     }
+    
 
     const uploadAvatar = async (avatar: any) => {
         

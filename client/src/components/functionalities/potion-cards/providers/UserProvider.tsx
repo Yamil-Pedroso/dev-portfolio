@@ -1,16 +1,33 @@
 import { createContext } from 'react'
 import { useProvideAuth } from '../hook'
 
-const initialState = {
-  user: null,
-  getAllUsers: () => {},
-  register: () => {},
-  updateUser: () => {},
-  login: () => {},
-  googleLogin: () => {},
-  logout: () => {},
-  loading: true,
+
+interface IUser {
+  name: string;
+  email: string;
+  password: string;
+  _id: string;
+  avatar: string;
 }
+
+interface IAuthContext {
+  user?: any;
+  isLogged: boolean;
+  isRegister: boolean;
+  register: (name: string, email: string, password: string) => void;
+  login: (email: string, password: string) => void;
+  logout: () => void;
+}
+
+const initialState = {
+  user: {},
+  isLogged: false,
+  isRegister: false,
+  register: () => {},
+  login: () => {},
+  logout: () => {}
+}
+
 
 export const UserContext = createContext(initialState) as any
 

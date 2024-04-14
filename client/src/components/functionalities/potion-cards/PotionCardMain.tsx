@@ -60,15 +60,6 @@ const PotionCardMain = () => {
     const [selectedItem, setSelectedItem] = useState(null);
     const { user, logout } = useAuth() as any;
   
-    const handleLogout = () => {
-      logout();
-      setIsVisible(false);
-      setSelectedItem(null);
-      setTimeout(() => {
-        setActiveComponent(myMenuObj[0].component);
-        setIsVisible(true);
-      }, 400);
-    }
   
      // eslint-disable-next-line @typescript-eslint/no-explicit-any
      const handleActiveComponent = (component: any, item: any) => {
@@ -113,12 +104,15 @@ const PotionCardMain = () => {
            <CardWrapper>
             <Card>
                 <Navbar />
+               
                 <MenuItemWrapper>
                   {
                     myMenuObj.map((item) => {
                       return (
                           <div
-                            onClick={() => item.name === 'Login' ? handleLogout() : handleActiveComponent(item.component, item)}
+                            onClick={() => item.name === 'Login' ? handleLogout(
+                              { preventDefault: () => {} }
+                            ) : handleActiveComponent(item.component, item)}
                             key={item.id}
                             style={{ 
                               opacity: isVisible ? 1 : 0, 
