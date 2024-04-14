@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { UseAuth } from '../../hook/AuthContext';
+import { useAuth } from '../../hook';
 
 // Styled Components
 import { Container, Input, InputWrapper, LoginBtn, LoginRegisterWrapper, UserWrapper, UserIcon, RegisterBtn, Title, ForgotPasswordText } from './styles';
@@ -8,7 +8,7 @@ const LoginForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = UseAuth();
+  const { login, logout } = useAuth() as any;
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => { 
     event.preventDefault();
@@ -16,6 +16,11 @@ const LoginForm = () => {
      console.log("You are successfully logged in!", name, email, password);
   };
   
+
+  const handleLogout = async () => {
+    logout();
+    console.log("You are successfully logged out!");
+  };
 
   return (
     <Container>

@@ -8,6 +8,7 @@ interface IUser extends Document {
     password: string;
     avatar: string;
     isAdmin?: boolean;
+    potions?: Types.ObjectId[];
     isValidatedPassword(enteredPassword: string): Promise<boolean>;
     getSignedJwtToken(): string;
  }
@@ -18,6 +19,7 @@ interface IUser extends Document {
     password: { type: String, required: true, minlength: 6 },
     avatar: { type: String, default: "https://res.cloudinary.com/ddgf7ijdc/image/upload/v1706787809/yami_lil00v.jpg" },
     isAdmin: { type: Boolean, default: false },
+    potions: [{ type: Schema.Types.ObjectId, ref: "Potion" }],
 }, {
     timestamps: true,
 });

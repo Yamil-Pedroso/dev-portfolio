@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UseAuth } from '../../hook/AuthContext';
+import { useAuth } from '../../hook';
 import { Link } from 'react-router-dom';
 import { Container, ImgWrapper, IconWrapper, UserInfoWrapper, SmsWrapper, EditProfileWrapper, MyIconsProfileWrapper, UserIconProperties } from './styles';
 import { AiOutlineUser, AiOutlineMail, AiOutlineCalendar, AiOutlineLock } from 'react-icons/ai';
@@ -17,7 +17,7 @@ const myIcons = [
 
 const Profile: React.FC = () => {
   const [activeIconIndex, setActiveIconIndex] = useState<number | null>(null);
-  const { isLogged, user } = UseAuth();
+  const { user } = useAuth() as any;
 
   const handleIconHover = (index: number) => {
     setActiveIconIndex(index);
@@ -46,7 +46,7 @@ const Profile: React.FC = () => {
 
   return (
     <Container>
-      {isLogged ? (
+      {user ? (
         <div>
           <ImgWrapper>
             <img src={user.avatar} alt="profile" />

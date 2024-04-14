@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:8080/api/v1";
+const baseUrl = "http://localhost:3010/api/v1";
 
 export const userFetch = async () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -14,7 +14,7 @@ export const userRegister = async (name: string, email: string, password: string
     const { data } = await axios.post(`${baseUrl}/register`, {name, email, password});
     console.log("Autenticacion desde el backend",data);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return data;
+      return data.data;
     } catch (error) {
         console.log(error);
     }

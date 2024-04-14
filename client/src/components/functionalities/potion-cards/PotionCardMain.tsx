@@ -8,8 +8,10 @@ import RegisterPage from './pages/RegisterPage'
 import UpdatePasswordPage from './pages/UpdatePasswordPage'
 import UpdateProfilePage from './pages/UpdateProfilePage'
 
+import { UserProvider } from './providers/UserProvider'
+
 import { Container,HeaderContentWrapper, CardWrapper, CardHeader, Card, MenuItemWrapper, HeaderTitle } from './styles'
-import { UseAuth } from './hook/AuthContext'
+import { useAuth } from './hook'
 
 const myMenuObj = [
     {
@@ -56,13 +58,16 @@ const PotionCardMain = () => {
     const [isShrunk, setIsShrunk] = useState(false);
     const [isSmallSize, setIsSmallSize] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-    const { isLogged, logout } = UseAuth();
+    const { user, logout } = useAuth() as any;
   
     const handleLogout = () => {
-      logout('userId');
-      setActiveComponent(
-          <LoginPage />
-         );
+      logout();
+      setIsVisible(false);
+      setSelectedItem(null);
+      setTimeout(() => {
+        setActiveComponent(myMenuObj[0].component);
+        setIsVisible(true);
+      }, 400);
     }
   
      // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -75,11 +80,11 @@ const PotionCardMain = () => {
       }, 400); 
     }
   
-    useEffect(() => {
-      if(isLogged) {
-        setActiveComponent(<HomePage />);
-      }
-    }, [isLogged])
+    //useEffect(() => {
+    //  if(isLogged) {
+    //    setActiveComponent(<HomePage />);
+    //  }
+    //}, [isLogged])
   
     const colorStyle = {
       color: '#7b42dd'
@@ -104,7 +109,7 @@ const PotionCardMain = () => {
     }, []);
   
   return (
-    <div>
+    <UserProvider>
            <CardWrapper>
             <Card>
                 <Navbar />
@@ -126,7 +131,7 @@ const PotionCardMain = () => {
                               <p
                   
                               >
-                                {isLogged && item.name === 'Login' ? 'Logout' : item.name}
+                                {item.name}
                               </p>
                                
                           </div>
@@ -141,7 +146,7 @@ const PotionCardMain = () => {
                   </div>
             </Card>
         </CardWrapper>
-    </div>
+    </UserProvider>
   )
 }
 
