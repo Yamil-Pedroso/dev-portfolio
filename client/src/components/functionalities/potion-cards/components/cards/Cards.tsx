@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Container, Card, CardWrapper, CardImgDescription } from "./styles";
+import { useState, useEffect } from 'react'
+import { Container, Card, CardWrapper, CardImgDescription } from './styles'
 import {
   bottle1,
   bottle2,
@@ -12,93 +12,91 @@ import {
   bottle10,
   bottle11,
   bottle12,
-} from "../../../../../assets";
-import { useAuth } from "../../hook";
+} from '../../../../../assets'
+import { useAuth } from '../../hook'
 
 interface User {
-  name: string;
-  email: string;
-  password: string;
-  _id: string;
-  avatar: string;
+  name: string
+  email: string
+  password: string
+  _id: string
+  avatar: string
 }
 
 const CardsImgMap = [
   {
     id: 1,
     img: bottle1,
-    description: "Life",
+    description: 'Life',
   },
   {
     id: 2,
     img: bottle2,
-    description: "Speed",
+    description: 'Speed',
   },
   {
     id: 3,
     img: bottle3,
-    description: "Energy",
+    description: 'Energy',
   },
   {
     id: 4,
     img: bottle4,
-    description: "Power",
+    description: 'Power',
   },
   {
     id: 5,
     img: bottle5,
-    description: "Sleep",
+    description: 'Sleep',
   },
   {
     id: 6,
     img: bottle6,
-    description: "Grow",
+    description: 'Grow',
   },
   {
     id: 7,
     img: bottle1,
-    description: "Life",
+    description: 'Life',
   },
   {
     id: 8,
     img: bottle8,
-    description: "Time",
+    description: 'Time',
   },
   {
     id: 9,
     img: bottle9,
-    description: "Static",
+    description: 'Static',
   },
   {
     id: 10,
     img: bottle10,
-    description: "Stamina",
+    description: 'Stamina',
   },
   {
     id: 11,
     img: bottle11,
-    description: "Fire",
+    description: 'Fire',
   },
   {
     id: 12,
     img: bottle12,
-    description: "Strength",
+    description: 'Strength',
   },
-];
+]
 
 const Cards = () => {
-  const [activeCard, setActiveCard] = useState<number | null>(null);
-  const { user } = useAuth() as any;
-
-  console.log(user);
+  const [activeCard, setActiveCard] = useState<number | null>(null)
+  const { user } = useAuth() as any
 
   const handleCardHover = (index: number) => {
-    setActiveCard(index);
-  };
+    setActiveCard(index)
+  }
 
   const handleCardLeave = () => {
-    setActiveCard(null);
-  };
+    setActiveCard(null)
+  }
 
   //const getCardDescription = (index:  any) => {
   //  const descriptions = [
@@ -115,8 +113,8 @@ const Cards = () => {
       <h2>Choose your Potions</h2>
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
         <div
@@ -126,21 +124,26 @@ const Cards = () => {
             borderRadius: 50,
             overflow: 'hidden',
           }}
-          >
-        {user && <img src={user.avatar} alt="avatar"
-          style={{ 
-            width: 50,
-            objectFit: 'cover', 
-            border: '1px solid #000', 
-          }} 
-          />}
-
+        >
+          {user && (
+            <img
+              src={user.avatar}
+              alt="avatar"
+              style={{
+                width: 50,
+                objectFit: 'cover',
+                border: '1px solid #000',
+              }}
+            />
+          )}
         </div>
-          <h3
-            style={{
-              marginLeft: 10,
-            }}
-          >{user ? `Welcome ${user.name}` : "Welcome to the potion shop"}</h3>
+        <h3
+          style={{
+            marginLeft: 10,
+          }}
+        >
+          {user ? `Welcome ${user.name}` : 'Welcome to the potion shop'}
+        </h3>
       </div>
       <CardWrapper>
         {CardsImgMap.map((image, index) => (
@@ -163,7 +166,7 @@ const Cards = () => {
         ))}
       </CardWrapper>
     </Container>
-  );
-};
+  )
+}
 
-export default Cards;
+export default Cards

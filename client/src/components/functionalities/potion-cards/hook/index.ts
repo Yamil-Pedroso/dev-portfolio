@@ -5,7 +5,7 @@ import { UserContext } from '../providers/UserProvider';
 
 import { setItemsInLocalStorage, getItemsFromLocalStorage, removeItemFromLocalStorage} from '../utils';
 
-const API_BASE_URL = 'http://localhost:3010/api/v1'; 
+const API_BASE_URL = 'http://localhost:3010/api/v1';
 
 
 // User context
@@ -24,8 +24,6 @@ export const useAuth = () => {
 export const useProvideAuth = () => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
-
-    console.log("Fetching user", user)
 
     useEffect(() => {
         const storedUser = getItemsFromLocalStorage('user');
@@ -49,7 +47,7 @@ export const useProvideAuth = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-           
+
             if(data.user && data.token) {
                 setItemsInLocalStorage('user', JSON.stringify(data.user));
                 setItemsInLocalStorage('token', data.token);
@@ -109,11 +107,11 @@ export const useProvideAuth = () => {
             return { success: false, message: error.response?.data?.message || 'Error logging out' }
         }
     }
-    
+
 
     const uploadAvatar = async (avatar: any) => {
-        
-        
+
+
         try {
             const formData = new FormData()
             formData.append('avatar', avatar)
@@ -146,7 +144,7 @@ export const useProvideAuth = () => {
             } else {
                 return { success: false, message: 'Error updating user' };
             }
-           
+
         } catch (error) {
             console.log(error);
         }

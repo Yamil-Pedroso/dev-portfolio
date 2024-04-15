@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Container,
   InputWrapper,
@@ -10,43 +10,42 @@ import {
   RegisterWrapper,
   RegisterIcon,
   Title,
-} from "./styles";
-import { useAuth } from "../../hook";
+} from './styles'
+import { useAuth } from '../../hook'
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    avatar: "",
-  });
+    name: '',
+    email: '',
+    password: '',
+    avatar: '',
+  })
   const [formErrors, setFormErrors] = useState({
     name: false,
     email: false,
     password: false,
     avatar: false,
-  });
-  const { register } = useAuth() as any;
-  console.log("Register", register);
+  })
+  const { register } = useAuth() as any
 
   const handleFormData = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.type !== "file") {
-      const { name, value } = e.target;
+    if (e.target.type !== 'file') {
+      const { name, value } = e.target
 
       setFormData({
         ...formData,
         [name]: value,
-      });
+      })
 
       if (setFormErrors) {
-        setFormErrors({ ...formErrors, [name]: false });
+        setFormErrors({ ...formErrors, [name]: false })
       }
     }
-  };
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (
       !formData.name ||
@@ -59,33 +58,33 @@ const RegisterForm = () => {
         email: !formData.email,
         password: !formData.password,
         avatar: !formData.avatar,
-      });
-      console.log("Register failed: Missing fields");
+      })
+      console.log('Register failed: Missing fields')
 
-      navigate("/");
-      return;
+      navigate('/')
+      return
     }
 
-    const response = await register(formData);
+    const response = await register(formData)
     if (response.success) {
-      console.log("User registered");
+      console.log('User registered')
       //setRedirect(true)
       //closeUserForm()
     } else {
       console.log(
-        "Couldn't register user, this user may already exist or there was an error"
-      );
+        "Couldn't register user, this user may already exist or there was an error",
+      )
     }
-  };
+  }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setFormData({
         ...formData,
         avatar: e.target.files[0] as any,
-      });
+      })
     }
-  };
+  }
 
   return (
     <Container>
@@ -103,7 +102,7 @@ const RegisterForm = () => {
             name="name"
             placeholder="Name"
             onChange={handleFormData}
-            className={formErrors.name ? "error" : ""}
+            className={formErrors.name ? 'error' : ''}
           />
         </InputWrapper>
         <InputWrapper>
@@ -113,7 +112,7 @@ const RegisterForm = () => {
             name="email"
             placeholder="Email"
             onChange={handleFormData}
-            className={formErrors.email ? "error" : ""}
+            className={formErrors.email ? 'error' : ''}
           />
         </InputWrapper>
         <InputWrapper>
@@ -123,7 +122,7 @@ const RegisterForm = () => {
             name="password"
             placeholder="Password"
             onChange={handleFormData}
-            className={formErrors.password ? "error" : ""}
+            className={formErrors.password ? 'error' : ''}
           />
         </InputWrapper>
         <InputWrapper>
@@ -143,7 +142,7 @@ const RegisterForm = () => {
         </LoginRegisterWrapper>
       </form>
     </Container>
-  );
-};
+  )
+}
 
-export default RegisterForm;
+export default RegisterForm
