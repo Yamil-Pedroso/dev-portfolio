@@ -14,7 +14,7 @@ export const CardWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 35rem;
+    width: 40rem;
     margin: 1.5rem auto;
 `;
 
@@ -23,8 +23,8 @@ export const Card = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 7rem;
-    height: 7rem;
+    width: 8rem;
+    height: 8rem;
     margin: 10px;
     border: 1px solid #ccc;
     color: #fff;

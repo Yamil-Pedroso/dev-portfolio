@@ -7,15 +7,29 @@ interface AuthenticatedRequest extends Request {
     user?: any;
 }
 
+// Get all potions
+export const getAllPotions = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const potions = await Potion.find();
+        res.status(200).json({
+            success: true,
+            data: potions,
+        });
+    } catch (error: any) {
+        next(new CustomError(error.message, 400));
+    }
+};
+
 // Add a new potion
 export const addPotion = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
         const userData = req.user;
-         const { name, description, category, price } = req.body;
+         const { name, description, image, category, price } = req.body;
 
          const potion = await Potion.create({
                 owner: userData.id,
                 name,
+                image,
                 description,
                 category,
                 price,
@@ -35,14 +49,19 @@ export const addPotion = async (req: AuthenticatedRequest, res: Response, next: 
 };
 
 // Get all potions
-export const getPotions = async (req: Request, res: Response, next: NextFunction) => {
-     const countPotions = await Potion.countDocuments();
+export const getUserPotions = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-        const potions = await Potion.find().populate('owner', 'name email');
+        const userData = req.user;
+        const { id } = userData;
+        const user = await User.findById(id).populate('potions');
+
+        if (!user) {
+            throw new CustomError('User not found', 404);
+        }
+
         res.status(200).json({
             success: true,
-            potions: countPotions,
-            data: potions,
+            data: user.potions,
         });
     } catch (error: any) {
         next(new CustomError(error.message, 400));
@@ -50,23 +69,42 @@ export const getPotions = async (req: Request, res: Response, next: NextFunction
 };
 
 // Get a single potion
-export const getPotion = async (req: Request, res: Response, next: NextFunction) => {
+export const getPotion = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-        const { id } = req.params;
-        const potion = await Potion.findById(id);
+        const userData = req.user;
+        const { id } = userData;
+        const potions = await Potion.find({ owner: id })
 
-        if (!potion) {
+        if (!potions) {
             throw new CustomError('Potion not found', 404);
         }
 
         res.status(200).json({
             success: true,
-            data: potion,
+            data: potions,
         });
     } catch (error: any) {
         next(new CustomError(error.message, 400));
     }
 };
+
+// Search for potions
+export const searchPotions = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const searchWord = req.query.key;
+
+        if ( searchWord === "" ) return res.status(200).json(await Potion.find());
+
+        const searchMatch = await Potion.find({ address: { $regex: searchWord, $options: 'i' } });
+
+        res.status(200).json({ success: true, data: searchMatch });
+    } catch (error: any) {
+        res.status(500).json({
+            message: 'Internal server error',
+            error: error.message,
+          })
+    }
+}
 
 // Update a potion
 // Update a potion
@@ -85,7 +123,7 @@ export const updatePotion = async (req: AuthenticatedRequest, res: Response, nex
             return res.status(403).json({ success: false, message: "User not authorized to update this potion" });
         }
 
-        const fieldsToUpdate = ['name', 'description', 'category', 'price'];
+        const fieldsToUpdate = ['name', 'description', 'image', 'category', 'price'];
         fieldsToUpdate.forEach(field => {
             if (updates.hasOwnProperty(field)) {
                 potion[field] = updates[field];

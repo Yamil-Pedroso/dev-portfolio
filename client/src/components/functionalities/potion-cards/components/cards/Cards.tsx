@@ -1,20 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Container, Card, CardWrapper, CardImgDescription } from './styles'
-import {
-  bottle1,
-  bottle2,
-  bottle3,
-  bottle4,
-  bottle5,
-  bottle6,
-  bottle8,
-  bottle9,
-  bottle10,
-  bottle11,
-  bottle12,
-} from '../../../../../assets'
-import { useAuth } from '../../hook'
-
+import { useAuth, usePotions } from '../../hook'
+import { IPotion } from '../../providers/PotionProvider'
+import PotionDetail from '../potion-detail/PotionDetail'
 interface User {
   name: string
   email: string
@@ -23,72 +11,24 @@ interface User {
   avatar: string
 }
 
-const CardsImgMap = [
-  {
-    id: 1,
-    img: bottle1,
-    description: 'Life',
-  },
-  {
-    id: 2,
-    img: bottle2,
-    description: 'Speed',
-  },
-  {
-    id: 3,
-    img: bottle3,
-    description: 'Energy',
-  },
-  {
-    id: 4,
-    img: bottle4,
-    description: 'Power',
-  },
-  {
-    id: 5,
-    img: bottle5,
-    description: 'Sleep',
-  },
-  {
-    id: 6,
-    img: bottle6,
-    description: 'Grow',
-  },
-  {
-    id: 7,
-    img: bottle1,
-    description: 'Life',
-  },
-  {
-    id: 8,
-    img: bottle8,
-    description: 'Time',
-  },
-  {
-    id: 9,
-    img: bottle9,
-    description: 'Static',
-  },
-  {
-    id: 10,
-    img: bottle10,
-    description: 'Stamina',
-  },
-  {
-    id: 11,
-    img: bottle11,
-    description: 'Fire',
-  },
-  {
-    id: 12,
-    img: bottle12,
-    description: 'Strength',
-  },
-]
-
 const Cards = () => {
+  const [myPotions, setMyPotions] = useState<IPotion[] | null>(null)
+  const [selectedPotion, setSelectedPotion] = useState<IPotion | null>(null) as any;
   const [activeCard, setActiveCard] = useState<number | null>(null)
-  const { user } = useAuth() as any
+  const {potions, loading} = usePotions() as any
+
+  useEffect(() => {
+    setMyPotions(potions)
+  }
+  , [potions])
+
+  const handleCardClick = (potion:  IPotion) => {
+    setSelectedPotion(potion)
+  };
+
+  const handleBackToList = () => {
+    setSelectedPotion(null);
+  };
 
   const handleCardHover = (index: number) => {
     setActiveCard(index)
@@ -98,73 +38,43 @@ const Cards = () => {
     setActiveCard(null)
   }
 
-  //const getCardDescription = (index:  any) => {
-  //  const descriptions = [
-  //    'Description of bottle1',
-  //    'Description of bottle2',
-  //    'Description of bottle3',
-  //  ];
-  //
-  //  return descriptions[index] || 'No description available';
-  //};
+  if (!myPotions) {
+    return <div>
+      {
+        loading ? 'Loading...' : 'No potions found'
+      }
+    </div>;
+}
+
 
   return (
     <Container>
-      <h2>Choose your Potions</h2>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <div
-          style={{
-            width: 50,
-            height: 50,
-            borderRadius: 50,
-            overflow: 'hidden',
-          }}
-        >
-          {user && (
-            <img
-              src={user.avatar}
-              alt="avatar"
-              style={{
-                width: 50,
-                objectFit: 'cover',
-                border: '1px solid #000',
-              }}
-            />
-          )}
+      {selectedPotion ? (
+        <div>
+          <PotionDetail potion={selectedPotion} />
+          <button onClick={handleBackToList}>Back to List</button>
         </div>
-        <h3
-          style={{
-            marginLeft: 10,
-          }}
-        >
-          {user ? `Welcome ${user.name}` : 'Welcome to the potion shop'}
-        </h3>
-      </div>
-      <CardWrapper>
-        {CardsImgMap.map((image, index) => (
-          <Card
-            key={index}
-            onClick={() => handleCardHover(index)}
-            onMouseEnter={() => handleCardHover(index)}
-            onMouseLeave={handleCardLeave}
-          >
-            <img
-              className="bottle__img"
-              src={image.img}
-              alt={`bottle${index + 1}`}
-              width={48}
-            />
-            {activeCard === index && (
-              <CardImgDescription>{image.description}</CardImgDescription>
-            )}
-          </Card>
-        ))}
-      </CardWrapper>
+      ) : (
+        <div>
+          <h2>Choose your Potions</h2>
+          <CardWrapper>
+            {myPotions.map((potion, index) => (
+              <Card
+                key={index}
+                onClick={() => handleCardClick(potion)}
+              >
+                <img
+                  className="bottle__img"
+                  src={potion.image}
+                  alt={`Potion ${index + 1}`}
+                  width={48}
+                  style={{ borderRadius: 50 }}
+                />
+              </Card>
+            ))}
+          </CardWrapper>
+        </div>
+      )}
     </Container>
   )
 }

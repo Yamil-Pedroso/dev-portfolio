@@ -1,23 +1,20 @@
 import React, { useState } from 'react'
 import { Container, HeaderTitle, InputWrapper, Input, FigureWrapper, Figure, UpdateBtnWrapper, UpdateBtn, CustomFileInput, UpdateProfileWrapper, UpdateProfileIcon } from './styles'
-import { UseAuth } from '../../hook/AuthContext'
+
 
 const UpdateProfile = () => {
-    const { user } = UseAuth()
     const [avatarIcon, setAvatarIcon] = useState('')
-    const [avatarPreview, setAvatarPreview] = useState(user.avatar)
-   
-
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const reader = new FileReader()
-        reader.onload = () => {
-            if (reader.readyState === 2) {
-                setAvatarPreview(reader.result as string)
-                setAvatarIcon(reader.result as string)
-            }
-        }
-        reader.readAsDataURL(e.target.files![0])
-    }
+ 
+    //const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //    const reader = new FileReader()
+    //    reader.onload = () => {
+    //        if (reader.readyState === 2) {
+    //            setAvatarPreview(reader.result as string)
+    //            setAvatarIcon(reader.result as string)
+    //        }
+    //    }
+    //    reader.readAsDataURL(e.target.files![0])
+    //}
 
 
   return (
@@ -34,7 +31,7 @@ const UpdateProfile = () => {
                 <Input type="email" placeholder="Email" />
             </InputWrapper>
             <FigureWrapper>
-                <Figure src={avatarPreview} alt="Avatar Preview" />
+                <Figure src={""} alt="Avatar Preview" />
                 {avatarIcon && (
                     <CustomFileInput>
                         <img src={avatarIcon} alt="Avatar Icon" />
@@ -48,7 +45,6 @@ const UpdateProfile = () => {
                   placeholder="Profile Picture" 
                   id="customFile"
                   accept="images/*"
-                  onChange={onChange}
                 />
             </InputWrapper>
 

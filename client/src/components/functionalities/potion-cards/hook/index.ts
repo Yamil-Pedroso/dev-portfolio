@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 import { UserContext } from '../providers/UserProvider';
+import { PotionContext } from '../providers/PotionProvider';
 
 import { setItemsInLocalStorage, getItemsFromLocalStorage, removeItemFromLocalStorage} from '../utils';
 
@@ -150,6 +151,11 @@ export const useProvideAuth = () => {
         }
     }
 
+    useEffect(() => {
+        getUsers();
+    }
+    , [])
+
     return {
         user,
         getUsers,
@@ -160,5 +166,95 @@ export const useProvideAuth = () => {
         logout,
         uploadAvatar,
         updateUser
+    }
+}
+
+// Potion context
+interface Potion {
+    owner?: string;
+    name: string;
+    description: string;
+    image: string;
+    category: string;
+    price: number;
+}
+
+export const usePotions = () => {
+    return useContext(PotionContext)
+}
+
+export const useProvidePotions = () => {
+    const [potions, setPotions] = useState<Potion[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    console.log('Potions', potions);
+
+    useEffect(() => {
+        const storedPotions = getItemsFromLocalStorage('potions');
+        if (storedPotions) {
+            setPotions(JSON.parse(storedPotions));
+        }
+        setLoading(false)
+    }, [])
+
+    
+    const addPotion = async (potion: Potion) => {
+        try {
+            const { data } = await axios.post(`${API_BASE_URL}/add-potion`, potion, {
+                headers: {
+                    Authorization: `Bearer ${getItemsFromLocalStorage('token')}`,
+                },
+            });
+
+            if (data && data.data) {
+                setPotions(prevPotions => [...prevPotions, data.data]);
+                setItemsInLocalStorage('potions', JSON.stringify([...potions, data.data]));
+                return { success: true, message: 'Potion added successfully' };
+            }
+        } catch (error: any) {
+            console.error('Error adding potion:', error);
+            return { success: false, message: error.message || 'Failed to add potion' };
+        }
+    };
+
+    const getUserPotions = async () => {
+        try {
+            const response = await axios.get(`${API_BASE_URL}/user-potions`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            console.log('User Potions', response.data.data);
+            return { success: true, data: response.data.data, message: 'User Potions fetched successfully' };
+        } catch (error) {
+            console.error('Failed to fetch user potions:', error);
+            return { success: false, message: 'Failed to fetch potions' };
+        }
+    }
+    
+    const getAllPotions = async () => {
+        try {
+            const { data } = await axios.get(`${API_BASE_URL}/all-potions`);
+            console.log('Potions', data.data);
+            setPotions(data.data);
+            setItemsInLocalStorage('potions', JSON.stringify(data.data));
+
+            return { success: true, message: 'Potions fetched successfully' };
+        } catch (error: any) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getAllPotions();
+    }
+    , [])
+
+    return {
+        potions,
+        getAllPotions,
+        getUserPotions,
+        addPotion,
+        loading
     }
 }

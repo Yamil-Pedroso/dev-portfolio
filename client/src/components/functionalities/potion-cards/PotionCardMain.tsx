@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react'
-import Navbar from './components/header/Navbar'
-import ForgotPasswordPage from './pages/ForgotPasswordPage'
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import ProfilePage from './pages/ProfilePage'
-import RegisterPage from './pages/RegisterPage'
-import UpdatePasswordPage from './pages/UpdatePasswordPage'
-import UpdateProfilePage from './pages/UpdateProfilePage'
+import { useEffect, useState } from "react";
+import * as THREE from "three";
+import Navbar from "./components/header/Navbar";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
+import RegisterPage from "./pages/RegisterPage";
+import UpdatePasswordPage from "./pages/UpdatePasswordPage";
+import UpdateProfilePage from "./pages/UpdateProfilePage";
 
-import { UserProvider } from './providers/UserProvider'
+import { UserProvider } from "./providers/UserProvider";
+import { PotionProvider } from "./providers/PotionProvider";
 
 import {
   Container,
@@ -18,152 +20,103 @@ import {
   Card,
   MenuItemWrapper,
   HeaderTitle,
-} from './styles'
-import { useAuth } from './hook'
+} from "./styles";
+import { useAuth } from "./hook";
 
 const myMenuObj = [
   {
     id: 1,
-    name: 'Home',
+    name: "Home",
     component: <HomePage />,
   },
   {
     id: 2,
-    name: 'Profile',
+    name: "Profile",
     component: <ProfilePage />,
   },
   {
     id: 3,
-    name: 'Login',
+    name: "Login",
     component: <LoginPage />,
   },
   {
     id: 4,
-    name: 'Register',
+    name: "Register",
     component: <RegisterPage />,
   },
   {
     id: 5,
-    name: 'Forgot Password',
+    name: "Forgot Password",
     component: <ForgotPasswordPage />,
   },
   {
     id: 6,
-    name: 'Update Password',
+    name: "Update Password",
     component: <UpdatePasswordPage />,
   },
   {
     id: 7,
-    name: 'Update Profile',
+    name: "Update Profile",
     component: <UpdateProfilePage />,
-  },
-]
+  }
+];
 
 const PotionCardMain = () => {
-  const [activeComponent, setActiveComponent] = useState(myMenuObj[0].component)
-  const [isVisible, setIsVisible] = useState(true)
-  const [isShrunk, setIsShrunk] = useState(false)
-  const [isSmallSize, setIsSmallSize] = useState(false)
-  const [selectedItem, setSelectedItem] = useState(null)
+  const [activeComponent, setActiveComponent] = useState(
+    myMenuObj[0].component
+  );
+  const [isVisible, setIsVisible] = useState(true);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleActiveComponent = (component: any, item: any) => {
-    setIsVisible(false)
-    setSelectedItem(item as never)
+    setIsVisible(false);
+    setSelectedItem(item as never);
     setTimeout(() => {
-      setActiveComponent(component as never)
-      setIsVisible(true)
-    }, 400)
-  }
-
-  const handleClickComponent = (component: any) => {
-    switch (component) {
-      case 'Home':
-        setActiveComponent(<HomePage />)
-        break
-      case 'Profile':
-        setActiveComponent(<ProfilePage />)
-        break
-      case 'Login':
-        setActiveComponent(<LoginPage />)
-        break
-      case 'Register':
-        setActiveComponent(<RegisterPage />)
-        break
-      case 'Forgot Password':
-        setActiveComponent(<ForgotPasswordPage />)
-        break
-      case 'Update Password':
-        setActiveComponent(<UpdatePasswordPage />)
-        break
-      case 'Update Profile':
-        setActiveComponent(<UpdateProfilePage />)
-        break
-      default:
-        setActiveComponent(<HomePage />)
-    }
-  }
-
-  //useEffect(() => {
-  //  if(isLogged) {
-  //    setActiveComponent(<HomePage />);
-  //  }
-  //}, [isLogged])
+      setActiveComponent(component as never);
+      setIsVisible(true);
+    }, 400);
+  };
 
   const colorStyle = {
-    color: '#7b42dd',
-  }
+    color: "#7b42dd",
+  };
 
-  const handleScroll = () => {
-    const currentScrollPos = window.scrollY
-
-    const shouldShrinkHeader = currentScrollPos > 100
-    setIsShrunk(shouldShrinkHeader)
-
-    const shouldSmallHeader = currentScrollPos > 100
-    setIsSmallSize(shouldSmallHeader)
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
 
   return (
     <UserProvider>
-      <CardWrapper>
-        <Card>
-          <Navbar />
-
-          <MenuItemWrapper>
-            {myMenuObj.map((item) => {
-              return (
-                <div
-                  onClick={() =>
-                    handleActiveComponent(item.component, item.name)
-                  }
-                  key={item.id}
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: `translateY(${isVisible ? 0 : -10}px)`,
-                    transition: 'opacity 0.3s ease, transform 0.3s ease',
-                    color: selectedItem === item ? colorStyle.color : '#fff',
-                  }}
-                >
-                  <p>{item.name}</p>
-                </div>
-              )
-            })}
-          </MenuItemWrapper>
-          <div className={isVisible ? 'visible' : 'hidden'}>
-            {activeComponent}
-          </div>
-        </Card>
-      </CardWrapper>
+      <PotionProvider>
+        <CardWrapper>
+          <Card>
+            <Navbar />
+            <MenuItemWrapper>
+              {myMenuObj.map((item) => {
+                return (
+                  <div
+                    onClick={() =>
+                      handleActiveComponent(item.component, item.name)
+                    }
+                    key={item.id}
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: `translateY(${isVisible ? 0 : -10}px)`,
+                      transition: "opacity 0.3s ease, transform 0.3s ease",
+                      color: selectedItem === item ? colorStyle.color : "#fff",
+                    }}
+                  >
+                    <p>{item.name}</p>
+                  </div>
+                );
+              })}
+            </MenuItemWrapper>
+            <div className={isVisible ? "visible" : "hidden"}>
+              {activeComponent}
+            </div>
+          </Card>
+        </CardWrapper>
+      </PotionProvider>
     </UserProvider>
-  )
-}
+  );
+};
 
-export default PotionCardMain
+export default PotionCardMain;

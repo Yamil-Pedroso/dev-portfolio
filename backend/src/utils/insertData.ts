@@ -2,8 +2,8 @@ import connectDB from "../config/db";
 import colors from "colors"
 import dotenv from "dotenv"
 import path from "path"
-import { Message } from "../models/Message"
-import welcome from "../data/welcome.json"
+import { Potion } from "../models/Potion"
+import potions from "../data/potions"
 
 colors.enable();
 
@@ -13,11 +13,11 @@ const insertData = async () => {
   try {
     await connectDB()
     
-    await Message.deleteMany()
+    await Potion.deleteMany()
 
-    const data = welcome
+    const data = potions as any
 
-    await Message.insertMany(data)
+    await Potion.insertMany(data)
     console.log("Data Imported...".green.inverse);
     process.exit();
   } catch (error: any) {

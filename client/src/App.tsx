@@ -3,11 +3,11 @@ import Portfolio from './pages/Portfolio'
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Portfolio/>} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Portfolio/>} />
+        </Routes>
+      </Router>
   )
 }
 
