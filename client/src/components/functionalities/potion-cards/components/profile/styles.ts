@@ -9,7 +9,7 @@ export const Container = styled.div`
     background-color: #131314;
     border-radius: 5px;
     width: 30rem;
-    height: 12rem;
+    height: 13rem;
     margin: 5rem auto;
     position: relative;
 `;
@@ -21,7 +21,7 @@ export const ImgWrapper = styled.div`
     background-color: #131314;
     border: 2px solid #88419c;
     top: -2rem;
-    left: 15rem;
+    left: 14rem;
     position: absolute;
 
     img {

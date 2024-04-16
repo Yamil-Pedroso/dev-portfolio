@@ -150,11 +150,13 @@ export const deletePotion = async (req: AuthenticatedRequest, res: Response, nex
         const { id } = req.params;
 
         const potion = await Potion.findById(id) as any;
+        console.log("Potion:", potion);
         if (!potion) {
             return res.status(404).json({ success: false, message: "Potion not found" });
         }
 
         if (potion?.owner.toString() !== userData.id) {
+            console.log("Unauthorized attempt to delete potion by user:", req.user.id);  
             return res.status(403).json({ success: false, message: "User not authorized to delete this potion" });
         }
 

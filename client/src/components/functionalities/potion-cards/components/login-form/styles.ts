@@ -11,7 +11,7 @@ export const Container = styled.div`
     width: 18rem;
     height: 20rem;
     padding-bottom: 2.2rem;
-    margin: 5rem auto;
+    margin: -2rem auto;
     position: relative;
 `;
 

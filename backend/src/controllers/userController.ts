@@ -5,6 +5,7 @@ import cookieToken from "../utils/cookieToken";
 import CustomError from "../utils/customError";
 import { v2 as cloudinary } from "cloudinary";
 import { Potion } from "../models/Potion";
+import transporter from "../utils/nodeMailer";
 
 // Register a new user
 export const registerUser = async (req: Request, res: Response, next: NextFunction) => {
@@ -132,13 +133,80 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
         }
 
 
-        const updatedUser = await user.save();
+        const updatedUser = await user.save() as IUser;
 
         cookieToken(updatedUser, res);
     } catch (error: any) {
         next(new CustomError(error.message, 500));
     }
 };
+
+// Forgot Password
+export const forgotPassword = async (req: Request, res: Response, next: NextFunction) => {
+    const  email = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: "Email could not be sent. User not found." });
+        }
+
+        const resetToken = user.getResetPasswordToken();
+        await user.save({ validateBeforeSave: false });
+
+        const resetUrl = `http://<tu-dominio>/reset-password/${resetToken}`;
+
+        const message = {
+            from: "yami@gmail.com", 
+            to: "yami@gmail.com", 
+            subject: "Password Reset Request",
+            text: `You are receiving this email because you (or someone else) have requested the reset of a password. Please make a PUT request to the following URL: ${resetUrl}`,
+            html: `<p>You are receiving this email because you (or someone else) have requested the reset of a password. Please click on the following link, or paste this into your browser to complete the process:</p><p><a href="${resetUrl}">${resetUrl}</a></p>`
+        };
+
+        await transporter.sendMail(message);
+
+        res.status(200).json({ success: true, data: "Email sent" });
+    } catch (error: any) {
+        console.error("Failed to send email:", error);
+        return next(new CustomError("Failed to send email, please try again later.", 500));
+    }
+};
+
+
+// Reset Password
+export const resetPassword = async (req: Request, res: Response, next: NextFunction) => {
+    const resetPasswordToken = req.params.resetToken;
+    const { password } = req.body;
+
+    try {
+        const user = await User.findOne({
+            resetPasswordToken,
+            resetPasswordExpire: { $gt: Date.now() },
+        });
+
+        if (!user) {
+            throw new CustomError("Invalid Reset Token", 400);
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(password, salt);
+
+        user.password = password;
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+
+        await user.save();
+
+        res.status(201).json({
+            success: true,
+            data: "Password Reset Success",
+        });
+    } catch (error: any) {
+        next(new CustomError(error.message, 500));
+    }
+};
+
+
 
 // Logout user
 export const logoutUser = async (req: Request, res: Response, next: NextFunction) => {

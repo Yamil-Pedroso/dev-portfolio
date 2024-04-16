@@ -10,7 +10,7 @@ interface IUser {
   avatar: string;
 }
 
-interface IAuthContext {
+export interface IAuthContext {
   user?: any;
   isLogged: boolean;
   isRegister: boolean;
@@ -20,7 +20,7 @@ interface IAuthContext {
 }
 
 const initialState = {
-  user: {},
+  user: null,
   isLogged: false,
   isRegister: false,
   register: () => {},

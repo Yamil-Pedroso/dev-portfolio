@@ -11,7 +11,7 @@ export const Container = styled.div`
     border-radius: 5px;
     width: 18rem;
     height: 15.5rem;
-    margin: 5rem auto;
+    margin: -2rem auto;
     position: relative;
 `;
 

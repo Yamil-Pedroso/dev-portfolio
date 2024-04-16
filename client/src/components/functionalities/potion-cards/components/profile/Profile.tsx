@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth, usePotions } from "../../hook";
+import { Toaster, toast } from 'sonner'
 import { IPotion } from "../../providers/PotionProvider";
 import {
   Container,
@@ -17,6 +18,7 @@ import {
   AiOutlineCalendar,
   AiOutlineLock,
 } from "react-icons/ai";
+import { MdClose } from "react-icons/md";
 import { BiMap } from "react-icons/bi";
 import { BsTelephoneForward } from "react-icons/bs";
 const myIcons = [
@@ -32,7 +34,7 @@ const Profile: React.FC = () => {
   const [userPotions, setUserPotions] = useState<IPotion[] | null>(null);
   const [activeIconIndex, setActiveIconIndex] = useState<number | null>(null);
   const { user } = useAuth() as any;
-  const { loading, getUserPotions } = usePotions() as any;
+  const { loading, getUserPotions, deletePotion } = usePotions() as any;
 
   useEffect(() => {
     const fetchUserPotions = async () => {
@@ -48,6 +50,18 @@ const Profile: React.FC = () => {
       fetchUserPotions();
     }
   }, [user]);
+
+  const handleDeletePotion = async (_id: string) => {
+    const result = await deletePotion(_id);
+    if (result.success) {
+      const updatedPotions = userPotions?.filter((potion) => potion._id !== _id);
+      setUserPotions(updatedPotions || []);
+
+      toast.success("Potion deleted successfully");
+    } else {
+      console.error("Failed to delete potion:", result.message);
+    }
+  }
 
   const handleIconHover = (index: number) => {
     setActiveIconIndex(index);
@@ -77,6 +91,7 @@ const Profile: React.FC = () => {
   return (
     <Container>
       {user ? (
+        <>
         <div>
           <ImgWrapper>
             <img src={user.avatar} alt="profile" />
@@ -128,23 +143,34 @@ const Profile: React.FC = () => {
             ))}
           </IconWrapper>
         </div>
+          <h2
+            style={{
+              color: "#fff",
+              fontFamily: "Roboto, sans-serif",
+              fontSize: "1.2rem",
+              marginTop: "16rem",
+              position: "absolute",
+            }}
+          >Your potions</h2>
+        </>
       ) : (
         <SmsWrapper>
           <h2>You are not logged in!</h2>
         </SmsWrapper>
       )}
       <div style={{
-        height: '100%',
         position: 'absolute',
         justifyContent: 'center',
-        top: '15rem',
+        top: '16.5rem',
+        height: 'auto',
       }}>
-        <h2>Your potions</h2>
-        {userPotions && userPotions.length > 0 ? (
+        {userPotions && userPotions.length > 0 && (
           <div>
+              
             <div style={{
+              width: '80rem',
               display: 'flex',
-              gap: '1rem',
+              gap: '3rem',
               justifyContent: 'center',
               flexWrap: 'wrap',
             
@@ -152,7 +178,6 @@ const Profile: React.FC = () => {
               {userPotions.map((potion, index) => (
                 <div key={index}
                   style={{
-                  
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -161,16 +186,32 @@ const Profile: React.FC = () => {
                     gap: '1rem',
                   }}
                 >
-                  <img src={potion.image} alt={potion.name} width={70} />
-                  <p>{potion.name}</p>
+                  <img src={potion.image} alt={potion.name} width={50} />
+                  <p
+                   style={{
+                    fontFamily: 'Roboto, sans-serif',
+                    fontSize: '.8rem',
+                    color: '#e1e1e1',
+                    textAlign: 'center',
+                    }}
+                  >{potion.name}</p>
+                  <MdClose
+                    onClick={() => handleDeletePotion(potion._id as string)}
+                    style={{
+                      color: '#9c4141',
+                      cursor: 'pointer',
+                    }}
+                  />
                 </div>
               ))}
             </div>
           </div>
-        ) : (
-          <div>{loading ? "Loading..." : "No potions found"}</div>
-        )}
+        )
+        }
       </div>
+      <Toaster
+        position="bottom-center"
+      />
     </Container>
   );
 };

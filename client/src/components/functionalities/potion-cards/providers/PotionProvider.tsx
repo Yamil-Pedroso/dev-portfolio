@@ -2,6 +2,7 @@ import { createContext } from 'react'
 import { useProvidePotions } from '../hook'
 
 export interface IPotion {
+    _id?: string | null;
     owner?: any;
     name: string;
     description: string;
@@ -11,10 +12,11 @@ export interface IPotion {
     }
 
 export interface Potion {
-    potions: IPotion[];
+    potions: IPotion[] | null;
     addPotion: (potion: IPotion) => void;
     getAllPotions: () => void;
     getUserPotions: () => void;
+    deletePotion: (id: string) => void;
     Loading: boolean;
     setLoading: (loading: boolean) => void;
 }
@@ -24,6 +26,7 @@ interface PotionContextType {
     addPotion: (potion: Potion[]) => void;
     getAllPotions: () => void;
     getUserPotions: () => void;
+    deletePotion: (id: string) => void;
     Loading: boolean;
     setLoading: (loading: boolean) => void;
 }
@@ -33,6 +36,7 @@ const initialState: PotionContextType = {
     addPotion: () => {},
     getAllPotions: () => {},
     getUserPotions: () => {},
+    deletePotion: () => {},
     Loading: true,
     setLoading: () => {},
 }

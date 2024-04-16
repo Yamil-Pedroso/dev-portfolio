@@ -21,7 +21,8 @@ const LoginForm = () => {
     email: false,
     password: false,
   })
-  const { login, logout } = useAuth() as any
+  const { user, login, logout } = useAuth() as any
+  console.log('user logged', user)
 
   const handleFormData = (e: any) => {
     const { name, value } = e.target

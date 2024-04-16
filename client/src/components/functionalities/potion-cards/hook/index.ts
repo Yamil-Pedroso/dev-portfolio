@@ -26,6 +26,8 @@ export const useProvideAuth = () => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
+    console.log('User logged', user);
+
     useEffect(() => {
         const storedUser = getItemsFromLocalStorage('user');
         if (storedUser) {
@@ -171,6 +173,7 @@ export const useProvideAuth = () => {
 
 // Potion context
 interface Potion {
+    _id?: string;
     owner?: string;
     name: string;
     description: string;
@@ -235,13 +238,28 @@ export const useProvidePotions = () => {
     const getAllPotions = async () => {
         try {
             const { data } = await axios.get(`${API_BASE_URL}/all-potions`);
-            console.log('Potions', data.data);
-            setPotions(data.data);
+            console.log('Potions', data.data.slice(0, 5));
+            setPotions(data.data.slice(0, 10));
             setItemsInLocalStorage('potions', JSON.stringify(data.data));
 
             return { success: true, message: 'Potions fetched successfully' };
         } catch (error: any) {
             console.log(error);
+        }
+    }
+
+    const deletePotion = async (_id: Potion) => {
+        try {
+            const { data } = await axios.delete(`${API_BASE_URL}/delete-potion/${_id}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            console.log('Potion deleted:', data);
+            return { success: true, message: 'Potion deleted successfully' };
+        } catch (error: any) {
+            console.error('Failed to delete potion:', error);
+            return { success: false, message: 'Failed to delete potion' };
         }
     }
 
@@ -255,6 +273,7 @@ export const useProvidePotions = () => {
         getAllPotions,
         getUserPotions,
         addPotion,
+        deletePotion,
         loading
     }
 }

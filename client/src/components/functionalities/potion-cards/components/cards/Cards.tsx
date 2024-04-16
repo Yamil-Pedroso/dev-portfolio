@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react'
+import { Toaster, toast } from 'sonner'
 import { Container, Card, CardWrapper, CardImgDescription } from './styles'
 import { useAuth, usePotions } from '../../hook'
 import { IPotion } from '../../providers/PotionProvider'
 import PotionDetail from '../potion-detail/PotionDetail'
-interface User {
-  name: string
-  email: string
-  password: string
-  _id: string
-  avatar: string
-}
+import { to } from '@react-spring/three'
 
 const Cards = () => {
   const [myPotions, setMyPotions] = useState<IPotion[] | null>(null)
@@ -40,9 +35,8 @@ const Cards = () => {
 
   if (!myPotions) {
     return <div>
-      {
-        loading ? 'Loading...' : 'No potions found'
-      }
+      <Toaster />
+      <h2>Loading...</h2>
     </div>;
 }
 
@@ -52,7 +46,15 @@ const Cards = () => {
       {selectedPotion ? (
         <div>
           <PotionDetail potion={selectedPotion} />
-          <button onClick={handleBackToList}>Back to List</button>
+          <button 
+            style={{
+              backgroundColor: 'green',
+              color: 'white',
+              padding: '1rem',
+              borderRadius: '5px',
+              marginTop: '1rem',
+            }}
+          onClick={handleBackToList}>Back to List</button>
         </div>
       ) : (
         <div>

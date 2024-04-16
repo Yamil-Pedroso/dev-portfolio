@@ -11,12 +11,7 @@ import {
 } from './styles';
 
 const Navbar: React.FC = () => {
-  const { user, logout } = useAuth() as any;
-
-  const handleLogout = () => {
-    logout();
-  };
-
+  const { user } = useAuth() as any;
   return (
     <Container>
       <UlList>
@@ -40,7 +35,6 @@ const Navbar: React.FC = () => {
           )}
         </LiList>
       </UlList>
-      <button onClick={handleLogout}>Logout</button>
     </Container>
   );
 };

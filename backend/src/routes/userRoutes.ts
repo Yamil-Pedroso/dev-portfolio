@@ -15,6 +15,8 @@ import {
     updateUser,
     uploadAvatar,
     deleteUser,
+    forgotPassword,
+    resetPassword,
 } from '../controllers/userController';
 import { isLoggedIn } from '../middlewares/user';
 
@@ -25,6 +27,8 @@ router.get('/logout', logoutUser);
 router.put('/update/:id', upload.single('avatar'), updateUser);
 router.post('/upload-avatar', upload.single('avatar'), uploadAvatar);
 router.delete('/delete/:id', deleteUser);
+router.post('/forgot-password', forgotPassword);
+router.put('/reset-password/:resetToken', resetPassword);
 
 
 export default router;

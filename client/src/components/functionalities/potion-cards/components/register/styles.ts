@@ -10,8 +10,8 @@ export const Container = styled.div`
     background-color: #131314;
     border-radius: 5px;
     width: 18rem;
-    height: 18rem;
-    margin: 5rem auto;
+    height: 25rem;
+    margin: -2rem auto;
     position: relative;
 `;
 

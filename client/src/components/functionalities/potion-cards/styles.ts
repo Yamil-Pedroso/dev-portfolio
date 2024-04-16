@@ -99,3 +99,20 @@ export const HeaderContentWrapper = styled.div`
       bottom: 6rem;
     }
 `;
+
+export const Button = styled.button`
+  width: 6rem;
+  height: 3rem;
+  margin-left: 1rem;
+  display: block;
+  background: #88419c;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background: #7b42dd;
+  }
+`;

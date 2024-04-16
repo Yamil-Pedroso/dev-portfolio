@@ -1,7 +1,22 @@
 import { useState, useEffect } from 'react'
 import { IPotion } from '../../providers/PotionProvider'
 import { usePotions, useAuth } from '../../hook'
-import { ToastContainer, toast } from 'react-toastify';
+//import { ToastContainer, toast } from 'react-toastify';
+import { Toaster, toast } from 'sonner'
+import { Container } from './styles'
+
+// ...
+
+function App() {
+  return (
+    <div>
+      <Toaster />
+      <button onClick={() => toast('My first toast')}>
+        Give me a toast
+      </button>
+    </div>
+  )
+}
 import 'react-toastify/dist/ReactToastify.css';
 
 interface PotionDetailProps {
@@ -9,9 +24,17 @@ interface PotionDetailProps {
   }
   
   const PotionDetail: React.FC<PotionDetailProps> = ({ potion }) => {
+    const [addBtnActive, setAddBtnActive] = useState(false)
     const { addPotion } = usePotions() as any;
     const { user } = useAuth() as any;
+    console.log('user logged', user);
 
+    useEffect(() => {
+      if (user) {
+        setAddBtnActive(true)
+      }
+    }
+    , [user])
 
     const handleAddToMagicBox = async () => {
       const response = await addPotion({
@@ -28,21 +51,44 @@ interface PotionDetailProps {
   
 
     return (
-      <div>
+      <Container>
+        <div>
         <h2>{potion.name}</h2>
         <p>{potion.description}</p>
+
+        </div>
         <img src={potion.image} alt={potion.name} />
 
-        
+        {
+          !user && (
+            <div
+              style={{
+                width: '12rem',
+                marginTop: '3rem',
+                color: '#757575',
+              }}
+            >
+              <p>
+                Hey friend, if you want to add this potion to your magic box, you have to login first.
+              </p>
+            </div>
+          )
+        }
         <button
           onClick={handleAddToMagicBox}
-          style={{ backgroundColor: 'green', color: 'white' }}
+          style={{  display: addBtnActive ? 'block' : 'none',
+            backgroundColor: 'green', color: 'white' ,
+            padding: '1rem',
+            borderRadius: '5px',
+          }}
         >
           Add potion
         </button>
 
-        <ToastContainer />
-      </div>
+        <Toaster
+         position="top-right"
+         />
+      </Container>
     );
   };
 

@@ -6,7 +6,7 @@ const UpdatePassword = () => {
       <PasswordIconWrapper>
         <PasswordIcon />
       </PasswordIconWrapper>
-      <HeaderTitle><span>Forgot</span> Password</HeaderTitle>
+      <HeaderTitle><span>Update</span> Password</HeaderTitle>
       <form>
         <InputWrapper>
            <Input type="text" placeholder="Old Password" />
