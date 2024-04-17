@@ -7,10 +7,19 @@ const Container = styled.div`
   align-items: center;
   margin-top: 8rem;
 `
-const LoginPage = () => {
+
+interface ILoginFormProps {
+  onRegisterClick: () => void
+}
+
+const LoginPage = (
+  { onRegisterClick }: ILoginFormProps
+) => {
   return (
     <Container>
-        <LoginForm />
+        <LoginForm 
+          onRegisterClick={() => onRegisterClick()}
+         />
     </Container>
   )
 }

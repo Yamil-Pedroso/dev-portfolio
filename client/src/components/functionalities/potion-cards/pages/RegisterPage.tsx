@@ -9,10 +9,16 @@ const Container = styled.div`
   margin-top: 8rem;
 `
 
-const RegisterPage = () => {
+interface IRegisterFormProps {
+  onLoginClick: () => void
+}
+
+const RegisterPage = ({ onLoginClick }: IRegisterFormProps) => {
   return (
     <Container>
-        <RegisterForm />
+        <RegisterForm
+          onLoginClick={onLoginClick}
+         />
     </Container>
   )
 }

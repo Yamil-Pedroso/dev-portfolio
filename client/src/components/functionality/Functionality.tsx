@@ -173,7 +173,7 @@ const Functionality = () => {
   return (
     <Container>
       <div className="header-wrapper">
-        <p className="header-text">Come with me inside</p>
+        <p className="header-text">Mini projects</p>
         <h1>
           Used tech: <span>{headerText[activeTextIndex]}</span>
         </h1>

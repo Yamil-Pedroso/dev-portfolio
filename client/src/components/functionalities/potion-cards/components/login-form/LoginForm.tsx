@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuth } from '../../hook'
+import { Toaster, toast } from 'sonner'
 
 // Styled Components
 import {
@@ -15,15 +16,22 @@ import {
   ForgotPasswordText,
 } from './styles'
 
-const LoginForm = () => {
+interface ILoginFormProps {
+  onRegisterClick: () => void
+}
+
+const LoginForm = ({ onRegisterClick }: ILoginFormProps) => {
+
   const [formData, setFormData] = useState({ email: '', password: '' })
   const [formErrors, setFormErrors] = useState({
     email: false,
     password: false,
   })
   const { user, login, logout } = useAuth() as any
-  console.log('user logged', user)
 
+  const handleRegisterClick = () => {
+    onRegisterClick()
+  }
   const handleFormData = (e: any) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
@@ -42,19 +50,18 @@ const LoginForm = () => {
       return
     }
 
+    
+
     const response = await login(formData)
     if (response.success) {
       console.log('User logged in')
+      toast.success('User logged in')
     } else {
       console.log('Login failed: Invalid credentials')
 
       setFormErrors({ email: true, password: true })
     }
-  }
-
-  const handleLogout = async () => {
-    logout()
-    console.log('You are successfully logged out!')
+    setFormData({ email: '', password: '' })
   }
 
   return (
@@ -86,14 +93,19 @@ const LoginForm = () => {
         </InputWrapper>
         <LoginRegisterWrapper>
           <LoginBtn type="submit">LOGIN</LoginBtn>
-          <RegisterBtn>
+          <RegisterBtn
+            onClick={handleRegisterClick}
+          >
             <p>Register</p>
           </RegisterBtn>
         </LoginRegisterWrapper>
       </form>
-      <ForgotPasswordText>
+      {/*<ForgotPasswordText>
         <p>Forgot Password?</p>
-      </ForgotPasswordText>
+  </ForgotPasswordText>*/}
+    <Toaster
+      position="top-center"
+     />
     </Container>
   )
 }

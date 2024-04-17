@@ -14,6 +14,9 @@ export interface IAuthContext {
   user?: any;
   isLogged: boolean;
   isRegister: boolean;
+  setUser: (user: IUser) => void;
+  updateUser: (user: IUser) => void;
+  updateUserPassword: (password: string) => void;
   register: (name: string, email: string, password: string) => void;
   login: (email: string, password: string) => void;
   logout: () => void;
@@ -23,6 +26,9 @@ const initialState = {
   user: null,
   isLogged: false,
   isRegister: false,
+  setUser: () => {},
+  updateUser: () => {},
+  updateUserPassword: () => {},
   register: () => {},
   login: () => {},
   logout: () => {}

@@ -113,8 +113,6 @@ export const useProvideAuth = () => {
 
 
     const uploadAvatar = async (avatar: any) => {
-
-
         try {
             const formData = new FormData()
             formData.append('avatar', avatar)
@@ -136,7 +134,7 @@ export const useProvideAuth = () => {
 
     const updateUser = async (formData:any, id: string) => {
         try {
-            const { data } = await axios.put(`${API_BASE_URL}/user/${id}`, formData, {
+            const { data } = await axios.put(`${API_BASE_URL}/update/${id}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             if (data.success) {
@@ -149,6 +147,24 @@ export const useProvideAuth = () => {
             }
 
         } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const updateUserPassword = async (formData: any) => {
+        try {
+            const { data } = await axios.put(`${API_BASE_URL}/update-password`, formData, {
+                headers: {
+                    Authorization: `Bearer ${getItemsFromLocalStorage('token')}`,
+                },
+            });
+
+            if (data.success) {
+                return { success: true, message: 'Password updated successfully' };
+            } else {
+                return { success: false, message: 'Error updating password' };
+            }
+        } catch (error: any) {
             console.log(error);
         }
     }
@@ -167,7 +183,8 @@ export const useProvideAuth = () => {
         login,
         logout,
         uploadAvatar,
-        updateUser
+        updateUser,
+        updateUserPassword
     }
 }
 

@@ -7,6 +7,10 @@ import { v2 as cloudinary } from "cloudinary";
 import { Potion } from "../models/Potion";
 import transporter from "../utils/nodeMailer";
 
+interface AuthenticatedRequest extends Request {
+    user?: any
+}
+
 // Register a new user
 export const registerUser = async (req: Request, res: Response, next: NextFunction) => {
     const { name, email, password } = req.body;
@@ -55,7 +59,6 @@ export const getUsers = async (req: Request, res: Response) => {
 
 		const allUsers = await User.find().populate('potions', 'name description category price');
         
-
         res.status(200).json({ success: true, users: userCount, data: allUsers });
 	} catch (error: any) {
 		res.status(500).json({ msg: error.message });
@@ -72,14 +75,18 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
         }
 
         // Check for existing user
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).select('+password');
 
         if (!user) {
             throw new CustomError('Invalid credentials', 401);
         }
 
+        console.log("user", user.email, user.password);
         // Check if password matches
-        const isMatch = await (user as IUser).isValidatedPassword(password);
+        const enteredPassword = req.body.password.trim();
+        const isMatch = await bcrypt.compare(enteredPassword, user.password);
+
+        console.log("isMatch", isMatch);
 
         if (!isMatch) {
             throw new CustomError('Invalid credentials', 401);
@@ -127,16 +134,57 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
         }
 
         if (req.body.name) user.name = req.body.name;
+
+        if (req.body.email && req.body.email !== user.email) {
+            const existingUser = await User.findOne({ email: req.body.email });
+            if (existingUser) {
+                throw new CustomError('Email already in use.', 400);
+            }
+            user.email = req.body.email;
+        }
+
         if (req.body.password) {
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(req.body.password, salt);
         }
 
-
-        const updatedUser = await user.save() as IUser;
+        const updatedUser = await user.save();
 
         cookieToken(updatedUser, res);
+
     } catch (error: any) {
+        next(new CustomError(error.message, 500));
+    }
+};
+
+
+// Update user password
+export const updatePassword = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+        const user
+            = await User.findById(req.user.id).select('+password');
+
+        console.log("user", user);
+
+        if (!user) {
+            throw new CustomError('User not found', 404);
+        }
+
+        const isMatch = await user.isValidatedPassword(req.body.currentPassword);
+
+        if (!isMatch) {
+            throw new CustomError('Invalid credentials', 401);
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(req.body.newPassword, salt);
+
+        await user.save();
+
+        res.status(200).json({ success: true, data: 'Password updated successfully' });
+
+    }
+    catch (error: any) {
         next(new CustomError(error.message, 500));
     }
 };

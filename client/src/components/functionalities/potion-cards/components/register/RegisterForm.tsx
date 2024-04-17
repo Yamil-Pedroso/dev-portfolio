@@ -12,8 +12,13 @@ import {
   Title,
 } from './styles'
 import { useAuth } from '../../hook'
+import { Toaster, toast } from 'sonner'
 
-const RegisterForm = () => {
+interface IRegisterFormProps {
+  onLoginClick: () => void
+}
+
+const RegisterForm = ({ onLoginClick }: IRegisterFormProps) => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
@@ -28,6 +33,10 @@ const RegisterForm = () => {
     avatar: false,
   })
   const { register } = useAuth() as any
+
+  const handleLoginClick = () => {
+    onLoginClick()
+  }
 
   const handleFormData = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.type !== 'file') {
@@ -68,6 +77,7 @@ const RegisterForm = () => {
     const response = await register(formData)
     if (response.success) {
       console.log('User registered')
+      toast.success('User registered')
       //setRedirect(true)
       //closeUserForm()
     } else {
@@ -75,6 +85,13 @@ const RegisterForm = () => {
         "Couldn't register user, this user may already exist or there was an error",
       )
     }
+
+    setFormData({
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+    })
   }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -136,11 +153,20 @@ const RegisterForm = () => {
         <LoginRegisterWrapper>
           <RegisterBtn type="submit">REGISTER</RegisterBtn>
 
-          <LoginBtn>
+          <LoginBtn
+            onClick={ (e) => {
+              e.preventDefault()
+              handleLoginClick()
+            }}
+          >
             <p>Login</p>
           </LoginBtn>
         </LoginRegisterWrapper>
       </form>
+      <Toaster 
+        position="top-center"
+      
+      />
     </Container>
   )
 }

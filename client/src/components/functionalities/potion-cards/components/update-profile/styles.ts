@@ -79,10 +79,15 @@ export const Input = styled.input`
     background-color: #1f1f1f;
     color: #bdbdbd;
     font-size: 16px;
+    position: relative;
 
     &::placeholder {
         margin: 0;
         padding: 0;
+    }
+   
+     &[type="file"] {
+        opacity: 1;
     }
 `;
 

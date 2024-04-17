@@ -164,7 +164,7 @@ const Profile: React.FC = () => {
         top: '16.5rem',
         height: 'auto',
       }}>
-        {userPotions && userPotions.length > 0 && (
+          {user && userPotions && userPotions.length > 0 && (
           <div>
               
             <div style={{
@@ -208,6 +208,8 @@ const Profile: React.FC = () => {
           </div>
         )
         }
+
+   
       </div>
       <Toaster
         position="bottom-center"
