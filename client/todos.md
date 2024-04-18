@@ -1,4 +1,4 @@
-Todo's
+Todo's "Potion bottle auth"
 [x] --- Active color menu
 [x] --- isLoging ? logout-item : login-item && register-item
 [o] --- Login form, if user click register btn go to register -- doing (70%)

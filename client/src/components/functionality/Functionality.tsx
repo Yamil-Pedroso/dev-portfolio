@@ -1,13 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container } from "./styles";
-import { potionBg, basketFruits, download, bookStack } from "../../assets/index";
+import { potionBg, basketFruits, download, bookStack, cinema, gameConsole } from "../../assets/index";
 import { FaDoorOpen } from "react-icons/fa";
 
 import PotionCardMain from "../functionalities/potion-cards/PotionCardMain";
 import DragAndDrop from "../functionalities/drag-and-drop/DragAndDrop";
 import InfiniteScroll from "../functionalities/infinite-scroll/InfiniteScroll";
 import BookDataApp from "../functionalities/book-data/BookDataApp";
+import MovieData from "../functionalities/movie-data/MovieData";
+import LandingPage from "../functionalities/landingpage-split-stripe/LandingPage";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { TbHandFinger } from "react-icons/tb";
 
 const contentBoxIndex = [
   {
@@ -28,11 +31,11 @@ const contentBoxIndex = [
   },
   {
     id: 5,
-    content: "Content Box 5",
+    content: <MovieData />,
   },
   {
     id: 6,
-    content: "Content Box 6",
+    content: <LandingPage />,
   },
   {
     id: 7,
@@ -79,13 +82,13 @@ const cardContent = [
     },
     {
       id: 5,
-      content: "Content Box 5",
-      icon : potionBg
+      content: "Fetch Movie API",
+      icon : cinema
     },
     {
       id: 6,
-      content: "Content Box 6",
-      icon : potionBg
+      content: "Buy console with Stripe",
+      icon : gameConsole
     },
     {
       id: 7,
@@ -123,6 +126,24 @@ const Functionality = () => {
   const [closeBox, setCloseBox] = useState(false);
   const [currentBoxIndex, setCurrentBookIndex] = useState(0)
   const headerText = ["Node", "React", "Typescript", "MongoDB", "Express", "SQL"];
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (cardsRef.current && !cardsRef.current.contains(event.target as Node)) {
+        setClickedBoxIndex(null); 
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [
+    cardsRef,
+    setClickedBoxIndex,
+  ]);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -145,8 +166,10 @@ const Functionality = () => {
   };
 
   const handleClick = (index: any) => {
+  
     if (clickedBoxIndex === index) {  
       handleBoxClose();
+      setClickedBoxIndex(null);
     } else {
       setClickedBoxIndex(index);  
     }
@@ -186,13 +209,20 @@ const Functionality = () => {
         {cardContent.
           slice(currentBoxIndex, currentBoxIndex + limitBoxs).
           map((item, i) => (
-          <div
+            <div
             onMouseEnter={() => handleMouseEnter(i)}
             onMouseLeave={handleMouseLeave}
             key={item.id}
             className="card"
             onClick={() => handleClick(i)}
-          >
+            >
+            {
+             clickedBoxIndex === i && (
+               <TbHandFinger className="hand-icon"
+               
+                />
+             )
+            }
             <p className={`card-text ${hoveredIndex === i ? "visible" : ""}`}>
               {cardContent[i].content}
             </p>

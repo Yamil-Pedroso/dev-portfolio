@@ -43,10 +43,10 @@ export const Widget = styled.div`
 `;
 
 export const DropZone = styled.div`
-    width: 20rem;
+    width: 22rem;
     height: 22rem;
     border: 2px solid #2d434d;
-    overflow: hidden;
+    overflow-y: scroll;
 
     h2 {
         text-align: center;
@@ -57,6 +57,12 @@ export const DropZone = styled.div`
     div {
         margin: 0.5rem;
     }
+`;
+
+export const DragItemWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const DragItem = styled.div`

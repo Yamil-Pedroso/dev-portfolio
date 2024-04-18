@@ -67,7 +67,9 @@ import potionBg from "./bg/potion.jpg";
 import basketFruits from "./bg/basket-fruits.jpg";
 import download from "./bg/download.jpg";
 import bookStack from "./bg/book-stack.jpg";
+import gameConsole from "./bg/game-console.jpg";
 import game from "./game.jpg";
+import cinema from "./bg/cinema.jpg";
 
 import chess from "./chess.png";
 import zudoku from "./zudoku.png";
@@ -161,6 +163,8 @@ export {
   basketFruits,
   bookStack,
   download,
+  cinema,
+  gameConsole,
   game,
   pc,
   exp1,

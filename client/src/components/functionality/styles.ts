@@ -19,11 +19,20 @@ const borderAnimation = keyframes`
 `;
   
 
+const moveUpDownHandIcon = keyframes`
+    0%, 100% {
+        transform: translateY(0) rotate(180deg);
+    }
+    50% {
+        transform: translateY(-10%) rotate(180deg);
+    }
+
+`;
 
 const leftToRightWidth = keyframes`
     from {
         width: 0;
-        background-color: #e9a13b; // Color de la animación
+        background-color: #e9a13b;
     }
     to {
         width: 100%;
@@ -105,6 +114,8 @@ export const Container = styled.div`
             color: #b7b7b7;
         }
     }
+    
+   
     .card-wrapper {
         display: flex;
         justify-content: center;
@@ -113,6 +124,7 @@ export const Container = styled.div`
         gap: 1rem;
         margin-top: 2.5rem;
         width: 60%;
+
 
 
         .card {
@@ -125,9 +137,20 @@ export const Container = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+           
             transform: none !important;
             position: relative;
+            cursor: pointer;
+
+            .hand-icon {
+             position: absolute;
+             bottom: -2rem;
+             right: 0;
+             font-size: 4rem;
+             color: #4ac3a7;
+             z-index: 2;
+             animation: ${moveUpDownHandIcon} 1s infinite;   
+           }
 
             img {
                 width: 100%;
