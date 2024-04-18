@@ -7,52 +7,63 @@ const UpdatePassword = () => {
   const {user, updateUserPassword } = useAuth() as any
 
   const [formData, setFormData] = useState({
-    oldPassword: '',
+   currentPassword: '',
     newPassword: ''
   })
 
   const [formErrors, setFormErrors] = useState({
-    oldPassword: false,
+    currentPassword: false,
     newPassword: false
   })
 
-  const handleFormData = async (e: any) => {
-    const { name, value } = e.target
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = await updateUserPassword(formData);
+    if (data.success) {
+      toast.success(data.message);
+      toast.success('Password updated successfully');
+    } else {
+      toast.error(data.message);
+      toast.error("Error updating password");
+    }
+
+    setFormData({
+      currentPassword: '',
+      newPassword: ''
+    });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
     setFormData(prevFormData => ({
       ...prevFormData,
       [name]: value
-    }))
-
-    const data = await updateUserPassword(formData)
-    if (data.success) {
-       
-      toast.success(data.message)
-    } else {
-      toast.error(data.message)
-    }
-  }
-
+    }));
+  };
+  
   return (
     <Container>
       <PasswordIconWrapper>
         <PasswordIcon />
       </PasswordIconWrapper>
       <HeaderTitle><span>Update</span> Password</HeaderTitle>
-      <form>
+      <form
+        onSubmit={handleSubmit}
+      >
         <InputWrapper>
-           <Input type="text" 
+           <Input type="password" 
             placeholder="Current Password" 
-            name="oldPassword" 
-            value={formData.oldPassword} 
-            onChange={handleFormData}
+            name="currentPassword" 
+            value={formData.currentPassword}
+            onChange={handleInputChange}
            />
         </InputWrapper>
         <InputWrapper>
-          <Input type="text" 
+          <Input type="password" 
             placeholder="New Password" 
             name="newPassword" 
             value={formData.newPassword} 
-            onChange={handleFormData}
+            onChange={handleInputChange}
           />
         </InputWrapper>
         <UpdatePasswordBtnWrapper>

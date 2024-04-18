@@ -151,7 +151,7 @@ export const useProvideAuth = () => {
         }
     }
 
-    const updateUserPassword = async (formData: any) => {
+    const updateUserPassword = async (formData: { currentPassword: string; newPassword: string }) => {
         try {
             const { data } = await axios.put(`${API_BASE_URL}/update-password`, formData, {
                 headers: {

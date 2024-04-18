@@ -16,7 +16,10 @@ export interface IAuthContext {
   isRegister: boolean;
   setUser: (user: IUser) => void;
   updateUser: (user: IUser) => void;
-  updateUserPassword: (password: string) => void;
+  updateUserPassword: (
+    currentPassword: string,
+    newPassword: string
+  ) => void;
   register: (name: string, email: string, password: string) => void;
   login: (email: string, password: string) => void;
   logout: () => void;

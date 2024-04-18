@@ -46,6 +46,7 @@ const LoginForm = ({ onRegisterClick }: ILoginFormProps) => {
 
     if (!formData.email || !formData.password) {
       setFormErrors({ email: !formData.email, password: !formData.password })
+      toast.error('Please fill in all fields')
       console.log('Login failed: Missing fields')
       return
     }
@@ -57,6 +58,7 @@ const LoginForm = ({ onRegisterClick }: ILoginFormProps) => {
       console.log('User logged in')
       toast.success('User logged in')
     } else {
+      toast.error('Your email or password is incorrect')
       console.log('Login failed: Invalid credentials')
 
       setFormErrors({ email: true, password: true })

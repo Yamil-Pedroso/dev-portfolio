@@ -7,7 +7,7 @@ Todo's
 [x] --- isRegister redirect to Home
 [x] --- isLoggued out redirect Login
 [x] --- Update profile func
-[] --- Update password func
+[x] --- Update password func
 [] --- Choose file, change UI
 [x] --- Style "Add potion" btn and "Back to list" btn
 

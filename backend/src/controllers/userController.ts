@@ -19,7 +19,7 @@ export const registerUser = async (req: Request, res: Response, next: NextFuncti
             throw new CustomError("Please fill in all fields", 400);
         }
 
-        let user = await User.findOne({ email });
+        let user = await User.findOne({ email }) as any;
 
         if (user) {
             throw new CustomError("User already exists", 400);
@@ -75,7 +75,7 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
         }
 
         // Check for existing user
-        const user = await User.findOne({ email }).select('+password');
+        const user = await User.findOne({ email }).select('+password') as any;
 
         if (!user) {
             throw new CustomError('Invalid credentials', 401);
@@ -84,7 +84,7 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
         console.log("user", user.email, user.password);
         // Check if password matches
         const enteredPassword = req.body.password.trim();
-        const isMatch = await bcrypt.compare(enteredPassword, user.password);
+        const isMatch = await (user as IUser).isValidatedPassword(password);
 
         console.log("isMatch", isMatch);
 
@@ -119,7 +119,7 @@ export const uploadAvatar = async (req: Request, res: Response, next: NextFuncti
 // Update user
 export const updateUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = await User.findById(req.params.id);
+        const user = await User.findById(req.params.id) as any;
 
         if (!user) {
             throw new CustomError('User not found', 404);
@@ -161,10 +161,10 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
 // Update user password
 export const updatePassword = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-        const user
-            = await User.findById(req.user.id).select('+password');
-
+        const user = await User.findById(req.user.id).select('+password');
         console.log("user", user);
+
+        console.log("user", req.user);
 
         if (!user) {
             throw new CustomError('User not found', 404);
@@ -177,9 +177,24 @@ export const updatePassword = async (req: AuthenticatedRequest, res: Response, n
         }
 
         const salt = await bcrypt.genSalt(10);
+        if (!salt) {
+            throw new CustomError('Error generating salt', 500);
+        }
         user.password = await bcrypt.hash(req.body.newPassword, salt);
 
-        await user.save();
+        if (!req.body.newPassword) {
+            throw new CustomError('New password is required', 400);
+        }
+        
+
+
+        await User.findByIdAndUpdate(req.user.id, user, {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false,
+        });
+
+        console.log(user.password);
 
         res.status(200).json({ success: true, data: 'Password updated successfully' });
 
