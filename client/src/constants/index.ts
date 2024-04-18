@@ -56,6 +56,10 @@ import {
       title: "Work",
     },
     {
+      id: "mini-projects",
+      title: "Mini Projects",
+    },
+    {
       id: "projects",
       title: "Projects",
     },
