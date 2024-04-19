@@ -16,11 +16,12 @@ export const theme = {
 
 
 export const Container = styled.div`
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
-  position: relative;
+   margin-top: 20rem;
 
   .payment-box {
     position: absolute;
@@ -38,7 +39,7 @@ export const Container = styled.div`
   color: #fff;
   position: absolute;
   left: 50%;
-  top:50%;
+  top: 45%;
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap;
 }
@@ -46,7 +47,7 @@ export const Container = styled.div`
   .btn-buy {
     position: absolute;
     left: 50%;
-    top: 55%;
+    top: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
     color: #fff;
@@ -55,6 +56,7 @@ export const Container = styled.div`
     border-radius: 5px;
     transition: background 0.5s;
     pointer-events: auto;
+    cursor: pointer;
   }
 
   .split.left .btn-buy:hover {

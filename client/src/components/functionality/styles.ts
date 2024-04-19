@@ -201,6 +201,8 @@ export const Container = styled.div`
     .box-wrapper {
         position: relative;
         
+      
+        
         .door-icon {
             position: absolute;
             top: 3rem;
@@ -210,7 +212,7 @@ export const Container = styled.div`
             cursor: pointer;
         }
         
-        .box-content {
+    .box-content {
         width: 60rem;
         height: 40rem;
         padding: 1rem;
@@ -221,6 +223,7 @@ export const Container = styled.div`
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         overflow-y: scroll;
         display: none;
+        position: relative;
 
         &.active {
             display: block;

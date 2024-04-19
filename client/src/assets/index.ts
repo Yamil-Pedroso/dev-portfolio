@@ -75,6 +75,8 @@ import chess from "./chess.png";
 import zudoku from "./zudoku.png";
 import map from "./map.png";
 import pc from "./pc.jpg";
+import play5 from "./console/play5.jpg";
+import xbox from "./console/xbox.jpg";
 
 import exp1 from "./card-img/exp-1.jpg";
 import exp2 from "./card-img/exp-2.jpg";
@@ -167,6 +169,8 @@ export {
   gameConsole,
   game,
   pc,
+  play5,
+  xbox,
   exp1,
   exp2,
   exp3,
