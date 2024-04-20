@@ -9,6 +9,9 @@ import cookieParser from 'cookie-parser';
 import cookieSession from 'cookie-session';
 import connectDB from './config/db';
 import { v2 as cloudinary } from 'cloudinary';
+import { Server } from 'socket.io';
+import { createServer } from 'node:http';
+import http from 'http';
 import routes from './routes/index'
 
 dotenv.config({
@@ -49,10 +52,43 @@ app.use(
     }),
   )
 
+  app.use((req, res, next) => {
+    console.log(req.url);  // Log every request to the server
+    next();
+});
 
+// Socket.io
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: process.env.CLIENT_URL,
+        methods: ["GET", "POST"]
+    }
+});
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+
+    socket.on('chat-message', (msg) => {
+        io.emit('chat-message', msg);
+    });
+});
+
+app.use('/api/v1', routes)
+
+server.listen(PORT, () => {
+  console.log(`The api is running on ${PORT}`)
+
+}).on ('error', (err: any) => {
+    console.log('Failed to start server:', err)
+})
 
 //Routes
-app.use('/api/v1', routes)
+
 
 // JSON
 //app.use('/', (req: Request, res: Response) => {
@@ -102,6 +138,3 @@ app.use('/api/v1', routes)
 
 
 
-app.listen(PORT, () => {
-    console.log(`The api is running on ${PORT}`)
-})

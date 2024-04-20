@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Container } from "./styles";
-import { potionBg, basketFruits, download, bookStack, cinema, gameConsole } from "../../assets/index";
+import { potionBg, basketFruits, download, bookStack, cinema, gameConsole, chat } from "../../assets/index";
 import { FaDoorOpen } from "react-icons/fa";
 
 import PotionCardMain from "../functionalities/potion-cards/PotionCardMain";
@@ -9,6 +9,7 @@ import InfiniteScroll from "../functionalities/infinite-scroll/InfiniteScroll";
 import BookDataApp from "../functionalities/book-data/BookDataApp";
 import MovieData from "../functionalities/movie-data/MovieData";
 import LandingPage from "../functionalities/landingpage-split-stripe/LandingPage";
+import ChatApp from "../functionalities/realtime-chat/ChatApp";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { TbHandFinger } from "react-icons/tb";
 
@@ -39,7 +40,7 @@ const contentBoxIndex = [
   },
   {
     id: 7,
-    content: "Content Box 7",
+    content: <ChatApp />,
   },
   {
     id: 8,
@@ -92,8 +93,8 @@ const cardContent = [
     },
     {
       id: 7,
-      content: "Content Box 7",
-      icon : potionBg
+      content: "Realtime Chat",
+      icon : chat
     },
     {
       id: 8,

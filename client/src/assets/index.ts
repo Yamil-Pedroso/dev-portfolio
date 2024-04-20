@@ -70,6 +70,7 @@ import bookStack from "./bg/book-stack.jpg";
 import gameConsole from "./bg/game-console.jpg";
 import game from "./game.jpg";
 import cinema from "./bg/cinema.jpg";
+import chat from "./bg/chat.jpg";
 
 import chess from "./chess.png";
 import zudoku from "./zudoku.png";
@@ -166,6 +167,7 @@ export {
   bookStack,
   download,
   cinema,
+  chat,
   gameConsole,
   game,
   pc,

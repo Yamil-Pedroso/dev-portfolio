@@ -10,6 +10,12 @@ Todo's "Potion bottle auth"
 [x] --- Update password func
 [] --- Choose file, change UI
 [x] --- Style "Add potion" btn and "Back to list" btn
+[] --- Check Register option link
+
+Todo's filter books ---> complete the funcs
+
+Todo's Buy console with stripe
+[] --- Add console props to stripe component
 
 ##Tech to learn
 ---- Angular ---- doing
