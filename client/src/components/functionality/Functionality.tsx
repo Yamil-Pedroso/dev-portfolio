@@ -44,24 +44,24 @@ const contentBoxIndex = [
   },
   {
     id: 8,
-    content: "Content Box 8",
+    content: 'Content Box 8',
   },
   {
     id: 9,
-    content: "Content Box 9",
+    content: 'Content Box 9',
   },
   {
     id: 10,
-    content: "Content Box 10",
+    content: 'Content Box 10',
   },
   {
     id: 11,
-    content: "Content Box 11",
+    content: 'Content Box 11',
   },
-];
+]
 
 const cardContent = [
-   {
+  {
     id: 1,
     content: "Collect Potions",
     icon : potionBg
@@ -117,82 +117,86 @@ const cardContent = [
       icon : potionBg
     }
 ];
-
-const limitBoxs = 8;
+const limitBoxs = 8
 
 const Functionality = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [activeTextIndex, setActiveTextIndex] = useState(0);
-  const [clickedBoxIndex, setClickedBoxIndex] = useState(null);
-  const [closeBox, setCloseBox] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [activeTextIndex, setActiveTextIndex] = useState(0)
+  const [clickedBoxIndex, setClickedBoxIndex] = useState(null)
+  const [closeBox, setCloseBox] = useState(false)
   const [currentBoxIndex, setCurrentBookIndex] = useState(0)
-  const headerText = ["Node", "React", "Typescript", "MongoDB", "Express", "SQL"];
-  const cardsRef = useRef<HTMLDivElement>(null);
+  const headerText = [
+    'Node',
+    'React',
+    'Typescript',
+    'MongoDB',
+    'Express',
+    'SQL',
+  ]
+  const cardsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (cardsRef.current && !cardsRef.current.contains(event.target as Node)) {
-        setClickedBoxIndex(null); 
+      if (
+        cardsRef.current &&
+        !cardsRef.current.contains(event.target as Node)
+      ) {
+        setClickedBoxIndex(null)
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [
-    cardsRef,
-    setClickedBoxIndex,
-  ]);
-
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [cardsRef, setClickedBoxIndex])
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveTextIndex((prevIndex) => (prevIndex + 1) % headerText.length);
-    }, 6000);
+      setActiveTextIndex((prevIndex) => (prevIndex + 1) % headerText.length)
+    }, 6000)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   const handleBoxClose = () => {
-    setClickedBoxIndex(null);
-  };
+    setClickedBoxIndex(null)
+  }
 
   const handleMouseEnter = (index: any) => {
-    setHoveredIndex(index);
-  };
+    setHoveredIndex(index)
+  }
 
   const handleMouseLeave = () => {
-    setHoveredIndex(null);
-  };
+    setHoveredIndex(null)
+  }
 
   const handleClick = (index: any) => {
-  
-    if (clickedBoxIndex === index) {  
-      handleBoxClose();
-      setClickedBoxIndex(null);
+    if (clickedBoxIndex === index) {
+      handleBoxClose()
+      setClickedBoxIndex(null)
     } else {
-      setClickedBoxIndex(index);  
+      setClickedBoxIndex(index)
     }
-  };
+  }
 
   const handleBoxNext = () => {
-    const nextIndex = currentBoxIndex + limitBoxs;
-  if (nextIndex < cardContent.length) {
-    setCurrentBookIndex(nextIndex);
-  } else {
-    setCurrentBookIndex(cardContent.length - (cardContent.length % limitBoxs));
+    const nextIndex = currentBoxIndex + limitBoxs
+    if (nextIndex < cardContent.length) {
+      setCurrentBookIndex(nextIndex)
+    } else {
+      setCurrentBookIndex(cardContent.length - (cardContent.length % limitBoxs))
+    }
   }
-  };
 
   const handleBoxBack = () => {
-    const prevIndex = currentBoxIndex - limitBoxs;
-  if (prevIndex >= 0) {
-    setCurrentBookIndex(prevIndex);
-  } else {
-    setCurrentBookIndex(0);
+    const prevIndex = currentBoxIndex - limitBoxs
+    if (prevIndex >= 0) {
+      setCurrentBookIndex(prevIndex)
+    } else {
+      setCurrentBookIndex(0)
+    }
   }
-  };
 
   return (
     <Container id="mini-projects">
@@ -207,56 +211,56 @@ const Functionality = () => {
         </p>
       </div>
       <div className="card-wrapper">
-        {cardContent.
-          slice(currentBoxIndex, currentBoxIndex + limitBoxs).
-          map((item, i) => (
+        {cardContent
+          .slice(currentBoxIndex, currentBoxIndex + limitBoxs)
+          .map((item, i) => (
             <div
-            onMouseEnter={() => handleMouseEnter(i)}
-            onMouseLeave={handleMouseLeave}
-            key={item.id}
-            className="card"
-            onClick={() => handleClick(i)}
+              onMouseEnter={() => handleMouseEnter(i)}
+              onMouseLeave={handleMouseLeave}
+              key={item.id}
+              className="card"
+              onClick={() => handleClick(i)}
             >
-            {
-             clickedBoxIndex === i && (
-               <TbHandFinger className="hand-icon"
-               
-                />
-             )
-            }
-            <p className={`card-text ${hoveredIndex === i ? "visible" : ""}`}>
-              {cardContent[i].content}
-            </p>
-            <img src={
-              cardContent[i].icon
-            } alt="game" />
-            <div className="card-content"></div>
-          </div>
-        ))}
+              {clickedBoxIndex === i && <TbHandFinger className="hand-icon" />}
+              <p className={`card-text ${hoveredIndex === i ? 'visible' : ''}`}>
+                {cardContent[i].content}
+              </p>
+              <img src={cardContent[i].icon} alt="game" />
+              <div className="card-content"></div>
+            </div>
+          ))}
       </div>
-        <div className="arrow-wrapper">
-          <FaArrowAltCircleLeft size={48} className="arrow" onClick={handleBoxBack} />
-          <FaArrowAltCircleRight size={48} className="arrow" onClick={handleBoxNext} />
-        </div>
+      <div className="arrow-wrapper">
+        <FaArrowAltCircleLeft
+          size={48}
+          className="arrow"
+          onClick={handleBoxBack}
+        />
+        <FaArrowAltCircleRight
+          size={48}
+          className="arrow"
+          onClick={handleBoxNext}
+        />
+      </div>
       <div className="box-wrapper">
         {contentBoxIndex.map((content, index) => (
           <div
             key={index}
             className={`box-content ${
-              clickedBoxIndex === index ? "active" : ""
+              clickedBoxIndex === index ? 'active' : ''
             }`}
           >
             <div className="box">
               <h1>
                 {clickedBoxIndex === index && <span>{content.content}</span>}
-              <FaDoorOpen className="door-icon" onClick={handleBoxClose} />
+                <FaDoorOpen className="door-icon" onClick={handleBoxClose} />
               </h1>
             </div>
           </div>
         ))}
       </div>
     </Container>
-  );
-};
+  )
+}
 
-export default Functionality;
+export default Functionality
