@@ -17,6 +17,11 @@ Todo's filter books ---> complete the funcs
 Todo's Buy console with stripe
 [] --- Add console props to stripe component
 
+Todo's Chat realtime
+[] --- Create and client to each browser chat
+[] --- If the sender continues sending messages, then will have the same color of the backgroun and text, and his/her icon
+[] --- Improve the Chat UI and UX
+
 ##Tech to learn
 ---- Angular ---- doing
 ---- SQL ---- doing

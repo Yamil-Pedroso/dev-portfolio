@@ -5,15 +5,14 @@ export const Section = styled.section`
     flex-direction: column;
     width: 25rem;
     height: 40vh;
-    position: relative;
-    
+    position: absolute;
+    bottom: 0;
 `;
 
 export const Form = styled.form`
     width: 100%;
     display: flex;
-    top: 0;
-    left: 30rem;
+    bottom: 0;
     padding: 20px 30px;
     position: absolute;
 `;

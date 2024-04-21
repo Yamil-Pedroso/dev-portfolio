@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { Message, IChat } from '../models/Chat';
+import { io } from '../server';
 
 export const getMessages = async (req: Request, res: Response) => {
     try {
@@ -29,6 +30,7 @@ export const createMessage = async (req: Request, res: Response) => {
         }
 
         const newMessage = await Message.create({ message, sender });
+        io.emit('chat-message', newMessage);
         res.status(201).json(newMessage); 
     } catch (error) {
         if (error instanceof Error) {

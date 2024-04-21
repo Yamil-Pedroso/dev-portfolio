@@ -5,20 +5,21 @@ import { Message } from "../../../../types/types";
 
 interface MyFormProps {
     addMessageToChat: (message: Message) => void;
+    senderId: string;
 }
 
-const MyForm: React.FC<MyFormProps> = ({ addMessageToChat }) => {
+const MyForm: React.FC<MyFormProps> = ({ addMessageToChat, senderId }) => {
     const [message, setMessage] = useState<string>("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const sender = "defaultSender"; 
+      
         if (message.trim()) {
             //const newMessage = {
             //    message,
             //    sender
             //};
-            const savedMessage = await sendMessage(message, sender);
+            const savedMessage = await sendMessage(message, senderId);
             if (savedMessage) {
                 addMessageToChat(savedMessage);
                 setMessage("");

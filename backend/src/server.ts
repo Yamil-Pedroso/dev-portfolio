@@ -1,5 +1,6 @@
 import express from 'express';
 import { Request, Response } from 'express';
+import session from 'express-session';
 import morgan from 'morgan';
 import colors, { enable } from 'colors'
 import cors from 'cors';
@@ -12,6 +13,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import { Server } from 'socket.io';
 import { createServer } from 'node:http';
 import http from 'http';
+import { Message } from './models/Chat';
 import routes from './routes/index'
 
 dotenv.config({
@@ -59,7 +61,7 @@ app.use(
 
 // Socket.io
 const server = http.createServer(app);
-const io = new Server(server, {
+export const io = new Server(server, {
     cors: {
         origin: process.env.CLIENT_URL,
         methods: ["GET", "POST"]
@@ -73,8 +75,13 @@ io.on('connection', (socket) => {
         console.log('user disconnected');
     });
 
-    socket.on('chat-message', (msg) => {
-        io.emit('chat-message', msg);
+    socket.on('chat-message', async (msg) => {
+        try {
+            const newMessage = await Message.create(msg);  
+            io.emit('chat-message', newMessage);  
+        } catch (error) {
+            console.error("Failed to save message: ", error);
+        }
     });
 });
 
