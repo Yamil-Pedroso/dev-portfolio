@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Container } from "./styles";
-import { potionBg, basketFruits, download, bookStack, cinema, gameConsole, chat } from "../../assets/index";
+import { potionBg, basketFruits, download, bookStack, cinema, gameConsole, chat, upload } from "../../assets";
 import { FaDoorOpen } from "react-icons/fa";
 
 import PotionCardMain from "../functionalities/potion-cards/PotionCardMain";
@@ -10,6 +10,7 @@ import BookDataApp from "../functionalities/book-data/BookDataApp";
 import MovieData from "../functionalities/movie-data/MovieData";
 import LandingPage from "../functionalities/landingpage-split-stripe/LandingPage";
 import ChatApp from "../functionalities/realtime-chat/ChatApp";
+import DropFilesApp from "../functionalities/drop-files/DropFilesApp";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { TbHandFinger } from "react-icons/tb";
 
@@ -44,7 +45,7 @@ const contentBoxIndex = [
   },
   {
     id: 8,
-    content: 'Content Box 8',
+    content: <DropFilesApp />,
   },
   {
     id: 9,
@@ -98,8 +99,8 @@ const cardContent = [
     },
     {
       id: 8,
-      content: "Content Box 8",
-      icon : potionBg
+      content: "Drag and Drop",
+      icon : upload
     },
     {
       id: 9,

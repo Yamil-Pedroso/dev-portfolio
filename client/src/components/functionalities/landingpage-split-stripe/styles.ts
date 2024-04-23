@@ -33,6 +33,26 @@ export const Container = styled.div`
     text-align: center;
   }
 
+  .header-text {
+    color: #5469d4;
+  }
+
+  .sub-text {
+    margin-top: 1rem;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .stripe-card-text{
+      color: gray;
+    }
+
+    span {
+      color: gray;
+    }
+  }
+
   
 .title {
   font-size: 2rem;
@@ -117,6 +137,27 @@ export const Container = styled.div`
   .split.right::before,
   .split.left::before {
     transition: ${theme.animationSpeed};
+  }
+
+  .console-info {
+    flex-direction: column;
+    margin: 0 auto;
+    width: 20rem;
+    overflow: hidden;
+   
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 15rem;
+    }
+
+     div {
+       margin-top: 1rem;
+       p {
+         color: #5469d4;
+       }
+
+     }
   }
 
   @media (max-width: 768px) {

@@ -55,6 +55,7 @@ import porfolioTwo from "./portfolio-work/portfolioTwo.jpg";
 import porfolioThree from "./portfolio-work/portfolioThree.jpg";
 import porfolioFour from "./portfolio-work/portfolioFour.jpg";
 import portfolioFive from "./portfolio-work/portfolioFive.jpg";
+import travel from "./portfolio-work/travel.jpg";
 import yamiBlue2 from "./avatar/yami-blue2.jpg";
 import rocketLaunch from "./rocket-launch.png";
 import creative from "./creative.png";
@@ -71,6 +72,7 @@ import gameConsole from "./bg/game-console.jpg";
 import game from "./game.jpg";
 import cinema from "./bg/cinema.jpg";
 import chat from "./bg/chat.jpg";
+import upload from "./bg/upload.jpg";
 
 import chess from "./chess.png";
 import zudoku from "./zudoku.png";
@@ -148,6 +150,7 @@ export {
   porfolioThree,
   porfolioFour,
   portfolioFive,
+    travel,
   newArrival,
   filePython,
   csharp,
@@ -168,6 +171,7 @@ export {
   download,
   cinema,
   chat,
+  upload,
   gameConsole,
   game,
   pc,

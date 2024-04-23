@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import { m, motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { m, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import {
   react,
@@ -13,120 +13,129 @@ import {
   porfolioThree,
   porfolioFour,
   portfolioFive,
-} from '../assets'
+  travel,
+} from "../assets";
 
 const menu1 = [
   {
-    title: 'React-TS-Node',
-    content: 'Squib Company Ltd.',
-    color: 'bg-red-500',
+    title: "React-TS-Node",
+    content: "Squib Company Ltd.",
+    color: "bg-red-500",
     src: react,
-    link: 'https://www.squib.app',
+    link: "https://www.squib.app",
     image: porfolioOne,
   },
-]
+  {
+    title: "React-Google-Map",
+    content: "Travel Advisor",
+    src: react,
+    color: "bg-blue-500",
+    link: "https://travel-advisorv1.netlify.app/",
+    image: travel,
+  },
+];
 const menu2 = [
   {
-    title: 'Python 1',
-    content: 'New',
-    color: 'bg-red-500',
+    title: "Python 1",
+    content: "New",
+    color: "bg-red-500",
     src: filePython,
-    link: 'https://www.google.com',
+    link: "https://www.google.com",
   },
   {
-    title: 'Python 2',
-    content: 'New',
+    title: "Python 2",
+    content: "New",
     src: filePython,
-    color: 'bg-blue-500',
-    link: 'https://www.google.com',
+    color: "bg-blue-500",
+    link: "https://www.google.com",
   },
   {
-    title: 'Python 3',
-    content: 'New',
+    title: "Python 3",
+    content: "New",
     src: filePython,
-    color: 'bg-green-500',
-    link: 'https://www.google.com',
+    color: "bg-green-500",
+    link: "https://www.google.com",
   },
-]
+];
 const menu3 = [
   {
-    title: 'html/css/ts 1',
-    content: 'New',
-    color: 'bg-red-500',
+    title: "html/css/ts 1",
+    content: "New",
+    color: "bg-red-500",
     src: typescript,
-    link: 'https://www.google.com',
+    link: "https://www.google.com",
   },
   {
-    title: 'html/css/ts 2',
-    content: 'New',
+    title: "html/css/ts 2",
+    content: "New",
     src: typescript,
-    color: 'bg-blue-500',
-    link: 'https://www.google.com',
+    color: "bg-blue-500",
+    link: "https://www.google.com",
   },
   {
-    title: 'html/css/ts 3',
-    content: 'New',
+    title: "html/css/ts 3",
+    content: "New",
     src: typescript,
-    color: 'bg-green-500',
-    link: 'https://www.google.com',
+    color: "bg-green-500",
+    link: "https://www.google.com",
   },
-]
+];
 
 const TabCards = () => {
-  const [activeMenu1, setActiveMenu1] = useState(true)
-  const [activeMenu2, setActiveMenu2] = useState(false)
-  const [activeMenu3, setActiveMenu3] = useState(false)
+  const [activeMenu1, setActiveMenu1] = useState(true);
+  const [activeMenu2, setActiveMenu2] = useState(false);
+  const [activeMenu3, setActiveMenu3] = useState(false);
 
   const handleClick = (index: any) => {
-    setActiveMenu1(index === 'menu1')
-    setActiveMenu2(index === 'menu2')
-    setActiveMenu3(index === 'menu3')
-  }
+    setActiveMenu1(index === "menu1");
+    setActiveMenu2(index === "menu2");
+    setActiveMenu3(index === "menu3");
+  };
 
   const checkActiveTab = (index: any, className: any) => {
     if (
-      (index === 'menu1' && activeMenu1) ||
-      (index === 'menu2' && activeMenu2) ||
-      (index === 'menu3' && activeMenu3)
+      (index === "menu1" && activeMenu1) ||
+      (index === "menu2" && activeMenu2) ||
+      (index === "menu3" && activeMenu3)
     ) {
-      return className
+      return className;
     } else {
-      return ''
+      return "";
     }
-  }
+  };
 
   const titleOverTheImage = (index: any) => {
-    if (index === 'menu1') {
-      return menu1.map((text) => <h1>{text.title}</h1>)
+    if (index === "menu1") {
+      return menu1.map((text) => <h1>{text.title}</h1>);
     }
-  }
+  };
 
   return (
     <div className="flex flex-col space-y-4 w-full">
       <div className="flex justify-between space-x-8 rounded-lg px-4 py-2 w-full">
         <button
-          onClick={() => handleClick('menu1')}
+          onClick={() => handleClick("menu1")}
           className={` ${checkActiveTab(
-            'menu1',
-            'w-[6rem] text-[1.6em] max-md:text-[1.4em]',
+            "menu1",
+            "w-[6rem] text-[1.6em] max-md:text-[1.4em]"
           )}`}
         >
           React/TS/Node
         </button>
         <button
-          onClick={() => handleClick('menu2')}
+          onClick={() => handleClick("menu2")}
           className={`text-white ${checkActiveTab(
-            'menu2',
-            'w-[6rem] text-[1.6em] max-md:text-[1.4em]',
+            "menu2",
+            "w-[6rem] text-[1.6em] max-md:text-[1.4em]"
           )}`}
         >
           Python
         </button>
         <button
-          onClick={() => handleClick('menu3')}
+          onClick={() => handleClick("menu3")}
           className={`text-white ${checkActiveTab(
-            'menu3',
-            'w-[6rem] text-[1.6em] max-md:text-[1.4em]',
+            "menu3",
+            "w-[6rem] text-[1.6em] max-md:text-[1.4em]"
           )}`}
         >
           HTML/CSS/TS
@@ -138,15 +147,19 @@ const TabCards = () => {
             <Link to={item.link} target="_blank">
               <div
                 key={index}
-                className={`flex flex-col space-y-2 p-[.3rem] panel
-            dark-overlay
-            cursor-pointer ${checkActiveTab('menu1', 'active')}`}
+                className={`flex flex-col space-y-3 p-[.8rem] panel
+            dark-overlay bg-[#2c2d2c]
+            cursor-pointer ${checkActiveTab("menu1", "active")}`}
               >
                 <div>
-                  <h1 className="text-overlay max-md:text-sm w-full text-center">
+                  <h1 className="text-center text-[#fbb34e]">
                     {item.title}
                   </h1>
-                    {item.content}
+                  <p
+                    className="text-overlay max-md:text-xs w-full text-center"
+                  >
+                   {item.content}
+                  </p>
                 </div>
 
                 <img
@@ -162,8 +175,8 @@ const TabCards = () => {
           <div
             key={index}
             className={`flex flex-col space-y-4 p-[.3rem] panel ${checkActiveTab(
-              'menu2',
-              'active',
+              "menu2",
+              "active"
             )}`}
           >
             <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black">
@@ -186,8 +199,8 @@ const TabCards = () => {
           <div
             key={index}
             className={`flex flex-col space-y-4 p-[.3rem] panel ${checkActiveTab(
-              'menu3',
-              'active',
+              "menu3",
+              "active"
             )}`}
           >
             <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black">
@@ -208,7 +221,7 @@ const TabCards = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TabCards
+export default TabCards;

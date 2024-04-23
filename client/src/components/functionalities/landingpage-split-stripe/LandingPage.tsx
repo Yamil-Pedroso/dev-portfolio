@@ -11,7 +11,7 @@ export interface Console {
   amount: number;
 }
 
-type ConsoleObject = Console[] ;
+type ConsoleObject = Console[];
 
 export const consoleObject: ConsoleObject = [
   {
@@ -33,7 +33,9 @@ const LandingPage = () => {
   const [hoveredSplitRight, setHoveredSplitRight] = useState(false);
 
   const [paymentBoxActive, setPaymentBoxActive] = useState(false);
-  const [selectedConsole, setSelectedConsole] = useState<Console | null>(null) as any;
+  const [selectedConsole, setSelectedConsole] = useState<Console | null>(
+    null
+  ) as any;
 
   const handleClickPaymentBox = (console: Console) => {
     setPaymentBoxActive(true);
@@ -110,17 +112,22 @@ const LandingPage = () => {
             style={{ cursor: "pointer" }}
             onClick={() => setPaymentBoxActive(false)}
           />
-          <p>Stripe method of payment</p>
-          <StripeApp
-           />
+          <p className="header-text">Stripe test method of payment</p>
+          <div className="sub-text">
+            <p className="stripe-card-text">
+              Card stripe num: <span>4242 4242 4242 4242</span>
+            </p>
+            <span>Other inputs: random</span>
+          </div>
+          <StripeApp />
 
           {selectedConsole && (
             <div className="console-info">
               <img src={selectedConsole.image} alt="console" />
-              <p>{selectedConsole.name}</p>
-              <p>
-                {selectedConsole.amount} chf
-              </p>
+              <div>
+                <p>{selectedConsole.name}</p>
+                <p>{selectedConsole.amount} chf</p>
+              </div>
             </div>
           )}
         </div>
