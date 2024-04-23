@@ -11,6 +11,7 @@ import MovieData from "../functionalities/movie-data/MovieData";
 import LandingPage from "../functionalities/landingpage-split-stripe/LandingPage";
 import ChatApp from "../functionalities/realtime-chat/ChatApp";
 import DropFilesApp from "../functionalities/drop-files/DropFilesApp";
+import Chess from "../../components/chess/Chess2";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { TbHandFinger } from "react-icons/tb";
 
@@ -29,7 +30,7 @@ const contentBoxIndex = [
   },
   {
     id: 4,
-    content: <BookDataApp />,
+    content: <Chess />,
   },
   {
     id: 5,
@@ -47,76 +48,57 @@ const contentBoxIndex = [
     id: 8,
     content: <DropFilesApp />,
   },
-  {
-    id: 9,
-    content: 'Content Box 9',
-  },
-  {
-    id: 10,
-    content: 'Content Box 10',
-  },
-  {
-    id: 11,
-    content: 'Content Box 11',
-  },
 ]
 
 const cardContent = [
   {
     id: 1,
-    content: "Collect Potions",
+    content: "Collect Potions Auth",
+    desc: "Node-MongoDB-React-Typescript",
     icon : potionBg
    }, 
     {
       id: 2,
       content: "Fruit Basket",
+      desc: "React-Typescript",
       icon : basketFruits
     },
     {
       id: 3,
       content: "Infinite Scroll",
+      desc: "React-Typescript-Queries",
       icon : download
     },
     {
       id: 4,
       content: "Book Filter and more",
+      desc: "Collect potions and see the details",
       icon : bookStack
     },
     {
       id: 5,
       content: "Fetch Movie API",
+      desc: "React-Typescript-Search-Filter",
       icon : cinema
     },
     {
       id: 6,
       content: "Buy console with Stripe",
+      desc: "Node-React-Typescript-Stripe-Payment",
       icon : gameConsole
     },
     {
       id: 7,
       content: "Realtime Chat",
+      desc: "Node-React-Typescript-Socket.io",
       icon : chat
     },
     {
       id: 8,
       content: "Drag and Drop",
+      desc: "React-Typescript-Browser Files",
       icon : upload
     },
-    {
-      id: 9,
-      content: "Content Box 9",
-      icon : potionBg
-    },
-    {
-      id: 10,
-      content: "Content Box 10",
-      icon : potionBg
-    },
-    {
-      id: 11,
-      content: "Content Box 11",
-      icon : potionBg
-    }
 ];
 const limitBoxs = 8
 
@@ -223,9 +205,21 @@ const Functionality = () => {
               onClick={() => handleClick(i)}
             >
               {clickedBoxIndex === i && <TbHandFinger className="hand-icon" />}
-              <p className={`card-text ${hoveredIndex === i ? 'visible' : ''}`}>
-                {cardContent[i].content}
-              </p>
+              <div className={`card-text ${hoveredIndex === i ? 'visible' : ''}`}>
+                <span
+                  style={{
+                    color: '#fff',
+                    fontSize: '1.3rem',
+                    fontWeight: 500,
+                  }}
+                >{cardContent[i].content}</span>
+                {hoveredIndex === i && <span
+                 style={{ color: '#101c12',
+                  fontSize: '1rem',
+                  fontWeight: 'bold',
+                 }}
+                >{cardContent[i].desc}</span>}
+              </div>
               <img src={cardContent[i].icon} alt="game" />
               <div className="card-content"></div>
             </div>

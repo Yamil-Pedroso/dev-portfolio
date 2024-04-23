@@ -44,9 +44,9 @@
   width: 22rem;
   height: 18rem;
   border-radius: 3px;
-  background-color: #070707;
-  border: 1px solid #2c3e32;
-  border-radius: 4rem;
+  background-color: #fff;
+  border: 8px solid #61b272;
+  border-radius: .5rem;
   margin-top: -50%;
   margin-left: 50%;
   right: 15rem;
@@ -83,6 +83,24 @@
   opacity: 1;
   border-radius: 1rem;
   -webkit-transition: all 0.3s ease-out 350ms;
+
+  .modal-title {
+    font-size: 1.2rem;
+    color: #2c3e32;
+    font-weight: 700;
+  }
+
+  .modal-date {
+    font-size: .8rem;
+    color: #2c3e32;
+    font-weight: 700;
+  }
+
+  .modal-content {
+    font-size: .9rem;
+    color: #2c3e32;
+    font-weight: 600;
+  }
 }
 
 .fa-times-circle {

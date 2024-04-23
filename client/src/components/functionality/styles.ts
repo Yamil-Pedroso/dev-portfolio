@@ -165,6 +165,8 @@ export const Container = styled.div`
 
 
             .card-text {
+                display: flex;
+                flex-direction: column;
                 opacity: 0;
                 transition: opacity 0.5s ease;
                 font-size: 1.5rem;

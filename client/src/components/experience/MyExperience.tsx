@@ -41,7 +41,7 @@ const experienceData: ExperienceData[] = [
     title: "Frontend Developer",
     description1:
       "Build the UI/UX of the website as well as the responsive design and functionality of the product in question.",
-    description2: "Tech: React.js/ JS",
+    description2: "Tech: Node-React-Typescript",
     date: "2022-2023",
     location: "Squib Startup, Zurich, Switzerland",
   },
@@ -50,7 +50,7 @@ const experienceData: ExperienceData[] = [
     title: "Javascript Frotened Developer",
     description1:
       "Completed the Brainnest Frontend Development Industry Training",
-    description2: "Tech: HTML/ CSS/ JS",
+    description2: "Tech: HTML-CSS-JS",
     date: "2023",
     location: "Brainnest, Berlin, Germany",
   },
@@ -58,7 +58,7 @@ const experienceData: ExperienceData[] = [
     id: 3,
     title: "FullStack Developer",
     description1: "BootCamp at Le Wagon",
-    description2: "Tech: Ruby/ Ruby on rails/ JS/ SQL",
+    description2: "Tech: Ruby-Ruby on rails-JS-SQL",
     date: "2022",
     location: "Le Wagon, Zurich, Switzerland",
   },
@@ -76,7 +76,7 @@ const experienceData: ExperienceData[] = [
     id: 5,
     title: "FullStack Developer",
     description1:
-      "BootCamp at SIT academy(React.Js/ Node.Js/ JS) I strengthen the acquired knowledge by starting my own projects.",
+      "BootCamp at SIT academy(React-Node.js-JS) I strengthen the acquired knowledge by starting my own projects.",
     description2: "",
     date: "2020",
     location: "Constructor Academy, Zurich, Switzerland",
