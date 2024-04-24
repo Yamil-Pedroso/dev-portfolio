@@ -45,8 +45,6 @@ const LoginForm = () => {
       return
     }
 
-    
-
     const response = await login(formData)
     if (response.success) {
       console.log('User logged in')

@@ -36,8 +36,7 @@ app.use(express.json())
 colors.enable()
 
 app.use(cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
+    origin: "*"
 }));
 
 app.use(cookieParser());
