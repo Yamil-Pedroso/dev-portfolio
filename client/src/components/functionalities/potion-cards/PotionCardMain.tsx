@@ -70,9 +70,7 @@ const PotionCardMain = ({ onRegisterClick, onLoginClick }: IMenuItem) => {
       name: "Login",
       component: (
         <LoginPage
-          onRegisterClick={() =>
-            handleActiveComponent(<RegisterPage />, "Register")
-          }
+    
         />
       ),
     },
@@ -81,7 +79,7 @@ const PotionCardMain = ({ onRegisterClick, onLoginClick }: IMenuItem) => {
       name: "Register",
       component: (
         <RegisterPage
-          onLoginClick={() => handleActiveComponent(<LoginPage />, "Login")}
+         
         />
       ),
     },

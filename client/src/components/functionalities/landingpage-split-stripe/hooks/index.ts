@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3010/api/v1';
+const baseUrl = 'https://dev-portfolio-g8sr.onrender.com/api/v1';
 
 const createPayment = async (paymentData: any) => {
     try {

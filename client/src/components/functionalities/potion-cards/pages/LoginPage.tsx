@@ -8,17 +8,12 @@ const Container = styled.div`
   margin-top: 8rem;
 `
 
-interface ILoginFormProps {
-  onRegisterClick: () => void
-}
-
 const LoginPage = (
-  { onRegisterClick }: ILoginFormProps
 ) => {
   return (
     <Container>
         <LoginForm 
-          onRegisterClick={() => onRegisterClick()}
+         
          />
     </Container>
   )

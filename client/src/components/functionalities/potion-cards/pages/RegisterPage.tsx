@@ -8,16 +8,10 @@ const Container = styled.div`
   align-items: center;
   margin-top: 8rem;
 `
-
-interface IRegisterFormProps {
-  onLoginClick: () => void
-}
-
-const RegisterPage = ({ onLoginClick }: IRegisterFormProps) => {
+const RegisterPage = () => {
   return (
     <Container>
         <RegisterForm
-          onLoginClick={onLoginClick}
          />
     </Container>
   )

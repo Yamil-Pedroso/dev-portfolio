@@ -14,11 +14,9 @@ import {
 import { useAuth } from '../../hook'
 import { Toaster, toast } from 'sonner'
 
-interface IRegisterFormProps {
-  onLoginClick: () => void
-}
 
-const RegisterForm = ({ onLoginClick }: IRegisterFormProps) => {
+
+const RegisterForm = () => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
@@ -33,10 +31,6 @@ const RegisterForm = ({ onLoginClick }: IRegisterFormProps) => {
     avatar: false,
   })
   const { register } = useAuth() as any
-
-  const handleLoginClick = () => {
-    onLoginClick()
-  }
 
   const handleFormData = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.type !== 'file') {
@@ -153,14 +147,15 @@ const RegisterForm = ({ onLoginClick }: IRegisterFormProps) => {
         <LoginRegisterWrapper>
           <RegisterBtn type="submit">REGISTER</RegisterBtn>
 
-          <LoginBtn
+          {/*<LoginBtn
             onClick={ (e) => {
               e.preventDefault()
-              handleLoginClick()
+            
             }}
           >
             <p>Login</p>
-          </LoginBtn>
+          </LoginBtn>*/
+          }
         </LoginRegisterWrapper>
       </form>
       <Toaster 

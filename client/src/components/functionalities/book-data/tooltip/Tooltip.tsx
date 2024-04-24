@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box'
+
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
@@ -6,7 +6,8 @@ import { FaBook } from 'react-icons/fa'
 
 const MyTooltip = () => {
   return (
-    <Box sx={{ width: 500 }}>
+    <div
+    >
       <Grid container justifyContent="center">
         <Grid item>
           <Tooltip
@@ -19,7 +20,7 @@ const MyTooltip = () => {
           </Tooltip>
         </Grid>
       </Grid>
-    </Box>
+    </div>
   )
 }
 

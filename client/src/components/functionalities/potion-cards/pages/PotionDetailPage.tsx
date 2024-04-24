@@ -1,8 +1,13 @@
 import PotionDetail from "../components/potion-detail/PotionDetail"
+import { IPotion } from '../providers/PotionProvider'
 
-const PotionDetailPage = () => {
+interface PotionDetailPageProps {
+  potion: IPotion
+}
+
+const PotionDetailPage = ({ potion }: PotionDetailPageProps) => {
   return (
-    <PotionDetail />
+    <PotionDetail potion={potion} />
   )
 }
 

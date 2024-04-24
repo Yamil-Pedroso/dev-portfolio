@@ -16,11 +16,8 @@ import {
   ForgotPasswordText,
 } from './styles'
 
-interface ILoginFormProps {
-  onRegisterClick: () => void
-}
 
-const LoginForm = ({ onRegisterClick }: ILoginFormProps) => {
+const LoginForm = () => {
 
   const [formData, setFormData] = useState({ email: '', password: '' })
   const [formErrors, setFormErrors] = useState({
@@ -29,9 +26,6 @@ const LoginForm = ({ onRegisterClick }: ILoginFormProps) => {
   })
   const { user, login, logout } = useAuth() as any
 
-  const handleRegisterClick = () => {
-    onRegisterClick()
-  }
   const handleFormData = (e: any) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
@@ -95,11 +89,11 @@ const LoginForm = ({ onRegisterClick }: ILoginFormProps) => {
         </InputWrapper>
         <LoginRegisterWrapper>
           <LoginBtn type="submit">LOGIN</LoginBtn>
-          <RegisterBtn
-            onClick={handleRegisterClick}
+          {/*<RegisterBtn
+           
           >
             <p>Register</p>
-          </RegisterBtn>
+  </RegisterBtn>*/}
         </LoginRegisterWrapper>
       </form>
       {/*<ForgotPasswordText>

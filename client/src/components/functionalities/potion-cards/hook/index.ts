@@ -6,7 +6,7 @@ import { PotionContext } from '../providers/PotionProvider';
 
 import { setItemsInLocalStorage, getItemsFromLocalStorage, removeItemFromLocalStorage} from '../utils';
 
-const API_BASE_URL = 'http://localhost:3010/api/v1';
+const API_BASE_URL = 'https://dev-portfolio-g8sr.onrender.com/api/v1';
 
 
 // User context

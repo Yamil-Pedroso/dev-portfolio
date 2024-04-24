@@ -11,7 +11,6 @@ import MovieData from "../functionalities/movie-data/MovieData";
 import LandingPage from "../functionalities/landingpage-split-stripe/LandingPage";
 import ChatApp from "../functionalities/realtime-chat/ChatApp";
 import DropFilesApp from "../functionalities/drop-files/DropFilesApp";
-import Chess from "../../components/chess/Chess2";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { TbHandFinger } from "react-icons/tb";
 
@@ -30,7 +29,7 @@ const contentBoxIndex = [
   },
   {
     id: 4,
-    content: <Chess />,
+    content: <BookDataApp />,
   },
   {
     id: 5,
