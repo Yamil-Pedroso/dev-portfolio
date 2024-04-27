@@ -37,7 +37,7 @@ const Hero = () => {
     <div className="">
       <BlurStyle />
       <Section id="home">
-        {/*<HeroAnimation />*/}
+        <HeroAnimation />
 
         <HeroRightContent>
           <div className="hero-content-wrapper">

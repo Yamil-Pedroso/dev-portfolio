@@ -14,6 +14,8 @@ import DropFilesApp from "../functionalities/drop-files/DropFilesApp";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { TbHandFinger } from "react-icons/tb";
 
+import LiveProjDemos from "./LiveProjDemos";
+
 const contentBoxIndex = [
   {
     id: 1,
@@ -29,22 +31,18 @@ const contentBoxIndex = [
   },
   {
     id: 4,
-    content: <BookDataApp />,
-  },
-  {
-    id: 5,
     content: <MovieData />,
   },
   {
-    id: 6,
+    id: 5,
     content: <LandingPage />,
   },
   {
-    id: 7,
+    id: 6,
     content: <ChatApp />,
   },
   {
-    id: 8,
+    id: 7,
     content: <DropFilesApp />,
   },
 ]
@@ -55,48 +53,49 @@ const cardContent = [
     content: "Collect Potions Auth",
     desc: "Node-MongoDB-React-Typescript",
     icon : potionBg
+
    }, 
     {
       id: 2,
       content: "Fruit Basket",
       desc: "React-Typescript",
       icon : basketFruits
+  
     },
     {
       id: 3,
       content: "Infinite Scroll",
       desc: "React-Typescript-Queries",
       icon : download
+  
     },
     {
       id: 4,
-      content: "Book Filter and more",
-      desc: "Collect potions and see the details",
-      icon : bookStack
-    },
-    {
-      id: 5,
       content: "Fetch Movie API",
       desc: "React-Typescript-Search-Filter",
       icon : cinema
+  
     },
     {
-      id: 6,
+      id: 5,
       content: "Buy console with Stripe",
       desc: "Node-React-Typescript-Stripe-Payment",
       icon : gameConsole
+  
     },
     {
-      id: 7,
+      id: 6,
       content: "Realtime Chat",
       desc: "Node-React-Typescript-Socket.io",
       icon : chat
+  
     },
     {
-      id: 8,
+      id: 7,
       content: "Drag and Drop",
       desc: "React-Typescript-Browser Files",
       icon : upload
+  
     },
 ];
 const limitBoxs = 8
@@ -109,6 +108,7 @@ const Functionality = () => {
   const [currentBoxIndex, setCurrentBookIndex] = useState(0)
   const headerText = [
     'Node',
+    'Supabase',
     'React',
     'Typescript',
     'MongoDB',
@@ -192,6 +192,15 @@ const Functionality = () => {
           noSQL database.
         </p>
       </div>
+
+      <div>
+        <LiveProjDemos />
+      </div>
+      <span
+       style={{ color: '#b7b7b7'}}
+      >
+        Local demos and repositories.
+      </span>
       <div className="card-wrapper">
         {cardContent
           .slice(currentBoxIndex, currentBoxIndex + limitBoxs)

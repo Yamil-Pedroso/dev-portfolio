@@ -1,16 +1,29 @@
 import React, { useState } from 'react'
 import GoogleMapReact from 'google-map-react';
 import { Paper, Typography, useMediaQuery } from '@material-ui/core';
-import  locationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
+import  LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import Rating from '@material-ui/lab/Rating';
 
 import mapStyles from './mapStyles';
 import useStyles from './styles';
 
+
+interface MarkerProps extends React.HTMLProps<HTMLDivElement> {
+    lat: number;
+    lng: number;
+    children?: React.ReactNode;
+  }
+
+  const MapMarker: React.FC<MarkerProps> = ({ children, ...coords }) => {
+    return (
+      <div {...coords}>{children}</div>
+    );
+  };
+  
 interface MapProps {
     setCoordinates: (coordinates: { lat: number, lng: number }) => void;
     setBounds: (bounds: { ne: any, sw: any }) => void;
-    coordinates: { lat: number, lng: number };
+    coordinates: { lat: number, lng: number};
     places: any[]; 
     setChildClicked: (child: any) => void; 
     weatherData: any; 
@@ -38,9 +51,9 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
                 onChildClick={(child) => setChildClicked(child)}
             >
                 {places?.map((place: any, index: any) => (
-                    <div
+                    <MapMarker
                         className={classes.markerContainer}
-                        lat={Number(place.latitude)}
+                        lat={Number(place.latitude)} 
                         lng={Number(place.longitude)}
                         key={index}
                     >
@@ -49,7 +62,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
                             <LocationOnOutlinedIcon color="primary" fontSize="large"/>
                         ) : (
                             <Paper elevation={3} className={classes.paper}>
-                                <Typography className={classes.typography} variant="subtitle2" gutterBottom>
+                                <Typography variant="subtitle2" gutterBottom>
                                     {place.name}
                                 </Typography>
                                 <img 
@@ -61,12 +74,12 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
                             </Paper>
                         )
                     }
-                    </div>
+                    </MapMarker>
                 ))}
                 {weatherData?.list?.length && weatherData.list.map((data: any, i: any) => (
-                    <div key={i} lat={data.coord.lat} lng={data.coord.lon}>
+                    <MapMarker key={i} lat={data.coord.lat} lng={data.coord.lon}>
                         <img src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`} height="70px" alt=""/>
-                </div>
+                </MapMarker>
                 ))}
             </GoogleMapReact>
         </div>

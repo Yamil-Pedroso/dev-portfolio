@@ -234,3 +234,86 @@ export const Container = styled.div`
 }
 
 `;
+
+export const LiveDemoContent = styled.div`
+   padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+   .live-demo-wrapper {
+      display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h1 {
+           color: #b7b7b7;
+        }
+
+   .card-content {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 2rem;
+         flex-wrap: wrap;
+         margin-top: 2rem;
+
+    
+         .card {
+              width: 15rem;
+              height: 15rem;
+              background-color: #2a2a2a;
+              border-radius: .5rem;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              cursor: pointer;
+              position: relative;
+
+              p:nth-child(1) {
+                font-size: 1.2rem;
+               color: #6fe6ca;;
+                font-weight: 500;
+                padding-bottom: .1rem;
+              }
+
+                p:nth-child(2) {
+                    font-size: .8rem;
+                    color: #b7b7b7;
+                    font-weight: 200;
+                    width: 10rem;
+                    text-align: center;
+                }
+    
+              img {
+                width: 5rem;
+                height: 5rem;
+                object-fit: cover;
+                margin-bottom: 1rem;
+              }
+    
+              a {
+                color: #4ac3a7;
+                font-size: 1.5rem;
+                text-decoration: none;
+                margin-top: 1rem;
+                transition: color 0.5s ease;
+
+                &:hover {
+                    color: #6fe6ca;
+                }
+              }
+         }
+    }
+    }
+
+    .horizontal-line {
+        width: 100%;
+        height: 1px;
+        background-color: #e9a13b;
+        margin-top: 2rem;
+    }
+`;
