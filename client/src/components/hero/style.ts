@@ -1,10 +1,45 @@
 import styled from 'styled-components';
 
 export const HeroContainer = styled.div`
-   position: relative;
-   @media screen and (max-width: 960px) {
-      
-   }
+   .black-col {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 2;
+
+    -webkit-mask-image: linear-gradient(to left, transparent, black 20%);
+    mask-image: linear-gradient(to left, transparent, black 20%);
+    }
+
+    .bottom-band {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 12rem;
+        background-color: #000;
+        opacity: 1;
+        z-index: 2;
+    }
+`;
+
+export const VideoBackground = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; 
+  filter: brightness(0.6);
+
+  source {
+    // Dame un blur para el video
+  }
 `;
 
 export const BoxWrapperOne = styled.div`
@@ -91,6 +126,9 @@ export const BlurStyle = styled.div`
 `;
 
 export const HeroRightContent = styled.div`
+   z-index: 2;
+   margin-top: 10rem;
+   margin-right: 30rem;
     @media (max-width: 1580px) {
         h1 {
             font-size: 3.5rem;
@@ -128,7 +166,7 @@ export const HeroRightContent = styled.div`
 `;
 
 export const TitleDev = styled.h2`
-  background-image: linear-gradient(to right, #46ca9e, #55b1bf, #4e67a5);
+  background-image: linear-gradient(to right, #0099ff, #55b1bf, #4e67a5);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -185,7 +223,7 @@ export const TerminalSim = styled.div`
   }
 
   p:nth-child(1) {
-    color: #46ca9e;
+    color: #0099ff;
   }
 
   p:nth-child(2) {
@@ -193,7 +231,7 @@ export const TerminalSim = styled.div`
   }
 
   p:nth-child(3) {
-    color: #2c8064;
+    color: #0099ff;
   }
 
     @media (max-width: 960px) {

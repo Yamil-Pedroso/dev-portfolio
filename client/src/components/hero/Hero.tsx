@@ -1,14 +1,17 @@
-import React from 'react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Typical from 'react-typical'
 import { styles } from '../../style'
+import { bgVideo } from '../../assets'
 import HeroCreative from './HeroCreative'
 import HeroAnimation from './hero-animation/HeroAnimation'
 import {
   BlurStyle,
   CityName,
+  HeroContainer,
   HeroRightContent,
+  VideoBackground,
   Section,
   TerminalSim,
   TitleDev,
@@ -33,12 +36,28 @@ const heroText: HeroProps = {
 }
 
 const Hero = () => {
-  return (
-    <div className="">
-      <BlurStyle />
-      <Section id="home">
-        <HeroAnimation />
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      // Ralentizar el video configurando el playbackRate
+      videoRef.current.playbackRate = 0.8; // Ajusta el valor según la velocidad deseada (1.0 es normal, menos de 1 es más lento)
+    }
+  }, []);
+  
+  return (
+    <HeroContainer>
+      <div
+       className="up-band"
+      >
+
+      </div>
+      <div className="black-col"></div>
+      {/*<BlurStyle />*/}
+      <VideoBackground autoPlay muted loop>
+        <source src={bgVideo} type="video/mp4" />
+      </VideoBackground>
+      <Section id="home">
         <HeroRightContent>
           <div className="hero-content-wrapper">
             <h1 className={`${styles.heroHeadText}`}>
@@ -77,7 +96,10 @@ const Hero = () => {
           </div>
         </a>
       </div>
-    </div>
+      <div
+        className="bottom-band"
+      ></div>
+    </HeroContainer>
   )
 }
 

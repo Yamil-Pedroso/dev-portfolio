@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import LogoProfile from './logo-profile/LogoProfile';
 import About from './about/About';
 import CardAnimation from './card-animation/CardAnimation';
+import CardMotionAnimation from './card-motion-animation/CardMotionAnimation';
 import MyExperience from './experience/MyExperience';
 import FloatingElem from './floating-elements/FloatingElem';
 import SmallFunnyProjects from './SmallFunnyProjects';

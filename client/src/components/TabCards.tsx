@@ -112,17 +112,17 @@ const TabCards = () => {
 
   return (
     <div className="flex flex-col space-y-4 w-full">
-      <div className="flex justify-between space-x-8 rounded-lg px-4 py-2 w-full">
+      <div className="flex justify-center space-x-8 rounded-lg px-4 py-2 w-full">
         <button
           onClick={() => handleClick("menu1")}
           className={` ${checkActiveTab(
             "menu1",
-            "w-[6rem] text-[1.6em] max-md:text-[1.4em]"
+            "w-[16rem] text-[1.4em] max-md:text-[1.4em]"
           )}`}
         >
-          React/TS/Node
+          React-TS-Node
         </button>
-        <button
+        {/*<button
           onClick={() => handleClick("menu2")}
           className={`text-white ${checkActiveTab(
             "menu2",
@@ -130,8 +130,8 @@ const TabCards = () => {
           )}`}
         >
           Python
-        </button>
-        <button
+        </button>*/}
+        {/*<button
           onClick={() => handleClick("menu3")}
           className={`text-white ${checkActiveTab(
             "menu3",
@@ -139,7 +139,7 @@ const TabCards = () => {
           )}`}
         >
           HTML/CSS/TS
-        </button>
+        </button>*/}
       </div>
       <div className="flex justify-center overflow-hidden  flex-wrap w-full rounded-md">
         {menu1.map((item, index) => (

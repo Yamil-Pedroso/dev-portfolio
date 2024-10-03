@@ -40,6 +40,7 @@ import {
     jobit,
     tripguide,
     threejs,
+    frontend1,
   } from "../assets";
 
   export const navLinks = [
@@ -81,6 +82,59 @@ import {
     icons?: IconType[];
     color: string;
   }
+
+  export interface ITechService {
+    title?: string;
+    description?: string;
+    img?: string;
+    description2?: string;
+    buttonText?: string;
+  }
+
+  const techServices: ITechService[] = [
+    {
+      title: "Frontend Developer",
+      description: "Creating interactive and engaging user interfaces using the latest frontend technologies.",
+      img: frontend1,
+      description2: "Tech: React.js/ JS",
+      buttonText: "Learn More",
+    },
+    {
+      title: "Backend Developer",
+      description: "building scalable and robust systems. Developing server-side applications using modern technologies.",
+      img: frontend1,
+      description2: "Tech: Node.js/ JS",
+      buttonText: "Learn More",
+    },
+    {
+      title: "React Native Developer",
+      description: "Creating highly performant and visually apps that work seamlessly on both iOS and Android platforms.",
+      img: frontend1,
+      description2: "Tech: React Native/ JS",
+      buttonText: "Learn More",
+    },
+    {
+      title: "UI/UX Designer",
+      description: "Building intuitive and visually interfaces, pleasing but also enhance the user experience.",
+      img: frontend1,
+      description2: "Tech: Figma/ Photoshop",
+      buttonText: "Learn More",
+    },
+    {
+      title: "Digital Art",
+      description: "Creating characters, logos, icons, are born in Adobe Photoshop and Illustrator.",
+      img: frontend1,
+      description2: "Tech: Photoshop/ Illustrator",
+      buttonText: "Learn More",
+    },
+    {
+      title: "Hosting",
+      description: "Upload your website to the hosting of your choice. Watch your website on the Internet.",
+      img: frontend1,
+      description2: "Tech: World Plus/ World WWW",
+      buttonText: "Learn More",
+    },
+  ];
   
 
   const services: Service[] = [
@@ -430,4 +484,4 @@ import {
     },
   ];
 
-  export { services, technologies, experiences, testimonials, projects, enviroment };
+  export { services, techServices, technologies, experiences, testimonials, projects, enviroment };

@@ -1,82 +1,65 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import { styles } from "../../style";
-import { services } from "../../constants";
+import { techServices } from "../../constants";
 import { SectionWrapper } from "../../hoc";
-import { fadeIn, textVariant } from "../../utils/motion";
-import CardAnimation from "../card-animation/CardAnimation";
+import CardMotionAnimation from "../card-motion-animation/CardMotionAnimation";
 import "./styles.css";
 
-interface ServiceCardProps {
-  index: number;
-  title: string;
-  icon: string;
-  icons?: React.ElementType[];
-  description: string;
-}
+const About = () => {
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
-const ServiceCard: React.FC<ServiceCardProps> = ({
-  index,
-  title,
-  icon,
-  icons,
-  description,
-}: any) => {
-  const backgroundColor = index % 2 === 0 ? "#61b272" : "#e9a13b";
-
-  const cardStyle = {
-    backgroundColor: backgroundColor,
+  const handleCardClick = (index: number) => {
+    setExpandedCard(expandedCard === index ? null : index);
   };
 
-  return (
-    <div className="card-service">
-      <div
-        style={cardStyle}
-        className="first-content"
-      >
-        <img
-          src={icon}
-          alt="icon services"
-          className="icon-services"
-        />
-        <h2 className="header-title">{title}</h2>
-        <p className="services-description">
-          {description}
-        </p>
-      </div>
+    // Usar el hook useInView para manejar el "in view" de los elementos
+    const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.3 });
+    const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.3 });
+    const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.3 });
+  
+    // Definir las variantes de animación con efecto de resorte
+    const springVariants = {
+      hidden: { opacity: 0, y: -50 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          type: "spring",
+          stiffness: 80,
+          damping: 10,
+          duration: 0.8,
+        },
+      },
+    };
+  
+  
 
-      <div className="second-content">
-        {icons &&
-          icons.map((IconComponent: React.ElementType, iconIndex: number) => (
-            <div className="iconsCard" key={iconIndex}>
-              <IconComponent
-                className={`icons ${
-                  iconIndex % 2 === 0 ? "iconsEven" : "iconsOdd"
-                }`}
-              />
-            </div>
-          ))}
-      </div>
-    </div>
-  );
-};
-
-const About = () => {
   return (
-    <div className="mt-[10rem] max-xs:mt-[3rem]" id="about">
-      <motion.div variants={textVariant(0.01)}>
-        <h2 className="text-[#fafafa] lg:text-[3.75rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]">
-          Introduction.
-        </h2>
-        <h2 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent lg:text-[3.5rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem] font-bold">
-          Overview.
-        </h2>
-      </motion.div>
+    <div 
+      className="about-wrapper"
+      style={{ marginTop: "20rem" }}>
+      <motion.h2
+           ref={ref1} // Referencia para observar este elemento
+           variants={springVariants}
+           initial="hidden"
+           animate={inView1 ? "visible" : "hidden"} // Animar cuando esté en vista
+        className=""
+      >Introduction.</motion.h2>
+      <motion.h2 
+         ref={ref2}
+         variants={springVariants}
+         initial="hidden"
+         animate={inView2 ? "visible" : "hidden"}
+      className="">Overview.</motion.h2>
 
       <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-[#a1a1aa] text-[1rem] max-sm:text-[.8rem] max-w-3xl leading-[1.8rem]"
+         ref={ref3}
+         variants={springVariants}
+         initial="hidden"
+         animate={inView3 ? "visible" : "hidden"}
       >
         I'm a full stack software developer with experience in TypeScript and
         JavaScript, and in frameworks like React, Node.js, Django, Three.js and
@@ -87,8 +70,14 @@ const About = () => {
       </motion.p>
 
       <div className="services-wrapper">
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
+        {techServices.map((service, index) => (
+          <CardMotionAnimation
+            key={index}
+            {...service}
+            index={index}
+            isExpandedEle={expandedCard === index}
+            handleClick={() => handleCardClick(index)}
+          />
         ))}
       </div>
     </div>

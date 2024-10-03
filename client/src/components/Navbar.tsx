@@ -46,12 +46,12 @@ const Navbar = () => {
           }}
         >
           <div className="logo-wrapper">
-            <div className="w-8 h-8 overflow-hidden border-[1px] border-[#29785e]">
+            <div className="w-8 h-8 overflow-hidden border-[1px] border-[#0099ff]">
               <img src={yamiBlue2} alt="logo" className="w-8 h-8" />
             </div>
             <h1>
-              [ <span className="text-[#46ca9e]">YP-NEXTGEN</span> ]{" "}
-              <span className="text-[#46ca9e]">.</span>
+              [ <span className="text-[#0099ff]">YP-NEXTGEN</span> ]{" "}
+              <span className="text-[#0099ff]">.</span>
             </h1>
           </div>
         </Link>
@@ -61,8 +61,8 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title ? "text-[#46ca9e]" : "text-[#fafafa]"
-              } hover:text-[#46ca9e] text-[18px] font-medium cursor-pointer`}
+                active === link.title ? "text-[#0099ff]" : "text-[#fafafa]"
+              } hover:text-[#0099ff] text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
               <a href={`#${link.id}`}>{link.title}</a>

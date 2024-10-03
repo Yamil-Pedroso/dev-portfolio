@@ -99,6 +99,9 @@ import bottle9 from "./potion-bottles/bottle9.png";
 import bottle10 from "./potion-bottles/bottle10.png";
 import bottle11 from "./potion-bottles/bottle11.png";
 import bottle12 from "./potion-bottles/bottle12.png";
+import bgVideo from "./video/bg-video.mp4";
+import bgVideo1 from "./video/bg-video1.mp4";
+import frontend1 from "./video/frontend.mp4";
 
 export {
   codingBackend,
@@ -194,4 +197,7 @@ export {
   bottle10,
   bottle11,
   bottle12,
+  bgVideo,
+  bgVideo1,
+  frontend1,
 };

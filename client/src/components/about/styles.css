@@ -1,3 +1,29 @@
+.about-wrapper {
+  h2:nth-of-type(1) {
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #a0a0a0;
+    margin-bottom: 2rem;
+  }
+
+  h2:nth-of-type(2) {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #0099ff, #55b1bf, #4e67a5);
+    background-size: 40%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #969696;
+    margin-bottom: 1rem;
+  }
+}
+
 .services-wrapper {
     display: flex;
     justify-content: center;
@@ -14,17 +40,18 @@
 .icon-services {
   width: 3.75rem;
   height: 3.75rem;
+  color: #a0a0a0;
 }
 
 .header-title {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #000;
+  color: #a0a0a0;
 }
 
 .services-description {
-   color: #000;
+   color: #969696;
    font-size: 1rem;
    width: 15rem;
     text-align: center;
@@ -47,7 +74,36 @@
   flex-direction: column;
   align-items: center;
   opacity: 1;
+  position: relative;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  border-radius: 15px; /* Bordes redondeados para un mejor efecto visual */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  backdrop-filter: blur(10px); /* Aplicar el desenfoque en el fondo */
+  -webkit-backdrop-filter: blur(10px); /* Soporte para navegadores Webkit */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Bordes para resaltar el efecto de vidrio */
+  color: white; /* Para que el texto resalte sobre el fondo */
 }
+
+
+@keyframes borderAni {
+  0% {
+    border-color: #0099ff;
+  }
+  25% {
+    border-color: #0099ff;
+  }
+  50% {
+    border-color: #0099ff;
+  }
+  75% {
+    border-color: #0099ff;
+  }
+  100% {
+    border-color: #0099ff;
+  }
+}
+
 
 .card-service:hover .first-content {
   height: 0px;
