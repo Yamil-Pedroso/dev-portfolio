@@ -3,6 +3,7 @@ import gsap from 'gsap'
 
 interface Props {
   children: React.ReactElement
+  className?: string
 }
 
 export default function Index({ children }: Props) {

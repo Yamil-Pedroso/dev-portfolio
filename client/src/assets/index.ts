@@ -103,6 +103,11 @@ import bgVideo from "./video/bg-video.mp4";
 import bgVideo1 from "./video/bg-video1.mp4";
 import frontend1 from "./video/frontend.mp4";
 
+import pcOne from "./images/jpg/pc-1.jpeg";
+import pcTwo from "./images/jpg/pc-2.jpeg";
+import pcThree from "./images/jpg/pc-3.jpeg";
+import pcFour from "./images/jpg/pc-4.jpeg";
+
 export {
   codingBackend,
   designFrontend,
@@ -200,4 +205,8 @@ export {
   bgVideo,
   bgVideo1,
   frontend1,
+  pcOne,
+  pcTwo,
+  pcThree,
+  pcFour,
 };

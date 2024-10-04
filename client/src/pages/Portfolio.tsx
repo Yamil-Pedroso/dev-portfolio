@@ -10,8 +10,8 @@ const Portfolio = () => {
       <MyComponent.LogoProfile />
       <MyComponent.Hero />
       <MyComponent.About />
+      <MyComponent.BoliRun />
       <MyComponent.MagnetIcons />
-      <MyComponent.MyAnimation />
       <MyComponent.MyExperience />
       <MyComponent.Functionality />
       <MyComponent.Works />

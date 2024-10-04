@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import LogoProfile from './logo-profile/LogoProfile';
 import About from './about/About';
 import CardAnimation from './card-animation/CardAnimation';
+import BoliRun from './animation-comps/boli-ani/BoliRun';
 import MagnetIcons from './magnet-icons/MagnetIcons';
 import MyAnimation from './animation-comps/TestingAni';
 import MyExperience from './experience/MyExperience';
@@ -15,7 +16,6 @@ import Feedbacks from './Feedbacks';
 import ContactCard from './contact-card/ContactCard';
 import Contact from './Contact';
 
-
 export {
   Hero,
   Navbar,
@@ -23,6 +23,7 @@ export {
   About,
   CardAnimation,
   MagnetIcons,
+  BoliRun,
   MyAnimation,
   MyExperience,
   FloatingElem,
