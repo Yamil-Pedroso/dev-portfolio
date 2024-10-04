@@ -5,6 +5,15 @@
     transition: border-color 0.3s;
   }
 
+  .glossy-nav {
+    background: rgba(25, 25, 29, 0.6); /* Un color de fondo semitransparente */
+    backdrop-filter: blur(10px); /* Ajusta la cantidad de blur según prefieras */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar un poco de profundidad */
+    border-radius: 8px; /* Opcional: para esquinas redondeadas */
+  }
+
+
   .border-effect:hover {
     border-color: transparent;
   }

@@ -1,0 +1,58 @@
+import React, { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+
+interface Props {
+  children: React.ReactElement
+}
+
+export default function Index({ children }: Props) {
+  const magnetic = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!magnetic.current) return
+
+    // Definir animaciones con GSAP
+    const xTo = gsap.quickTo(magnetic.current, 'x', {
+      duration: 1,
+      ease: 'elastic.out(1, 0.3)',
+    })
+    const yTo = gsap.quickTo(magnetic.current, 'y', {
+      duration: 1,
+      ease: 'elastic.out(1, 0.3)',
+    })
+
+    // Event listener para movimiento del ratón
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e
+      const {
+        height,
+        width,
+        left,
+        top,
+      } = magnetic.current!.getBoundingClientRect()
+      const x = clientX - (left + width / 2)
+      const y = clientY - (top + height / 2)
+      xTo(x)
+      yTo(y)
+    }
+
+    // Event listener para salir del área
+    const handleMouseLeave = () => {
+      xTo(0)
+      yTo(0)
+    }
+
+    // Añadir los event listeners
+    magnetic.current.addEventListener('mousemove', handleMouseMove)
+    magnetic.current.addEventListener('mouseleave', handleMouseLeave)
+
+    // Cleanup de los event listeners
+    return () => {
+      magnetic.current?.removeEventListener('mousemove', handleMouseMove)
+      magnetic.current?.removeEventListener('mouseleave', handleMouseLeave)
+    }
+  }, [])
+
+  // Clonar el hijo para pasar la referencia al componente que envuelve
+  return React.cloneElement(children, { ref: magnetic })
+}

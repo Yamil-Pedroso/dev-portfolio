@@ -1,5 +1,21 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
+
+const pulseCircle = keyframes`
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+`;
+
 
 export const CardContainer = styled.div`
     display: flex;
@@ -7,16 +23,34 @@ export const CardContainer = styled.div`
     align-items: center;
     position: relative;
 
-    .small-circle {
-        position: absolute;
-        top: -.5rem;
-        left: -.5rem;
-        width: 1rem;
-        height: 1rem;
-        background-color: #0099ff;
-        border-radius: 50%;
-        z-index: 10;
+    &:hover .small-circle::after {
+    animation: ${pulseCircle} 1.5s ease-out infinite; /* Activar la animación al hacer hover */
+  }
+
+  .small-circle {
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: #0099ff;
+    border-radius: 50%;
+    z-index: 10;
+
+    // Crear la onda de expansión utilizando un pseudo-elemento, pero sin animación por defecto
+    &::after {
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      left: -0.5rem;
+      width: 2rem;
+      height: 2rem;
+      background-color: rgba(0, 153, 255, 0.5); /* Color azul transparente */
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0; /* Mantener invisible hasta que se haga hover */
     }
+  }
 `;
 
 export const Card = styled(motion.div)`
@@ -54,7 +88,7 @@ export const Card = styled(motion.div)`
     position: absolute;
     z-index: 1000;
     background-color: #000;
-  
+
     border-radius: 0.2rem;
     border: 1px solid #fff;
   }

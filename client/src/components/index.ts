@@ -3,7 +3,8 @@ import Navbar from './Navbar';
 import LogoProfile from './logo-profile/LogoProfile';
 import About from './about/About';
 import CardAnimation from './card-animation/CardAnimation';
-import CardMotionAnimation from './card-motion-animation/CardMotionAnimation';
+import MagnetIcons from './magnet-icons/MagnetIcons';
+import MyAnimation from './animation-comps/TestingAni';
 import MyExperience from './experience/MyExperience';
 import FloatingElem from './floating-elements/FloatingElem';
 import SmallFunnyProjects from './SmallFunnyProjects';
@@ -21,6 +22,8 @@ export {
   LogoProfile,
   About,
   CardAnimation,
+  MagnetIcons,
+  MyAnimation,
   MyExperience,
   FloatingElem,
   SmallFunnyProjects,

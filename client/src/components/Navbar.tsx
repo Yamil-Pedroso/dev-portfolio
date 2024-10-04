@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import PlayfulAni from "./playful-animation/PlayfulAni";
-import { yamiBlue2 } from "../assets";
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import PlayfulAni from './playful-animation/PlayfulAni'
+import { yamiBlue2 } from '../assets'
 
-import { styles } from "../style";
-import "./style.css";
-import { navLinks } from "../constants";
-import { BsGithub } from "react-icons/bs";
-import { FaLinkedinIn } from "react-icons/fa";
-import { HiDocumentText } from "react-icons/hi";
-import { m } from "framer-motion";
+import { styles } from '../style'
+import './style.css'
+import { navLinks } from '../constants'
+import { BsGithub } from 'react-icons/bs'
+import { FaLinkedinIn } from 'react-icons/fa'
+import { HiDocumentText } from 'react-icons/hi'
+import { m } from 'framer-motion'
 
 const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [active, setActive] = useState('')
+  const [toggle, setToggle] = useState(false)
 
   const myHamburgerIcon = () => {
     return (
@@ -24,16 +24,16 @@ const Navbar = () => {
           {toggle ? <span className="open"></span> : <span></span>}
         </div>
       </>
-    );
-  };
+    )
+  }
 
   const handleClicked = () => {
-    setToggle(!toggle);
-  };
+    setToggle(!toggle)
+  }
 
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 bg-[#19191d] border-b-[1px] border-[#515151] z-50`}
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0  border-b-[1px] border-[#515151] z-50 glossy-nav`}
     >
       <PlayfulAni />
       <div className="w-full flex justify-around items-center  max-auto">
@@ -41,8 +41,8 @@ const Navbar = () => {
           to="/"
           className="flex items-center gap-2"
           onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
+            setActive('')
+            window.scrollTo(0, 0)
           }}
         >
           <div className="logo-wrapper">
@@ -50,7 +50,7 @@ const Navbar = () => {
               <img src={yamiBlue2} alt="logo" className="w-8 h-8" />
             </div>
             <h1>
-              [ <span className="text-[#0099ff]">YP-NEXTGEN</span> ]{" "}
+              [ <span className="text-[#0099ff]">YP-NEXTGEN</span> ]{' '}
               <span className="text-[#0099ff]">.</span>
             </h1>
           </div>
@@ -61,7 +61,7 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title ? "text-[#0099ff]" : "text-[#fafafa]"
+                active === link.title ? 'text-[#0099ff]' : 'text-[#fafafa]'
               } hover:text-[#0099ff] text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
@@ -78,8 +78,8 @@ const Navbar = () => {
           <div
             className={`${
               toggle
-                ? "opacity-100 transition-all duration-1000 slide-in-right"
-                : "slide-out-right duration-1000"
+                ? 'opacity-100 transition-all duration-1000 slide-in-right'
+                : 'slide-out-right duration-1000'
             } absolute top-20 right-0 w-full p-8 bg-[#19191d] border-t-[1px] border-[#515151] z-50`}
           >
             <ul className="list-none flex justify-end items-start flex-col gap-4">
@@ -87,11 +87,11 @@ const Navbar = () => {
                 <li
                   key={link.id}
                   className={`${
-                    active === link.title ? "text-[#46ca9e]" : "text-[#fafafa]"
+                    active === link.title ? 'text-[#46ca9e]' : 'text-[#fafafa]'
                   } hover:text-[#46ca9e] lg:text-[18px] font-medium cursor-pointer`}
                   onClick={() => {
-                    setToggle(!toggle);
-                    setActive(link.title);
+                    setToggle(!toggle)
+                    setActive(link.title)
                   }}
                 >
                   <a href={`#${link.id}`}>{link.title}</a>
@@ -113,7 +113,7 @@ const Navbar = () => {
         </Link>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
