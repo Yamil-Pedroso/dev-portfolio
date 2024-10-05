@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-
-import { styles } from '../../style'
 import { techServices } from '../../constants'
 import { SectionWrapper } from '../../hoc'
 import CardMotionAnimation from '../card-motion-animation/CardMotionAnimation'
@@ -36,13 +34,12 @@ const About = () => {
   }
 
   return (
-    <div className="about-wrapper" style={{ marginTop: '0rem' }}>
+    <div className="about-wrapper">
       <motion.h2
         ref={ref1} // Referencia para observar este elemento
         variants={springVariants}
         initial="hidden"
         animate={inView1 ? 'visible' : 'hidden'} // Animar cuando esté en vista
-        className=""
       >
         Introduction.
       </motion.h2>
@@ -51,7 +48,6 @@ const About = () => {
         variants={springVariants}
         initial="hidden"
         animate={inView2 ? 'visible' : 'hidden'}
-        className=""
       >
         Overview.
       </motion.h2>

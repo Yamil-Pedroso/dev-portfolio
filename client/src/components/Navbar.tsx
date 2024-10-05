@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PlayfulAni from './playful-animation/PlayfulAni'
 import { yamiBlue2 } from '../assets'

@@ -53,6 +53,10 @@ import {
       title: "About",
     },
     {
+      id: "tech",
+      title: "Tech",
+    },
+    {
       id: "work",
       title: "Work",
     },

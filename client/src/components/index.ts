@@ -17,9 +17,9 @@ import ContactCard from './contact-card/ContactCard';
 import Contact from './Contact';
 
 export {
+  LogoProfile,
   Hero,
   Navbar,
-  LogoProfile,
   About,
   CardAnimation,
   MagnetIcons,
