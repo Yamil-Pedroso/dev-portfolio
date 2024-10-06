@@ -102,6 +102,7 @@ import bottle12 from "./potion-bottles/bottle12.png";
 import bgVideo from "./video/bg-video.mp4";
 import bgVideo1 from "./video/bg-video1.mp4";
 import frontend1 from "./video/frontend.mp4";
+import yam from "./avatar/yam.png";
 
 import pcOne from "./images/jpg/pc-1.jpeg";
 import pcTwo from "./images/jpg/pc-2.jpeg";
@@ -209,4 +210,5 @@ export {
   pcTwo,
   pcThree,
   pcFour,
+  yam
 };

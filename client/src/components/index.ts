@@ -15,6 +15,7 @@ import Game from "./Game";
 import Feedbacks from './Feedbacks';
 import ContactCard from './contact-card/ContactCard';
 import Contact from './Contact';
+import ScrollAnimation from './scroll-animation/ScrollAnimation';
 
 export {
   LogoProfile,
@@ -25,6 +26,7 @@ export {
   MagnetIcons,
   BoliRun,
   MyAnimation,
+  ScrollAnimation,
   MyExperience,
   FloatingElem,
   SmallFunnyProjects,

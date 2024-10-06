@@ -12,7 +12,7 @@ const Portfolio = () => {
       <MyComponent.About />
       <MyComponent.BoliRun />
       <MyComponent.MagnetIcons />
-      <MyComponent.MyExperience />
+      <MyComponent.ScrollAnimation/>
       <MyComponent.Functionality />
       <MyComponent.Works />
       <MyComponent.ContactCard />
