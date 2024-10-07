@@ -32,11 +32,11 @@ const moveUpDownHandIcon = keyframes`
 const leftToRightWidth = keyframes`
     from {
         width: 0;
-        background-color: #e9a13b;
+        background-color: #0099ff;
     }
     to {
         width: 100%;
-        background-color: #e9a13b;
+        background-color: #0099ff;
     }
 `;
 
@@ -104,7 +104,7 @@ export const Container = styled.div`
         }
         span {
             font-size: 3rem;
-            color: #4ac3a7;
+            color: #0099ff;
             position: absolute;
             margin-left: 1rem;
         }
@@ -124,8 +124,6 @@ export const Container = styled.div`
         gap: 1rem;
         margin-top: 2.5rem;
         width: 60%;
-
-
 
         .card {
             position: relative;
@@ -157,7 +155,7 @@ export const Container = styled.div`
                 height: 100%;
                 object-fit: cover;
                 transition: transform 0.5s ease;
-
+                border-radius: .4rem;
             }
             &:hover img {
                 transform: scale(1.1); 
@@ -275,7 +273,7 @@ export const LiveDemoContent = styled.div`
 
               p:nth-child(1) {
                 font-size: 1.2rem;
-               color: #6fe6ca;;
+               color: #0099ff;;
                 font-weight: 500;
                 padding-bottom: .1rem;
               }
@@ -296,14 +294,14 @@ export const LiveDemoContent = styled.div`
               }
     
               a {
-                color: #4ac3a7;
+                color: #0099ff;
                 font-size: 1.5rem;
                 text-decoration: none;
                 margin-top: 1rem;
                 transition: color 0.5s ease;
 
                 &:hover {
-                    color: #6fe6ca;
+                    color: #4fa9e5;
                 }
               }
          }
