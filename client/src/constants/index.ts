@@ -1,9 +1,11 @@
 import { IconType } from 'react-icons';
-import { FaNodeJs, FaReact, FaHtml5, FaCss3, FaBootstrap, FaDatabase } from "react-icons/fa";
+import { FaNodeJs, FaReact, FaHtml5, FaCss3, FaPhoneAlt } from "react-icons/fa";
 import { SiMongodb, SiTypescript, SiJavascript, SiStyledcomponents, SiTailwindcss, SiAdobephotoshop, SiAdobeillustrator, SiFramer, SiBlender } from "react-icons/si";
 import { PiFileSqlFill } from "react-icons/pi";
 import { LiaFigma } from "react-icons/lia";
 import { TbWorldPlus, TbWorldWww } from "react-icons/tb";
+import { MdEmail } from "react-icons/md";
+import { FaLocationDot, FaImage, FaE } from "react-icons/fa6";
 
 import {
     backend,
@@ -78,13 +80,18 @@ import {
     "https://ecom-etlmgjnmy-yamil-pedroso.vercel.app/"
   ]
 
+  interface IContact {
+    icon: IconType | string;
+    content: string;
+  }
+
   interface Service {
     id: number;
     title: string;
     description: string;
     icon: string; // Suponiendo que frontend es una cadena que representa la ruta de la imagen
     icons?: IconType[];
-    color: string;
+    color?: string;
   }
 
   export interface ITechService {
@@ -94,6 +101,33 @@ import {
     description2?: string;
     buttonText?: string;
   }
+
+  const contact: IContact[] = [
+    {
+      content: "+41 079 532 65 19",
+      icon: FaPhoneAlt,
+    },
+    {
+      content: "yamilpedroso@gmail.com",
+      icon: MdEmail,
+    },
+    {
+      content: "Zurich, Switzerland",
+      icon: FaLocationDot,
+    },
+    {
+      content: "Lorem",
+      icon: FaImage,
+    },
+    {
+      content: "Lorem",
+      icon: FaImage,
+    },
+    {
+      content: "Lorem",
+      icon: FaImage,
+    },
+  ];
 
   const techServices: ITechService[] = [
     {
@@ -488,4 +522,4 @@ import {
     },
   ];
 
-  export { services, techServices, technologies, experiences, testimonials, projects, enviroment };
+  export { services, techServices, technologies, experiences, testimonials, projects, enviroment, contact };

@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { styles } from '../../style'
@@ -21,7 +20,7 @@ const Works = () => {
           My work
         </p>
         <h2
-          className={`${styles.sectionHeadText} bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent  lg:text-[3.5rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem] font-bold`}
+          className="projects-title"
         >
           Projects.
         </h2>

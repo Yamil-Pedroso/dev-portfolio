@@ -118,8 +118,8 @@ const Navbar = () => {
                 <li
                   key={link.id}
                   className={`${
-                    active === link.title ? "text-[#46ca9e]" : "text-[#fafafa]"
-                  } hover:text-[#46ca9e] lg:text-[18px] font-medium cursor-pointer`}
+                    active === link.title ? "text-[#0099ff]" : "text-[#fafafa]"
+                  } hover:text-[#0099ff] lg:text-[18px] font-medium cursor-pointer`}
                   onClick={() => {
                     setToggle(!toggle);
                     setActive(link.title);

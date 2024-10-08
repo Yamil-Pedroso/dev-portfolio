@@ -138,7 +138,7 @@ const Tech = () => {
         className="text-center"
       >
         <h2
-          className={`${styles.sectionHeadText} bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent`}
+          className={`${styles.sectionHeadText} bg-gradient-to-r from-[#0099ff] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent`}
         >
           Tech
         </h2>
@@ -154,10 +154,10 @@ const Tech = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
             exit={{ opacity: 0, y: 20 }}
-            className="flex justify-center items-center w-[10rem] h-[15vh] max-md:w-[8rem] max-md:h-[11rem] max-sm:w-[6rem] max-sm:h-[9rem] border-[1px] border-[#515151] m-2 cursor-pointer hover:border-[#46ca9e] transition duration-500 ease-in-out"
+            className="flex justify-center items-center w-[10rem] h-[15vh] max-md:w-[8rem] max-md:h-[11rem] max-sm:w-[6rem] max-sm:h-[9rem] border-[1px] border-[#515151] m-2 cursor-pointer hover:border-[#0099ff] transition duration-500 ease-in-out"
           >
             <div
-              className={`text-[2em] max-md:text-[1.8em] max-sm:text-[1.3em] text-[#515151] hover:text-[#46ca9e] transition duration-500 ease-in-out`}
+              className={`text-[2em] max-md:text-[1.8em] max-sm:text-[1.3em] text-[#515151] hover:text-[#0099ff] transition duration-500 ease-in-out`}
             >
               {box.icon}
             </div>

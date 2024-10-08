@@ -62,7 +62,7 @@ const ContactCard = () => {
           <div className="">
             <div
               onClick={handlePhoneClick}
-              className={`hover:text-white cursor-pointer w-[5rem] h-[5rem] max-md:w-[3.5rem] max-sm:w-[3.2rem] max-sm:h-[3.2rem] max-md:h-[3.5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] max-md:top-[-30px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#46ca9e] hover:-translate-y-1 hover:scale-110`}
+              className={`hover:text-white cursor-pointer w-[5rem] h-[5rem] max-md:w-[3.5rem] max-sm:w-[3.2rem] max-sm:h-[3.2rem] max-md:h-[3.5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] max-md:top-[-30px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#0099ff] hover:-translate-y-1 hover:scale-110`}
             >
               <FaPhoneAlt className="max-md:text-[.7em] max-sm:text-[.6em] hover:none" />
             </div>
@@ -77,7 +77,7 @@ const ContactCard = () => {
         <div className="w-[25rem] h-[17rem] max-md:mt-12 max-md:w-[20rem] max-sm:w-[16rem] max-md:items-center max-md:h-[8rem] border-black border-[1px] shadow-card flex flex-col justify-center px-8 relative mx-8  max-lg:mb-20 max-sm:mb-2  border-card">
           <div
             onClick={handleEmailClick}
-            className="hover:text-white cursor-pointer w-[5rem] h-[5rem] max-md:w-[3.5rem] max-sm:w-[3.2rem] max-sm:h-[3.2rem] max-md:h-[3.5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] max-md:top-[-30px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#46ca9e] hover:-translate-y-1 hover:scale-110"
+            className="hover:text-white cursor-pointer w-[5rem] h-[5rem] max-md:w-[3.5rem] max-sm:w-[3.2rem] max-sm:h-[3.2rem] max-md:h-[3.5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] max-md:top-[-30px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#0099ff] hover:-translate-y-1 hover:scale-110"
           >
             <FaEnvelope className="max-md:text-[.7em] max-sm:text-[.6em] hover:text-white" />
           </div>
@@ -91,7 +91,7 @@ const ContactCard = () => {
         <div className="w-[25rem] h-[17rem] max-md:mt-12 max-md:w-[20rem] max-sm:w-[16rem] max-md:items-center max-md:h-[8rem] border-black border-[1px] shadow-card flex flex-col justify-center px-8 relative mx-8  max-lg:mb-20 max-sm:mb-2  border-card">
           <div
             onClick={handleMapClick}
-            className="hover:text-white cursor-pointer w-[5rem] h-[5rem] max-md:w-[3.5rem] max-sm:w-[3.2rem] max-sm:h-[3.2rem] max-md:h-[3.5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] max-md:top-[-30px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#46ca9e] hover:-translate-y-1 hover:scale-110"
+            className="hover:text-white cursor-pointer w-[5rem] h-[5rem] max-md:w-[3.5rem] max-sm:w-[3.2rem] max-sm:h-[3.2rem] max-md:h-[3.5rem] border-black border-[3px] rounded-[50%] flex justify-center items-center absolute left-[40px] top-[-45px] max-md:top-[-30px] bg-white text-2xl transition ease-in-out delay-200 hover:bg-[#0099ff] hover:-translate-y-1 hover:scale-110"
           >
             <FaMapMarkerAlt className="max-md:text-[.7em] max-sm:text-[.6em]" />
           </div>

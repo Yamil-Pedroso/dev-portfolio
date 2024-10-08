@@ -13,6 +13,7 @@ import Functionality from './functionality/Functionality';
 import Works from './works/Works';
 import Game from "./Game";
 import Feedbacks from './Feedbacks';
+import NewContact from './new-contact/NewContact';
 import ContactCard from './contact-card/ContactCard';
 import Contact from './Contact';
 import ScrollAnimation from './scroll-animation/ScrollAnimation';
@@ -34,6 +35,7 @@ export {
   Works,
   Game,
   Feedbacks,
+  NewContact,
   ContactCard,
   Contact,
 }

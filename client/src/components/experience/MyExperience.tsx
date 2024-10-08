@@ -137,7 +137,7 @@ const MyExperience = () => {
             My Journey So Far.
           </motion.p>
           <h2
-            className={`${styles.sectionHeadText} bg-gradient-to-r from-[#46ca9e] to-[#6289ef] bg-clip-text text-transparent text-center lg:text-[3.5rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]`}
+            className={`${styles.sectionHeadText} bg-gradient-to-r from-[#0099ff] to-[#6289ef] bg-clip-text text-transparent text-center lg:text-[3.5rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]`}
           >
             Experience.
           </h2>

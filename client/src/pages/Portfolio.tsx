@@ -15,10 +15,7 @@ const Portfolio = () => {
       <MyComponent.ScrollAnimation/>
       <MyComponent.Functionality />
       <MyComponent.Works />
-      <MyComponent.ContactCard />
-      <div className="relative z-0">
-        <MyComponent.Contact />
-      </div>
+      <MyComponent.NewContact />
       <BackToTopBtn />
     </div>
   )

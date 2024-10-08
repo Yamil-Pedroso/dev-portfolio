@@ -63,7 +63,7 @@ const ValueAnimation = () => {
     <div className={styles.body}>
       <div className={styles.dockWrapper}>
         <p>👋 Hi guys, feel free to visit my content.</p>
-        <Link to="/portfolio"><div className="text-[#46ca9e] text-center mt-[4rem]">Portfolio</div></Link>
+        <Link to="/portfolio"><div className="text-[#0099ff] text-center mt-[4rem]">Portfolio</div></Link>
           <Dock>
             {GRADIENTS.map((src, index) =>
               src ? (

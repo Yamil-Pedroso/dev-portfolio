@@ -75,7 +75,7 @@ const Contact = () => {
         >
           <div className="ml-[7rem]">
             <div className="border-black border-[8px] w-[18rem] h-[8vh] flex items-center justify-center bg-[#303030] absolute top-[-6.5rem] max-lg:top-[-6.5rem] max-lg:left-[9.3rem] max-md:left-[10.5rem] max-md:top-[-6.2rem] max-md:w-[16rem] max-md:h-[6rem] max-xs:left-[9.2rem] max-xs:w-[15rem] max-xs:h-[5rem] max-xs:top-[-5.8rem] max-xs:border-[5px] max-xs:ml-[1.5rem]">
-              <h3 className="bg-gradient-to-r from-[#46ca9e] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent text-[2.8rem] max-md:text-[2.3rem] max-xs:text-[2rem]">
+              <h3 className="bg-gradient-to-r from-[#0099ff] via-[#4a7bf8] to-[#6289ef] bg-clip-text text-transparent text-[2.8rem] max-md:text-[2.3rem] max-xs:text-[2rem]">
                 Contact
               </h3>
             </div>

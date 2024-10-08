@@ -1,5 +1,116 @@
+.full-width {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+    //border: 1px solid #2a2a2a;
+  }
+
+  .centered-box {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; 
+    border-radius: 0.5rem; 
+    padding: 0.5rem 1rem; 
+  }
+
+  .card-cont-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0;
+    h1 {
+        font-size: 14px;
+    }
+    p {
+        color: #858585;
+        font-size: 14px; 
+        width: 80%;
+    }
+  }
+
+  .custom-text {
+    width: 16rem;
+    font-size: 1.4em;
+  }
+  
+  @media (max-width: 768px) {
+    .custom-text {
+      font-size: 1.4em;
+    }
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    width: 100vw;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 6px 1rem rgba(0, 0, 0, 0.7); /* Sombra para dar un poco de profundidad */
+}
+
+.card-wrapper {
+    background-color: #161616;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #2a2a2a;
+    border-radius: .3rem; 
+    overflow: hidden;
+    
+  }
+
+  .card-cont {
+    overflow: hidden;
+  }
+
+  .text-center-wrapper {
+
+  }
+
+  .text-overlay {
+    text-align: center;
+   
+  }
+  
+  @media (max-width: 768px) {
+    .text-overlay {
+      font-size: 0.75rem; /* Esto es equivalente a `text-xs` */
+    }
+  }
+  
+  
+  
 .linkto-me-text-wrapper {
     transition: 0.3s ease-in-out;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dark-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Esto es solo un ejemplo para la superposición oscura */
+  }
+  
+
+.projects-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #0099ff, #55b1bf, #4e67a5);
+    background-size: 40%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 2rem;
 }
 
 .text-wrapper h2 {
@@ -15,12 +126,35 @@
 .text-wrapper .refactor-icon {
     font-size: 2.5rem;
     margin-right: 1rem;
-    color: #46ca9e;
+    color: #0099ff;
 }
 
 .linkto-me-text-wrapper:hover {
     transform: scale(1.2);
 }
+
+.zoom-img {
+    width: 26rem;
+    height: 14.625rem;
+    object-fit: cover;
+    color: black;
+    filter: grayscale(100%) brightness(0.7);
+  }
+  
+  @media (max-width: 768px) {
+    .zoom-img {
+      width: 18rem;
+      height: 20rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .zoom-img {
+      width: 16rem;
+      height: 18rem;
+    }
+  }
+  
 
 @media (max-width: 960px) {
     .linkto-me-text-wrapper {

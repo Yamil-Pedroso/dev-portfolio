@@ -148,12 +148,12 @@
     0% {
       opacity: 0;
       transform: translateY(20px);
-      background: linear-gradient(#46ca9e, #6289ef);
+      background: linear-gradient(#0099ff, #6289ef);
     }
     100% {
       opacity: 1;
       transform: translateY(0);
-      background: linear-gradient(#46ca9e, #6289ef);
+      background: linear-gradient(#0099ff, #6289ef);
     }
   }
   
@@ -175,14 +175,14 @@
     }
     50% {
       transform: translateY(-10px);
-      color: #46ca9e;
+      color: #0099ff;
     }
   }
 
   @keyframes moveUpDown2 {
     0%, 100% {
       transform: translateY(-10px);
-        color: #46ca9e;
+        color: #0099ff;
     }
     50% {
       transform: translateY(10px);

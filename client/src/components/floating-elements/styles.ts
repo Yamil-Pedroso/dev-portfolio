@@ -79,7 +79,7 @@ export const IconTech = styled.div`
 
 export const GradientIcon = styled.div`
   color: transparent;
-  background: linear-gradient(to right, #46ca9e, #4a7bf8, #6289ef);
+  background: linear-gradient(to right, #0099ff, #4a7bf8, #6289ef);
   -webkit-background-clip: text;
   background-clip: text;
 `;

@@ -1,18 +1,11 @@
-import React, { useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { m, motion } from "framer-motion";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
   react,
   filePython,
-  csharp,
   typescript,
   porfolioOne,
-  porfolioTwo,
-  porfolioThree,
-  porfolioFour,
-  portfolioFive,
   travel,
 } from "../assets";
 
@@ -20,10 +13,18 @@ const menu1 = [
   {
     title: "React-TS-Node",
     content: "Squib Company Ltd.",
-    color: "bg-red-500",
+ 
     src: react,
     link: "https://www.squib.app",
     image: porfolioOne,
+  },
+  {
+    title: "React-Google-Map",
+    content: "Travel Advisor",
+    src: react,
+    color: "bg-blue-500",
+    link: "https://travel-advisorv1.netlify.app/",
+    image: travel,
   },
   {
     title: "React-Google-Map",
@@ -38,7 +39,6 @@ const menu2 = [
   {
     title: "Python 1",
     content: "New",
-    color: "bg-red-500",
     src: filePython,
     link: "https://www.google.com",
   },
@@ -61,7 +61,6 @@ const menu3 = [
   {
     title: "html/css/ts 1",
     content: "New",
-    color: "bg-red-500",
     src: typescript,
     link: "https://www.google.com",
   },
@@ -69,14 +68,12 @@ const menu3 = [
     title: "html/css/ts 2",
     content: "New",
     src: typescript,
-    color: "bg-blue-500",
     link: "https://www.google.com",
   },
   {
     title: "html/css/ts 3",
     content: "New",
     src: typescript,
-    color: "bg-green-500",
     link: "https://www.google.com",
   },
 ];
@@ -104,118 +101,41 @@ const TabCards = () => {
     }
   };
 
-  const titleOverTheImage = (index: any) => {
-    if (index === "menu1") {
-      return menu1.map((text) => <h1>{text.title}</h1>);
-    }
-  };
-
   return (
-    <div className="flex flex-col space-y-4 w-full">
-      <div className="flex justify-center space-x-8 rounded-lg px-4 py-2 w-full">
+    <div className="full-width">
+      <div className="centered-box">
         <button
           onClick={() => handleClick("menu1")}
-          className={` ${checkActiveTab(
-            "menu1",
-            "w-[16rem] text-[1.4em] max-md:text-[1.4em]"
-          )}`}
+          className={` ${checkActiveTab("menu1", "custom-text")}`}
         >
           React-TS-Node
         </button>
-        {/*<button
-          onClick={() => handleClick("menu2")}
-          className={`text-white ${checkActiveTab(
-            "menu2",
-            "w-[6rem] text-[1.6em] max-md:text-[1.4em]"
-          )}`}
-        >
-          Python
-        </button>*/}
-        {/*<button
-          onClick={() => handleClick("menu3")}
-          className={`text-white ${checkActiveTab(
-            "menu3",
-            "w-[6rem] text-[1.6em] max-md:text-[1.4em]"
-          )}`}
-        >
-          HTML/CSS/TS
-        </button>*/}
       </div>
-      <div className="flex justify-center overflow-hidden  flex-wrap w-full rounded-md">
+      <div className="flex-container">
         {menu1.map((item, index) => (
-          <>
-            <Link to={item.link} target="_blank">
-              <div
-                key={index}
-                className={`flex flex-col space-y-3 p-[.8rem] panel
-            dark-overlay bg-[#2c2d2c]
-            cursor-pointer ${checkActiveTab("menu1", "active")}`}
-              >
-                <div>
-                  <h1 className="text-center text-[#fbb34e]">
-                    {item.title}
-                  </h1>
-                  <p
-                    className="text-overlay max-md:text-xs w-full text-center"
-                  >
-                   {item.content}
-                  </p>
-                </div>
+          <div className="card-container">
+            <div className="card-wrapper">
+              <Link to={item.link} target="_blank" className="card-cont">
+                <div
+                  key={index}
+                  className={`panel dark-overlay cursor-pointer ${checkActiveTab(
+                    "menu1",
+                    "active"
+                  )}`}
+                >
+                  <div className="text-center-wrapper">
+                    <p className="text-overlay"><span style={{ color : "#0099ff", fontWeight: "400"}}>{item.content}</span></p>
+                  </div>
 
-                <img
-                  src={item.image}
-                  alt=""
-                  className="w-[22rem] h-[40vh] object-cover zoom-img max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black"
-                />
+                  <img src={item.image} alt="" className="zoom-img" />
+                </div>
+              </Link>
+              <div className="card-cont-wrapper">
+                <h1 className="">{item.title}</h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
               </div>
-            </Link>
-          </>
-        ))}
-        {menu2.map((item, index) => (
-          <div
-            key={index}
-            className={`flex flex-col space-y-4 p-[.3rem] panel ${checkActiveTab(
-              "menu2",
-              "active"
-            )}`}
-          >
-            <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black">
-              <div>
-                <h1 className="text-xl font-bold">{item.title}</h1>
-                <Link
-                  to={item.link}
-                  className="text-sm font-bold"
-                  target="_blank"
-                >
-                  {/*{item.link}*/}
-                </Link>
-              </div>
-              <h1 className="text-xl font-bold">{item.content}</h1>
-              <img src={item.src} alt="" className="w-20 h-20 rounded-full" />
-            </div>
-          </div>
-        ))}
-        {menu3.map((item, index) => (
-          <div
-            key={index}
-            className={`flex flex-col space-y-4 p-[.3rem] panel ${checkActiveTab(
-              "menu3",
-              "active"
-            )}`}
-          >
-            <div className="flex justify-center items-center bg-[#2d2d2d] w-[22rem] h-[40vh] max-md:w-[18rem] max-md:h-[20rem] max-sm:w-[16rem] max-sm:h-[18rem] text-black">
-              <div>
-                <h1 className="text-xl font-bold">{item.title}</h1>
-                <Link
-                  to={item.link}
-                  className="text-sm font-bold"
-                  target="_blank"
-                >
-                  {/*{item.link}*/}
-                </Link>
-              </div>
-              <h1 className="text-xl font-bold">{item.content}</h1>
-              <img src={item.src} alt="" className="w-20 h-20 rounded-full" />
             </div>
           </div>
         ))}

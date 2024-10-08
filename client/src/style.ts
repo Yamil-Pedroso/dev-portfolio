@@ -10,7 +10,7 @@ const styles = {
       "text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px]",
 
     sectionHeadText:
-      "bg-gradient-to-r from-[#46ca9e] via-[#55b1bf] to-[#4e67a5] bg-clip-text text-transparent text-[3em] font-bold",
+      "bg-gradient-to-r from-[#0099ff] via-[#55b1bf] to-[#4e67a5] bg-clip-text text-transparent text-[3em] font-bold",
     sectionSubText:
       "text-[#fafafa] text-[30px]",
 

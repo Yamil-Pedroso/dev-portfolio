@@ -18,8 +18,8 @@ const LogoProfile = () => {
           <img src={yamiBlue2} alt="logo" className="w-8 h-8" />
         </div>
         <h1>
-          [ <span className="text-[#46ca9e]">YP-NEXTGEN</span> ]{" "}
-          <span className="text-[#46ca9e]">.</span>
+          [ <span className="text-[#0099ff]">YP-NEXTGEN</span> ]{" "}
+          <span className="text-[#0099ff]">.</span>
         </h1>
       </Link>
     </Container>
