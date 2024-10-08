@@ -1,8 +1,55 @@
+import { useState } from "react";
 import { MdStars } from "react-icons/md";
 import Marquee from "react-fast-marquee";
-import { figma } from "../../assets";
+import { figma, framer } from "../../assets";
+import { motion } from "framer-motion";
+
+const techIcons = [
+ {
+    id: 1,
+    icon: figma,
+  },
+  {
+    id: 2,
+    icon: framer,
+  },
+  {
+    id: 3,
+    icon: figma,
+ },
+  {
+    id: 4,
+    icon: figma,
+  },
+  {
+    id: 5,
+    icon: figma,
+  },
+  {
+    id: 6,
+    icon: figma,
+  },
+];
 
 const CardTitles = () => {
+  const [isHovered, setIsHovered] = useState<number | null>(null);
+  const [isHovered2, setIsHovered2] = useState<number | null>(null);
+
+  const handleHover = (index: number) => {
+    setIsHovered(index); 
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(null); 
+  };
+  const handleHover2 = (index: number) => {
+    setIsHovered2(index); 
+  };
+
+  const handleMouseLeave2 = () => {
+    setIsHovered2(null); 
+  };
+
   return (
     <div
       style={{
@@ -124,18 +171,24 @@ const CardTitles = () => {
             style={{
               width: "20rem",
               display: "flex",
-              justifyContent: "center",
               alignItems: "center",
               flexWrap: "wrap",
               gap: "1rem",
               marginLeft: "0rem",
-              overflow: "hidden",
+              //overflow: "hidden",
+              position: "relative",
             }}
           >
-            {Array(6)
-              .fill(0)
-              .map((_, index) => (
-                <div
+
+            {techIcons.slice(0, 3).map((item, index) => (
+                <motion.div
+                  onMouseEnter={() => handleHover(index)}
+                  onMouseLeave={handleMouseLeave}
+                  key={index}
+                  whileHover={{
+                    rotate: [0, -10, 10, -10, 10, 0], 
+                    transition: { duration: 0.5 },   
+                  }}
                   style={{
                     display: "flex",
                     justifyContent: "center",
@@ -145,12 +198,49 @@ const CardTitles = () => {
                     borderRadius: "50%",
                     cursor: "pointer",
                     background: "rgba(8, 8, 8, 0.8)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    border: isHovered === index ? "1px solid #003a61" : "1px solid rgba(255, 255, 255, 0.1)",
                     padding: "1rem",
+                    position: "absolute",
+                    top: "-5rem",
+                    left: "0rem",
+                    marginLeft: `${index * 5.5}rem`,
+                  }}
+                >
+                  <img src={item.icon} alt="" width={33} />
+                </motion.div>
+              ))}
+
+            {Array(3)
+              .fill(0)
+              .map((_, index) => (
+                <motion.div
+                  onMouseEnter={() => handleHover2(index)}
+                  onMouseLeave={handleMouseLeave2}
+                  key={index}
+                  whileHover={{
+                    rotate: [0, -10, 10, -10, 10, 0], 
+                    transition: { duration: 0.5 },   
+                  }}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "4.5rem",
+                    height: "4.5rem",
+                    borderRadius: "50%",
+                    cursor: "pointer",
+                    background: "rgba(8, 8, 8, 0.8)",
+                    border: isHovered2 === index ? "1px solid #003a61" : "1px solid rgba(255, 255, 255, 0.1)",
+                    padding: "1rem",
+                    position: "absolute",
+                    top: ".4rem",
+                    left: "3rem",
+                    marginLeft: `${index * 5.5}rem`,
+                    zIndex: 1,
                   }}
                 >
                   <img src={figma} alt="" width={33} />
-                </div>
+                </motion.div>
               ))}
           </div>
         </div>
