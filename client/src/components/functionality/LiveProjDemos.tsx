@@ -38,11 +38,6 @@ const LiveProjDemos = () => {
           ))}
         </div>
       </div>
-      <div
-        className="horizontal-line"
-      >
-        
-      </div>
     </LiveDemoContent>
   );
 };

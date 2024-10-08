@@ -8,6 +8,7 @@ import MagnetIcons from './magnet-icons/MagnetIcons';
 import MyAnimation from './animation-comps/TestingAni';
 import MyExperience from './experience/MyExperience';
 import FloatingElem from './floating-elements/FloatingElem';
+import MoreUiUx from './more-uiux/MoreUiUx';
 import SmallFunnyProjects from './SmallFunnyProjects';
 import Functionality from './functionality/Functionality';
 import Works from './works/Works';
@@ -30,6 +31,7 @@ export {
   ScrollAnimation,
   MyExperience,
   FloatingElem,
+  MoreUiUx,
   SmallFunnyProjects,
   Functionality,
   Works,

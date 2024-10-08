@@ -12,8 +12,8 @@ const Portfolio = () => {
       <MyComponent.About />
       <MyComponent.BoliRun />
       <MyComponent.MagnetIcons />
-      <MyComponent.ScrollAnimation/>
       <MyComponent.Functionality />
+      <MyComponent.MoreUiUx />
       <MyComponent.Works />
       <MyComponent.NewContact />
       <BackToTopBtn />

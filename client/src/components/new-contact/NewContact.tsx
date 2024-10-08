@@ -16,7 +16,7 @@ import { IconType } from "react-icons";
 
 const NewContact = () => {
   return (
-    <Container>
+    <Container id="contact">
       <UserContent>
         <Header>
           <h2>Header</h2>

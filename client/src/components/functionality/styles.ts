@@ -123,7 +123,8 @@ export const Container = styled.div`
         flex-wrap: wrap;
         gap: 1rem;
         margin-top: 2.5rem;
-        width: 60%;
+        width: 70%;
+        height: 30rem;
 
         .card {
             position: relative;

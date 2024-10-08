@@ -13,6 +13,7 @@ import ChatApp from "../functionalities/realtime-chat/ChatApp";
 import DropFilesApp from "../functionalities/drop-files/DropFilesApp";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { TbHandFinger } from "react-icons/tb";
+import CardTitles from "./CardTitles";
 
 import LiveProjDemos from "./LiveProjDemos";
 
@@ -193,10 +194,12 @@ const Functionality = () => {
         </p>
       </div>
 
-      <div>
+      {/*<div>
         <LiveProjDemos />
-      </div>
-      <span
+      </div>*/}
+
+      <CardTitles />
+      {/*<span
        style={{ color: '#b7b7b7'}}
       >
         Local demos and repositories.
@@ -261,7 +264,7 @@ const Functionality = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </Container>
   )
 }
