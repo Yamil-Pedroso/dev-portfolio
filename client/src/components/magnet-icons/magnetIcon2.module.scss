@@ -1,0 +1,104 @@
+.main{
+    position: absolute;
+    top: 13.25rem;
+    left: 4rem;
+    .imgWrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+        span {
+          position: absolute;
+          color: #0099ff;
+          font-size: 1.5rem;
+          font-weight: 700;
+          left: 5rem;
+          top: 7.2rem;
+          text-transform: uppercase;
+          transition: opacity 0.8s;
+          z-index: 1;
+        }
+        .text {
+          position: absolute;
+          font-size: 1.5rem;
+          font-weight: 700;
+          left: 6.5rem;
+          top: 7.25rem;
+          text-transform: uppercase;
+          transition: opacity 0.8s;
+          z-index: 1;
+  }
+        .box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 14rem;
+          height: 14rem;
+          background-color: #535353;
+          margin: .8rem;
+          border-radius: .5rem;
+          overflow: hidden;
+  
+          img{
+            width: 100%;
+            height: 100%;
+            filter: grayscale(100%);
+            object-fit: cover;
+          }
+  
+          img:hover{
+            filter: grayscale(0%);
+            transition: all 0.5s;
+            transform: scale(1.1);
+            cursor: pointer;
+          }
+  } 
+  
+      }
+      .container{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          //mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+          width: 23%;
+          overflow: hidden;
+          svg {
+              height: 1.4rem;
+              width: 1.4rem; 
+              margin: 1rem;
+              padding: 0; 
+              fill: #c8bdb0;
+              transition: fill 0.2s;
+              opacity: 0.4;
+              cursor: pointer;
+  
+              &:hover {
+                fill: #0099ff;
+              }
+            }
+      }
+      p{
+          color:#494136;
+      }
+  
+      .carousel {
+        display: flex;
+        width: calc(200%);
+        animation: slide 30s linear infinite ;
+        -webkit-animation: slide 30s linear infinite ;
+  }
+  
+      .icon {
+        flex: 0 0 auto;
+        
+      }
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }

@@ -75,7 +75,7 @@ const BoliRun: React.FC = () => {
           </ExtraContent>
         </Stack>
       </ContentWrapper>
-      <Marquee gradient={false} speed={80}>
+      {/*<Marquee gradient={false} speed={80}>
         <div
           style={{
             display: "flex",
@@ -99,7 +99,7 @@ const BoliRun: React.FC = () => {
             }}
           />
         </div>
-      </Marquee>
+      </Marquee>*/}
     </BoliAniContainer>
   );
 };

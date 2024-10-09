@@ -1,109 +1,13 @@
-import { useEffect, useState } from "react";
-import styles from "./magneIcon.module.scss";
+import styles from "./magnetIcon2.module.scss";
 import GsapMagnetic from "./Gsap";
 import Marquee from "react-fast-marquee";
-import { motion } from "framer-motion";
-import Modal from "./Modal";
-import { BsFillLaptopFill } from "react-icons/bs";
-import MagnetIcons2 from "./MagnetIcons2";
 
-const arrayCode = [
-  "{...programmer}",
-  "() => { return <div>...</div> }",
-  "const [state, setState] = useState();",
-  "const { name, age } = useContext(Context);",
-];
-
-const paragraphArray = ["Hola mundo!", "How are you?", "Let's program!", "npm install becreative@latest"];
-
-const randomPosition = () => ({
-  x: Math.random() * window.innerWidth - window.innerWidth / 2,
-  y: Math.random() * window.innerHeight - window.innerHeight / 2,
-  rotate: Math.random() * 360 - 180,
-  scale: Math.random() * 0.9 + 0.9,
-  opacity: Math.random() * 0.2 + 0.5,
-});
-
-const MagnetIcons = () => {
-  const [textActive, setTextActive] = useState(false);
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [currentPercentage, setCurrentPercentage] = useState(0);
-  const [currentParagraphIndex, setCurrentParagraphIndex] = useState(0);
-
-  const handleClickText = () => {
-    // Incrementa el índice del párrafo, y si llega al final, vuelve a empezar
-    setCurrentParagraphIndex((prevIndex) =>
-      prevIndex < paragraphArray.length - 1 ? prevIndex + 1 : 0
-    );
-    setTextActive(true); // Para controlar la animación
-  };
-  const handleMouseEnter2 = (percentage: number) => {
-    setCurrentPercentage(percentage);
-    setModalVisible(true);
-  };
-
-  const handleMouseLeave2 = (percentage: number) => {
-    setCurrentPercentage(percentage);
-    setModalVisible(false);
-  };
-
-  useEffect(() => {
-    !isModalVisible && setCurrentPercentage(0);
-  }, []);
-
-  const [positions, setPositions] = useState(
-    arrayCode.map(() => randomPosition())
-  );
-
-  const [isPaused, setIsPaused] = useState<boolean[]>(
-    arrayCode.map(() => false)
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPositions(arrayCode.map(() => randomPosition()));
-    }, 3000); // Cambiar cada 3 segundos (o el tiempo que prefieras)
-
-    return () => clearInterval(interval);
-  }, []);
-
+const MagnetIcons2 = () => {
   return (
     <main className={styles.main}>
-      <div className={styles.imgWrapper}>
-         <MagnetIcons2 />
-         <span>{'>'}</span>
-        {paragraphArray.map((paragraph, index) => (
-          <motion.div
-            className={styles.text}
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{
-              opacity: index === currentParagraphIndex ? 1 : 0,
-              y: index === currentParagraphIndex ? 0 : 20,
-            }}
-            transition={{ duration: 0.5 }}
-            style={{
-              display: index === currentParagraphIndex ? "block" : "none",
-            }}
-          >
-            <p
-             style={{ color: index === currentParagraphIndex ? "#0099ff" : "#000" }}
-            >{paragraph}</p>
-          </motion.div>
-        ))}
-        <div className={styles.laptopIconWrapper}>
-          <BsFillLaptopFill className={styles.laptopIcon} />
-          <div className={styles.transparentScreen}>
-
-          </div>
-        </div>
-      </div>
       <div className={styles.container}>
-        <Modal isVisible={isModalVisible} percentage={currentPercentage} />
-        <Marquee gradient={false} speed={30} pauseOnHover={true}>
+        <Marquee gradient={false} speed={30}pauseOnHover={true}>
           <div
-            onMouseEnter={() => handleMouseEnter2(95)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -129,8 +33,6 @@ const MagnetIcons = () => {
             </GsapMagnetic>
           </div>
           <div
-            onMouseEnter={() => handleMouseEnter2(90)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -158,8 +60,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(95)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -192,8 +92,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(95)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -220,8 +118,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(95)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -248,8 +144,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(90)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -276,8 +170,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(70)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -295,8 +187,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(80)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -319,8 +209,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(80)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -352,8 +240,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(70)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -377,8 +263,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(90)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -396,8 +280,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(95)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -429,8 +311,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(80)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -462,8 +342,6 @@ const MagnetIcons = () => {
           </div>
 
           <div
-            onMouseEnter={() => handleMouseEnter2(80)}
-            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -494,29 +372,8 @@ const MagnetIcons = () => {
           </div>
         </Marquee>
       </div>
-
-      <div className="img2-wrapper">
-        <button
-          onClick={handleClickText}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "4.5rem",
-            height: "2.8rem",
-            borderRadius: ".3rem",
-            cursor: "pointer",
-            background: "rgba(81, 81, 81, 0.8)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            padding: "1rem",
-            zIndex: 1,
-          }}
-        >
-          Enter
-        </button>
-      </div>
     </main>
   );
 };
 
-export default MagnetIcons;
+export default MagnetIcons2;

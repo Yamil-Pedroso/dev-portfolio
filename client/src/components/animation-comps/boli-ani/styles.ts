@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const BoliAniContainer = styled.div`
-    margin-top: 5rem;
+    margin-top: 6rem;
     `;
 
 export const HeaderParagraph = styled(motion.p)`
