@@ -9,8 +9,13 @@ import { fadeIn, textVariant } from '../../utils/motion'
 import TabCards from '../TabCards'
 import { FaNetworkWired } from 'react-icons/fa'
 import './styles.css'
+import { useState } from 'react'
 
-const Works = () => {
+interface WorksProps {
+  setIsHovering: (hovering: boolean) => void;
+}
+
+const Works: React.FC<WorksProps> = ({ setIsHovering }) => {
   return (
     <>
       <motion.div variants={textVariant(1)} id="projects">
@@ -49,10 +54,10 @@ const Works = () => {
       </div>
 
       <div className="text-white flex justify-center">
-        <TabCards />
+        <TabCards onHoverCard={setIsHovering} />
       </div>
     </>
   )
 }
 
-export default SectionWrapper(Works, '')
+export default Works

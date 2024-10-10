@@ -78,7 +78,7 @@ const menu3 = [
   },
 ];
 
-const TabCards = () => {
+const TabCards = ({ onHoverCard }: any) => {
   const [activeMenu1, setActiveMenu1] = useState(true);
   const [activeMenu2, setActiveMenu2] = useState(false);
   const [activeMenu3, setActiveMenu3] = useState(false);
@@ -113,7 +113,10 @@ const TabCards = () => {
       </div>
       <div className="flex-container">
         {menu1.map((item, index) => (
-          <div className="card-container">
+          <div className="card-container"
+          onMouseEnter={() => onHoverCard(true)} 
+          onMouseLeave={() => onHoverCard(false)}
+          >
             <div className="card-wrapper">
               <Link to={item.link} target="_blank" className="card-cont">
                 <div

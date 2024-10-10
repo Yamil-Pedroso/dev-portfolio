@@ -18,8 +18,10 @@ import NewContact from './new-contact/NewContact';
 import ContactCard from './contact-card/ContactCard';
 import Contact from './Contact';
 import ScrollAnimation from './scroll-animation/ScrollAnimation';
+import CustomCursor from './custom-cursor/CustomCursor';
 
 export {
+  CustomCursor,
   LogoProfile,
   Hero,
   Navbar,
