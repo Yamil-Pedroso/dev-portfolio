@@ -103,6 +103,7 @@ import bgVideo from "./video/bg-video.mp4";
 import bgVideo1 from "./video/bg-video1.mp4";
 import frontend1 from "./video/frontend.mp4";
 import yam from "./avatar/yam.png";
+import button from "./button.png";
 
 import framer from "./framer.png";
 import xd from "./xd.png";
@@ -129,6 +130,7 @@ export {
   paint,
   mobile,
   github,
+  button,
   menu,
   close,
   css,

@@ -126,9 +126,9 @@ const TabCards = ({ onHoverCard }: any) => {
                     "active"
                   )}`}
                 >
-                  <div className="text-center-wrapper">
+                  {/*<div className="text-center-wrapper">
                     <p className="text-overlay"><span style={{ color : "#0099ff", fontWeight: "400"}}>{item.content}</span></p>
-                  </div>
+                  </div>*/}
 
                   <img src={item.image} alt="" className="zoom-img" />
                 </div>

@@ -16,7 +16,6 @@ const Portfolio = () => {
       <MyComponent.BoliRun />
       <MyComponent.MagnetIcons />
       <MyComponent.Functionality />
-      <MyComponent.MoreUiUx />
       <MyComponent.Works setIsHovering={setIsHovering} />
       <MyComponent.NewContact />
       <BackToTopBtn />

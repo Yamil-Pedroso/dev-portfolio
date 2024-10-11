@@ -59,10 +59,6 @@ import {
       title: "Tech",
     },
     {
-      id: "work",
-      title: "Work",
-    },
-    {
       id: "mini-projects",
       title: "Mini Projects",
     },

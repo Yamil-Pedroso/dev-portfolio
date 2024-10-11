@@ -17,7 +17,12 @@ interface WorksProps {
 
 const Works: React.FC<WorksProps> = ({ setIsHovering }) => {
   return (
-    <>
+    <div style={{
+       display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }}>
       <motion.div variants={textVariant(1)} id="projects">
         <p
           className={`${styles.sectionSubText} lg:text-[3.75rem] max-md:text-[2.75rem] md:text-[2.75rem]  max-sm:text-[2rem]`}
@@ -31,7 +36,7 @@ const Works: React.FC<WorksProps> = ({ setIsHovering }) => {
         </h2>
       </motion.div>
 
-      <div className="w-full flex">
+      <div className="">
         <motion.p
           variants={fadeIn('', '', 0.1, 1)}
           className="mt-3 text-secondary text-[1rem] max-sm:text-[.8rem] max-w-3xl leading-[30px]"
@@ -44,19 +49,10 @@ const Works: React.FC<WorksProps> = ({ setIsHovering }) => {
         </motion.p>
       </div>
 
-      <div className="p-20 text-white justify-center space-x-8 flex items-center">
-        <div className="flex flex-col text-center text-wrapper">
-          <h2>
-            REFACTORING <br /> PROJECTS...
-            <FaNetworkWired className="refactor-icon" />
-          </h2>
-        </div>
-      </div>
-
       <div className="text-white flex justify-center">
         <TabCards onHoverCard={setIsHovering} />
       </div>
-    </>
+    </div>
   )
 }
 
