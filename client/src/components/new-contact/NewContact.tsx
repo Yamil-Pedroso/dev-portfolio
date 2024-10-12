@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Container,
   UserContent,
@@ -14,11 +15,17 @@ import {
 } from "./styles";
 import { contact } from "../../constants";
 import GsapMagnetic from "../../components/magnet-icons/Gsap";
-import { button } from "../../assets/index";
-import { FaUser } from "react-icons/fa";
 import ButtonTouch from "../button-touch/ButtonTouch";
+import { mapa } from "../../assets";
+import { motion } from "framer-motion";
 
 const NewContact = () => {
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
+  const toggleContent = () => {
+    setIsFormVisible((prevState) => !prevState);
+  };
+
   return (
     <Container id="contact">
       <UserContent>
@@ -28,7 +35,9 @@ const NewContact = () => {
           </h2>
           <p>Feel free to reach out to me for any queries or project ideas.</p>
 
-          <ButtonTouch />
+          <ButtonTouch
+            toggleContent={toggleContent}
+          />
           <footer>
             <p>&copy; 2024 SoftwareDev&reg;. YP-NextGen Switzerland.</p>
           </footer>
@@ -102,22 +111,53 @@ const NewContact = () => {
             </SocialNetWorkWrapper>
           </RightContent>
         </ContentWrapper>
-        <FormWrapper>
-          <Form>
-            <div>
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" />
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" />
-            </div>
-            <div>
-              <label htmlFor="message">Message</label>
-              <textarea id="message"></textarea>
-            </div>
-            <button>Submit</button>
-          </Form>
+        <FormWrapper
+           initial={{ y: -300, opacity: 0 }}
+           animate={{ y: 0, opacity: 1 }}
+           exit={{ y: 300, opacity: 0 }}
+           transition={{
+             type: "spring",
+             stiffness: 150,
+             damping: 10,
+           }}
+        >
+          {isFormVisible ? (
+            <Form
+            initial={{ y: -300, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 300, opacity: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 10,
+            }}
+            >
+              <div>
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" />
+              </div>
+              <div>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" />
+              </div>
+              <div>
+                <label htmlFor="message">Message</label>
+                <textarea id="message"></textarea>
+              </div>
+              <button>Submit</button>
+            </Form>
+          ) : (
+            <motion.img 
+            initial={{ y: -300, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 300, opacity: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 10,
+            }}
+            src={mapa} alt="map" />
+          )}
         </FormWrapper>
       </UserContent>
     </Container>

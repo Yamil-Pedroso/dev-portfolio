@@ -12,7 +12,7 @@ export const Container = styled.div<IButtonTouch>`
   justify-content: center;
   width: 10rem;
   height: 10rem;
-  margin-top: 0.8rem;
+  margin-top: 1.6rem;
   position: relative;
 
   .btn {

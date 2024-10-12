@@ -112,6 +112,7 @@ import pcOne from "./images/jpg/pc-1.jpeg";
 import pcTwo from "./images/jpg/pc-2.jpeg";
 import pcThree from "./images/jpg/pc-3.jpeg";
 import pcFour from "./images/jpg/pc-4.jpeg";
+import mapa from "./mapa.webp";
 
 export {
   codingBackend,
@@ -217,5 +218,6 @@ export {
   pcTwo,
   pcThree,
   pcFour,
-  yam
+  yam,
+  mapa,
 };

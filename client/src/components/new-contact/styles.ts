@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
   width: 82.5rem;
@@ -8,6 +9,7 @@ export const Container = styled.div`
   border: 1px solid #232323;
   border-radius: 5px;
   margin-bottom: 15rem;
+  padding: 1rem;
 `;
 
 export const UserContent = styled.div`
@@ -36,7 +38,7 @@ export const Header = styled.div`
   }
 
   footer {
-    margin-top: auto;
+    margin-top: 1.6rem;
     p {
       color: #767676;
     }
@@ -92,20 +94,39 @@ export const RightContent = styled.div`
 
 export const LeftContent = styled.div``;
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled(motion.div)`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 18rem;
+  height: auto;
   gap: 1rem;
-  padding: 2rem;
-  background-color: #161616;
+  //background-color: #161616;
+  border-radius: .5rem;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    filter: grayscale(70%);
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+  }
 `;
 
 export const RightSideForm = styled.div``;
 
-export const Form = styled.form`
+export const Form = styled(motion.form)`
   display: flex;
   flex-direction: column;
+  padding: 1.9rem;
   gap: 0.6rem;
+  position: absolute;
+  background-color: #161616;
 
   div {
     display: flex;
@@ -119,18 +140,26 @@ export const Form = styled.form`
   input {
     padding: 0.2rem;
     background-color: #000000;
-    color: white;
+    color: #767676;
     outline: none;
   }
+
   textarea {
     padding: 1rem;
     background-color: #000000;
-    color: white;
+    color: #767676;
+    outline: none;
   }
 
   button {
-    padding: 1rem;
-    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 7rem;
+    padding: .4rem;
+    margin-top: .5rem;
+    font-size: .9rem;
     background-color: #000000;
     color: white;
     box-shadow: 2px 2px 2rem 0rem rgba(0, 0, 0, 0.5);

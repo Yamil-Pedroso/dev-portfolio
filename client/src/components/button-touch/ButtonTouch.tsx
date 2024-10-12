@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { Container, HorizontalButtons } from "./styles";
-import { a } from "@react-spring/three";
 
-const ButtonTouch = () => {
+interface IButtonTouch {
+  btnClickedX?: boolean;
+  btnClickedY?: boolean;
+  btnClickedA?: boolean;
+  btnClickedB?: boolean;
+  toggleContent: () => void;
+}
+
+const ButtonTouch: React.FC<IButtonTouch> = ({
+  toggleContent,
+}) => {
   const [boxShadowBtnX, setBoxShadowBtnX] = useState(true);
   const [boxShadowBtnY, setBoxShadowBtnY] = useState(true);
   const [boxShadowBtnA, setBoxShadowBtnA] = useState(true);
@@ -49,7 +58,8 @@ const ButtonTouch = () => {
           Y
         </div>
         <div
-          onClick={() => handleClick(setBoxShadowBtnA)}
+          onClick={() => { handleClick(setBoxShadowBtnA), toggleContent() }}
+          
           className="btn btn-a"
           style={{
             boxShadow: boxShadowBtnA
