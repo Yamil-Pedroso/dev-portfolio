@@ -139,7 +139,19 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="nav-container">
+    <motion.div
+      initial={{x: -100 }} // Estado inicial (fuera de la pantalla, por arriba)
+      animate={{ x: 0 }} // Estado final (en su posición normal)
+      transition={{
+        type: "spring",
+        stiffness: 150, // Más rigidez para un rebote más fuerte
+        damping: 10, // Menor fricción para permitir el rebote
+        mass: 0.8, // Ajusta la inercia para un pequeño retraso al caer
+        duration: 0.8, // Duración total de la animación
+        bounce: 0.25, // Controla la cantidad de rebote en el final
+      }}
+      className="nav-container"
+    >
       <nav className="glossy-nav">
         {/*<PlayfulAni />*/}
         <div className="menu">
@@ -198,17 +210,27 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className={active === link.title ? 'other-links-active home-zoom' : 'other-links'}
+                className={
+                  active === link.title
+                    ? "other-links-active home-zoom"
+                    : "other-links"
+                }
                 onClick={() => {
-                   setActive(link.title);
-                   document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+                  setActive(link.title);
+                  document
+                    .getElementById(link.id)
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
                 style={{ cursor: "pointer" }}
               >
                 <a
                   href={`#${link.id}`}
-                  className={link.title === "Home" && active === "Home" ? "home-link" : ""}
-                  style={{ display: "block", width: "100%", height: "100%" }} 
+                  className={
+                    link.title === "Home" && active === "Home"
+                      ? "home-link"
+                      : ""
+                  }
+                  style={{ display: "block", width: "100%", height: "100%" }}
                 >
                   {link.title}
                 </a>
@@ -232,7 +254,11 @@ const Navbar = () => {
                 {navLinks.map((link) => (
                   <li
                     key={link.id}
-                    className={active === link.title ? 'other-links-active' : 'other-links'}
+                    className={
+                      active === link.title
+                        ? "other-links-active"
+                        : "other-links"
+                    }
                     onClick={() => {
                       setToggle(!toggle);
                       setActive(link.title); // Actualiza el estado activo
@@ -245,7 +271,8 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        {/*<div className="flex notis-wrapper" ref={notificationRef}>
+      </nav>
+      {/*<div className="flex notis-wrapper" ref={notificationRef}>
         <motion.div
           style={{ transformOrigin: "top center" }}
           animate={animateIcon ? swingAnimation : {}}
@@ -293,8 +320,7 @@ const Navbar = () => {
           <HiDocumentText className="text-[#cecece] text-[2rem] mx-6" />
         </Link>
       </div>*/}
-      </nav>
-    </div>
+    </motion.div>
   );
 };
 

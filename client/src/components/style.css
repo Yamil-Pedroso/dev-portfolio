@@ -51,8 +51,9 @@
 
 .other-links:hover::before {
   width: 120%; /* Expande el ancho para cubrir todo el área */
-  height: 80%; /* Expande la altura */
+  height: 120%; /* Expande la altura */
   transform: translate(-50%, -50%) scale(1); /* Escala a su tamaño final */
+  background: rgba(38, 37, 37, 0.3); /* Opacidad más baja al crecer */
   border-radius: 2rem; /* El borde final coincide con el borde del div */
 }
 
