@@ -1,129 +1,150 @@
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+
+.glossy-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: rgba(25, 25, 29, 0.6);
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px;
+  width: 41.5rem; 
+  height: 4.4rem;
+  padding-top: 20px; 
+  padding-bottom: 20px;
+  position: fixed;
+  top: 1rem;
+  border: 1px solid #515151;
+  border-radius: 10rem;
+  z-index: 50;
+}
+
+.other-links,
+.other-links-active {
+  padding: 0.8rem 1.3rem;
+  border-radius: 2rem;
+  color: #fafafa; /* Color de texto blanco por defecto */
+  background: transparent; /* Fondo transparente por defecto */
+  position: relative;
+  transition: color 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.other-links::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(38, 37, 37, 0.3); /* El color final con transparencia */
+  border-radius: 50%; /* Empieza como una bola */
+  transform: translate(-50%, -50%) scale(0); /* Comienza pequeña y centrada */
+  transition: transform 0.6s ease, width 0.5s ease, height 0.5s ease, border-radius 0.5s ease;
+  z-index: -1; /* Para que la bola esté detrás del texto */
+}
+
+.other-links:hover::before {
+  width: 120%; /* Expande el ancho para cubrir todo el área */
+  height: 80%; /* Expande la altura */
+  transform: translate(-50%, -50%) scale(1); /* Escala a su tamaño final */
+  border-radius: 2rem; /* El borde final coincide con el borde del div */
+}
+
+.other-links-active {
+  background: #262525;
+  color: #0099ff; 
+}
+.other-links {
+  transition: transform 0.4s ease-in-out;
+}
+
+.home-zoom {
+  transition: transform 0.4s ease-in-out; /* La transición aplica siempre, no solo en hover */
+}
+
+/* Hover para hacer que decrezca suavemente */
+.home-zoom:hover {
+  transform: scale(0.90); /* Decrece ligeramente */
+}
+
+.other-links:hover {
+  color: #0099ff; 
+  transform: scale(0.95);
+}
+
+/* Para asegurar que los items no cambien de tamaño */
+.menu-item {
+  display: inline-block; /* Asegura que cada enlace mantenga su lugar */
+}
+
+.menu ul {
+  gap: .6rem;
+}
+
 .border-effect {
-    width: 200px;
-    height: 200px;
-    border: 2px solid gray;
-    transition: border-color 0.3s;
-  }
+  width: 200px;
+  height: 200px;
+  border: 2px solid gray;
+  transition: border-color 0.3s;
+}
 
-  .glossy-nav {
-    background: rgba(25, 25, 29, 0.6); /* Un color de fondo semitransparente */
-    backdrop-filter: blur(10px); /* Ajusta la cantidad de blur según prefieras */
-    -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar un poco de profundidad */
-    border-radius: 8px; /* Opcional: para esquinas redondeadas */
-  }
+.notis-icon {
+  font-size: 2rem;
+  transition: transform 0.3s;
+  color: #ccc;
+}
 
-  .notis-icon {
-    font-size: 2rem;
-    transition: transform 0.3s;
-    color: #ccc;
+.notis-content {
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  width: 20rem;
+  background: rgba(25, 25, 29, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 2rem;
+  z-index: 999;
+}
 
-    &:hover {
-      color: inherit;
-    }
-  }
+.is-active {
+  position: relative;
+}
 
-  .notis-content {
-    position: absolute;
-    top: 2.5rem;
-    right: 0;
-    width: 20rem;
-    background: rgba(25, 25, 29, 0.9); 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    border-radius: 2px;
-    padding: 2rem;
-    z-index: 999;
+.notis-active {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: #0099ff;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.2rem;
+  box-shadow: 0 0 10px 1px rgba(0, 153, 255, 0.7);
+}
 
-    h2 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
+.border-effect:hover {
+  border-color: transparent;
+}
 
-    .noti {
-      color: #a5a5a5;
-      margin-bottom: 1rem;
-      h3 {
-        font-size: .9rem;
-        margin-bottom: 0.5rem;
-      }
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
 
-      p {
-        font-size: .8rem;
-        color: #5d9fcc;
-      }
-    }
-  }
+.logo-wrapper h1 {
+  margin-left: 5px;
+}
 
-  .is-active {
-    position: relative;
-  }
-
-  .notis-active {
-    width: .8rem;
-    height: .8rem;
-    border-radius: 50%;
-    border: 2px solid #000;
-    background-color: #0099ff;
-    position: absolute;
-    top: .3rem;
-    right: 0.2rem;
-    box-shadow: 0 0 10px 1px rgba(0, 153, 255, 0.7);
-  }
-
-  .border-effect:hover {
-    border-color: transparent;
-  }
-
-  .border-effect:hover::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 0;
-    height: 100%;
-    border-top: 2px solid white;
-    transition: width 0.3s;
-  }
-
-  .border-effect:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    width: 0;
-    height: 100%;
-    border-bottom: 2px solid white;
-    transition: width 0.3s;
-  }
-
-  .border-effect:hover::before,
-  .border-effect:hover::after {
-    transition-delay: 0.15s;
-  }
-
-  .border-effect:hover::before {
-    left: -2px;
-    right: initial;
-  }
-
-  .border-effect:hover::after {
-    right: -2px;
-    left: initial;
-  }
-
+@media (max-width: 1060px) {
   .logo-wrapper {
-    display: flex;
-    align-items: center;
+    display: none;
   }
-
-  .logo-wrapper h1 {
-    margin-left: 5px;
-  }
-
-  @media (max-width: 1060px) {
-    .logo-wrapper {
-      display: none;
-    }
-  }
+}

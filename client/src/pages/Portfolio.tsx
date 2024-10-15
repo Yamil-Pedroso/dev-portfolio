@@ -17,6 +17,7 @@ const Portfolio = () => {
       <MyComponent.MagnetIcons />
       <MyComponent.Functionality />
       <MyComponent.Works setIsHovering={setIsHovering} />
+      <MyComponent.Feedbacks />
       <MyComponent.NewContact />
       <BackToTopBtn />
     </div>

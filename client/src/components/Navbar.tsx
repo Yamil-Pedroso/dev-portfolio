@@ -32,7 +32,7 @@ const timeAgo = (timestamp: any) => {
 
 const Navbar = () => {
   const [hasNotification, setHasNotification] = useState(false);
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const notificationRef = useRef<HTMLDivElement>(null);
@@ -139,21 +139,20 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 border-b-[1px] border-[#515151] z-50 glossy-nav`}
-    >
-      <PlayfulAni />
-      <div className="w-full flex justify-around items-center max-auto">
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
-        >
-          {/* Logo Original que desaparece al hacer scroll */}
-          <motion.div
+    <div className="nav-container">
+      <nav className="glossy-nav">
+        {/*<PlayfulAni />*/}
+        <div className="menu">
+          <Link
+            to="/"
+            className="flex items-center gap-2"
+            onClick={() => {
+              setActive("");
+              window.scrollTo(0, 0);
+            }}
+          >
+            {/* Logo Original que desaparece al hacer scroll */}
+            {/*<motion.div
             className="logo-wrapper"
             initial={{ opacity: 1 }}
             animate={{ opacity: isScrolled ? 0 : 1 }}
@@ -166,81 +165,87 @@ const Navbar = () => {
               [ <span className="text-[#0099ff]">YP-NEXTGEN</span> ]{" "}
               <span className="text-[#0099ff]">.</span>
             </h1>
-          </motion.div>
+          </motion.div>*/}
 
-          {/* Nueva Imagen que aparece cuando se hace scroll */}
-          <motion.div
-            className="new-logo"
-            initial={{ opacity: 0, top: "5rem", left: "5rem" }}
-            animate={{
-              opacity: isScrolled ? 1 : 0,
-              top: isScrolled ? "5rem" : "5rem",
-              left: isScrolled ? "3rem" : "5rem",
-            }}
-            transition={{ duration: 0.5 }}
-            style={{
-              position: "fixed",
-              top: "5rem",
-              left: "5rem",
-              width: "3rem",
-              zIndex: 100,
-            }}
-          >
-            <img
-              src={yam}
-              alt="yam-logo"
-              style={{ width: "6rem" }}
-              className="opacity-15"
-            />
-          </motion.div>
-        </Link>
-
-        <ul className="list-none hidden sm:flex flex-row gap-10" id="nav">
-          {navLinks.map((link) => (
-            <li
-              key={link.id}
-              className={`${
-                active === link.title ? "text-[#0099ff]" : "text-[#fafafa]"
-              } hover:text-[#0099ff] text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(link.title)}
+            {/* Nueva Imagen que aparece cuando se hace scroll */}
+            <motion.div
+              className="new-logo"
+              initial={{ opacity: 0, top: "5rem", left: "5rem" }}
+              animate={{
+                opacity: isScrolled ? 1 : 0,
+                top: isScrolled ? "5rem" : "5rem",
+                left: isScrolled ? "3rem" : "5rem",
+              }}
+              transition={{ duration: 0.5 }}
+              style={{
+                position: "fixed",
+                top: "5rem",
+                left: "5rem",
+                width: "3rem",
+                zIndex: 100,
+              }}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
-            </li>
-          ))}
-        </ul>
+              <img
+                src={yam}
+                alt="yam-logo"
+                style={{ width: "6rem" }}
+                className="opacity-15"
+              />
+            </motion.div>
+          </Link>
 
-        <div className="sm:hidden flex flex-1 justify-end items-center">
-          <div onClick={handleClicked} className="mt-2">
-            {myHamburgerIcon()}
-          </div>
-
-          <div
-            className={`${
-              toggle
-                ? "opacity-100 transition-all duration-1000 slide-in-right"
-                : "slide-out-right duration-1000"
-            } absolute top-20 right-0 w-full p-8 bg-[#19191d] border-t-[1px] border-[#515151] z-50`}
-          >
-            <ul className="list-none flex justify-end items-start flex-col gap-4">
-              {navLinks.map((link) => (
-                <li
-                  key={link.id}
-                  className={`${
-                    active === link.title ? "text-[#0099ff]" : "text-[#fafafa]"
-                  } hover:text-[#0099ff] lg:text-[18px] font-medium cursor-pointer`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(link.title);
-                  }}
+          <ul className="list-none hidden sm:flex flex-row" id="nav">
+            {navLinks.map((link) => (
+              <li
+                key={link.id}
+                className={active === link.title ? 'other-links-active home-zoom' : 'other-links'}
+                onClick={() => {
+                   setActive(link.title);
+                   document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                <a
+                  href={`#${link.id}`}
+                  className={link.title === "Home" && active === "Home" ? "home-link" : ""}
+                  style={{ display: "block", width: "100%", height: "100%" }} 
                 >
-                  <a href={`#${link.id}`}>{link.title}</a>
-                </li>
-              ))}
-            </ul>
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="sm:hidden flex flex-1 justify-end items-center">
+            <div onClick={handleClicked} className="mt-2">
+              {myHamburgerIcon()}
+            </div>
+
+            <div
+              className={`${
+                toggle
+                  ? "opacity-100 transition-all duration-1000 slide-in-right"
+                  : "slide-out-right duration-1000"
+              } absolute top-20 right-0 w-full p-8 bg-[#19191d] border-t-[1px] border-[#515151] z-50`}
+            >
+              <ul className="list-none flex justify-end items-start flex-col gap-4">
+                {navLinks.map((link) => (
+                  <li
+                    key={link.id}
+                    className={active === link.title ? 'other-links-active' : 'other-links'}
+                    onClick={() => {
+                      setToggle(!toggle);
+                      setActive(link.title); // Actualiza el estado activo
+                    }}
+                  >
+                    <a href={`#${link.id}`}>{link.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="flex notis-wrapper" ref={notificationRef}>
+        {/*<div className="flex notis-wrapper" ref={notificationRef}>
         <motion.div
           style={{ transformOrigin: "top center" }}
           animate={animateIcon ? swingAnimation : {}}
@@ -287,8 +292,9 @@ const Navbar = () => {
         <Link to="./docs/cv-yamil-2024.pdf" target="_blank">
           <HiDocumentText className="text-[#cecece] text-[2rem] mx-6" />
         </Link>
-      </div>
-    </nav>
+      </div>*/}
+      </nav>
+    </div>
   );
 };
 
