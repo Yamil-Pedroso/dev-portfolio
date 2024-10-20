@@ -10,7 +10,6 @@ const Portfolio = () => {
     <div className={styles.portfolioWrapper}>
       <MyComponent.CustomCursor isHovering={isHovering} />
       <MyComponent.Navbar />
-      <MyComponent.LogoProfile />
       <MyComponent.Hero />
       <MyComponent.About />
       <MyComponent.BoliRun />

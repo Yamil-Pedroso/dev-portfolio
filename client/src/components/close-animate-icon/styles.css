@@ -1,0 +1,61 @@
+.magic-icon-search {
+    display: inline-block;
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    z-index: 50;
+  }
+  
+  /* Líneas del menú hamburguesa */
+  .magic-icon-search::before,
+  .magic-icon-search::after,
+  .magic-icon-search span {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 4px;
+    background: white; /* Líneas blancas cuando es menú hamburguesa */
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease; 
+  }
+  
+  /* Línea superior */
+  .magic-icon-search::before {
+    top: 0;
+  }
+  
+  /* Línea inferior */
+  .magic-icon-search::after {
+    bottom: 0;
+  }
+  
+  /* Línea central */
+  .magic-icon-search span {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Cuando el menú se convierte en una "X", cambiar el color a azul */
+  .magic-icon-search.close::before,
+  .magic-icon-search.close::after,
+  .magic-icon-search.close span {
+    background: #0099ff; /* Cambiar el color de las líneas a azul */
+  }
+  
+  /* Animación de la "X" */
+  .magic-icon-search.close::before {
+    transform: rotate(45deg);
+    top: 50%;
+  }
+  
+  .magic-icon-search.close::after {
+    transform: rotate(-45deg);
+    top: 50%;
+  }
+  
+  .magic-icon-search.close span {
+    opacity: 0; /* La línea central desaparece en el estado "X" */
+  }
+  

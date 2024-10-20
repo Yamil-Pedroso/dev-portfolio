@@ -114,6 +114,12 @@ import pcThree from "./images/jpg/pc-3.jpeg";
 import pcFour from "./images/jpg/pc-4.jpeg";
 import mapa from "./mapa.webp";
 
+// Avatar Testimonials
+import imgOne from "./testimonial-avatars/avatar_1.jpg";
+import imgTwo from "./testimonial-avatars/avatar_2.jpg";
+import imgThree from "./testimonial-avatars/avatar_3.jpg";
+import imgFour from "./testimonial-avatars/avatar_4.jpg";
+
 export {
   codingBackend,
   designFrontend,
@@ -220,4 +226,8 @@ export {
   pcFour,
   yam,
   mapa,
+  imgOne,
+  imgTwo,
+  imgThree,
+  imgFour
 };

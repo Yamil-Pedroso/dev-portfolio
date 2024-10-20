@@ -1,6 +1,5 @@
 import Hero from './hero/Hero';
 import Navbar from './Navbar';
-import LogoProfile from './logo-profile/LogoProfile';
 import About from './about/About';
 import CardAnimation from './card-animation/CardAnimation';
 import BoliRun from './animation-comps/boli-ani/BoliRun';
@@ -13,7 +12,7 @@ import SmallFunnyProjects from './SmallFunnyProjects';
 import Functionality from './functionality/Functionality';
 import Works from './works/Works';
 import Game from "./Game";
-import Feedbacks from './Feedbacks';
+import Feedbacks from './feedback/Feedbacks';
 import NewContact from './new-contact/NewContact';
 import ContactCard from './contact-card/ContactCard';
 import Contact from './Contact';
@@ -22,7 +21,6 @@ import CustomCursor from './custom-cursor/CustomCursor';
 
 export {
   CustomCursor,
-  LogoProfile,
   Hero,
   Navbar,
   About,

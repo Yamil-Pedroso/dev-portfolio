@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import PlayfulAni from "./playful-animation/PlayfulAni";
 import { yamiBlue2, yam } from "../assets";
 import { styles } from "../style";
 import "./style.css";
@@ -9,6 +8,7 @@ import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { HiDocumentText } from "react-icons/hi";
 import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
+import NavbarMobile from "./NavbarMobile";
 import { motion } from "framer-motion";
 
 const timeAgo = (timestamp: any) => {
@@ -115,11 +115,11 @@ const Navbar = () => {
   ];
 
   const swingAnimation = {
-    rotate: [0, -15, 15, -15, 15, 0], // Reducir el ángulo de rotación a 15 grados
+    rotate: [0, -15, 15, -15, 15, 0],
     transition: {
-      duration: 1, // Aumentar la duración a 2 segundos para suavizar
-      ease: "easeInOut", // Usar una curva de tiempo más suave
-      repeat: 0, // No repetir automáticamente
+      duration: 1,
+      ease: "easeInOut",
+      repeat: 0,
     },
   };
 
@@ -139,73 +139,55 @@ const Navbar = () => {
   }, []);
 
   return (
-    <motion.div
-      initial={{x: -100 }} // Estado inicial (fuera de la pantalla, por arriba)
-      animate={{ x: 0 }} // Estado final (en su posición normal)
-      transition={{
-        type: "spring",
-        stiffness: 150, // Más rigidez para un rebote más fuerte
-        damping: 10, // Menor fricción para permitir el rebote
-        mass: 0.8, // Ajusta la inercia para un pequeño retraso al caer
-        duration: 0.8, // Duración total de la animación
-        bounce: 0.25, // Controla la cantidad de rebote en el final
-      }}
-      className="nav-container"
-    >
+    <motion.div className="nav-container">
+      <Link
+        to="/"
+        className="flex gap-2"
+        onClick={() => {
+          setActive("");
+          window.scrollTo(0, 0);
+        }}
+      >
+        {/* Logo Original que desaparece al hacer scroll */}
+        <motion.div
+          className="logo-wrapper"
+          initial={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 1, y: isScrolled ? -10 : 0 }}
+          transition={{ duration: 0.5 }}
+        >
+            LOGO
+        </motion.div>
+
+        {/* Nueva Imagen que aparece cuando se hace scroll */}
+        {/*<motion.div
+          className="new-logo"
+          initial={{ opacity: 0, top: "5rem", left: "5rem" }}
+          animate={{
+            opacity: isScrolled ? 1 : 0,
+            top: isScrolled ? "5rem" : "5rem",
+            left: isScrolled ? "3rem" : "5rem",
+          }}
+          transition={{ duration: 0.5 }}
+          style={{
+            position: "fixed",
+            top: "5rem",
+            left: "5rem",
+            width: "3rem",
+            zIndex: 100,
+          }}
+        >
+          <img
+            src={yam}
+            alt="yam-logo"
+            style={{ width: "6rem" }}
+            className=""
+          />
+        </motion.div>*/}
+      </Link>
+
       <nav className="glossy-nav">
         {/*<PlayfulAni />*/}
         <div className="menu">
-          <Link
-            to="/"
-            className="flex items-center gap-2"
-            onClick={() => {
-              setActive("");
-              window.scrollTo(0, 0);
-            }}
-          >
-            {/* Logo Original que desaparece al hacer scroll */}
-            {/*<motion.div
-            className="logo-wrapper"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: isScrolled ? 0 : 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="w-8 h-8 overflow-hidden border-[1px] border-[#0099ff]">
-              <img src={yamiBlue2} alt="logo" className="w-8 h-8" />
-            </div>
-            <h1>
-              [ <span className="text-[#0099ff]">YP-NEXTGEN</span> ]{" "}
-              <span className="text-[#0099ff]">.</span>
-            </h1>
-          </motion.div>*/}
-
-            {/* Nueva Imagen que aparece cuando se hace scroll */}
-            <motion.div
-              className="new-logo"
-              initial={{ opacity: 0, top: "5rem", left: "5rem" }}
-              animate={{
-                opacity: isScrolled ? 1 : 0,
-                top: isScrolled ? "5rem" : "5rem",
-                left: isScrolled ? "3rem" : "5rem",
-              }}
-              transition={{ duration: 0.5 }}
-              style={{
-                position: "fixed",
-                top: "5rem",
-                left: "5rem",
-                width: "3rem",
-                zIndex: 100,
-              }}
-            >
-              <img
-                src={yam}
-                alt="yam-logo"
-                style={{ width: "6rem" }}
-                className="opacity-15"
-              />
-            </motion.div>
-          </Link>
-
           <ul className="list-none hidden sm:flex flex-row" id="nav">
             {navLinks.map((link) => (
               <li
@@ -272,7 +254,17 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/*<div className="flex notis-wrapper" ref={notificationRef}>
+
+      {/* Vista móvil */}
+      <NavbarMobile
+        navLinks={navLinks}
+        active={active}
+        setActive={setActive}
+        setToggle={setToggle}
+      />
+
+      {/* Social network and notifications */}
+      <div className="notis-wrapper" ref={notificationRef}>
         <motion.div
           style={{ transformOrigin: "top center" }}
           animate={animateIcon ? swingAnimation : {}}
@@ -319,7 +311,7 @@ const Navbar = () => {
         <Link to="./docs/cv-yamil-2024.pdf" target="_blank">
           <HiDocumentText className="text-[#cecece] text-[2rem] mx-6" />
         </Link>
-      </div>*/}
+      </div>
     </motion.div>
   );
 };
