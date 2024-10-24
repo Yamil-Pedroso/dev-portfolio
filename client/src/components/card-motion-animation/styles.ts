@@ -88,9 +88,12 @@ export const Card = styled(motion.div)`
     position: absolute;
     z-index: 1000;
     background-color: #000;
-
     border-radius: 0.2rem;
     border: 1px solid #fff;
+  }
+
+  @media (max-width: 960px) {
+    width: 90%;
   }
 `;
 

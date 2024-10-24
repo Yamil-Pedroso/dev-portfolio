@@ -2,6 +2,7 @@
     position: absolute;
     top: 13.25rem;
     left: 4rem;
+    
     .imgWrapper {
         display: flex;
         align-items: center;
@@ -100,5 +101,22 @@
     }
     100% {
       transform: translateX(-100%);
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    .main{
+      top: 9.3rem;
+      left: 2rem;
+      z-index: 2;
+      .container{
+        width: 19.5%;
+
+        svg {
+          height: 1.2rem;
+          width: 1.2rem; 
+          margin: 0.8rem;
+        }
+      }
     }
   }

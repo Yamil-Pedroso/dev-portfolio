@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./magneIcon.module.scss";
+import styles from "./magnetIcon.module.scss";
 import GsapMagnetic from "./Gsap";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
@@ -62,7 +62,7 @@ const MagnetIcons = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setPositions(arrayCode.map(() => randomPosition()));
-    }, 3000); // Cambiar cada 3 segundos (o el tiempo que prefieras)
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -495,22 +495,9 @@ const MagnetIcons = () => {
         </Marquee>
       </div>
 
-      <div className="img2-wrapper">
-        <button
+      <div className={styles.btnEnterWrapper}>
+        <button className={styles.btn}
           onClick={handleClickText}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "4.5rem",
-            height: "2.8rem",
-            borderRadius: ".3rem",
-            cursor: "pointer",
-            background: "rgba(81, 81, 81, 0.8)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            padding: "1rem",
-            zIndex: 1,
-          }}
         >
           Enter
         </button>

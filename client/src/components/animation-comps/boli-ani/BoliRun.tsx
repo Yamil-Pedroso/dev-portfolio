@@ -60,46 +60,21 @@ const BoliRun: React.FC = () => {
           <StackContentWrapper>
             <Header>
               <p>Tech Stack</p>
+              <ExtraContent>
+                <SmallBoxHeader>
+                  <span>🫡</span>
+                </SmallBoxHeader>
+                <Spheare>
+                  <p>More</p>
+                </Spheare>
+              </ExtraContent>
             </Header>
             <RightText>
               <p>Loading...</p>
             </RightText>
           </StackContentWrapper>
-          <ExtraContent>
-            <SmallBoxHeader>
-              <span>🫡</span>
-            </SmallBoxHeader>
-            <Spheare>
-              <p>More</p>
-            </Spheare>
-          </ExtraContent>
         </Stack>
       </ContentWrapper>
-      {/*<Marquee gradient={false} speed={80}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            opacity: 0.5,
-          }}
-        >
-          <Lottie
-            lottieRef={lottieRef}
-            animationData={boliRunAnimationData}
-            loop={true} // Mantén la animación en bucle, pero controlada con el mouse
-            autoplay={true}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              width: 200,
-              height: 200,
-              cursor: "pointer",
-              filter: "drop-shadow(0 0 1rem #0099ff) grayscale(100%)",
-            }}
-          />
-        </div>
-      </Marquee>*/}
     </BoliAniContainer>
   );
 };

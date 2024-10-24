@@ -7,7 +7,7 @@ import { frontend1 } from "../../assets";
 interface ICardProps extends ITechService {
   isExpandedEle: boolean;
   handleClick: () => void;
-  index: number; // Recibir el indice de la card
+  index: number;
 }
 
 const CardMotionAnimation: React.FC<ICardProps> = ({
@@ -20,9 +20,8 @@ const CardMotionAnimation: React.FC<ICardProps> = ({
   handleClick,
   index,
 }) => {
-  // Definir variantes de animación basadas en la posición de la card
-  const direction = index % 3 === 0 ? "left" : "right"; // Para determinar la dirección basada en la posición
-  const initialX = direction === "left" ? -100 : 100; // Definir el desplazamiento inicial
+  const direction = index % 3 === 0 ? "left" : "right"; 
+  const initialX = direction === "left" ? -100 : 100; 
 
   const cardVariants = {
     hidden: { opacity: 0, x: initialX },
@@ -53,7 +52,7 @@ const CardMotionAnimation: React.FC<ICardProps> = ({
         as={motion.div}
         variants={cardVariants}
         initial="hidden"
-        whileInView="visible" // Animar cuando entre en vista
+        whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="small-circle"></div>
@@ -63,19 +62,14 @@ const CardMotionAnimation: React.FC<ICardProps> = ({
 
         {isExpandedEle && (
           <motion.div
-            initial={{ opacity: 0, y: -100 }} // Aparece desde arriba
-            animate={{ opacity: 1, y: 0 }} // Llega a la posición final
-            exit={{ opacity: 0, y: -100 }} // Sale hacia arriba nuevamente
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }} 
+            exit={{ opacity: 0, y: -100 }} 
             transition={{
-              type: "spring", // Tipo de animación de resorte
-              stiffness: 100, // Define cuán fuerte es el resorte
-              damping: 10, // Controla la cantidad de rebote (más bajo, más rebote)
-              duration: 0.5, // Duración de la animación
-              //exit: {
-              //    type: "tween", // Transición suave sin rebote al cerrar
-              //    ease: "easeInOut", // Facilitar la entrada y salida para una transición suave
-              //    duration: 0.3, // Duración más corta para el cierre suave
-              //  },
+              type: "spring", 
+              stiffness: 100,
+              damping: 10,
+              duration: 0.5,
             }}
             className="expanded-content"
           >
@@ -92,11 +86,6 @@ const CardMotionAnimation: React.FC<ICardProps> = ({
                 objectFit: "cover",
               }}
             ></video>
-            {/*<motion.img
-              {...animate}
-              src={img}
-              alt="card"
-            />*/}
 
             <motion.p {...animate}>{description2}</motion.p>
 

@@ -3,6 +3,12 @@ import styled from "styled-components";
 export const HeroContainer = styled.div`
   height: 100vh;
   overflow: hidden;
+
+  .up-band {
+    @media (max-width: 960px) {
+      display: none;
+    }
+  }
   .black-col {
     position: absolute;
     top: 0;
@@ -120,19 +126,16 @@ export const Section = styled.div`
   top: 6rem;
   left: 10rem;
 
-  > div {
-    padding: 0 1rem;
-  }
-
   @media (max-width: 960px) {
-    justify-content: center;
-    align-items: center;
+    width: 90%;
+    top: 8rem;
+    left: 25%;
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    margin-top: 9rem;
-    margin-bottom: 4rem;
+    width: 90%;
+    left: 17.5%;
+    top: 6rem;
   }
 `;
 

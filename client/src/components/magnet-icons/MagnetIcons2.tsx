@@ -1,13 +1,36 @@
+import { useEffect, useState } from "react";
 import styles from "./magnetIcon2.module.scss";
 import GsapMagnetic from "./Gsap";
 import Marquee from "react-fast-marquee";
+import Modal from "./Modal";
 
 const MagnetIcons2 = () => {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [currentPercentage, setCurrentPercentage] = useState(0);
+  const [currentParagraphIndex, setCurrentParagraphIndex] = useState(0);
+
+  const handleMouseEnter2 = (percentage: number) => {
+    setCurrentPercentage(percentage);
+    setModalVisible(true);
+  };
+
+  const handleMouseLeave2 = (percentage: number) => {
+    setCurrentPercentage(percentage);
+    setModalVisible(false);
+  };
+
+  useEffect(() => {
+    !isModalVisible && setCurrentPercentage(0);
+  }, []);
+
   return (
     <main className={styles.main}>
+      <Modal isVisible={isModalVisible} percentage={currentPercentage} />
       <div className={styles.container}>
-        <Marquee gradient={false} speed={30}pauseOnHover={true}>
+      <Marquee gradient={false} speed={30} pauseOnHover={true}>
           <div
+            onMouseEnter={() => handleMouseEnter2(95)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -33,6 +56,8 @@ const MagnetIcons2 = () => {
             </GsapMagnetic>
           </div>
           <div
+            onMouseEnter={() => handleMouseEnter2(90)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -60,6 +85,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(95)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -92,6 +119,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(95)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -118,6 +147,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(95)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -144,6 +175,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(90)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -170,6 +203,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(70)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -187,6 +222,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(80)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -209,6 +246,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(80)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -240,6 +279,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(70)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -263,6 +304,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(90)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -280,6 +323,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(95)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -311,6 +356,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(80)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg
@@ -342,6 +389,8 @@ const MagnetIcons2 = () => {
           </div>
 
           <div
+            onMouseEnter={() => handleMouseEnter2(80)}
+            onMouseLeave={() => handleMouseLeave2(0)}
           >
             <GsapMagnetic className={styles.icon}>
               <svg

@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    display: none;
   }
   
   .modalContent {
@@ -16,7 +17,6 @@
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
-  
     border-radius: 10px;
     text-align: center;
   }
@@ -45,3 +45,19 @@
     fill: #fff;
   }
   
+
+  @media (max-width: 960px) {
+    .modalOverlay {
+      display: block;
+      top: 16rem;
+      z-index: 1000;
+      .modalContent {
+        padding: 1rem;
+
+        .circularBar {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }

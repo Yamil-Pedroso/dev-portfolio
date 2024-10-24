@@ -57,7 +57,7 @@ const Hero = () => {
       <VideoBackground autoPlay muted loop>
         <source src={bgVideo} type="video/mp4" />
       </VideoBackground>
-        <div className="fade-overlay"></div>
+        {/*<div className="fade-overlay"></div>*/}
       <Section id="home">
         <HeroRightContent>
           <div className="hero-content-wrapper">

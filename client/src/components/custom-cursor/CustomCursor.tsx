@@ -48,7 +48,7 @@ const CustomCursor: React.FC<{ isHovering: boolean }> = ({ isHovering }) => {
 
     followCursor();
 
-    return () => cancelAnimationFrame(followCursor)
+    return () => cancelAnimationFrame(followCursor as unknown as number);
   }, [targetPosition]);
 
   const cursorStyle = {
@@ -73,7 +73,7 @@ const CustomCursor: React.FC<{ isHovering: boolean }> = ({ isHovering }) => {
     fontWeight: 300,
     color: "#fff",
     whiteSpace: "nowrap",
-  };
+  } as React.CSSProperties;
 
   const textStyle = {
     opacity: showText ? 1 : 0, 
@@ -81,7 +81,7 @@ const CustomCursor: React.FC<{ isHovering: boolean }> = ({ isHovering }) => {
     visibility: showText ? "visible" : "hidden", 
     color: "#fff",
     fontSize: "0.9rem",
-  };
+  } as React.CSSProperties;
 
   return (
     <div className="custom-cursor" style={cursorStyle}>
