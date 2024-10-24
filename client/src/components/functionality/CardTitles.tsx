@@ -1,8 +1,10 @@
 import { useState } from "react";
+
 import { MdStars } from "react-icons/md";
 import Marquee from "react-fast-marquee";
 import { figma, tailwind, photoshop, illustrator, css, xd } from "../../assets";
 import { motion } from "framer-motion";
+import { MiniProjects, ProjectUIUX, ProjectWrapper } from "./styles";
 
 const techIcons = [
   {
@@ -102,21 +104,8 @@ const CardTitles = () => {
           </Marquee>
         </div>
       </div>
-      <div style={{ display: "flex", marginBottom: "1rem", gap: "2rem" }}>
-        <div
-          style={{
-            width: "39rem",
-            height: "13.125rem",
-            borderRadius: "1rem",
-            cursor: "pointer",
-            background:
-              "linear-gradient(-60deg, rgba(25, 26, 29, 0.1), rgba(255, 255, 255, 0.1))",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            padding: "1rem",
-          }}
+      <ProjectWrapper>
+        <MiniProjects
         >
           <h2
             style={{
@@ -133,26 +122,10 @@ const CardTitles = () => {
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-        </div>
+        </MiniProjects>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "39rem",
-            height: "13.125rem",
-            borderRadius: "1rem",
-            cursor: "pointer",
-            background:
-              "linear-gradient(-60deg, rgba(25, 26, 29, 0.1), rgba(255, 255, 255, 0.1))",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            padding: "1rem",
-            overflow: "hidden",
-          }}
+        <ProjectUIUX
+          
         >
           <div>
             <h2
@@ -253,8 +226,8 @@ const CardTitles = () => {
                 </motion.div>
               ))}
           </div>
-        </div>
-      </div>
+        </ProjectUIUX>
+      </ProjectWrapper>
       <div
         style={{
           display: "flex",

@@ -316,3 +316,85 @@ export const LiveDemoContent = styled.div`
         margin-top: 2rem;
     }
 `;
+
+export const ProjectWrapper = styled.div`
+    display: flex;
+    margin-bottom: 1rem;
+    gap: 2rem;
+
+    @media (max-width: 1200px) {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 90%;
+        min-width: 100%;
+    }
+`;
+
+export const MiniProjects = styled.div`
+    width: 39rem;
+    height: 13.125rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background: linear-gradient(-60deg, rgba(25, 26, 29, 0.1), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    max-width: 90%;
+
+    h2 {
+        color: #0099ff;
+        font-size: 1.5rem;
+    }
+
+    p {
+        color: #767676;
+    }
+
+    @media (max-width: 1200px) {
+        width: 90%; 
+        padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        width: 95%;
+    }
+`;
+
+export const ProjectUIUX = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 39rem;
+    height: 13.125rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background: linear-gradient(-60deg, rgba(25, 26, 29, 0.1), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    overflow: hidden;
+    max-width: 90%;
+
+    h2 {
+        color: #0099ff;
+        font-size: 1.5rem;
+    }
+
+    p {
+        color: #767676;
+    }
+
+    @media (max-width: 1200px) {
+        width: 90%; 
+        padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        width: 95%; 
+    }
+`;
