@@ -10,37 +10,87 @@ import { HiDocumentText } from "react-icons/hi";
 import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 import NavbarMobile from "./NavbarMobile";
 import { motion } from "framer-motion";
+import { supabase } from "../services/supabaseClient";
 
-const timeAgo = (timestamp: any) => {
-  const now = new Date();
-  const secondsPast = Math.floor((now.getTime() - timestamp.getTime()) / 1000);
+const timeAgo = (timestamp: Date) => {
+  if (isNaN(timestamp.getTime())) {
+    return "Invalid date";
+  }
 
-  if (secondsPast < 60) {
-    return `${secondsPast}s ago`;
+  // Obtener la fecha actual en UTC
+  const nowUTC = new Date();
+  // Ajustar el tiempo pasado restando 2 horas (7200 segundos)
+  const adjustedSecondsPast = Math.floor((nowUTC.getTime() - timestamp.getTime()) / 1000) - 7200;
+
+  if (adjustedSecondsPast < 60) {
+    return `${adjustedSecondsPast}s ago`; // Mostrar segundos si es menos de un minuto
   }
-  if (secondsPast < 3600) {
-    const minutes = Math.floor(secondsPast / 60);
-    return `${minutes}m ago`;
+  if (adjustedSecondsPast < 3600) {
+    const minutes = Math.floor(adjustedSecondsPast / 60);
+    return `${minutes}m ago`; // Mostrar solo minutos mientras es menos de una hora
   }
-  if (secondsPast < 86400) {
-    const hours = Math.floor(secondsPast / 3600);
-    return `${hours}h ago`;
+  if (adjustedSecondsPast < 86400) {
+    const hours = Math.floor(adjustedSecondsPast / 3600);
+    const minutes = Math.floor((adjustedSecondsPast % 3600) / 60);
+    return minutes === 0 ? `${hours}h` : `${hours}h ${minutes}m ago`;
   }
-  const days = Math.floor(secondsPast / 86400);
-  return `${days}d ago`;
+
+  const days = Math.floor(adjustedSecondsPast / 86400);
+  const hours = Math.floor((adjustedSecondsPast % 86400) / 3600);
+  return hours === 0 ? `${days}d` : `${days}d ${hours}h`;
 };
 
 const Navbar = () => {
-  const [hasNotification, setHasNotification] = useState(false);
+  const [openedBoxNotification, setOpenedBoxNotification] = useState(false);
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const notificationRef = useRef<HTMLDivElement>(null);
   const [animateIcon, setAnimateIcon] = useState(false);
+  const [notifications, setNotifications] = useState<any[]>([]);
+  const [update, setUpdate] = useState(0);
 
   const handleClickNotification = () => {
-    setHasNotification(!hasNotification);
+    setOpenedBoxNotification(!openedBoxNotification);
   };
+
+  const fetchNotifications = async () => {
+    const { data, error } = await supabase
+      .from('messages')
+      .select('name, message, avatar_url, created_at')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error("Error fetching notifications:", error);
+    } else {
+      const formattedData = data.map((item: any) => ({
+        id: item.id,
+        avatar: item.avatar_url,
+        title: `New message from ${item.name}`,
+        message: item.message,
+        time: timeAgo(new Date(item.created_at) as Date),
+      }));
+      setNotifications(formattedData);
+    }
+  };
+
+  useEffect(() => {
+    fetchNotifications(); // Obtener notificaciones al cargar el componente
+
+    const interval = setInterval(() => {
+      fetchNotifications(); // Refrescar las notificaciones cada minuto
+    }, 60000); // Actualizar cada 60000ms (1 minuto)
+
+    return () => clearInterval(interval); // Limpiar el intervalo al desmontar
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setUpdate((prev) => prev + 1);
+    }, 60000); // Actualiza cada minuto
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -48,7 +98,7 @@ const Navbar = () => {
         notificationRef.current &&
         !notificationRef.current.contains(e.target as Node)
       ) {
-        setHasNotification(false);
+        setOpenedBoxNotification(false);
       }
     };
 
@@ -86,33 +136,6 @@ const Navbar = () => {
   //  const now = new Date();
   //  return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   //};
-
-  const notifications = [
-    {
-      id: 1,
-      title: "New message from Yamil Pedroso",
-      message: "New project in process on GitHub",
-      time: "1h ago",
-    },
-    {
-      id: 2,
-      title: "New message from Yamil Pedroso",
-      message: "Event in LinkedIn",
-      time: "2h ago",
-    },
-    {
-      id: 3,
-      title: "New message from Yamil Pedroso",
-      message: "A new message from a client",
-      time: "1h ago",
-    },
-    {
-      id: 4,
-      title: "New message from Yamil Pedroso",
-      message: "Hi, adding features to the website",
-      time: "4h ago",
-    },
-  ];
 
   const swingAnimation = {
     rotate: [0, -15, 15, -15, 15, 0],
@@ -157,32 +180,6 @@ const Navbar = () => {
         >
             LOGO
         </motion.div>
-
-        {/* Nueva Imagen que aparece cuando se hace scroll */}
-        {/*<motion.div
-          className="new-logo"
-          initial={{ opacity: 0, top: "5rem", left: "5rem" }}
-          animate={{
-            opacity: isScrolled ? 1 : 0,
-            top: isScrolled ? "5rem" : "5rem",
-            left: isScrolled ? "3rem" : "5rem",
-          }}
-          transition={{ duration: 0.5 }}
-          style={{
-            position: "fixed",
-            top: "5rem",
-            left: "5rem",
-            width: "3rem",
-            zIndex: 100,
-          }}
-        >
-          <img
-            src={yam}
-            alt="yam-logo"
-            style={{ width: "6rem" }}
-            className=""
-          />
-        </motion.div>*/}
       </Link>
 
       <nav className="glossy-nav">
@@ -266,32 +263,70 @@ const Navbar = () => {
       {/* Social network and notifications */}
       <div className="notis-wrapper" ref={notificationRef}>
         <motion.div
-          style={{ transformOrigin: "top center" }}
-          animate={animateIcon ? swingAnimation : {}}
-          onAnimationComplete={() => setAnimateIcon(false)}
+
         >
           {notifications.length > 0 ? (
             <div className="is-active">
-              <div>
+              <motion.div
+                style={{ transformOrigin: "top center" }}
+                animate={animateIcon && !openedBoxNotification ? swingAnimation : {}}
+                onAnimationComplete={() => setAnimateIcon(false)}
+              >
                 <IoIosNotifications
                   className="notis-icon"
                   onClick={handleClickNotification}
                 />
-              </div>
+              </motion.div>
               <div className="notis-active"></div>
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: hasNotification ? 1 : 0 }}
+                animate={{ opacity: openedBoxNotification ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
                 className={`${
-                  hasNotification ? "notis-content" : "notis-content hidden"
+                  openedBoxNotification ? "notis-content" : "notis-content hidden"
                 }`}
               >
                 <h2>Notifications</h2>
+                <hr className="border-[1px] border-[#515151] w-full my-2" />
                 {notifications.map((noti) => (
                   <div key={noti.id} className="noti">
-                    <h3>{noti.title}</h3>
-                    <p>{noti.message}</p>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "1rem",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "50%",
+                          overflow: "hidden",
+                        }}
+                      >
+                      <img
+                       style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                      src={noti.avatar} alt="avatar"
+                       />
+
+                      </div>
+                     <p
+                      style={{
+                        fontSize: ".8rem",
+                      }}
+                     >{noti.title}</p>
+                    </div>
+
+                    <p
+                      style={{
+                        color: "#0099ff"
+                      }}
+                    >{noti.message}</p>
                     <small>{noti.time}</small>
                     <hr className="border-[1px] border-[#515151] w-full my-2" />
                   </div>
