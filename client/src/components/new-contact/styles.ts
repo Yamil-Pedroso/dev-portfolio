@@ -10,6 +10,14 @@ export const Container = styled.div`
   border-radius: 5px;
   margin-bottom: 15rem;
   padding: 1rem;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const UserContent = styled.div`
@@ -18,6 +26,13 @@ export const UserContent = styled.div`
   padding: 2rem;
   margin: 0 auto;
   gap: 8rem;
+
+  @media (max-width: 1200px) {
+      width: 90vw;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
 `;
 
 export const Header = styled.div`
@@ -42,6 +57,12 @@ export const Header = styled.div`
     p {
       color: #767676;
     }
+  }
+
+  @media (max-width: 1200px) {
+    align-items: center;
+    text-align: center;
+    
   }
 `;
 
@@ -96,15 +117,13 @@ export const LeftContent = styled.div``;
 
 export const FormWrapper = styled(motion.div)`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 18rem;
   height: auto;
   gap: 1rem;
-  //background-color: #161616;
   border-radius: .5rem;
   position: relative;
-  overflow: hidden;
+ 
 
   img {
     position: absolute;
@@ -115,6 +134,15 @@ export const FormWrapper = styled(motion.div)`
     object-fit: cover;
     background-position: center;
     background-size: cover;
+
+    @media (max-width: 1200px) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+     margin-top: 5rem;
   }
 `;
 
@@ -185,6 +213,12 @@ export const Form = styled(motion.form)`
         border-color: #006699; /* Azul oscuro */
     }
     }
+  }
+
+  @media (max-width: 1200px) 
+  {
+   
+   
   }
 `;
 

@@ -41,6 +41,10 @@ export const Container = styled.div<IButtonTouch>`
     background-color: #ffd241;
     bottom: 0;
   }
+
+  @media (max-width: 1200px) {
+     z-index: 1000;
+  }
 `;
 
 export const HorizontalButtons = styled.div`

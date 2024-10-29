@@ -121,7 +121,7 @@ const NewContact = () => {
              damping: 10,
            }}
         >
-          {isFormVisible ? (
+          {!isFormVisible ? (
             <Form
             initial={{ y: -300, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
