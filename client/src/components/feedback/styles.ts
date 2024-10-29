@@ -22,7 +22,6 @@ export const FeedbackCardContainer = styled(motion.div)<FeedbackCardProps>`
   height: auto;
   max-width: 30rem;
   overflow: visible;
-
 `;
 export const FeedbackList = styled.div`
   margin-top: 5rem;
@@ -71,11 +70,17 @@ export const FeedbackFooter = styled.div`
 `;
 
 export const Header = styled.h2`
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 1rem;
   text-align: center;
+
+  background-image: linear-gradient(to right, #0099ff, #55b1bf, #4e67a5);
+  background-size: 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 `;
 
 export const ReadMoreButton = styled.button`

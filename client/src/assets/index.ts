@@ -47,6 +47,10 @@ import tripguide from "./tripguide.png";
 import wave from "./wave.gif";
 import csharp from "./csharp.png";
 import filePython from "./filePython.png";
+import book from "./book.png";
+import pizza from "./pizza.png";
+import potion from "./potion.png";
+import miniChat from "./chat.png";
 
 import linktoMe from "./portfolio-work/linkto-me.jpg";
 import newArrival from "./portfolio-work/new-arrival.jpg";
@@ -121,6 +125,10 @@ import imgThree from "./testimonial-avatars/avatar_3.jpg";
 import imgFour from "./testimonial-avatars/avatar_4.jpg";
 
 export {
+  potion,
+  book,
+  pizza,
+  miniChat,
   codingBackend,
   designFrontend,
   avatar,

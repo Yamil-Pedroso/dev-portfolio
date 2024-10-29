@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdStars } from "react-icons/md";
 import Marquee from "react-fast-marquee";
-import { figma, tailwind, photoshop, illustrator, css, xd } from "../../assets";
+import { figma, tailwind, photoshop, illustrator, css, xd, potion, pizza, book, miniChat } from "../../assets";
 import { motion } from "framer-motion";
 import {
   CardSlide,
@@ -37,6 +37,25 @@ const techIcons = [
   {
     id: 6,
     icon: xd,
+  },
+];
+
+const miniProjs = [
+  {
+    id: 1,
+    icon: potion,
+  },
+  {
+    id: 2,
+    icon: pizza,
+  },
+  {
+    id: 3,
+    icon: book,
+  },
+  {
+    id: 4,
+    icon: miniChat,
   },
 ];
 
@@ -90,6 +109,40 @@ const CardTitles = () => {
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+              marginTop: "1rem",
+            }}
+          >
+            {miniProjs.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.5 },
+                }}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "4.5rem",
+                  height: "4.5rem",
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  background: "rgba(8, 8, 8, 0.8)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  padding: "1rem",
+                  margin: "1rem",
+                }}
+              >
+                <img src={item.icon} alt="" width={33} />
+              </motion.div>
+            ))}
           </div>
         </MiniProjects>
 
