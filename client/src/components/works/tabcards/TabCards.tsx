@@ -1,5 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  CardContentWrapper,
+  CardImageWrapper,
+  CardWrapper,
+  Card,
+  ProjContainer,
+  TabCardsContainer,
+  TechHeaderWrapper,
+} from "./styles";
 
 import {
   react,
@@ -7,13 +16,13 @@ import {
   typescript,
   porfolioOne,
   travel,
-} from "../assets";
+} from "../../../assets";
 
 const menu1 = [
   {
     title: "React-TS-Node",
     content: "Squib Company Ltd.",
- 
+
     src: react,
     link: "https://www.squib.app",
     image: porfolioOne,
@@ -102,48 +111,42 @@ const TabCards = ({ onHoverCard }: any) => {
   };
 
   return (
-    <div className="full-width">
-      <div className="centered-box">
+    <TabCardsContainer>
+      <TechHeaderWrapper>
         <button
           onClick={() => handleClick("menu1")}
           className={` ${checkActiveTab("menu1", "custom-text")}`}
         >
           React-TS-Node
         </button>
-      </div>
-      <div className="flex-container">
+      </TechHeaderWrapper>
+      <ProjContainer>
         {menu1.map((item, index) => (
-          <div className="card-container"
-          onMouseEnter={() => onHoverCard(true)} 
-          onMouseLeave={() => onHoverCard(false)}
+          <CardWrapper
+            onMouseEnter={() => onHoverCard(true)}
+            onMouseLeave={() => onHoverCard(false)}
           >
-            <div className="card-wrapper">
+            <Card>
               <Link to={item.link} target="_blank" className="card-cont">
-                <div
+                <CardImageWrapper
                   key={index}
                   className={`panel dark-overlay cursor-pointer ${checkActiveTab(
                     "menu1",
                     "active"
                   )}`}
                 >
-                  {/*<div className="text-center-wrapper">
-                    <p className="text-overlay"><span style={{ color : "#0099ff", fontWeight: "400"}}>{item.content}</span></p>
-                  </div>*/}
-
-                  <img src={item.image} alt="" className="zoom-img" />
-                </div>
+                  <img src={item.image} className="zoom-img" alt="proj-image" />
+                </CardImageWrapper>
               </Link>
-              <div className="card-cont-wrapper">
+              <CardContentWrapper>
                 <h1 className="">{item.title}</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-              </div>
-            </div>
-          </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </CardContentWrapper>
+            </Card>
+          </CardWrapper>
         ))}
-      </div>
-    </div>
+      </ProjContainer>
+    </TabCardsContainer>
   );
 };
 

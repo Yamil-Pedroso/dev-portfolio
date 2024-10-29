@@ -7,7 +7,7 @@ import Modal from "./Modal";
 const MagnetIcons2 = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [currentPercentage, setCurrentPercentage] = useState(0);
-  const [currentParagraphIndex, setCurrentParagraphIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const handleMouseEnter2 = (percentage: number) => {
     setCurrentPercentage(percentage);
@@ -20,12 +20,26 @@ const MagnetIcons2 = () => {
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     !isModalVisible && setCurrentPercentage(0);
   }, []);
 
   return (
     <main className={styles.main}>
-      <Modal isVisible={isModalVisible} percentage={currentPercentage} />
+      {
+         windowWidth < 960 && (
+          <Modal isVisible={isModalVisible} percentage={currentPercentage} />
+        )
+      }
+      
       <div className={styles.container}>
       <Marquee gradient={false} speed={30} pauseOnHover={true}>
           <div

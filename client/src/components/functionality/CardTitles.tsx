@@ -1,10 +1,17 @@
 import { useState } from "react";
-
 import { MdStars } from "react-icons/md";
 import Marquee from "react-fast-marquee";
 import { figma, tailwind, photoshop, illustrator, css, xd } from "../../assets";
 import { motion } from "framer-motion";
-import { MiniProjects, ProjectUIUX, ProjectWrapper } from "./styles";
+import {
+  CardSlide,
+  CardSlideContent,
+  CardSlideWrapper,
+  CardTitleContainer,
+  MiniProjects,
+  ProjectUIUX,
+  ProjectWrapper,
+} from "./styles";
 
 const techIcons = [
   {
@@ -53,80 +60,40 @@ const CardTitles = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "2rem",
-          marginBottom: "1rem",
-        }}
-      >
-        <div
-          style={{
-            width: "85rem",
-            maskImage:
-              "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0))",
-          }}
-        >
+    <CardTitleContainer>
+      <CardSlideWrapper>
+        <CardSlideContent>
           <Marquee gradient={false} speed={80} pauseOnHover={true}>
             {Array(4)
               .fill(0)
               .map((_, index) => (
-                <div
-                  key={index}
-                  style={{
-                    width: "25rem",
-                    height: "25rem",
-                    margin: "2rem .8rem",
-                    borderRadius: "1rem",
-                    cursor: "pointer",
-                    background:
-                      "linear-gradient(-60deg, rgba(25, 26, 29, 0.1), rgba(255, 255, 255, 0.1))",
-                    backdropFilter: "blur(10px)",
-                    WebkitBackdropFilter: "blur(10px)",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    padding: "1rem",
-                  }}
-                >
-                  Hola
-                </div>
+                <CardSlide key={index}>Hola</CardSlide>
               ))}
           </Marquee>
-        </div>
-      </div>
+        </CardSlideContent>
+      </CardSlideWrapper>
       <ProjectWrapper>
-        <MiniProjects
-        >
-          <h2
-            style={{
-              color: "#0099ff",
-              fontSize: "1.5rem",
-            }}
-          >
-            Mini Projects
-          </h2>
-          <p
-            style={{
-              color: "#767676",
-            }}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
+        <MiniProjects>
+          <div>
+            <h2
+              style={{
+                color: "#0099ff",
+                fontSize: "1.5rem",
+              }}
+            >
+              Mini Projects
+            </h2>
+            <p
+              style={{
+                color: "#767676",
+              }}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
         </MiniProjects>
 
-        <ProjectUIUX
-          
-        >
+        <ProjectUIUX>
           <div>
             <h2
               style={{
@@ -190,41 +157,38 @@ const CardTitles = () => {
             ))}
 
             {techIcons.slice(3, 6).map((item, index) => (
-                <motion.div
-                  onMouseEnter={() => handleHover2(index)}
-                  onMouseLeave={handleMouseLeave2}
-                  key={index}
-                  whileHover={{
-                    rotate: [0, -10, 10, -10, 10, 0],
-                    transition: { duration: 0.5 },
-                  }}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "4.5rem",
-                    height: "4.5rem",
-                    borderRadius: "50%",
-                    cursor: "pointer",
-                    background: "rgba(8, 8, 8, 0.8)",
-                    border:
-                      isHovered2 === index
-                        ? "1px solid #003a61"
-                        : "1px solid rgba(255, 255, 255, 0.1)",
-                    padding: "1rem",
-                    position: "absolute",
-                    top: ".4rem",
-                    left: "3rem",
-                    marginLeft: `${index * 5.5}rem`,
-                    zIndex: 1,
-                  }}
-                >
-                  <img 
-                  src={
-                    item.icon
-                  } alt="" width={33} />
-                </motion.div>
-              ))}
+              <motion.div
+                onMouseEnter={() => handleHover2(index)}
+                onMouseLeave={handleMouseLeave2}
+                key={index}
+                whileHover={{
+                  rotate: [0, -10, 10, -10, 10, 0],
+                  transition: { duration: 0.5 },
+                }}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "4.5rem",
+                  height: "4.5rem",
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  background: "rgba(8, 8, 8, 0.8)",
+                  border:
+                    isHovered2 === index
+                      ? "1px solid #003a61"
+                      : "1px solid rgba(255, 255, 255, 0.1)",
+                  padding: "1rem",
+                  position: "absolute",
+                  top: ".4rem",
+                  left: "3rem",
+                  marginLeft: `${index * 5.5}rem`,
+                  zIndex: 1,
+                }}
+              >
+                <img src={item.icon} alt="" width={33} />
+              </motion.div>
+            ))}
           </div>
         </ProjectUIUX>
       </ProjectWrapper>
@@ -268,7 +232,7 @@ const CardTitles = () => {
             </div>
           ))}
       </div>
-    </div>
+    </CardTitleContainer>
   );
 };
 

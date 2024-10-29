@@ -1,27 +1,35 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 interface FeedbackCardProps {
   expanded?: boolean;
 }
-  export const FeedbackContainer = styled.div`
-    margin-top: 6rem;
-    margin-bottom: 10rem;
-  `;
+export const FeedbackContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 10rem;
+`;
 
 export const FeedbackCardContainer = styled(motion.div)<FeedbackCardProps>`
+  display: flex;
+  flex-direction: column;
   background-color: #161616;
   padding: 2rem;
   border-radius: 8px;
-  width: 100%;
   height: auto;
   max-width: 30rem;
-  display: flex;
-  flex-direction: column;
   overflow: visible;
 
-  //max-height: ${({ expanded }) => (expanded ? 'none' : '25rem')};
-  //transition: max-height 0.7s ease-out;
+`;
+export const FeedbackList = styled.div`
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 `;
 
 export const TestimonialText = styled.p<FeedbackCardProps>`
@@ -29,15 +37,10 @@ export const TestimonialText = styled.p<FeedbackCardProps>`
   letter-spacing: 0.05rem;
   font-size: 1rem;
   display: -webkit-box;
-  //-webkit-line-clamp: ${({ expanded }) => (expanded ? 'none' : '6')}; 
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   flex-grow: 1;
-  //max-height: ${({ expanded }) => (expanded ? '100%' : '10rem')}; 
-  //transition: max-height 0.7s ease-in-out, opacity 0.7s ease-in-out;
- //opacity: ${({ expanded }) => (expanded ? 1 : 0.7)};
-  
 `;
 
 export const Name = styled.p`
@@ -61,21 +64,11 @@ export const Avatar = styled.img`
 `;
 
 export const FeedbackFooter = styled.div`
-  margin-top: 2rem; 
+  margin-top: 2rem;
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
 `;
-
-export const FeedbackList = styled.div`
-  margin-top: 5rem;
-  padding-bottom: 5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  
-`;
-
 
 export const Header = styled.h2`
   font-size: 2rem;

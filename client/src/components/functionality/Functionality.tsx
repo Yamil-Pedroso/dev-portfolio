@@ -194,77 +194,7 @@ const Functionality = () => {
         </p>
       </div>
 
-      {/*<div>
-        <LiveProjDemos />
-      </div>*/}
-
       <CardTitles />
-      {/*<span
-       style={{ color: '#b7b7b7'}}
-      >
-        Local demos and repositories.
-      </span>
-      <div className="card-wrapper">
-        {cardContent
-          .slice(currentBoxIndex, currentBoxIndex + limitBoxs)
-          .map((item, i) => (
-            <div
-              onMouseEnter={() => handleMouseEnter(i)}
-              onMouseLeave={handleMouseLeave}
-              key={item.id}
-              className="card"
-              onClick={() => handleClick(i)}
-            >
-              {clickedBoxIndex === i && <TbHandFinger className="hand-icon" />}
-              <div className={`card-text ${hoveredIndex === i ? 'visible' : ''}`}>
-                <span
-                  style={{
-                    color: '#fff',
-                    fontSize: '1.3rem',
-                    fontWeight: 500,
-                  }}
-                >{cardContent[i].content}</span>
-                {hoveredIndex === i && <span
-                 style={{ color: '#101c12',
-                  fontSize: '1rem',
-                  fontWeight: 'bold',
-                 }}
-                >{cardContent[i].desc}</span>}
-              </div>
-              <img src={cardContent[i].icon} alt="game" />
-              <div className="card-content"></div>
-            </div>
-          ))}
-      </div>
-      <div className="arrow-wrapper">
-        <FaArrowAltCircleLeft
-          size={48}
-          className="arrow"
-          onClick={handleBoxBack}
-        />
-        <FaArrowAltCircleRight
-          size={48}
-          className="arrow"
-          onClick={handleBoxNext}
-        />
-      </div>
-      <div className="box-wrapper">
-        {contentBoxIndex.map((content, index) => (
-          <div
-            key={index}
-            className={`box-content ${
-              clickedBoxIndex === index ? 'active' : ''
-            }`}
-          >
-            <div className="box">
-              <h1>
-                {clickedBoxIndex === index && <span>{content.content}</span>}
-                <FaDoorOpen className="door-icon" onClick={handleBoxClose} />
-              </h1>
-            </div>
-          </div>
-        ))}
-      </div> */}
     </Container>
   )
 }

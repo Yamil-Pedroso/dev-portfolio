@@ -17,7 +17,6 @@ const timeAgo = (timestamp: Date) => {
     return "Invalid date";
   }
 
-  // Obtener la fecha actual en UTC
   const nowUTC = new Date();
   // Ajustar el tiempo pasado restando 2 horas (7200 segundos)
   const adjustedSecondsPast = Math.floor((nowUTC.getTime() - timestamp.getTime()) / 1000) - 7200;
@@ -129,13 +128,8 @@ const Navbar = () => {
   };
 
   const generateTimestamp = () => {
-    return new Date(); // Almacena la fecha actual
+    return new Date(); 
   };
-
-  //const generateTimestamp = () => {
-  //  const now = new Date();
-  //  return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  //};
 
   const swingAnimation = {
     rotate: [0, -15, 15, -15, 15, 0],
