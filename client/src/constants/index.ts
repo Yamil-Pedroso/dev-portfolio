@@ -114,6 +114,50 @@ export interface ITechService {
   buttonText?: string;
 }
 
+export interface IprojectLinks {
+  title?: string;
+  image?: string;
+  link: string;
+}
+
+const projectLinks: IprojectLinks[] = [
+  {
+    title: "Creative design studio",
+    link: "https://creative-design-studio-nine.vercel.app/",
+    image: "https://img.freepik.com/free-photo/high-angle-measuring-tools-still-life_23-2150440941.jpg?t=st=1730396673~exp=1730400273~hmac=d9a5c33186ed5d1bdd579ff32b0c854b3f31acc69f9081d524852dc29cdc4fab&w=2000"
+  },
+  {
+    title: "E-commerce",
+    link: "#",
+    image: ""
+  },
+  {
+    title: "E-commerce",
+    link: "#",
+    image: ""
+  },
+  {
+    title: "E-commerce",
+    link: "#",
+    image: ""
+  },
+  {
+    title: "E-commerce",
+    link: "#",
+    image: ""
+  },
+  {
+    title: "E-commerce",
+    link: "#",
+    image: ""
+  },
+  {
+    title: "E-commerce",
+    link: "#",
+    image: ""
+  },
+];
+
 const contact: IContact[] = [
   {
     content: "+41 079 532 65 19",
@@ -525,6 +569,7 @@ export {
   techServices,
   technologies,
   experiences,
+  projectLinks,
   testimonials,
   projects,
   enviroment,

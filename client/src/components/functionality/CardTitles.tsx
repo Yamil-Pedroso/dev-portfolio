@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { MdStars } from "react-icons/md";
 import Marquee from "react-fast-marquee";
 import { figma, tailwind, photoshop, illustrator, css, xd, potion, pizza, book, miniChat } from "../../assets";
@@ -12,6 +13,7 @@ import {
   ProjectUIUX,
   ProjectWrapper,
 } from "./styles";
+import { projectLinks } from "../../constants";
 
 const techIcons = [
   {
@@ -83,10 +85,10 @@ const CardTitles = () => {
       <CardSlideWrapper>
         <CardSlideContent>
           <Marquee gradient={false} speed={80} pauseOnHover={true}>
-            {Array(4)
-              .fill(0)
-              .map((_, index) => (
-                <CardSlide key={index}>Hola</CardSlide>
+            {projectLinks.map((item, index) => (
+                <CardSlide key={index}>
+                  <img src={item.image} alt="project images" />
+                </CardSlide>
               ))}
           </Marquee>
         </CardSlideContent>
@@ -254,9 +256,7 @@ const CardTitles = () => {
           width: "50rem",
         }}
       >
-        {Array(7)
-          .fill(0)
-          .map((_, index) => (
+        {projectLinks.map((item: any, index: any) => (
             <div
               key={index}
               style={{
@@ -280,7 +280,9 @@ const CardTitles = () => {
                   color: "#767676",
                 }}
               >
-                Lorem ipsum
+                <Link to={item.link}
+                 target="_blank"
+                >{item.title}</Link>
               </h3>
             </div>
           ))}

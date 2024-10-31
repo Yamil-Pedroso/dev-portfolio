@@ -19,7 +19,8 @@ const timeAgo = (timestamp: Date) => {
 
   const nowUTC = new Date();
   // Ajustar el tiempo pasado restando 2 horas (7200 segundos)
-  const adjustedSecondsPast = Math.floor((nowUTC.getTime() - timestamp.getTime()) / 1000) - 7200;
+  const adjustedSecondsPast =
+    Math.floor((nowUTC.getTime() - timestamp.getTime()) / 1000) - 7200;
 
   if (adjustedSecondsPast < 60) {
     return `${adjustedSecondsPast}s ago`; // Mostrar segundos si es menos de un minuto
@@ -55,9 +56,9 @@ const Navbar = () => {
 
   const fetchNotifications = async () => {
     const { data, error } = await supabase
-      .from('messages')
-      .select('name, message, avatar_url, created_at')
-      .order('created_at', { ascending: false });
+      .from("messages")
+      .select("name, message, avatar_url, created_at")
+      .order("created_at", { ascending: false });
 
     if (error) {
       console.error("Error fetching notifications:", error);
@@ -128,7 +129,7 @@ const Navbar = () => {
   };
 
   const generateTimestamp = () => {
-    return new Date(); 
+    return new Date();
   };
 
   const swingAnimation = {
@@ -172,7 +173,7 @@ const Navbar = () => {
           animate={{ opacity: 1, y: isScrolled ? -10 : 0 }}
           transition={{ duration: 0.5 }}
         >
-            LOGO
+          LOGO
         </motion.div>
       </Link>
 
@@ -256,14 +257,14 @@ const Navbar = () => {
 
       {/* Social network and notifications */}
       <div className="notis-wrapper" ref={notificationRef}>
-        <motion.div
-
-        >
+        <motion.div>
           {notifications.length > 0 ? (
             <div className="is-active">
               <motion.div
                 style={{ transformOrigin: "top center" }}
-                animate={animateIcon && !openedBoxNotification ? swingAnimation : {}}
+                animate={
+                  animateIcon && !openedBoxNotification ? swingAnimation : {}
+                }
                 onAnimationComplete={() => setAnimateIcon(false)}
               >
                 <IoIosNotifications
@@ -277,7 +278,9 @@ const Navbar = () => {
                 animate={{ opacity: openedBoxNotification ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
                 className={`${
-                  openedBoxNotification ? "notis-content" : "notis-content hidden"
+                  openedBoxNotification
+                    ? "notis-content"
+                    : "notis-content hidden"
                 }`}
               >
                 <h2>Notifications</h2>
@@ -299,28 +302,32 @@ const Navbar = () => {
                           overflow: "hidden",
                         }}
                       >
-                      <img
-                       style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      src={noti.avatar} alt="avatar"
-                       />
-
+                        <img
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                          src={noti.avatar}
+                          alt="avatar"
+                        />
                       </div>
-                     <p
-                      style={{
-                        fontSize: ".8rem",
-                      }}
-                     >{noti.title}</p>
+                      <p
+                        style={{
+                          fontSize: ".8rem",
+                        }}
+                      >
+                        {noti.title}
+                      </p>
                     </div>
 
                     <p
                       style={{
-                        color: "#0099ff"
+                        color: "#0099ff",
                       }}
-                    >{noti.message}</p>
+                    >
+                      {noti.message}
+                    </p>
                     <small>{noti.time}</small>
                     <hr className="border-[1px] border-[#515151] w-full my-2" />
                   </div>

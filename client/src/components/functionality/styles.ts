@@ -354,6 +354,7 @@ export const CardSlideContent = styled.div`
     mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
 `;
 
+
 export const CardSlide = styled.div`
     width: 25rem;
     height: 25rem;
@@ -366,6 +367,13 @@ export const CardSlide = styled.div`
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: .8rem;
+    }
 
     @media (max-width: 960px) {
         width: 20rem;
