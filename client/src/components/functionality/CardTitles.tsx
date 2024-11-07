@@ -2,15 +2,36 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdStars } from "react-icons/md";
 import Marquee from "react-fast-marquee";
-import { figma, tailwind, photoshop, illustrator, css, xd, potion, pizza, book, miniChat } from "../../assets";
+import {
+  figma,
+  tailwind,
+  photoshop,
+  illustrator,
+  css,
+  xd,
+  potion,
+  pizza,
+  book,
+  miniChat,
+} from "../../assets";
 import { motion } from "framer-motion";
 import {
   CardSlide,
   CardSlideContent,
   CardSlideWrapper,
+  CardTitle,
   CardTitleContainer,
+  HeaderWrapper,
   MiniProjects,
+  MiniProjectsContent,
+  MiniProjectsWrapper,
+  ProjectLinks,
+  ProjectLinksContent,
   ProjectUIUX,
+  ProjectUIUXContent,
+  ProjectUIUXContent2,
+  ProjectUIUXHeader,
+  ProjectUIUXWrapper,
   ProjectWrapper,
 } from "./styles";
 import { projectLinks } from "../../constants";
@@ -86,100 +107,43 @@ const CardTitles = () => {
         <CardSlideContent>
           <Marquee gradient={false} speed={80} pauseOnHover={true}>
             {projectLinks.map((item, index) => (
-                <CardSlide key={index}>
-                  <img src={item.image} alt="project images" />
-                </CardSlide>
-              ))}
+              <CardSlide key={index}>
+                <img src={item.image} alt="project images" />
+              </CardSlide>
+            ))}
           </Marquee>
         </CardSlideContent>
       </CardSlideWrapper>
       <ProjectWrapper>
         <MiniProjects>
-          <div>
-            <h2
-              style={{
-                color: "#0099ff",
-                fontSize: "1.5rem",
-              }}
-            >
-              Mini Projects
-            </h2>
-            <p
-              style={{
-                color: "#767676",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </div>
+          <HeaderWrapper>
+            <h2>Mini Projects</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </HeaderWrapper>
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-              marginTop: "1rem",
-            }}
-          >
+          <MiniProjectsWrapper>
             {miniProjs.map((item, index) => (
-              <motion.div
+              <MiniProjectsContent
                 key={index}
                 whileHover={{
                   scale: 1.1,
                   transition: { duration: 0.5 },
                 }}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "4.5rem",
-                  height: "4.5rem",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  background: "rgba(8, 8, 8, 0.8)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  padding: "1rem",
-                  margin: "1rem",
-                }}
               >
-                <img src={item.icon} alt="" width={33} />
-              </motion.div>
+                <img src={item.icon} alt="mini project icons" />
+              </MiniProjectsContent>
             ))}
-          </div>
+          </MiniProjectsWrapper>
         </MiniProjects>
 
         <ProjectUIUX>
-          <div>
-            <h2
-              style={{
-                color: "#0099ff",
-                fontSize: "1.5rem",
-              }}
-            >
-              Projects UI/UX
-            </h2>
-            <p
-              style={{
-                color: "#767676",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </div>
-          <div
-            style={{
-              width: "20rem",
-              display: "flex",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: "1rem",
-              marginLeft: "0rem",
-              //overflow: "hidden",
-              position: "relative",
-            }}
-          >
+          <ProjectUIUXHeader>
+            <h2>Projects UI/UX</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </ProjectUIUXHeader>
+          <ProjectUIUXWrapper>
             {techIcons.slice(0, 3).map((item, index) => (
-              <motion.div
+              <ProjectUIUXContent
                 onMouseEnter={() => handleHover(index)}
                 onMouseLeave={handleMouseLeave}
                 key={index}
@@ -187,32 +151,15 @@ const CardTitles = () => {
                   rotate: [0, -10, 10, -10, 10, 0],
                   transition: { duration: 0.5 },
                 }}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "4.5rem",
-                  height: "4.5rem",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  background: "rgba(8, 8, 8, 0.8)",
-                  border:
-                    isHovered === index
-                      ? "1px solid #003a61"
-                      : "1px solid rgba(255, 255, 255, 0.1)",
-                  padding: "1rem",
-                  position: "absolute",
-                  top: "-5rem",
-                  left: "0rem",
-                  marginLeft: `${index * 5.5}rem`,
-                }}
+                isHovered={isHovered}
+                index={index}
               >
-                <img src={item.icon} alt="" width={33} />
-              </motion.div>
+                <img src={item.icon} alt="project images" />
+              </ProjectUIUXContent>
             ))}
 
             {techIcons.slice(3, 6).map((item, index) => (
-              <motion.div
+              <ProjectUIUXContent2
                 onMouseEnter={() => handleHover2(index)}
                 onMouseLeave={handleMouseLeave2}
                 key={index}
@@ -220,73 +167,32 @@ const CardTitles = () => {
                   rotate: [0, -10, 10, -10, 10, 0],
                   transition: { duration: 0.5 },
                 }}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "4.5rem",
-                  height: "4.5rem",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  background: "rgba(8, 8, 8, 0.8)",
-                  border:
-                    isHovered2 === index
-                      ? "1px solid #003a61"
-                      : "1px solid rgba(255, 255, 255, 0.1)",
-                  padding: "1rem",
-                  position: "absolute",
-                  top: ".4rem",
-                  left: "3rem",
-                  marginLeft: `${index * 5.5}rem`,
-                  zIndex: 1,
-                }}
+                isHovered2={isHovered2}
+                index={index}
               >
-                <img src={item.icon} alt="" width={33} />
-              </motion.div>
+                <img src={item.icon} alt="project images" />
+              </ProjectUIUXContent2>
             ))}
-          </div>
+          </ProjectUIUXWrapper>
         </ProjectUIUX>
       </ProjectWrapper>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "2rem",
-          width: "50rem",
-        }}
-      >
+      <ProjectLinks>
         {projectLinks.map((item: any, index: any) => (
-            <div
-              key={index}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                padding: "1rem 1.25rem",
-                marginTop: "1rem",
-                borderRadius: ".8rem",
-                cursor: "pointer",
-                background: "rgba(25, 25, 29, 0.8)",
-                backdropFilter: "blur(10px)",
-                WebkitBackdropFilter: "blur(10px)",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-              }}
-            >
-              <MdStars style={{ fontSize: "1.5rem", color: "#0099ff" }} />
-              <h3
-                style={{
-                  marginLeft: ".4rem",
-                  color: "#767676",
-                }}
-              >
-                <Link to={item.link}
-                 target="_blank"
-                >{item.title}</Link>
-              </h3>
-            </div>
-          ))}
-      </div>
+          <Link to={item.link} target="_blank" key={index}>
+            <ProjectLinksContent>
+              <CardTitle>
+                <MdStars className="star-icon" />
+                <h3>{item.title}</h3>
+              </CardTitle>
+              <img
+                src={item.image}
+                className="project-link-img"
+                alt="project images"
+              />
+            </ProjectLinksContent>
+          </Link>
+        ))}
+      </ProjectLinks>
     </CardTitleContainer>
   );
 };

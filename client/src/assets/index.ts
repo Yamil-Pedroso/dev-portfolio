@@ -1,4 +1,5 @@
-import logo from "./logo1.png";
+import logo from "./logo.png";
+import logo1 from "./logo1.png";
 import avatar from "./avatar/yami.png";
 import fullstack from "./back-front.png";
 import frontend from "./frontend.png";
@@ -125,6 +126,7 @@ import imgThree from "./testimonial-avatars/avatar_3.jpg";
 import imgFour from "./testimonial-avatars/avatar_4.jpg";
 
 export {
+  logo1,
   potion,
   book,
   pizza,

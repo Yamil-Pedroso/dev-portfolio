@@ -11,6 +11,11 @@ export const FeedbackContainer = styled.div`
   align-items: center;
   margin-top: 6rem;
   margin-bottom: 10rem;
+
+  @media (max-width: 520px) {
+    margin: 2.5rem auto;
+    width: 90%;
+  }
 `;
 
 export const FeedbackCardContainer = styled(motion.div)<FeedbackCardProps>`
@@ -29,6 +34,10 @@ export const FeedbackList = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 1.5rem;
+
+  @media (max-width: 520px) {
+    margin-top: 2rem;
+  }
 `;
 
 export const TestimonialText = styled.p<FeedbackCardProps>`

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import CloseAnimateIcon from "./close-animate-icon/CloseAnimateIcon";
-
+import Logo from "../assets/logo.png";
 interface INavMobileProps {
   active: string;
   setActive: (active: string) => void;
@@ -48,7 +48,9 @@ const NavMobile = ({
   return (
     <div className="nav-mobile-container">
       <div className="mobile-bar-wrapper">
-        <span className="logo">Logo</span>
+        <span className="logo">
+          <img src={Logo} alt="logo" width={40} />
+        </span>
 
         <CloseAnimateIcon onClick={handleClicked} isOpen={showMenu} />
       </div>

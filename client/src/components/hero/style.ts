@@ -52,6 +52,8 @@ export const HeroContainer = styled.div`
   }
 
     @media (max-width: 960px) {
+        width: 100%;
+        margin: 0 auto;
         height: 50vh;
     }
 `;
@@ -160,7 +162,6 @@ export const HeroRightContent = styled.div`
     }
   }
   @media (max-width: 960px) {
-    width: 100%;
     margin-top: 2rem;
 
     h1 {
@@ -170,13 +171,13 @@ export const HeroRightContent = styled.div`
 
   @media (max-width: 768px) {
     h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
   }
 
   @media (max-width: 480px) {
     h1 {
-      font-size: 1.7rem;
+      font-size: 2.5rem;
     }
   }
 

@@ -6,6 +6,10 @@ export const WorkContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 960px) {
+    margin-top: -7rem;
+  }
 `;
 
 export const ProjectHeader = styled(motion.div)`
@@ -31,5 +35,11 @@ export const ProjectHeader = styled(motion.div)`
       width: 50%;
       font-size: 1.2rem;
       color: #747474;
+
+      @media (max-width: 960px) {
+        width: 90%;
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
     }
 `;

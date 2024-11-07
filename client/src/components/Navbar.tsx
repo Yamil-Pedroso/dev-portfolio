@@ -11,6 +11,7 @@ import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 import NavbarMobile from "./NavbarMobile";
 import { motion } from "framer-motion";
 import { supabase } from "../services/supabaseClient";
+import Logo from "../assets/logo.png";
 
 const timeAgo = (timestamp: Date) => {
   if (isNaN(timestamp.getTime())) {
@@ -49,6 +50,22 @@ const Navbar = () => {
   const [animateIcon, setAnimateIcon] = useState(false);
   const [notifications, setNotifications] = useState<any[]>([]);
   const [update, setUpdate] = useState(0);
+  const [animateLogo, setAnimateLogo] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const flipAnimation = {
+    rotateY: [0, 90, 180, 270, 360],
+    transition: { duration: 1.8, ease: "easeInOut" },
+  };
+
 
   const handleClickNotification = () => {
     setOpenedBoxNotification(!openedBoxNotification);
@@ -75,19 +92,19 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    fetchNotifications(); // Obtener notificaciones al cargar el componente
+    fetchNotifications();
 
     const interval = setInterval(() => {
-      fetchNotifications(); // Refrescar las notificaciones cada minuto
-    }, 60000); // Actualizar cada 60000ms (1 minuto)
+      fetchNotifications(); 
+    }, 60000); 
 
-    return () => clearInterval(interval); // Limpiar el intervalo al desmontar
+    return () => clearInterval(interval); 
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setUpdate((prev) => prev + 1);
-    }, 60000); // Actualiza cada minuto
+    }, 60000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -169,11 +186,22 @@ const Navbar = () => {
         {/* Logo Original que desaparece al hacer scroll */}
         <motion.div
           className="logo-wrapper"
-          initial={{ opacity: 1, scale: 1 }}
-          animate={{ opacity: 1, y: isScrolled ? -10 : 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ rotateY: 0, y: 0 }} 
+          animate={{
+            rotateY: flipAnimation.rotateY,
+            y: isScrolled ? -10 : 0, 
+          }}
+          transition={{ ...flipAnimation.transition, y: { duration: 0.5 } }}
+          style={{ perspective: 1000 }}
         >
-          LOGO
+          <img 
+             className="logo" 
+             style={{ 
+               width: "70px", 
+               marginTop: "1rem",
+              }}
+             src={Logo} 
+             alt="logo"/>
         </motion.div>
       </Link>
 

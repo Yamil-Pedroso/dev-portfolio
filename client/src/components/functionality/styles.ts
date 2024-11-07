@@ -1,3 +1,5 @@
+
+import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 
 const borderAnimation = keyframes`
@@ -226,21 +228,20 @@ export const Container = styled.div`
 
     .header-wrapper {
       width: 90%;
-    
 
       .header-text {
-         font-size: 1.2rem;
+        font-size: 1.2rem;
       }
 
-        h1 {
-            font-size: 1.8rem;
-            white-space: nowrap;
-            span {
-                font-size: 1.6rem;
-                margin-top: 0.28rem;
-                margin-left: .5rem;
-            }
+      h1 {
+        font-size: 1.8rem;
+        white-space: nowrap;
+        span {
+          font-size: 1.6rem;
+          margin-top: 0.28rem;
+          margin-left: 0.5rem;
         }
+      }
     }
 
     .card-wrapper {
@@ -337,53 +338,62 @@ export const LiveDemoContent = styled.div`
 export const CardTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CardSlideWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
 `;
 
 export const CardSlideContent = styled.div`
-    width: 85rem;
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+  width: 85rem;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
 `;
 
-
 export const CardSlide = styled.div`
-    width: 25rem;
-    height: 25rem;
-    margin: 2rem .8rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    background: linear-gradient(-60deg, rgba(25, 26, 29, 0.1), rgba(255, 255, 255, 0.1));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem;
+  width: 25rem;
+  height: 25rem;
+  margin: 2rem 0.8rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  background: linear-gradient(
+    -60deg,
+    rgba(25, 26, 29, 0.1),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: .8rem;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.8rem;
+  }
 
-    @media (max-width: 960px) {
-        width: 20rem;
-        height: 20rem;
-    }
+  @media (max-width: 960px) {
+    width: 20rem;
+    height: 20rem;
+  }
 
-    @media (max-width: 768px) {
-        width: 18rem;
-        height: 18rem;
-    }
+  @media (max-width: 768px) {
+    width: 18rem;
+    height: 18rem;
+  }
 `;
 
 export const ProjectWrapper = styled.div`
@@ -417,6 +427,17 @@ export const MiniProjects = styled.div`
   padding: 1rem;
   max-width: 90%;
 
+  @media (max-width: 960px) {
+    width: 90vw;
+    height: 20rem;
+  }
+
+  @media (max-width: 560px) {
+    height: 25rem;
+  }
+`;
+
+export const HeaderWrapper = styled.div`
   h2 {
     color: #0099ff;
     font-size: 1.5rem;
@@ -425,11 +446,39 @@ export const MiniProjects = styled.div`
   p {
     color: #767676;
   }
+`;
 
-    @media (max-width: 960px) {
-        width: 90vw;
-        height: 20rem;
-    }
+export const MiniProjectsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  @media (max-width: 960px) {
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+`;
+
+export const MiniProjectsContent = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(8, 8, 8, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
 `;
 
 export const ProjectUIUX = styled.div`
@@ -453,6 +502,13 @@ export const ProjectUIUX = styled.div`
   overflow: hidden;
   max-width: 90%;
 
+  @media (max-width: 960px) {
+    width: 90vw;
+    height: 20rem;
+  }
+`;
+
+export const ProjectUIUXHeader = styled.div`
   h2 {
     color: #0099ff;
     font-size: 1.5rem;
@@ -461,9 +517,134 @@ export const ProjectUIUX = styled.div`
   p {
     color: #767676;
   }
+`;
+
+export const ProjectUIUXWrapper = styled.div`
+   width: 20rem;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+    gap: 1rem;
+    margin-left: 0;
+    position: relative;
+`;
+
+interface ProjectUIUXContentProps {
+  isHovered? : boolean | number | null;
+  isHovered2? : boolean | number | null;
+  index : number;
+}
+
+export const ProjectUIUXContent = styled(motion.div)<ProjectUIUXContentProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(8, 8, 8, 0.8);
+  padding: 1rem;
+  position: absolute;
+  top: -5rem;
+  left: 0;
+  margin-left: ${props => props.index * 5.5}rem;
+  border: ${props => props.isHovered ? "1px solid #003a61" : "1px solid rgba(255, 255, 255, 0.1)"};
+
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
+`;
+
+export const ProjectUIUXContent2 = styled(motion.div)<ProjectUIUXContentProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(8, 8, 8, 0.8);
+  padding: 1rem;
+  position: absolute;
+  top: .4rem;
+  left: 3rem;
+  z-index: 1;
+  margin-left: ${props => props.index * 5.5}rem;
+  border: ${props => props.isHovered2 ? "1px solid #003a61" : "1px solid rgba(255, 255, 255, 0.1)"};
+
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
+`;
+
+export const ProjectLinks = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 50rem;
+
+  @media (max-width: 960px) {
+    width: 90vw;
+  }
+`;
+
+export const ProjectLinksContent = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  border-radius: .8rem;
+  cursor: pointer;
+  background: rgba(25, 25, 29, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+
+  .project-link-img {
+    display: none;
 
     @media (max-width: 960px) {
-        width: 90vw;
-        height: 20rem;
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 4%;
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: 960px) {
+    justify-content: space-between;
+    width: 90vw;
+    margin-top: 0;
+    mask-image: none;
+  }
+  h3 {
+    color: #767676;
+    font-size: 1rem;
+    margin-left: .4rem;
+
+    @media (max-width: 960px) {
+      font-size: .9rem;
+    }
+  }
+
+  .star-icon {
+    color: #0099ff;
+    font-size: 1.5rem;
+  }
+`;
+
+export const CardTitle = styled.div`
+    display: flex;
+
+    @media (max-width: 960px) {
+        align-items: center;
     }
 `;

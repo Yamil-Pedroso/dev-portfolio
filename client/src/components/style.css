@@ -167,12 +167,23 @@
     display: none;
   }
 
+  .nav-mobile {
+    width: 100%;
+    display: block;
+    background-color: #111111;
+    padding: 1rem;
+ 
+  }
+
   .nav-mobile-container {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    background-color: #111111;
     width: 100%;
+    height: 4rem;
+ 
     position: fixed;
     top: 0;
     left: 0;
@@ -193,13 +204,6 @@
     color: #fafafa;
     cursor: pointer;
     z-index: 50;
-  }
-
-  .nav-mobile {
-    display: block;
-    background-color: #111111;
-    padding: 1rem;
-    width: 100%;
   }
 
   .other-links,
