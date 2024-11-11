@@ -606,6 +606,17 @@ export const ProjectLinksContent = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
   pointer-events: auto;
+  transition: outline 0.5s ease-in-out;
+
+  &:hover {
+    outline: 2px solid #0c5c92;
+    outline-offset: -2px;
+    color: #0099ff;
+  }
+
+  @media (max-width: 960px) {
+    padding: .5rem .75rem;
+  }
 
   .project-link-img {
     display: none;
@@ -615,7 +626,7 @@ export const ProjectLinksContent = styled.div`
       width: 3rem;
       height: 3rem;
       border-radius: 4%;
-      object-fit: cover;
+      margin-top: 1rem;
     }
   }
 
@@ -635,14 +646,26 @@ export const ProjectLinksContent = styled.div`
     }
   }
 
-  .star-icon {
-    color: #0099ff;
+  .mobile-icon {
+    color: #51768f;
     font-size: 1.5rem;
+
+    &:hover {
+      color: inherit;
+      pointer-events: none;
+    }
   }
 `;
 
 export const CardTitle = styled.div`
     display: flex;
+
+    h3 {
+        
+       &:hover {
+            color: #0099ff;
+        }
+    }
 
     @media (max-width: 960px) {
         align-items: center;

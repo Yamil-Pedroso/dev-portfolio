@@ -1,4 +1,3 @@
-import { to } from "@react-spring/web";
 import styled from "styled-components";
 
 interface IButtonTouch {
@@ -43,7 +42,7 @@ export const Container = styled.div<IButtonTouch>`
   }
 
   @media (max-width: 1200px) {
-     z-index: 1000;
+     z-index: 1;
   }
 `;
 

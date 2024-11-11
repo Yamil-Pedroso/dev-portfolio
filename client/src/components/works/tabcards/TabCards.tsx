@@ -22,7 +22,6 @@ const menu1 = [
   {
     title: "React-TS-Node",
     content: "Squib Company Ltd.",
-
     src: react,
     link: "https://www.squib.app",
     image: porfolioOne,
@@ -34,15 +33,7 @@ const menu1 = [
     color: "bg-blue-500",
     link: "https://travel-advisorv1.netlify.app/",
     image: travel,
-  },
-  {
-    title: "React-Google-Map",
-    content: "Travel Advisor",
-    src: react,
-    color: "bg-blue-500",
-    link: "https://travel-advisorv1.netlify.app/",
-    image: travel,
-  },
+  }
 ];
 const menu2 = [
   {

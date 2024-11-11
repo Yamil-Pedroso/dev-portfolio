@@ -1,5 +1,5 @@
 import { IconType } from "react-icons";
-import { FaNodeJs, FaReact, FaHtml5, FaCss3, FaPhoneAlt } from "react-icons/fa";
+import { FaNodeJs, FaReact, FaHtml5, FaCss3, FaPhoneAlt, FaRegImage } from "react-icons/fa";
 import {
   SiMongodb,
   SiTypescript,
@@ -116,7 +116,7 @@ export interface ITechService {
 
 export interface IprojectLinks {
   title?: string;
-  image?: string;
+  image?: string | IconType | undefined;
   link: string;
 }
 
@@ -127,34 +127,34 @@ const projectLinks: IprojectLinks[] = [
     image: "https://img.freepik.com/free-photo/high-angle-measuring-tools-still-life_23-2150440941.jpg?t=st=1730396673~exp=1730400273~hmac=d9a5c33186ed5d1bdd579ff32b0c854b3f31acc69f9081d524852dc29cdc4fab&w=2000"
   },
   {
-    title: "E-commerce",
+    title: "Lorem Ipsum",
     link: "#",
-    image: ""
+    image: FaRegImage
   },
   {
-    title: "E-commerce",
+    title: "Lorem Ipsum",
     link: "#",
-    image: ""
+    image: FaRegImage
   },
   {
-    title: "E-commerce",
+    title: "Lorem Ipsum",
     link: "#",
-    image: ""
+    image: FaRegImage
   },
   {
-    title: "E-commerce",
+    title: "Lorem Ipsum",
     link: "#",
-    image: ""
+    image: FaRegImage
   },
   {
-    title: "E-commerce",
+    title: "Lorem Ipsum",
     link: "#",
-    image: ""
+    image: FaRegImage
   },
   {
-    title: "E-commerce",
+    title: "Lorem Ipsum",
     link: "#",
-    image: ""
+    image: FaRegImage
   },
 ];
 
@@ -170,18 +170,6 @@ const contact: IContact[] = [
   {
     content: "Zurich, Switzerland",
     icon: FaLocationDot,
-  },
-  {
-    content: "Lorem",
-    icon: FaImage,
-  },
-  {
-    content: "Lorem",
-    icon: FaImage,
-  },
-  {
-    content: "Lorem",
-    icon: FaImage,
   },
 ];
 

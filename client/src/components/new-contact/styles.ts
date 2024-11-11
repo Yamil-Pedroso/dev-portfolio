@@ -39,12 +39,15 @@ export const Header = styled.div`
   display: flex;
   flex-direction: column;
   width: 22rem;
-  h2 {
+  position: relative;
+  div {
     color: #fff;
     font-size: 3rem;
 
     span {
       color: #0099ff;
+      position: absolute;
+      margin-left: 0.5rem;
     }
   }
 
@@ -82,8 +85,26 @@ export const Content = styled.div`
     background-color: #303030;
     border-radius: 5px;
     img {
-      width: 5rem;
-      height: 5rem;
+      width: 2rem;
+      height: 2rem;
+    }
+    
+    .icon {
+      width: 2rem;
+      height: 2rem;
+      fill: #c8bdb0;
+      transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+    }
+
+  }
+
+  .bigIconBox {
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+    .icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      transform: scale(1.2);
+      fill: #0099ff;
     }
   }
 `;
@@ -94,8 +115,8 @@ export const SocialNetWorkWrapper = styled.div`
   overflow: hidden;
   margin-top: auto;
   svg {
-    height: 3rem;
-    width: 3rem;
+    height: 5rem;
+    width: 5rem;
     margin: 1rem;
     padding: 0;
     fill: #c8bdb0;

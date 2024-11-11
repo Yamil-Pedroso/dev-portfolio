@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { MdStars } from "react-icons/md";
+import { FaMobile } from "react-icons/fa";
 import Marquee from "react-fast-marquee";
 import {
   figma,
@@ -35,6 +35,14 @@ import {
   ProjectWrapper,
 } from "./styles";
 import { projectLinks } from "../../constants";
+
+const renderImageOrIcon = (image: any) => {
+  return typeof image === "string" ? (
+    <img src={image} alt="project images" />
+  ) : (
+    React.createElement(image, { className: "icon" })
+  );
+};
 
 const techIcons = [
   {
@@ -107,9 +115,7 @@ const CardTitles = () => {
         <CardSlideContent>
           <Marquee gradient={false} speed={80} pauseOnHover={true}>
             {projectLinks.map((item, index) => (
-              <CardSlide key={index}>
-                <img src={item.image} alt="project images" />
-              </CardSlide>
+              <CardSlide key={index}>{renderImageOrIcon(item.image)}</CardSlide>
             ))}
           </Marquee>
         </CardSlideContent>
@@ -181,14 +187,12 @@ const CardTitles = () => {
           <Link to={item.link} target="_blank" key={index}>
             <ProjectLinksContent>
               <CardTitle>
-                <MdStars className="star-icon" />
+                <FaMobile className="mobile-icon" />
                 <h3>{item.title}</h3>
               </CardTitle>
-              <img
-                src={item.image}
-                className="project-link-img"
-                alt="project images"
-              />
+              <div className="project-link-img">
+                {renderImageOrIcon(item.image)}
+              </div>
             </ProjectLinksContent>
           </Link>
         ))}

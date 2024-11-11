@@ -6,11 +6,17 @@ interface IButtonTouch {
   btnClickedY?: boolean;
   btnClickedA?: boolean;
   btnClickedB?: boolean;
+  changeWord: () => void;
+  growIconBox: () => void;
   toggleContent: () => void;
+  jumpSocialNetwork: () => void;
 }
 
 const ButtonTouch: React.FC<IButtonTouch> = ({
   toggleContent,
+  growIconBox,
+  changeWord,
+  jumpSocialNetwork,
 }) => {
   const [boxShadowBtnX, setBoxShadowBtnX] = useState(true);
   const [boxShadowBtnY, setBoxShadowBtnY] = useState(true);
@@ -29,7 +35,7 @@ const ButtonTouch: React.FC<IButtonTouch> = ({
   return (
     <Container>
       <div
-        onClick={() => handleClick(setBoxShadowBtnX)}
+        onClick={() => {handleClick(setBoxShadowBtnX), growIconBox()}}
         className="btn btn-x"
         style={{
           boxShadow: boxShadowBtnX
@@ -44,7 +50,7 @@ const ButtonTouch: React.FC<IButtonTouch> = ({
       </div>
       <HorizontalButtons>
         <div
-          onClick={() => handleClick(setBoxShadowBtnY)}
+          onClick={() => {handleClick(setBoxShadowBtnY), changeWord()}}
           className="btn btn-y"
           style={{
             boxShadow: boxShadowBtnY
@@ -74,7 +80,7 @@ const ButtonTouch: React.FC<IButtonTouch> = ({
         </div>
       </HorizontalButtons>
       <div
-        onClick={() => handleClick(setBoxShadowBtnB)}
+        onClick={() => {handleClick(setBoxShadowBtnB), jumpSocialNetwork()}}
         className="btn btn-b"
         style={{
           boxShadow: boxShadowBtnB

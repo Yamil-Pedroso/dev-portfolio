@@ -6,7 +6,7 @@ interface Props {
   className?: string
 }
 
-export default function Index({ children }: Props) {
+const Index = ({ children }: Props) => {
   const magnetic = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -57,3 +57,5 @@ export default function Index({ children }: Props) {
   // Clonar el hijo para pasar la referencia al componente que envuelve
   return React.cloneElement(children, { ref: magnetic })
 }
+
+export default Index
