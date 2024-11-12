@@ -18,28 +18,28 @@ const timeAgo = (timestamp: Date) => {
     return "Invalid date";
   }
 
-  const nowUTC = new Date();
-  // Ajustar el tiempo pasado restando 2 horas (7200 segundos)
-  const adjustedSecondsPast =
-    Math.floor((nowUTC.getTime() - timestamp.getTime()) / 1000) - 7200;
+  const now = new Date();
+  // Ajusta el tiempo transcurrido restando 2 horas (7200 segundos)
+  const adjustedSecondsPast = Math.floor((now.getTime() - timestamp.getTime()) / 1000) - 7200;
 
   if (adjustedSecondsPast < 60) {
-    return `${adjustedSecondsPast}s ago`; // Mostrar segundos si es menos de un minuto
+    return `Just now`; // Mostrar segundos si es menos de un minuto
   }
   if (adjustedSecondsPast < 3600) {
     const minutes = Math.floor(adjustedSecondsPast / 60);
-    return `${minutes}m ago`; // Mostrar solo minutos mientras es menos de una hora
+    return `${minutes}m ago`; // Mostrar minutos si es menos de una hora
   }
   if (adjustedSecondsPast < 86400) {
     const hours = Math.floor(adjustedSecondsPast / 3600);
     const minutes = Math.floor((adjustedSecondsPast % 3600) / 60);
-    return minutes === 0 ? `${hours}h` : `${hours}h ${minutes}m ago`;
+    return minutes === 0 ? `${hours}h ago` : `${hours}h ${minutes}m ago`;
   }
 
   const days = Math.floor(adjustedSecondsPast / 86400);
   const hours = Math.floor((adjustedSecondsPast % 86400) / 3600);
-  return hours === 0 ? `${days}d` : `${days}d ${hours}h`;
+  return hours === 0 ? `${days}d ago` : `${days}d ${hours}h ago`;
 };
+
 
 const Navbar = () => {
   const [openedBoxNotification, setOpenedBoxNotification] = useState(false);
