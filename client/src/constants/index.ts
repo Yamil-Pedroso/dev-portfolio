@@ -160,7 +160,7 @@ const projectLinks: IprojectLinks[] = [
 
 const contact: IContact[] = [
   {
-    content: "+41 079 532 65 19",
+    content: "+41 79 532 65 19",
     icon: FaPhoneAlt,
   },
   {
