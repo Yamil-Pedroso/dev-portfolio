@@ -8,12 +8,12 @@ interface IButtonTouch {
   btnClickedB?: boolean;
   changeWord: () => void;
   growIconBox: () => void;
-  toggleContent: () => void;
+  animateSubmitBtn: () => void;
   jumpSocialNetwork: () => void;
 }
 
 const ButtonTouch: React.FC<IButtonTouch> = ({
-  toggleContent,
+  animateSubmitBtn,
   growIconBox,
   changeWord,
   jumpSocialNetwork,
@@ -64,7 +64,7 @@ const ButtonTouch: React.FC<IButtonTouch> = ({
           Y
         </div>
         <div
-          onClick={() => { handleClick(setBoxShadowBtnA), toggleContent() }}
+          onClick={() => { handleClick(setBoxShadowBtnA), animateSubmitBtn() }}
           
           className="btn btn-a"
           style={{

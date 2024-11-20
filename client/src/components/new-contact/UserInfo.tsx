@@ -20,6 +20,11 @@ const UserInfo: React.FC<UserInfoProps> = ({
   socialIndex,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [webClicked, setWebClicked] = useState(false);
+
+  const handleWebClick = () => {
+    setWebClicked((prev) => !prev);
+  };
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
@@ -64,45 +69,52 @@ const UserInfo: React.FC<UserInfoProps> = ({
         ))}
         <SocialNetWorkWrapper style={{ position: "relative" }}>
           <GsapMagnetic>
-            <motion.svg
-              initial={{ y: -100, opacity: 0 }}
-              animate={socialIndex === 0 ? { y: 0, opacity: 1 } : {}}
-              transition={{ type: "spring", stiffness: 150, damping: 10 }}
-              style={{ position: "absolute" }}
-              viewBox="-2.5 0 19 19"
-              className="svg-icon"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <path d="M9.464 17.178a4.506 4.506 0 0 1-2.013.317 4.29 4.29 0 0 1-2.007-.317.746.746 0 0 1-.277-.587c0-.22-.008-.798-.012-1.567-2.564.557-3.105-1.236-3.105-1.236a2.44 2.44 0 0 0-1.024-1.348c-.836-.572.063-.56.063-.56a1.937 1.937 0 0 1 1.412.95 1.962 1.962 0 0 0 2.682.765 1.971 1.971 0 0 1 .586-1.233c-2.046-.232-4.198-1.023-4.198-4.554a3.566 3.566 0 0 1 .948-2.474 3.313 3.313 0 0 1 .091-2.438s.773-.248 2.534.945a8.727 8.727 0 0 1 4.615 0c1.76-1.193 2.532-.945 2.532-.945a3.31 3.31 0 0 1 .092 2.438 3.562 3.562 0 0 1 .947 2.474c0 3.54-2.155 4.32-4.208 4.548a2.195 2.195 0 0 1 .625 1.706c0 1.232-.011 2.227-.011 2.529a.694.694 0 0 1-.272.587z"></path>
-              </g>
-            </motion.svg>
+            <a href="https://github.com/Yamil-Pedroso" target="_blank">
+              <motion.svg
+                initial={{ y: -100, opacity: 0 }}
+                animate={socialIndex === 0 ? { y: 0, opacity: 1 } : {}}
+                transition={{ type: "spring", stiffness: 150, damping: 10 }}
+                style={{ position: "absolute" }}
+                viewBox="-2.5 0 19 19"
+                className="svg-icon"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path d="M9.464 17.178a4.506 4.506 0 0 1-2.013.317 4.29 4.29 0 0 1-2.007-.317.746.746 0 0 1-.277-.587c0-.22-.008-.798-.012-1.567-2.564.557-3.105-1.236-3.105-1.236a2.44 2.44 0 0 0-1.024-1.348c-.836-.572.063-.56.063-.56a1.937 1.937 0 0 1 1.412.95 1.962 1.962 0 0 0 2.682.765 1.971 1.971 0 0 1 .586-1.233c-2.046-.232-4.198-1.023-4.198-4.554a3.566 3.566 0 0 1 .948-2.474 3.313 3.313 0 0 1 .091-2.438s.773-.248 2.534.945a8.727 8.727 0 0 1 4.615 0c1.76-1.193 2.532-.945 2.532-.945a3.31 3.31 0 0 1 .092 2.438 3.562 3.562 0 0 1 .947 2.474c0 3.54-2.155 4.32-4.208 4.548a2.195 2.195 0 0 1 .625 1.706c0 1.232-.011 2.227-.011 2.529a.694.694 0 0 1-.272.587z"></path>
+                </g>
+              </motion.svg>
+            </a>
           </GsapMagnetic>
           <GsapMagnetic>
-            <motion.svg
-              initial={{ y: -100, opacity: 0 }}
-              animate={socialIndex === 1 ? { y: 0, opacity: 1 } : {}}
-              transition={{ type: "spring", stiffness: 150, damping: 10 }}
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              href="https://www.linkedin.com/in/yamil-pedroso/"
+              target="_blank"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <circle cx="4.983" cy="5.009" r="2.188"></circle>
-                <path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"></path>
-              </g>
-            </motion.svg>
+              <motion.svg
+                initial={{ y: -100, opacity: 0 }}
+                animate={socialIndex === 1 ? { y: 0, opacity: 1 } : {}}
+                transition={{ type: "spring", stiffness: 150, damping: 10 }}
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <circle cx="4.983" cy="5.009" r="2.188"></circle>
+                  <path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"></path>
+                </g>
+              </motion.svg>
+            </a>
           </GsapMagnetic>
           <GsapMagnetic>
             <motion.svg
@@ -113,6 +125,7 @@ const UserInfo: React.FC<UserInfoProps> = ({
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
               <g

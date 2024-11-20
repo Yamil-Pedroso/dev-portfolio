@@ -22,9 +22,10 @@ import ButtonTouch from "../button-touch/ButtonTouch";
 import { mapa } from "../../assets";
 import { motion } from "framer-motion";
 import UserInfo from "./UserInfo";
+import ContactForm from "./ContactForm";
 
 const NewContact = () => {
-  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [animateSubmitBtn, setAnimateSubmitBtn] = useState(false);
   const [textActive, setTextActive] = useState(true);
   const [changeWord, setChangeWord] = useState(0);
   const [activeIconIndex, setActiveIconIndex] = useState(0);
@@ -53,7 +54,7 @@ const NewContact = () => {
   };
 
   const toggleContent = () => {
-    setIsFormVisible((prevState) => !prevState);
+    setAnimateSubmitBtn((prevState) => !prevState);
   };
 
   return (
@@ -81,7 +82,7 @@ const NewContact = () => {
 
           <HeaderWrapperMobile>
             <ButtonTouch
-              toggleContent={toggleContent}
+              animateSubmitBtn={toggleContent}
               changeWord={changeWordHandler}
               growIconBox={growIconBoxHandler}
               jumpSocialNetwork={jumpSocialNetworkHandler}
@@ -104,56 +105,7 @@ const NewContact = () => {
             socialIndex={socialIndex}
           />
         </UserInfoWebWrapper>
-        <FormWrapper
-          initial={{ y: -300, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 300, opacity: 0 }}
-          transition={{
-            type: "spring",
-            stiffness: 150,
-            damping: 10,
-          }}
-        >
-          {!isFormVisible ? (
-            <Form
-              initial={{ y: -300, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 300, opacity: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 150,
-                damping: 10,
-              }}
-            >
-              <div>
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" />
-              </div>
-              <div>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" />
-              </div>
-              <div>
-                <label htmlFor="message">Message</label>
-                <textarea id="message"></textarea>
-              </div>
-              <button>Submit</button>
-            </Form>
-          ) : (
-            <motion.img
-              initial={{ y: -300, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 300, opacity: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 150,
-                damping: 10,
-              }}
-              src={mapa}
-              alt="map"
-            />
-          )}
-        </FormWrapper>
+        <ContactForm animateSubmitBtn={animateSubmitBtn} />
       </UserContent>
 
       <footer className="mobile-footer">
