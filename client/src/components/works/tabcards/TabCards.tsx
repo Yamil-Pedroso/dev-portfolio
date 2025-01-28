@@ -8,6 +8,9 @@ import {
   ProjContainer,
   TabCardsContainer,
   TechHeaderWrapper,
+  Content,
+  Tech,
+  Icons,
 } from "./styles";
 
 import {
@@ -16,67 +19,103 @@ import {
   typescript,
   porfolioOne,
   travel,
+  porfolioThree,
+  porfolioFour,
+  portfolioFive,
 } from "../../../assets";
+import { FaReact, FaNodeJs } from "react-icons/fa";
+import { TbBrandTypescript, TbBrandRedux } from "react-icons/tb";
+import { DiPhotoshop, DiIllustrator } from "react-icons/di";
+import { SiMongodb } from "react-icons/si";
 
 const menu1 = [
   {
-    title: "React-TS-Node",
-    content: "Squib Company Ltd.",
-    src: react,
+    title: "SQUIB Ltd.",
+    content:
+      "Die einfachste Art, attraktive Umfragen zu erstellen, die alle deine Zielgruppen lieben werden.",
+    tech: "React-TypeScript",
+    icons: [FaReact, TbBrandTypescript],
     link: "https://www.squib.app",
     image: porfolioOne,
   },
   {
-    title: "React-Google-Map",
-    content: "Travel Advisor",
-    src: react,
-    color: "bg-blue-500",
+    title: "World Travel Advisor",
+    tech: "React-Redux",
+    icons: [FaReact, TbBrandRedux, DiPhotoshop],
+    content:
+      "World Travel Advisor is a platform designed to inspire and guide travelers with personalized recommendations, destination insights, and travel tips to create unforgettable experiences worldwide.",
     link: "https://travel-advisorv1.netlify.app/",
     image: travel,
-  }
-];
-const menu2 = [
-  {
-    title: "Python 1",
-    content: "New",
-    src: filePython,
-    link: "https://www.google.com",
   },
   {
-    title: "Python 2",
-    content: "New",
-    src: filePython,
-    color: "bg-blue-500",
-    link: "https://www.google.com",
+    title: "Creative Design Studio",
+    content:
+      "Creative design studio specializing in meeting the needs of the new generation. We offer innovative and cutting-edge design solutions to help our clients stand out in today's fast-paced.",
+    tech: "React-TypeScript-Illustrator",
+    icons: [FaReact, TbBrandTypescript, DiIllustrator],
+    link: "https://creative-design-studio-nine.vercel.app/",
+    image: porfolioThree,
   },
   {
-    title: "Python 3",
-    content: "New",
-    src: filePython,
-    color: "bg-green-500",
-    link: "https://www.google.com",
-  },
-];
-const menu3 = [
-  {
-    title: "html/css/ts 1",
-    content: "New",
-    src: typescript,
-    link: "https://www.google.com",
+    title: "Startup Agency",
+    content:
+      "Dynamic and innovative organization that provides comprehensive support, guidance and resources to early stage startups.",
+    tech: "React-TypeScript-Illustrator",
+    icons: [FaReact, TbBrandTypescript, DiIllustrator],
+    link: "https://startup-agency-chi.vercel.app/",
+    image: porfolioFour,
   },
   {
-    title: "html/css/ts 2",
-    content: "New",
-    src: typescript,
-    link: "https://www.google.com",
-  },
-  {
-    title: "html/css/ts 3",
-    content: "New",
-    src: typescript,
-    link: "https://www.google.com",
+    title: "Snippets Collection",
+    content: "Create, share, and organize your code snippets with ease.",
+    tech: "React-TypeScript-Node-MongoDB",
+    icons: [FaReact, TbBrandTypescript, FaNodeJs, SiMongodb],
+    link: "https://custom-snippetsv1.netlify.app/",
+    image: portfolioFive,
   },
 ];
+//const menu2 = [
+//  {
+//    title: "Python 1",
+//    content: "New",
+//    src: filePython,
+//    link: "https://www.google.com",
+//  },
+//  {
+//    title: "Python 2",
+//    content: "New",
+//    src: filePython,
+//    color: "bg-blue-500",
+//    link: "https://www.google.com",
+//  },
+//  {
+//    title: "Python 3",
+//    content: "New",
+//    src: filePython,
+//    color: "bg-green-500",
+//    link: "https://www.google.com",
+//  },
+//];
+//const menu3 = [
+//  {
+//    title: "html/css/ts 1",
+//    content: "New",
+//    src: typescript,
+//    link: "https://www.google.com",
+//  },
+//  {
+//    title: "html/css/ts 2",
+//    content: "New",
+//    src: typescript,
+//    link: "https://www.google.com",
+//  },
+//  {
+//    title: "html/css/ts 3",
+//    content: "New",
+//    src: typescript,
+//    link: "https://www.google.com",
+//  },
+//];
 
 const TabCards = ({ onHoverCard }: any) => {
   const [activeMenu1, setActiveMenu1] = useState(true);
@@ -130,8 +169,18 @@ const TabCards = ({ onHoverCard }: any) => {
                 </CardImageWrapper>
               </Link>
               <CardContentWrapper>
-                <h1 className="">{item.title}</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <Content>
+                  <h1 className="">{item.title}</h1>
+                  <Tech>
+                    <p>{item.tech}</p>
+                    <Icons>
+                      {item.icons.map((Icon, index) => (
+                        <Icon key={index} className="icon" size={20} />
+                      ))}
+                    </Icons>
+                  </Tech>
+                  <p>{item.content}</p>
+                </Content>
               </CardContentWrapper>
             </Card>
           </CardWrapper>

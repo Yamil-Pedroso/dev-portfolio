@@ -38,11 +38,11 @@ export const Card = styled.div`
   background-color: #161616;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   border: 1px solid #2a2a2a;
   border-radius: 0.3rem;
   overflow: hidden;
+  height: 100%;
 
   .card-cont {
     overflow: hidden;
@@ -50,6 +50,9 @@ export const Card = styled.div`
 `;
 
 export const CardImageWrapper = styled.div`
+  width: 26rem;
+  height: 14.625rem;
+  overflow: hidden;
   .panel {
     display: flex;
     flex-direction: column;
@@ -59,26 +62,52 @@ export const CardImageWrapper = styled.div`
     }
   }
   .zoom-img {
-    width: 26rem;
-    height: 14.625rem;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     color: black;
-    filter: grayscale(100%) brightness(0.7);
+    //filter: grayscale(100%) brightness(0.7);
   }
 `;
 
 export const CardContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 1rem 0;
+  margin-top: 0.8rem;
+  padding: 1rem;
 
   h1 {
     font-size: 14px;
+    margin-top: 0.5rem;
+    color: #0099ff;
   }
+
+  p:nth-of-type(1) {
+    color: #858585;
+    font-size: 14px;
+    margin-top: 0.5rem;
+  }
+`;
+
+export const Content = styled.div`
+  width: 23rem;
+`;
+
+export const Tech = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2a2a2a;
+    padding: 0 .5rem;
+    border-left: 1px solid #0099ff;
   p {
     color: #858585;
     font-size: 14px;
-    width: 80%;
+    margin-bottom: 0.5rem;
   }
+`;
+
+export const Icons = styled.div`
+  display: flex;
+  color: #858585;
 `;
