@@ -20,7 +20,8 @@ const timeAgo = (timestamp: Date) => {
 
   const now = new Date();
   // Ajusta el tiempo transcurrido restando 2 horas (7200 segundos)
-  const adjustedSecondsPast = Math.floor((now.getTime() - timestamp.getTime()) / 1000) - 7200;
+  const adjustedSecondsPast =
+    Math.floor((now.getTime() - timestamp.getTime()) / 1000) - 7200;
 
   if (adjustedSecondsPast < 60) {
     return `Just now`; // Mostrar segundos si es menos de un minuto
@@ -40,7 +41,6 @@ const timeAgo = (timestamp: Date) => {
   return hours === 0 ? `${days}d ago` : `${days}d ${hours}h ago`;
 };
 
-
 const Navbar = () => {
   const [openedBoxNotification, setOpenedBoxNotification] = useState(false);
   const [active, setActive] = useState("Home");
@@ -51,10 +51,16 @@ const Navbar = () => {
   const [notifications, setNotifications] = useState<any[]>([]);
   const [update, setUpdate] = useState(0);
   const [animateLogo, setAnimateLogo] = useState(false);
+  const [showCVMenu, setShowCVMenu] = useState(false);
+  const CVMenuRef = useRef<HTMLDivElement>(null);
+
+  const handleHoverCV = () => {
+    setShowCVMenu(!showCVMenu);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30); 
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -65,7 +71,6 @@ const Navbar = () => {
     rotateY: [0, 90, 180, 270, 360],
     transition: { duration: 1.8, ease: "easeInOut" },
   };
-
 
   const handleClickNotification = () => {
     setOpenedBoxNotification(!openedBoxNotification);
@@ -95,16 +100,16 @@ const Navbar = () => {
     fetchNotifications();
 
     const interval = setInterval(() => {
-      fetchNotifications(); 
-    }, 60000); 
+      fetchNotifications();
+    }, 60000);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setUpdate((prev) => prev + 1);
-    }, 60000); 
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);
@@ -116,6 +121,13 @@ const Navbar = () => {
         !notificationRef.current.contains(e.target as Node)
       ) {
         setOpenedBoxNotification(false);
+      } 
+      
+      if (
+        CVMenuRef.current &&
+        !CVMenuRef.current.contains(e.target as Node)
+      ) {
+        setShowCVMenu(false);
       }
     };
 
@@ -186,22 +198,23 @@ const Navbar = () => {
         {/* Logo Original que desaparece al hacer scroll */}
         <motion.div
           className="logo-wrapper"
-          initial={{ rotateY: 0, y: 0 }} 
+          initial={{ rotateY: 0, y: 0 }}
           animate={{
             rotateY: flipAnimation.rotateY,
-            y: isScrolled ? -10 : 0, 
+            y: isScrolled ? -10 : 0,
           }}
           transition={{ ...flipAnimation.transition, y: { duration: 0.5 } }}
           style={{ perspective: 1000 }}
         >
-          <img 
-             className="logo" 
-             style={{ 
-               width: "70px", 
-               marginTop: "1rem",
-              }}
-             src={Logo} 
-             alt="logo"/>
+          <img
+            className="logo"
+            style={{
+              width: "70px",
+              marginTop: "1rem",
+            }}
+            src={Logo}
+            alt="logo"
+          />
         </motion.div>
       </Link>
 
@@ -372,9 +385,24 @@ const Navbar = () => {
         <Link to="https://www.linkedin.com/in/yamil-pedroso/" target="_blank">
           <FaLinkedinIn className="text-[#cecece] text-[2rem]" />
         </Link>
-        <Link to="./docs/cv-yamil-2024.pdf" target="_blank">
-          <HiDocumentText className="text-[#cecece] text-[2rem] mx-6" />
-        </Link>
+
+        <div className="cvs" ref={CVMenuRef}>
+          <HiDocumentText
+            onMouseEnter={handleHoverCV}
+            className="text-[#cecece] text-[2rem] mx-6"
+          />
+          <div
+            
+            className={`cv-links ${showCVMenu ? "show" : "hidden"}`}
+          >
+            <Link to="./docs/cv-yamil-en-2025.pdf" target="_blank">
+              CV_EN
+            </Link>
+            <Link to="./docs/cv-yamil-de-2025.pdf" target="_blank">
+              CV_DE
+            </Link>
+          </div>
+        </div>
       </div>
     </motion.div>
   );

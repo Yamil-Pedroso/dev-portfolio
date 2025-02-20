@@ -220,3 +220,37 @@
   }
   
 }
+
+.cvs {
+  position: relative;
+  .cv-links {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    color: #fafafa;
+    background: #18181c;
+    position: absolute;
+    right: 1rem;
+    margin-top: .4rem;
+    gap: .5rem;
+    opacity: 0;
+
+    &.show {
+      opacity: 1;
+    }
+
+    &.hide {
+      opacity: 0;
+    }
+
+    a {
+      text-decoration: underline;
+      color: #fafafa;
+
+      &:hover {
+        color: #0099ff;
+      }
+    }
+  }
+}
