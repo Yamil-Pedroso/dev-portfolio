@@ -206,7 +206,7 @@ const Navbar = () => {
           transition={{ ...flipAnimation.transition, y: { duration: 0.5 } }}
           style={{ perspective: 1000 }}
         >
-          <img
+          {/*<img
             className="logo"
             style={{
               width: "70px",
@@ -214,7 +214,10 @@ const Navbar = () => {
             }}
             src={Logo}
             alt="logo"
-          />
+          />*/}
+          <p>
+            yamnextgen
+          </p>
         </motion.div>
       </Link>
 

@@ -248,7 +248,7 @@ export const TerminalSim = styled.div`
   }
 
   p:nth-child(1) {
-    color: #0099ff;
+    color: #e76f51;
   }
 
   p:nth-child(2) {
@@ -256,7 +256,7 @@ export const TerminalSim = styled.div`
   }
 
   p:nth-child(3) {
-    color: #0099ff;
+    color: #e76f51;
   }
 
   @media (max-width: 960px) {

@@ -33,7 +33,8 @@ export const CardContainer = styled.div`
     left: -0.5rem;
     width: 1rem;
     height: 1rem;
-    background-color: #0099ff;
+    //background-color: #0099ff;
+    background-color: #e76f51;
     border-radius: 50%;
     z-index: 10;
 
@@ -45,7 +46,8 @@ export const CardContainer = styled.div`
       left: -0.5rem;
       width: 2rem;
       height: 2rem;
-      background-color: rgba(0, 153, 255, 0.5); /* Color azul transparente */
+      //background-color: rgba(0, 153, 255, 0.5); /* Color azul transparente */
+      background-color: rgba(231, 111, 81, 0.5); /* Color naranja transparente */
       border-radius: 50%;
       transform: translate(-50%, -50%) scale(1);
       opacity: 0; /* Mantener invisible hasta que se haga hover */
