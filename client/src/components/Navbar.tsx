@@ -12,6 +12,8 @@ import NavbarMobile from "./NavbarMobile";
 import { motion } from "framer-motion";
 import { supabase } from "../services/supabaseClient";
 import Logo from "../assets/logo.png";
+import CV from "./CV/CV";
+import LineNumbers from "./line-numbers/LineNumbers";
 
 const timeAgo = (timestamp: Date) => {
   if (isNaN(timestamp.getTime())) {
@@ -394,17 +396,16 @@ const Navbar = () => {
             onMouseEnter={handleHoverCV}
             className="text-[#cecece] text-[2rem] mx-6"
           />
-          <div
-            
+          <motion.div
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: showCVMenu ? 0 : -10, opacity: showCVMenu ? 1 : 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+
             className={`cv-links ${showCVMenu ? "show" : "hidden"}`}
           >
-            <Link to="./docs/cv-yamil-en-2025.pdf" target="_blank">
-              CV_EN
-            </Link>
-            <Link to="./docs/cv-yamil-de-2025.pdf" target="_blank">
-              CV_DE
-            </Link>
-          </div>
+
+           <CV />
+          </motion.div>
         </div>
       </div>
     </motion.div>

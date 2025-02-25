@@ -30,10 +30,16 @@ const NewContact = () => {
   const [changeWord, setChangeWord] = useState(0);
   const [activeIconIndex, setActiveIconIndex] = useState(0);
   const [socialIndex, setSocialIndex] = useState(0);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
   const wordArray = ["touch", "contact", "sync", "connect"];
 
-  const growIconBoxHandler = () => {
+  useEffect (() => {
+      setCurrentYear(new Date().getFullYear());
+  }
+  , []);
+
+  const growIconBoxHandler = () => {  
     setActiveIconIndex((prevIndex) =>
       prevIndex >= contact.length - 1 ? 0 : prevIndex + 1
     );
@@ -96,7 +102,7 @@ const NewContact = () => {
             </InfoMobileWrapper>
           </HeaderWrapperMobile>
           <footer className="web-footer">
-            <p>&copy; 2024 SoftwareDev&reg;. YP-NextGen Switzerland.</p>
+            <p>&copy; {currentYear} SoftwareDev&reg;. YP-NextGen Switzerland.</p>
           </footer>
         </Header>
         <UserInfoWebWrapper>
@@ -109,7 +115,7 @@ const NewContact = () => {
       </UserContent>
 
       <footer className="mobile-footer">
-        <p>&copy; 2024 SoftwareDev&reg;. YP-NextGen Switzerland.</p>
+        <p>&copy; {currentYear} SoftwareDev&reg;. YP-NextGen Switzerland.</p>
       </footer>
     </Container>
   );
