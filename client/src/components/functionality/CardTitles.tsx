@@ -115,7 +115,11 @@ const CardTitles = () => {
         <CardSlideContent>
           <Marquee gradient={false} speed={80} pauseOnHover={true}>
             {projectLinks.map((item, index) => (
-              <CardSlide key={index}>{renderImageOrIcon(item.image)}</CardSlide>
+              <Link to={item.link} target="_blank" key={index}>
+                <CardSlide key={index}>
+                  {renderImageOrIcon(item.image)}
+                </CardSlide>
+              </Link>
             ))}
           </Marquee>
         </CardSlideContent>

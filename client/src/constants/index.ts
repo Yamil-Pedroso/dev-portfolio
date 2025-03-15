@@ -16,6 +16,7 @@ import { LiaFigma } from "react-icons/lia";
 import { TbWorldPlus, TbWorldWww } from "react-icons/tb";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot, FaImage, FaE } from "react-icons/fa6";
+import { case1, devPortfolio, aiMarket } from "../assets";
 
 import {
   backend,
@@ -77,6 +78,10 @@ export const navLinks = [
     title: "Mini Projects",
   },
   {
+    id: "templates",
+    title: "Templates",
+  },
+  {
     id: "projects",
     title: "Projects",
   },
@@ -127,14 +132,14 @@ const projectLinks: IprojectLinks[] = [
     image: "https://img.freepik.com/free-photo/high-angle-measuring-tools-still-life_23-2150440941.jpg?t=st=1730396673~exp=1730400273~hmac=d9a5c33186ed5d1bdd579ff32b0c854b3f31acc69f9081d524852dc29cdc4fab&w=2000"
   },
   {
-    title: "Lorem Ipsum",
-    link: "#",
-    image: FaRegImage
+    title: "AI-Translator",
+    link: "https://ai-translator-gen.netlify.app/",
+    image: devPortfolio
   },
   {
-    title: "Lorem Ipsum",
-    link: "#",
-    image: FaRegImage
+    title: "AI Market",
+    link: "https://ai-market-gen.netlify.app/",
+    image: aiMarket
   },
   {
     title: "Lorem Ipsum",

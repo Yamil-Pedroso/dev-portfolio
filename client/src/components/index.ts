@@ -4,6 +4,7 @@ import About from './about/About';
 import CardAnimation from './card-animation/CardAnimation';
 import BoliRun from './animation-comps/boli-ani/BoliRun';
 import MagnetIcons from './magnet-icons/MagnetIcons';
+import MagnetIcons2 from './magnet-icons2/MagnetIcons2';
 import MyAnimation from './animation-comps/TestingAni';
 import MyExperience from './experience/MyExperience';
 import FloatingElem from './floating-elements/FloatingElem';
@@ -18,6 +19,7 @@ import ContactCard from './contact-card/ContactCard';
 import Contact from './Contact';
 import ScrollAnimation from './scroll-animation/ScrollAnimation';
 import CustomCursor from './custom-cursor/CustomCursor';
+import SideProjects from './side-projects/SideProjects';
 
 export {
   CustomCursor,
@@ -26,6 +28,7 @@ export {
   About,
   CardAnimation,
   MagnetIcons,
+  MagnetIcons2,
   BoliRun,
   MyAnimation,
   ScrollAnimation,
@@ -34,6 +37,7 @@ export {
   MoreUiUx,
   SmallFunnyProjects,
   Functionality,
+  SideProjects,
   Works,
   Game,
   Feedbacks,

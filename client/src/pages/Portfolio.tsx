@@ -13,7 +13,7 @@ const Portfolio = () => {
   }, []);
 
   const closeModal = () => setIsModalOpen(false);
-  
+
   return (
     <div className={styles.portfolioWrapper}>
       {isModalOpen && <ModalNote onClose={closeModal} />}
@@ -23,7 +23,9 @@ const Portfolio = () => {
       <MyComponent.About />
       <MyComponent.BoliRun />
       <MyComponent.MagnetIcons />
+      {/*<MyComponent.MagnetIcons2 /> */}
       <MyComponent.Functionality />
+      <MyComponent.SideProjects />
       <MyComponent.Works setIsHovering={setIsHovering} />
       <MyComponent.Feedbacks />
       <MyComponent.NewContact />

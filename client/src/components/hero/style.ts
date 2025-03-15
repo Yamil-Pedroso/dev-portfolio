@@ -61,7 +61,7 @@ export const HeroContainer = styled.div`
 export const VideoBackground = styled.video`
   width: 100%;
   height: 100%;
-  filter: brightness(0.6);
+  filter: brightness(0.6) grayscale(100%);
   position: relative;
 
   source {

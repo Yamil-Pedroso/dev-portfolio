@@ -49,7 +49,7 @@ const NavMobile = ({
     <div className="nav-mobile-container">
       <div className="mobile-bar-wrapper">
         <span className="logo">
-          <img src={Logo} alt="logo" width={40} />
+          yamnextgen
         </span>
 
         <CloseAnimateIcon onClick={handleClicked} isOpen={showMenu} />

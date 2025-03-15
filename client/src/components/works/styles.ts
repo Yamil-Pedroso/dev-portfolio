@@ -6,6 +6,7 @@ export const WorkContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 8rem;
 
   @media (max-width: 960px) {
     margin-top: -7rem;

@@ -124,8 +124,35 @@ import imgOne from "./testimonial-avatars/avatar_1.jpg";
 import imgTwo from "./testimonial-avatars/avatar_2.jpg";
 import imgThree from "./testimonial-avatars/avatar_3.jpg";
 import imgFour from "./testimonial-avatars/avatar_4.jpg";
+import ui from "./ui.jpg";
+import ui2 from "./ui2.jpg";
+
+import codes from "./video/codes.mp4";
+
+import bg1 from "./cards-bg/bg1.png";
+import bg2 from "./cards-bg/bg2.png";
+import bg3 from "./cards-bg/bg3.png";
+import bg4 from "./cards-bg/bg4.png";
+import bg5 from "./cards-bg/bg5.png";
+import bg6 from "./cards-bg/bg6.png";
+
+import case1 from "./case.png";
+import devPortfolio from "./mini-projects/dev-portfolio.png";
+import aiMarket from "./mini-projects/ai-market.png";
 
 export {
+  devPortfolio,
+  aiMarket,
+  codes,
+  ui,
+  ui2,
+  bg1,
+  bg2,
+  bg3,
+  bg4,
+  bg5,
+  bg6,
+  case1,
   logo1,
   potion,
   book,

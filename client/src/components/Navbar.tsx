@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { yamiBlue2, yam } from "../assets";
+import { yamiBlue2, yam, case1 } from "../assets";
 import { styles } from "../style";
 import "./style.css";
 import { navLinks } from "../constants";
@@ -123,12 +123,9 @@ const Navbar = () => {
         !notificationRef.current.contains(e.target as Node)
       ) {
         setOpenedBoxNotification(false);
-      } 
-      
-      if (
-        CVMenuRef.current &&
-        !CVMenuRef.current.contains(e.target as Node)
-      ) {
+      }
+
+      if (CVMenuRef.current && !CVMenuRef.current.contains(e.target as Node)) {
         setShowCVMenu(false);
       }
     };
@@ -217,9 +214,7 @@ const Navbar = () => {
             src={Logo}
             alt="logo"
           />*/}
-          <p>
-            yamnextgen
-          </p>
+          <p>yamnextgen</p>
         </motion.div>
       </Link>
 
@@ -256,6 +251,9 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
+            <Link to="/cv-space" style={{ display: "flex", alignItems: "center", cursor: "pointer" }} target="_blank" rel="noreferrer">
+              <img src={case1} alt="" width={38} />
+            </Link>
           </ul>
 
           <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -281,7 +279,7 @@ const Navbar = () => {
                     }
                     onClick={() => {
                       setToggle(!toggle);
-                      setActive(link.title); // Actualiza el estado activo
+                      setActive(link.title);
                     }}
                   >
                     <a href={`#${link.id}`}>{link.title}</a>
@@ -391,7 +389,13 @@ const Navbar = () => {
           <FaLinkedinIn className="text-[#cecece] text-[2rem]" />
         </Link>
 
-        <div className="cvs" ref={CVMenuRef}>
+        {/*<div className="cvs" ref={CVMenuRef}>
+          {showCVMenu && (
+            <div
+              className="cv-backdrop"
+              onClick={() => setShowCVMenu(false)}
+            ></div>
+          )}
           <HiDocumentText
             onMouseEnter={handleHoverCV}
             className="text-[#cecece] text-[2rem] mx-6"
@@ -400,13 +404,15 @@ const Navbar = () => {
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: showCVMenu ? 0 : -10, opacity: showCVMenu ? 1 : 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-
-            className={`cv-links ${showCVMenu ? "show" : "hidden"}`}
+            style={{
+              display: showCVMenu ? "block" : "none",
+              pointerEvents: showCVMenu ? "auto" : "none",
+            }}
+            className={`cv-links`}
           >
-
-           <CV />
+            <CV />
           </motion.div>
-        </div>
+        </div>*/}
       </div>
     </motion.div>
   );

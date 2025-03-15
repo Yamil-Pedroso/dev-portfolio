@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Typical from "react-typical";
 import { styles } from "../../style";
 import { bgVideo } from "../../assets";
+import { codes } from "../../assets";
 import HeroCreative from "./HeroCreative";
 import HeroAnimation from "./hero-animation/HeroAnimation";
 import {

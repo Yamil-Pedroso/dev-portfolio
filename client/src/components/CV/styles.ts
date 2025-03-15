@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    width: 90%;
     margin: 0 auto;
     padding: 0 3rem;
     overflow-y: auto;
@@ -31,7 +32,7 @@ export const Container = styled.div`
 `;
 
 export const MainContent = styled.div`
-  display: flex;    
+  display: flex;
   justify-content: center;
     gap: 6rem;
 `;

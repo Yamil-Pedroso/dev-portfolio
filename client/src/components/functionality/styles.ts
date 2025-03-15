@@ -612,6 +612,12 @@ export const ProjectLinksContent = styled.div`
     outline: 2px solid #0c5c92;
     outline-offset: -2px;
     color: #0099ff;
+    transform: scale(1.07);
+    transition: transform 0.5s ease-in-out;
+
+    h3 {
+      color: #0099ff;
+    }
   }
 
   @media (max-width: 960px) {
@@ -661,7 +667,7 @@ export const CardTitle = styled.div`
     display: flex;
 
     h3 {
-        
+
        &:hover {
             color: #0099ff;
         }

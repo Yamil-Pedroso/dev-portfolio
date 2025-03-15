@@ -8,7 +8,7 @@ import {
   SocialNetWorkWrapper,
 } from "./styles";
 import { contact } from "../../constants";
-import GsapMagnetic from "../../components/magnet-icons/Gsap";
+import GsapMagnetic from "../magnet-icons2/Gsap";
 
 interface UserInfoProps {
   activeIconIndex?: number;

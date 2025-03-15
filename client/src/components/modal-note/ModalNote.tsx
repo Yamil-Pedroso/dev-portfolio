@@ -1,5 +1,6 @@
 import { ModalOverlay, ModalContent, ModalTitle, ModalText, CloseButton } from './styles';
 import { motion } from 'framer-motion';
+import { GiHand } from "react-icons/gi";
 
 interface ModalNoteProps {
   onClose: () => void;
@@ -17,16 +18,18 @@ const ModalNote = ({ onClose }: ModalNoteProps) => (
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1.3, opacity: 1 }}
         transition={{
-          delay: 3,        
+          delay: 3,
           type: 'spring',
           stiffness: 300,
           damping: 15,
           mass: 0.8,
         }}
-        onClick={(e) => e.stopPropagation()} 
+        onClick={(e) => e.stopPropagation()}
       >
         <ModalContent>
-          <ModalTitle>Hola👋!</ModalTitle>
+          <ModalTitle>Hola!
+            <GiHand style={{ fontSize: '1.5rem', verticalAlign: 'middle', marginLeft: '0.5rem' }} />
+          </ModalTitle>
           <ModalText>
             This website is currently under refactoring. New projects and designs will be added soon, so stay tuned for updates!
           </ModalText>

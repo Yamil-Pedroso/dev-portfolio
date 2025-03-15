@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./magnetIcon2.module.scss";
-import GsapMagnetic from "./Gsap";
+import GsapMagnetic from "../magnet-icons2/Gsap";
 import Marquee from "react-fast-marquee";
 import Modal from "./Modal";
 
@@ -39,7 +39,7 @@ const MagnetIcons2 = () => {
           <Modal isVisible={isModalVisible} percentage={currentPercentage} />
         )
       }
-      
+
       <div className={styles.container}>
       <Marquee gradient={false} speed={30} pauseOnHover={true}>
           <div

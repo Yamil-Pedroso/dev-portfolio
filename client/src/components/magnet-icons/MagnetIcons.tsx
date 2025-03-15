@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./magnetIcon.module.scss";
-import GsapMagnetic from "./Gsap";
+import GsapMagnetic from "../magnet-icons2/Gsap";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import Modal from "./Modal";

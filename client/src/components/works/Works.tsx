@@ -11,7 +11,7 @@ const Works: React.FC<WorksProps> = ({ setIsHovering }) => {
   return (
     <WorkContainer>
       <ProjectHeader variants={textVariant(1)} id="projects">
-        <p className="proj-title">My work</p>
+        <p className="proj-title">Having Fun!</p>
         <h2 className="proj-sub">Projects.</h2>
         <motion.p variants={fadeIn("", "", 0.1, 1)} className="desc">
           Following projects showcases my skills and experience through
