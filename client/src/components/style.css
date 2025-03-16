@@ -160,11 +160,16 @@
   margin-left: 5px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1290px) {
   .glossy-nav,
-  .logo-wrapper,
-  .notis-wrapper {
+  .logo-wrapper {
     display: none;
+  }
+
+  .notis-wrapper {
+    position: absolute;
+    top: 1rem;
+    z-index: 1000;
   }
 
   .nav-mobile {

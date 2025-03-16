@@ -57,10 +57,10 @@ const SideProjects = () => {
               <motion.div
                 key={card.id}
                 initial="hidden"
-                whileInView="visible" // ✅ Se activa cuando entra al viewport
-                viewport={{ once: false, amount: 0.3 }} // ✅ Detecta el 30% del elemento en viewport
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
                 variants={cardVariants}
-                custom={idx} // ✅ Pasamos el índice para el delay escalonado
+                custom={idx}
               >
                 <CardLayout
                   title={card.title}

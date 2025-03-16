@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import CloseAnimateIcon from "./close-animate-icon/CloseAnimateIcon";
-import Logo from "../assets/logo.png";
+import NavbarRightSide from "./NavbarRightSide";
 interface INavMobileProps {
   active: string;
   setActive: (active: string) => void;

@@ -9,7 +9,7 @@ export const WorkContainer = styled.div`
   margin-top: 8rem;
 
   @media (max-width: 960px) {
-    margin-top: -7rem;
+    margin-top: 3.5rem;
   }
 `;
 

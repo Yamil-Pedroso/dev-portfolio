@@ -79,6 +79,10 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  @media (max-width: 960px) {
+    margin-top: 5rem;
+  }
+
   .arrow-wrapper {
     display: flex;
     justify-content: center;

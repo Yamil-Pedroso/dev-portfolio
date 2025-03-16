@@ -18,6 +18,11 @@ export const Card = styled.div`
   box-shadow: 0 0 6rem 5pxrgba(0, 0, 0, 0.5);
   overflow: hidden;
 
+  @media screen and (max-width: 768px) {
+    width: 8rem;
+    height: 12rem;
+  }
+
   &:hover {
     //transform: scale(0.8);
     //transition: all 0.3s ease-in-out;
@@ -41,6 +46,10 @@ export const Text = styled.div`
   h2 {
     font-size: 1rem;
     color: #6e6e61;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
 
   a {
