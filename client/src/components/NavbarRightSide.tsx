@@ -124,12 +124,14 @@ const NavbarRightSide = () => {
 
   return (
     <motion.div
-     initial={{ x: 0 }}
-     animate={{
+      initial={{ x: 0 }}
+      animate={{
         x: width < 1290 ? "8rem" : "0",
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-    className="notis-wrapper" ref={notificationRef}>
+      className="notis-wrapper"
+      ref={notificationRef}
+    >
       <motion.div>
         {notifications.length > 0 ? (
           <div className="is-active">
@@ -158,47 +160,14 @@ const NavbarRightSide = () => {
               <hr className="border-[1px] border-[#515151] w-full my-2" />
               {notifications.map((noti) => (
                 <div key={noti.id} className="noti">
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "1rem",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                      }}
-                    >
-                      <img
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                        src={noti.avatar}
-                        alt="avatar"
-                      />
+                  <div className="avatar-wrapper">
+                    <div className="avatar">
+                      <img src={noti.avatar} alt="avatar" />
                     </div>
-                    <p
-                      style={{
-                        fontSize: ".8rem",
-                      }}
-                    >
-                      {noti.title}
-                    </p>
+                    <p>{noti.title}</p>
                   </div>
 
-                  <p
-                    style={{
-                      color: "#0099ff",
-                    }}
-                  >
-                    {noti.message}
-                  </p>
+                  <p className="message">{noti.message}</p>
                   <small>{noti.time}</small>
                   <hr className="border-[1px] border-[#515151] w-full my-2" />
                 </div>
