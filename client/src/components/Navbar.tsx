@@ -166,9 +166,9 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            <Link to="/cv-space" style={{ display: "flex", alignItems: "center", cursor: "pointer" }} target="_blank" rel="noreferrer">
+            <a href="https://yampe-cv.netlify.app/" style={{ display: "flex", alignItems: "center", cursor: "pointer" }} target="_blank" rel="noreferrer">
               <img src={case1} alt="" width={38} />
-            </Link>
+            </a>
           </ul>
 
           <div className="sm:hidden flex flex-1 justify-end items-center">
