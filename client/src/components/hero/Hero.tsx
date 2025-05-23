@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Typical from "react-typical";
 import { styles } from "../../style";
 import { cityCode } from "../../assets";
 import { codes } from "../../assets";
@@ -74,13 +73,7 @@ const Hero = () => {
               <span>{heroText.greetings}</span>
             </h1>
             <TitleDevWrapper>
-              <TitleDev>
-                <Typical
-                  steps={["Full Stack", 100, "Software Dev", 6000]}
-                  loop={Infinity}
-                  wrapper="h2"
-                />
-              </TitleDev>
+              <TitleDev>Software dev</TitleDev>
             </TitleDevWrapper>
             <CityName>{heroText.city}</CityName>
             <TerminalSim>
