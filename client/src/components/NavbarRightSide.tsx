@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 import { supabase } from "../services/supabaseClient";
 import "./style.css";
+import { case1 } from "../assets";
+import clsx from "clsx";
 
 const timeAgo = (timestamp: Date) => {
   if (isNaN(timestamp.getTime())) {
@@ -37,6 +39,7 @@ const timeAgo = (timestamp: Date) => {
 
 const NavbarRightSide = () => {
   const notificationRef = useRef(null);
+  const [isScrolled2, setIsScrolled2] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [notifications, setNotifications] = useState<any[]>([]);
   const [animateIcon, setAnimateIcon] = useState(false);
@@ -44,12 +47,22 @@ const NavbarRightSide = () => {
   const [update, setUpdate] = useState(0);
   const [showCVMenu, setShowCVMenu] = useState(false);
   const CVMenuRef = useRef(null);
+  const isMobile = width <= 470;
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled2(window.scrollY > 900);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   const handleClickNotification = () => {
     setOpenedBoxNotification(!openedBoxNotification);
@@ -122,6 +135,11 @@ const NavbarRightSide = () => {
     };
   }, []);
 
+  const iconClass = clsx(
+    "transition-colors duration-300",
+    isScrolled2 ? "text-[#cecece]" : "text-[#ffffff]"
+  );
+
   return (
     <motion.div
       initial={{ x: 0 }}
@@ -143,7 +161,7 @@ const NavbarRightSide = () => {
               onAnimationComplete={() => setAnimateIcon(false)}
             >
               <IoIosNotifications
-                className="notis-icon"
+                className={`${iconClass} notis-icon`}
                 onClick={handleClickNotification}
               />
             </motion.div>
@@ -179,36 +197,34 @@ const NavbarRightSide = () => {
         )}
       </motion.div>
       <Link to="https://github.com/Yamil-Pedroso" target="_blank">
-        <BsGithub className="text-[#cecece] text-[2rem] mx-6" />
+        <BsGithub
+          className={`${iconClass} text-[2rem] mx-6 hover:text-[#262525]`}
+        />
       </Link>
       <Link to="https://www.linkedin.com/in/yamil-pedroso/" target="_blank">
-        <FaLinkedinIn className="text-[#cecece] text-[2rem]" />
+        <FaLinkedinIn className={`${iconClass} text-[2rem]`} />
       </Link>
-
-      {/*<div className="cvs" ref={CVMenuRef}>
-      {showCVMenu && (
-        <div
-          className="cv-backdrop"
-          onClick={() => setShowCVMenu(false)}
-        ></div>
-      )}
-      <HiDocumentText
-        onMouseEnter={handleHoverCV}
-        className="text-[#cecece] text-[2rem] mx-6"
-      />
-      <motion.div
-        initial={{ y: -10, opacity: 0 }}
-        animate={{ y: showCVMenu ? 0 : -10, opacity: showCVMenu ? 1 : 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+      <a
+        href="https://yampe-cv.netlify.app/"
         style={{
-          display: showCVMenu ? "block" : "none",
-          pointerEvents: showCVMenu ? "auto" : "none",
+          display: "flex",
+          alignItems: "center",
+          cursor: "pointer",
+          marginLeft: "1rem",
         }}
-        className={`cv-links`}
+        target="_blank"
+        rel="noreferrer"
       >
-        <CV />
-      </motion.div>
-    </div>*/}
+        <motion.img
+          style={{
+            position: isMobile ? "absolute" : "relative",
+            top: isMobile ? "2.5rem" : 0,
+            width: isMobile ? "1.8rem" : "",
+          }}
+          src={case1}
+          width={34}
+        />
+      </a>
     </motion.div>
   );
 };

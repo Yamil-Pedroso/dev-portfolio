@@ -25,6 +25,14 @@ export const CardContainer = styled.div`
 
     &:hover .small-circle::after {
     animation: ${pulseCircle} 1.5s ease-out infinite; /* Activar la animación al hacer hover */
+
+    .service-icon__wrapper {
+     position: absolute;
+
+     img {
+        width: 5rem;
+     }
+  }
   }
 
   .small-circle {
@@ -33,8 +41,6 @@ export const CardContainer = styled.div`
     left: -0.5rem;
     width: 1rem;
     height: 1rem;
-    //background-color: #0099ff;
-    background-color: #e76f51;
     border-radius: 50%;
     z-index: 10;
 
@@ -92,6 +98,15 @@ export const Card = styled(motion.div)`
     background-color: #000;
     border-radius: 0.2rem;
     border: 1px solid #fff;
+  }
+
+  .service-icons__wrapper {
+      position: absolute;
+
+      img {
+         width: 3rem;
+         height: 3rem;
+      }
   }
 
   @media (max-width: 960px) {

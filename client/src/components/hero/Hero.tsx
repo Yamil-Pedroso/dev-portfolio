@@ -1,9 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Typical from "react-typical";
 import { styles } from "../../style";
-import { bgVideo } from "../../assets";
+import { cityCode } from "../../assets";
 import { codes } from "../../assets";
 import HeroCreative from "./HeroCreative";
 import HeroAnimation from "./hero-animation/HeroAnimation";
@@ -16,6 +16,9 @@ import {
   Section,
   TerminalSim,
   TitleDev,
+  TitleDevWrapper,
+  VideoWrapper,
+  Button,
 } from "./style";
 
 interface HeroProps {
@@ -38,36 +41,47 @@ const heroText: HeroProps = {
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (videoRef.current) {
-      // Ralentizar el video configurando el playbackRate
-      videoRef.current.playbackRate = 0.8; // Ajusta el valor según la velocidad deseada (1.0 es normal, menos de 1 es más lento)
+      videoRef.current.playbackRate = 0.8;
     }
   }, []);
 
+  const toggleVideo = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPaused(false);
+    } else {
+      videoRef.current.pause();
+      setIsPaused(true);
+    }
+  };
+
   return (
     <HeroContainer>
-      <div className="up-band"></div>
-      <div className="black-col"></div>
-      {/*<BlurStyle />*/}
-      <VideoBackground autoPlay muted loop>
-        <source src={bgVideo} type="video/mp4" />
+      <VideoBackground ref={videoRef} autoPlay muted loop>
+        <source src={cityCode} type="video/mp4" />
       </VideoBackground>
-      {/*<div className="fade-overlay"></div>*/}
+      <Button onClick={toggleVideo}>{isPaused ? "Play" : "Pause"}</Button>
+
       <Section id="home">
         <HeroRightContent>
           <div className="hero-content-wrapper">
             <h1 className={`${styles.heroHeadText}`}>
               <span>{heroText.greetings}</span>
             </h1>
-            <TitleDev>
-              <Typical
-                steps={["Full Stack", 100, "Software Dev", 6000]}
-                loop={Infinity}
-                wrapper="h2"
-              />
-            </TitleDev>
+            <TitleDevWrapper>
+              <TitleDev>
+                <Typical
+                  steps={["Full Stack", 100, "Software Dev", 6000]}
+                  loop={Infinity}
+                  wrapper="h2"
+                />
+              </TitleDev>
+            </TitleDevWrapper>
             <CityName>{heroText.city}</CityName>
             <TerminalSim>
               <p className="">{heroText.icon}</p>

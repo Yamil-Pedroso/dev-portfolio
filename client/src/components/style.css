@@ -18,7 +18,7 @@
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: 62rem;
+  width: 59rem;
   height: 4.4rem;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -110,7 +110,19 @@
 .notis-icon {
   font-size: 2rem;
   transition: transform 0.3s;
-  color: #ccc;
+}
+
+.s-icon {
+  width: 5rem;
+  height: 5rem;
+  background-color: #ffffff;
+}
+
+.notis-icon:hover {
+  color: inherit !important;
+  opacity: 1 !important;
+  cursor: default !important;
+  filter: none !important;
 }
 
 .notis-content {
@@ -153,13 +165,13 @@
 .avatar-wrapper {
   display: flex;
   align-items: center;
-   gap: 1rem;
+  gap: 1rem;
 
-   p {
+  p {
     color: #fafafa;
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: 500;
-   }
+  }
 
   .avatar {
     width: 2.5rem;

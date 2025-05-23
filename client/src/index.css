@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-   --blue: #0099ff;
-   }
+  --blue: #0099ff;
+}
 
 * {
   margin: 0;
@@ -35,8 +35,8 @@
   display: flex;
   align-items: center;
   border: solid 2px #d0d0d0;
-  border-radius: .2em;
-  padding: .5em .8em .5em .5em;
+  border-radius: 0.2em;
+  padding: 0.5em 0.8em 0.5em 0.5em;
   margin-bottom: 1em;
 }
 
@@ -52,8 +52,8 @@
   width: 2em;
   height: 2em;
   background-color: #e8e8e8;
-  padding: .5em;
-  margin-right: .5em;
+  padding: 0.5em;
+  margin-right: 0.5em;
 }
 
 .characters-thumb img {
@@ -61,7 +61,6 @@
   width: 100%;
   height: auto;
 }
-
 
 .progress-bar {
   position: fixed;
@@ -74,71 +73,70 @@
 }
 
 .open-close-icon {
-    width: 2rem;
-    height: 2rem;
-    position: relative;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
-    cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
 
-      .open-close-icon span {
-        display: block;
-        position: absolute;
-        height: 0.25rem;
-        width: 90%;
-        background: #cecece;
-        opacity: 1;
-        left: 0;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transition: .25s ease-in-out;
-        -moz-transition: .25s ease-in-out;
-        -o-transition: .25s ease-in-out;
-        transition: .25s ease-in-out;
-      }
+.open-close-icon span {
+  display: block;
+  position: absolute;
+  height: 0.25rem;
+  width: 90%;
+  background: #cecece;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
 
-      .open-close-icon span:nth-child(1) {
-        top: 0rem;
-      }
+.open-close-icon span:nth-child(1) {
+  top: 0rem;
+}
 
-      .open-close-icon span:nth-child(2) {
-        top: 0.625rem;
-      }
+.open-close-icon span:nth-child(2) {
+  top: 0.625rem;
+}
 
-      .open-close-icon span:nth-child(3) {
-        top: 1.25rem;
-      }
+.open-close-icon span:nth-child(3) {
+  top: 1.25rem;
+}
 
-      .open-close-icon .open:nth-child(1) {
-        top: 0.625rem;
-        -webkit-transform: rotate(135deg);
-        -moz-transform: rotate(135deg);
-        -o-transform: rotate(135deg);
-        transform: rotate(135deg);
-      }
+.open-close-icon .open:nth-child(1) {
+  top: 0.625rem;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
 
-      .open-close-icon .open:nth-child(2) {
-        opacity: 0;
-        left: -3.75rem;
-      }
+.open-close-icon .open:nth-child(2) {
+  opacity: 0;
+  left: -3.75rem;
+}
 
-      .open-close-icon .open:nth-child(3) {
-        top: 0.625rem;
-        -webkit-transform: rotate(-135deg);
-        -moz-transform: rotate(-135deg);
-        -o-transform: rotate(-135deg);
-        transform: rotate(-135deg);
-      }
-
+.open-close-icon .open:nth-child(3) {
+  top: 0.625rem;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
 
 @keyframes slideIn {
   0% {
@@ -237,7 +235,7 @@
 }
 
 .cursor {
-  cursor : url("./api.png"), auto;
+  cursor: url("./api.png"), auto;
 }
 
 @media (max-width: 960px) {

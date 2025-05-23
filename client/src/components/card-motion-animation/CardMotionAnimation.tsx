@@ -2,7 +2,14 @@ import { useState } from "react";
 import { CardContainer, Card, BtnWrapper, Btn } from "./styles";
 import { ITechService } from "../../constants";
 import { animate, motion } from "framer-motion";
-import { frontend1 } from "../../assets";
+import {
+  frontIcon,
+  backIcon,
+  nativeIcon,
+  uiuxIcon,
+  digitalArtIcon,
+  hostingIcon,
+} from "../../assets";
 
 interface ICardProps extends ITechService {
   isExpandedEle: boolean;
@@ -20,8 +27,8 @@ const CardMotionAnimation: React.FC<ICardProps> = ({
   handleClick,
   index,
 }) => {
-  const direction = index % 3 === 0 ? "left" : "right"; 
-  const initialX = direction === "left" ? -100 : 100; 
+  const direction = index % 3 === 0 ? "left" : "right";
+  const initialX = direction === "left" ? -100 : 100;
 
   const cardVariants = {
     hidden: { opacity: 0, x: initialX },
@@ -44,6 +51,15 @@ const CardMotionAnimation: React.FC<ICardProps> = ({
     initial: { opacity: 0 },
   } as any;
 
+  const serviceIcons = [
+    { src: frontIcon, alt: "Front-end" },
+    { src: backIcon, alt: "Back-end" },
+    { src: nativeIcon, alt: "Native" },
+    { src: uiuxIcon, alt: "UI/UX" },
+    { src: digitalArtIcon, alt: "Digital Art" },
+    { src: hostingIcon, alt: "Hosting" },
+  ];
+
   return (
     <CardContainer>
       <Card
@@ -55,45 +71,16 @@ const CardMotionAnimation: React.FC<ICardProps> = ({
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="small-circle"></div>
+        <div className="service-icons"></div>
         <motion.h5 layout="position">{title}</motion.h5>
 
         <motion.p layout="position">{description}</motion.p>
 
-        {isExpandedEle && (
-          <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }} 
-            exit={{ opacity: 0, y: -100 }} 
-            transition={{
-              type: "spring", 
-              stiffness: 100,
-              damping: 10,
-              duration: 0.5,
-            }}
-            className="expanded-content"
-          >
-            <video
-              autoPlay
-              muted
-              loop
-              src={img}
-              style={{
-                width: "100%",
-                height: "12.5rem",
-                borderRadius: "0.2rem",
-                marginBottom: "1rem",
-                objectFit: "cover",
-              }}
-            ></video>
-
-            <motion.p {...animate}>{description2}</motion.p>
-
-            <BtnWrapper {...animate} onClick={handleClick}>
-              <Btn>{buttonText}</Btn>
-            </BtnWrapper>
-          </motion.div>
-        )}
+        {serviceIcons.map((icon, idx) => (
+          <div key={idx} className="service-icons__wrapper">
+            {idx === index && <img src={icon.src} alt={icon.alt} />}
+          </div>
+        ))}
       </Card>
     </CardContainer>
   );

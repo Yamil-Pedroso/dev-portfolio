@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
 
   .up-band {
     @media (max-width: 960px) {
@@ -51,26 +55,52 @@ export const HeroContainer = styled.div`
     z-index: 1;
   }
 
-    @media (max-width: 960px) {
-        width: 100%;
-        margin: 0 auto;
-        height: 50vh;
-    }
+  @media (max-width: 960px) {
+    width: 100%;
+    margin: 0 auto;
+    height: 50vh;
+  }
+`;
+
+export const VideoWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 `;
 
 export const VideoBackground = styled.video`
   width: 100%;
   height: 100%;
-  filter: brightness(0.6) grayscale(100%);
-  position: relative;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 
   source {
     object-fit: cover;
   }
 
-    @media (max-width: 960px) {
-        height: 100%;
-    }
+  @media (max-width: 960px) {
+    height: 100%;
+  }
+`;
+export const Button = styled.button`
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  zindex: 10;
+
+  @media (max-width: 1450px) {
+    display: none;
+  }
 `;
 
 export const BoxWrapperOne = styled.div`
@@ -191,8 +221,14 @@ export const HeroRightContent = styled.div`
   }
 `;
 
+export const TitleDevWrapper = styled.div`
+  //background: #262525;
+  border-radius: 1rem;
+`;
+
 export const TitleDev = styled.h2`
-  background-image: linear-gradient(to right, #0099ff, #55b1bf, #4e67a5);
+  //background-image: linear-gradient(to right, #0099ff, #55b1bf, #4e67a5);
+  background-image: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -216,7 +252,7 @@ export const TitleDev = styled.h2`
 `;
 
 export const CityName = styled.p`
-  font-size: 5rem;
+  font-size: 3rem;
   color: #fafafa;
 
   @media (max-width: 1580px) {

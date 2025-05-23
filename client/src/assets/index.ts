@@ -106,6 +106,8 @@ import bottle11 from "./potion-bottles/bottle11.png";
 import bottle12 from "./potion-bottles/bottle12.png";
 import bgVideo from "./video/bg-video.mp4";
 import bgVideo1 from "./video/bg-video1.mp4";
+import bgZurich from "./video/bg_zurich.mp4";
+import cityCode from "./video/city_code.mp4";
 import frontend1 from "./video/frontend.mp4";
 import yam from "./avatar/yam.png";
 import button from "./button.png";
@@ -140,7 +142,20 @@ import case1 from "./case.png";
 import devPortfolio from "./mini-projects/dev-portfolio.png";
 import aiMarket from "./mini-projects/ai-market.png";
 
+import frontIcon from "./services/front-icon.png";
+import backIcon from "./services/back-icon.png";
+import nativeIcon from "./services/native-icon.png";
+import uiuxIcon from "./services/uiux-icon.png";
+import digitalArtIcon from "./services/digital-art-icon.png";
+import hostingIcon from "./services/hosting-icon.png";
+
 export {
+  frontIcon,
+  backIcon,
+  nativeIcon,
+  uiuxIcon,
+  digitalArtIcon,
+  hostingIcon,
   devPortfolio,
   aiMarket,
   codes,
@@ -209,7 +224,7 @@ export {
   porfolioThree,
   porfolioFour,
   portfolioFive,
-    travel,
+  travel,
   newArrival,
   filePython,
   csharp,
@@ -256,6 +271,8 @@ export {
   bottle12,
   bgVideo,
   bgVideo1,
+  bgZurich,
+  cityCode,
   frontend1,
   pcOne,
   pcTwo,
@@ -266,5 +283,5 @@ export {
   imgOne,
   imgTwo,
   imgThree,
-  imgFour
+  imgFour,
 };

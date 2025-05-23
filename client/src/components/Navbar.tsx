@@ -21,6 +21,7 @@ const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
   const notificationRef = useRef<HTMLDivElement>(null);
   const [animateIcon, setAnimateIcon] = useState(false);
   const [notifications, setNotifications] = useState<any[]>([]);
@@ -166,13 +167,13 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            <a href="https://yampe-cv.netlify.app/" style={{ display: "flex", alignItems: "center", cursor: "pointer" }} target="_blank" rel="noreferrer">
+            {/*<a href="https://yampe-cv.netlify.app/" style={{ display: "flex", alignItems: "center", cursor: "pointer" }} target="_blank" rel="noreferrer">
               <img src={case1} alt="" width={38} />
-            </a>
+            </a>*/}
           </ul>
 
           <div className="sm:hidden flex flex-1 justify-end items-center">
-            <div onClick={handleClicked} className="mt-2">
+            <div onClick={handleClicked} className="mt-2 ">
               {myHamburgerIcon()}
             </div>
 
@@ -215,8 +216,7 @@ const Navbar = () => {
       />
 
       {/* Social network and notifications */}
-      <NavbarRightSide
-      />
+      <NavbarRightSide />
     </motion.div>
   );
 };
