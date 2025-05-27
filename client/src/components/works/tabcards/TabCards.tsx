@@ -18,7 +18,7 @@ import {
   filePython,
   typescript,
   porfolioOne,
-  travel,
+  booki,
   porfolioThree,
   porfolioFour,
   portfolioFive,
@@ -27,6 +27,7 @@ import { FaReact, FaNodeJs } from "react-icons/fa";
 import { TbBrandTypescript, TbBrandRedux } from "react-icons/tb";
 import { DiPhotoshop, DiIllustrator } from "react-icons/di";
 import { SiMongodb } from "react-icons/si";
+import { RiSupabaseLine } from "react-icons/ri";
 
 const menu1 = [
   {
@@ -39,13 +40,13 @@ const menu1 = [
     image: porfolioOne,
   },
   {
-    title: "World Travel Advisor",
-    tech: "React-Redux",
-    icons: [FaReact, TbBrandRedux, DiPhotoshop],
+    title: "Booki-Booki",
+    tech: "React-TypeScript-Supabase",
+    icons: [FaReact, TbBrandTypescript, RiSupabaseLine],
     content:
-      "World Travel Advisor is a platform designed to inspire and guide travelers with personalized recommendations, destination insights, and travel tips to create unforgettable experiences worldwide.",
-    link: "https://travel-advisorv1.netlify.app/",
-    image: travel,
+      "A modern reading app to save, read, and explore books with AI-powered insights — fast, elegant, and user-friendly.",
+    link: "https://www.booki-booki.com/",
+    image: booki,
   },
   {
     title: "Creative Design Studio",
