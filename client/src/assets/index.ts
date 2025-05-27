@@ -56,6 +56,7 @@ import miniChat from "./chat.png";
 import linktoMe from "./portfolio-work/linkto-me.jpg";
 import newArrival from "./portfolio-work/new-arrival.jpg";
 import porfolioOne from "./portfolio-work/portfolioOne.png";
+import booki from "./portfolio-work/booki.jpg";
 import porfolioTwo from "./portfolio-work/portfolioTwo.jpg";
 import portfolioFive from "./portfolio-work/portfolioFive.png";
 import travel from "./portfolio-work/travel.jpg";
@@ -220,6 +221,7 @@ export {
   tripguide,
   wave,
   porfolioOne,
+  booki,
   porfolioTwo,
   porfolioThree,
   porfolioFour,

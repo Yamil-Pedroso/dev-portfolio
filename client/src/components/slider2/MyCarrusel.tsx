@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import useTypewriter from "react-typewriter-hook";
-import Typical from "react-typical";
 import Marquee from "react-marquee-slider";
 import {
   FaReact,
@@ -23,21 +22,57 @@ import "./styles.css";
 const MyCarrousel = () => {
   const icons = [
     {
-      icon: <FaReact className="icon"/>,
+      icon: <FaReact className="icon" />,
       desc: "React is a free and open-source front-end JavaScript library for building user interfaces based on components.",
     },
-    { icon: <FaJsSquare className="icon" />, desc: "JavaScript is a programming language that is one of the core technologies of the World Wide Web." },
-    { icon: <FaHtml5 className="icon"/>, desc: "HTML is a markup language used for structuring and presenting content on the World Wide Web." },
-    { icon: <FaCss3Alt className="icon"/>, desc: "CSS is a style sheet language used for describing the presentation of a document written in a markup language." },
-    { icon: <FaNodeJs className="icon"/>, desc: "Node.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more." },
-    { icon: <FaDatabase className="icon"/>, desc: "A Database is an organized collection of data or a type of data store based on the use of a database management system." },
-    { icon: <FaGitAlt className="icon"/>, desc: "Git is a distributed version control system that tracks changes in any set of computer files." },
-    { icon: <FaGithub className="icon"/>, desc: "GitHub is a platform and cloud-based service for software development and version control, allowing developers to store and manage their code." },
-    { icon: <FaNpm className="icon"/>, desc: "NPM is a package manager for the JavaScript programming language maintained by npm, Inc." },
-    { icon: <FaSass className="icon"/>, desc: "Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets." },
-    { icon: <FaBootstrap className="icon"/>, desc: "Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development." },
-    { icon: <FaYarn className="icon"/>, desc: "Yarn is one of the main JavaScript package managers, developed in 2016 by Sebastian McKenzie of Meta for the Node.js JavaScript runtime environment." },
-    { icon: <FaPython className="icon"/>, desc: "Python is a high-level, general-purpose programming language." },
+    {
+      icon: <FaJsSquare className="icon" />,
+      desc: "JavaScript is a programming language that is one of the core technologies of the World Wide Web.",
+    },
+    {
+      icon: <FaHtml5 className="icon" />,
+      desc: "HTML is a markup language used for structuring and presenting content on the World Wide Web.",
+    },
+    {
+      icon: <FaCss3Alt className="icon" />,
+      desc: "CSS is a style sheet language used for describing the presentation of a document written in a markup language.",
+    },
+    {
+      icon: <FaNodeJs className="icon" />,
+      desc: "Node.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more.",
+    },
+    {
+      icon: <FaDatabase className="icon" />,
+      desc: "A Database is an organized collection of data or a type of data store based on the use of a database management system.",
+    },
+    {
+      icon: <FaGitAlt className="icon" />,
+      desc: "Git is a distributed version control system that tracks changes in any set of computer files.",
+    },
+    {
+      icon: <FaGithub className="icon" />,
+      desc: "GitHub is a platform and cloud-based service for software development and version control, allowing developers to store and manage their code.",
+    },
+    {
+      icon: <FaNpm className="icon" />,
+      desc: "NPM is a package manager for the JavaScript programming language maintained by npm, Inc.",
+    },
+    {
+      icon: <FaSass className="icon" />,
+      desc: "Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets.",
+    },
+    {
+      icon: <FaBootstrap className="icon" />,
+      desc: "Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.",
+    },
+    {
+      icon: <FaYarn className="icon" />,
+      desc: "Yarn is one of the main JavaScript package managers, developed in 2016 by Sebastian McKenzie of Meta for the Node.js JavaScript runtime environment.",
+    },
+    {
+      icon: <FaPython className="icon" />,
+      desc: "Python is a high-level, general-purpose programming language.",
+    },
   ];
 
   const [isHovered, setIsHovered] = useState(false);
@@ -87,18 +122,9 @@ const MyCarrousel = () => {
               color: "#e9a13b",
             }}
           >
-             <IconTech>
+            <IconTech>
               <ToolTip>
-                <ToolTipTextWrapper>
-                  {isHovered ? (
-                    <Typical
-                      steps={[tech.desc, 10000]}
-                      
-                       />
-                  ) : (
-                    <p>{tech.desc}</p>
-                  )}
-                </ToolTipTextWrapper>
+                <ToolTipTextWrapper>{tech.desc}</ToolTipTextWrapper>
               </ToolTip>
               {tech.icon}
             </IconTech>
