@@ -71,7 +71,7 @@ const menu1 = [
     content: "Create, share, and organize your code snippets with ease.",
     tech: "React-TypeScript-Node-MongoDB",
     icons: [FaReact, TbBrandTypescript, FaNodeJs, SiMongodb],
-    link: "https://custom-snippetsv1.netlify.app/",
+    link: "https://custom-snippets.netlify.app/",
     image: portfolioFive,
   },
 ];
