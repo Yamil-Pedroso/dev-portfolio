@@ -1,5 +1,12 @@
 import { IconType } from "react-icons";
-import { FaNodeJs, FaReact, FaHtml5, FaCss3, FaPhoneAlt, FaRegImage } from "react-icons/fa";
+import {
+  FaNodeJs,
+  FaReact,
+  FaHtml5,
+  FaCss3,
+  FaPhoneAlt,
+  FaRegImage,
+} from "react-icons/fa";
 import {
   SiMongodb,
   SiTypescript,
@@ -16,7 +23,6 @@ import { LiaFigma } from "react-icons/lia";
 import { TbWorldPlus, TbWorldWww } from "react-icons/tb";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot, FaImage, FaE } from "react-icons/fa6";
-import { case1, devPortfolio, aiMarket } from "../assets";
 
 import {
   backend,
@@ -45,10 +51,6 @@ import {
   terminal,
   illustrator,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
   carrent,
   jobit,
   tripguide,
@@ -58,6 +60,16 @@ import {
   imgTwo,
   imgThree,
   imgFour,
+  devPortfolio,
+  aiMarket,
+  mini1,
+  mini2,
+  mini3,
+  mini4,
+  mini7,
+  mini6,
+  mini8,
+  mini5,
 } from "../assets";
 
 export const navLinks = [
@@ -127,39 +139,44 @@ export interface IprojectLinks {
 
 const projectLinks: IprojectLinks[] = [
   {
-    title: "Creative design studio",
-    link: "https://creative-design-studio-nine.vercel.app/",
-    image: "https://img.freepik.com/free-photo/high-angle-measuring-tools-still-life_23-2150440941.jpg?t=st=1730396673~exp=1730400273~hmac=d9a5c33186ed5d1bdd579ff32b0c854b3f31acc69f9081d524852dc29cdc4fab&w=2000"
+    title: "BG Parallax",
+    link: "https://uiux-animationv1.netlify.app/bg-parallax",
+    image: mini1,
+  },
+  {
+    title: "Smooth Scroll",
+    link: "https://uiux-animationv1.netlify.app/smooth-scroll",
+    image: mini2,
+  },
+  {
+    title: "Sticky Components",
+    link: "https://uiux-animationv1.netlify.app/sticky-comps",
+    image: mini3,
+  },
+  {
+    title: "Scroll Parallax",
+    link: "https://uiux-animationv1.netlify.app/scroll-parallax",
+    image: mini4,
+  },
+  {
+    title: "Scale Images",
+    link: "https://uiux-animationv1.netlify.app/scale-images",
+    image: mini5,
   },
   {
     title: "AI-Translator",
     link: "https://ai-translator-gen.netlify.app/",
-    image: devPortfolio
+    image: mini6,
   },
   {
     title: "AI Market",
     link: "https://ai-market-gen.netlify.app/",
-    image: aiMarket
+    image: mini7,
   },
   {
-    title: "Lorem Ipsum",
-    link: "#",
-    image: FaRegImage
-  },
-  {
-    title: "Lorem Ipsum",
-    link: "#",
-    image: FaRegImage
-  },
-  {
-    title: "Lorem Ipsum",
-    link: "#",
-    image: FaRegImage
-  },
-  {
-    title: "Lorem Ipsum",
-    link: "#",
-    image: FaRegImage
+    title: "Creative design studio",
+    link: "https://creative-design-studio-nine.vercel.app/",
+    image: mini8,
   },
 ];
 

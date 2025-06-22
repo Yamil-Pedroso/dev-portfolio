@@ -35,6 +35,17 @@ import {
   ProjectWrapper,
 } from "./styles";
 import { projectLinks } from "../../constants";
+import { IconType } from "react-icons/lib";
+import { PiSelectionBackgroundBold } from "react-icons/pi";
+import { RiScrollToBottomLine } from "react-icons/ri";
+import { AiFillBuild } from "react-icons/ai";
+import { LuScaling } from "react-icons/lu";
+import { SiScrollreveal } from "react-icons/si";
+import { IoMenuSharp } from "react-icons/io5";
+
+interface CardTitleProps {
+  icon?: string | IconType;
+}
 
 const renderImageOrIcon = (image: any) => {
   return typeof image === "string" ? (
@@ -44,55 +55,61 @@ const renderImageOrIcon = (image: any) => {
   );
 };
 
-const techIcons = [
-  {
-    id: 1,
-    icon: figma,
-  },
-  {
-    id: 2,
-    icon: photoshop,
-  },
-  {
-    id: 3,
-    icon: illustrator,
-  },
-  {
-    id: 4,
-    icon: tailwind,
-  },
-  {
-    id: 5,
-    icon: css,
-  },
-  {
-    id: 6,
-    icon: xd,
-  },
-];
-
-const miniProjs = [
-  {
-    id: 1,
-    icon: potion,
-  },
-  {
-    id: 2,
-    icon: pizza,
-  },
-  {
-    id: 3,
-    icon: book,
-  },
-  {
-    id: 4,
-    icon: miniChat,
-  },
-];
-
-const CardTitles = () => {
+const CardTitles: React.FC<CardTitleProps> = ({ icon }) => {
   const [isHovered, setIsHovered] = useState<number | null>(null);
   const [isHovered2, setIsHovered2] = useState<number | null>(null);
+
+  const techIcons = [
+    {
+      id: 1,
+      icon: PiSelectionBackgroundBold,
+      link: "https://uiux-animationv1.netlify.app/bg-parallax",
+    },
+    {
+      id: 2,
+      icon: RiScrollToBottomLine,
+      link: "https://uiux-animationv1.netlify.app/smooth-scroll",
+    },
+    {
+      id: 3,
+      icon: AiFillBuild,
+      link: "https://uiux-animationv1.netlify.app/sticky-comps",
+    },
+    {
+      id: 4,
+      icon: LuScaling,
+      link: "https://uiux-animationv1.netlify.app/scale-images",
+    },
+    {
+      id: 5,
+      icon: SiScrollreveal,
+      link: "https://uiux-animationv1.netlify.app/scroll-parallax",
+    },
+    {
+      id: 6,
+      icon: IoMenuSharp,
+      link: "https://uiux-animationv1.netlify.app/3d-menu-tech",
+    },
+  ];
+
+  const miniProjs = [
+    {
+      id: 1,
+      icon: potion,
+    },
+    {
+      id: 2,
+      icon: pizza,
+    },
+    {
+      id: 3,
+      icon: book,
+    },
+    {
+      id: 4,
+      icon: miniChat,
+    },
+  ];
 
   const handleHover = (index: number) => {
     setIsHovered(index);
@@ -148,8 +165,11 @@ const CardTitles = () => {
 
         <ProjectUIUX>
           <ProjectUIUXHeader>
-            <h2>Projects UI/UX</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h2>UI/UX Animations</h2>
+            <p style={{ maxWidth: "380px" }}>
+              Explore how transitions, micro-interactions, and parallax effects
+              enhance usability and create engaging user experiences.
+            </p>
           </ProjectUIUXHeader>
           <ProjectUIUXWrapper>
             {techIcons.slice(0, 3).map((item, index) => (
@@ -164,7 +184,15 @@ const CardTitles = () => {
                 isHovered={isHovered}
                 index={index}
               >
-                <img src={item.icon} alt="project images" />
+                {typeof item.icon === "string" ? (
+                  <img src={item.icon} alt="project images" />
+                ) : (
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <span style={{ fontSize: "2rem", color: "#cccccc" }}>
+                      {React.createElement(item.icon, { className: "icon" })}
+                    </span>
+                  </a>
+                )}
               </ProjectUIUXContent>
             ))}
 
@@ -180,7 +208,15 @@ const CardTitles = () => {
                 isHovered2={isHovered2}
                 index={index}
               >
-                <img src={item.icon} alt="project images" />
+                {typeof item.icon === "string" ? (
+                  <img src={item.icon} alt="project images" />
+                ) : (
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <span style={{ fontSize: "2rem", color: "#cccccc" }}>
+                      {React.createElement(item.icon, { className: "icon" })}
+                    </span>
+                  </a>
+                )}
               </ProjectUIUXContent2>
             ))}
           </ProjectUIUXWrapper>

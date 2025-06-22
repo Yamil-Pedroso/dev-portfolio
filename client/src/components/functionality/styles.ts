@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 
@@ -524,19 +523,19 @@ export const ProjectUIUXHeader = styled.div`
 `;
 
 export const ProjectUIUXWrapper = styled.div`
-   width: 20rem;
-   display: flex;
-   align-items: center;
-   flex-wrap: wrap;
-    gap: 1rem;
-    margin-left: 0;
-    position: relative;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: 0;
+  position: relative;
 `;
 
 interface ProjectUIUXContentProps {
-  isHovered? : boolean | number | null;
-  isHovered2? : boolean | number | null;
-  index : number;
+  isHovered?: boolean | number | null;
+  isHovered2?: boolean | number | null;
+  index: number;
 }
 
 export const ProjectUIUXContent = styled(motion.div)<ProjectUIUXContentProps>`
@@ -552,8 +551,11 @@ export const ProjectUIUXContent = styled(motion.div)<ProjectUIUXContentProps>`
   position: absolute;
   top: -5rem;
   left: 0;
-  margin-left: ${props => props.index * 5.5}rem;
-  border: ${props => props.isHovered ? "1px solid #003a61" : "1px solid rgba(255, 255, 255, 0.1)"};
+  margin-left: ${(props) => props.index * 5.5}rem;
+  border: ${(props) =>
+    props.isHovered
+      ? "1px solid #003a61"
+      : "1px solid rgba(255, 255, 255, 0.1)"};
 
   img {
     width: 2rem;
@@ -572,11 +574,14 @@ export const ProjectUIUXContent2 = styled(motion.div)<ProjectUIUXContentProps>`
   background: rgba(8, 8, 8, 0.8);
   padding: 1rem;
   position: absolute;
-  top: .4rem;
+  top: 0.4rem;
   left: 3rem;
   z-index: 1;
-  margin-left: ${props => props.index * 5.5}rem;
-  border: ${props => props.isHovered2 ? "1px solid #003a61" : "1px solid rgba(255, 255, 255, 0.1)"};
+  margin-left: ${(props) => props.index * 5.5}rem;
+  border: ${(props) =>
+    props.isHovered2
+      ? "1px solid #003a61"
+      : "1px solid rgba(255, 255, 255, 0.1)"};
 
   img {
     width: 2rem;
@@ -602,7 +607,7 @@ export const ProjectLinksContent = styled.div`
   align-items: center;
   padding: 1rem 1.25rem;
   margin-top: 1rem;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
   cursor: pointer;
   background: rgba(25, 25, 29, 0.8);
   backdrop-filter: blur(10px);
@@ -625,7 +630,7 @@ export const ProjectLinksContent = styled.div`
   }
 
   @media (max-width: 960px) {
-    padding: .5rem .75rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .project-link-img {
@@ -649,10 +654,10 @@ export const ProjectLinksContent = styled.div`
   h3 {
     color: #767676;
     font-size: 1rem;
-    margin-left: .4rem;
+    margin-left: 0.4rem;
 
     @media (max-width: 960px) {
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
   }
 
@@ -668,16 +673,15 @@ export const ProjectLinksContent = styled.div`
 `;
 
 export const CardTitle = styled.div`
-    display: flex;
+  display: flex;
 
-    h3 {
-
-       &:hover {
-            color: #0099ff;
-        }
+  h3 {
+    &:hover {
+      color: #0099ff;
     }
+  }
 
-    @media (max-width: 960px) {
-        align-items: center;
-    }
+  @media (max-width: 960px) {
+    align-items: center;
+  }
 `;

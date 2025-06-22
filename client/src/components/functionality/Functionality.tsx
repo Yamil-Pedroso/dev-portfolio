@@ -1,6 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { Container } from "./styles";
-import { potionBg, basketFruits, download, bookStack, cinema, gameConsole, chat, upload } from "../../assets";
+import { motion, AnimatePresence } from "framer-motion";
+
+import {
+  potionBg,
+  basketFruits,
+  download,
+  bookStack,
+  cinema,
+  gameConsole,
+  chat,
+  upload,
+} from "../../assets";
 import { FaDoorOpen } from "react-icons/fa";
 
 import PotionCardMain from "../functionalities/potion-cards/PotionCardMain";
@@ -11,11 +22,7 @@ import MovieData from "../functionalities/movie-data/MovieData";
 import LandingPage from "../functionalities/landingpage-split-stripe/LandingPage";
 import ChatApp from "../functionalities/realtime-chat/ChatApp";
 import DropFilesApp from "../functionalities/drop-files/DropFilesApp";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { TbHandFinger } from "react-icons/tb";
 import CardTitles from "./CardTitles";
-
-import LiveProjDemos from "./LiveProjDemos";
 
 const contentBoxIndex = [
   {
@@ -46,77 +53,76 @@ const contentBoxIndex = [
     id: 7,
     content: <DropFilesApp />,
   },
-]
+];
 
 const cardContent = [
   {
     id: 1,
     content: "Collect Potions Auth",
     desc: "Node-MongoDB-React-Typescript",
-    icon : potionBg
-
-   }, 
-    {
-      id: 2,
-      content: "Fruit Basket",
-      desc: "React-Typescript",
-      icon : basketFruits
-  
-    },
-    {
-      id: 3,
-      content: "Infinite Scroll",
-      desc: "React-Typescript-Queries",
-      icon : download
-  
-    },
-    {
-      id: 4,
-      content: "Fetch Movie API",
-      desc: "React-Typescript-Search-Filter",
-      icon : cinema
-  
-    },
-    {
-      id: 5,
-      content: "Buy console with Stripe",
-      desc: "Node-React-Typescript-Stripe-Payment",
-      icon : gameConsole
-  
-    },
-    {
-      id: 6,
-      content: "Realtime Chat",
-      desc: "Node-React-Typescript-Socket.io",
-      icon : chat
-  
-    },
-    {
-      id: 7,
-      content: "Drag and Drop",
-      desc: "React-Typescript-Browser Files",
-      icon : upload
-  
-    },
+    icon: potionBg,
+  },
+  {
+    id: 2,
+    content: "Fruit Basket",
+    desc: "React-Typescript",
+    icon: basketFruits,
+  },
+  {
+    id: 3,
+    content: "Infinite Scroll",
+    desc: "React-Typescript-Queries",
+    icon: download,
+  },
+  {
+    id: 4,
+    content: "Fetch Movie API",
+    desc: "React-Typescript-Search-Filter",
+    icon: cinema,
+  },
+  {
+    id: 5,
+    content: "Buy console with Stripe",
+    desc: "Node-React-Typescript-Stripe-Payment",
+    icon: gameConsole,
+  },
+  {
+    id: 6,
+    content: "Realtime Chat",
+    desc: "Node-React-Typescript-Socket.io",
+    icon: chat,
+  },
+  {
+    id: 7,
+    content: "Drag and Drop",
+    desc: "React-Typescript-Browser Files",
+    icon: upload,
+  },
 ];
-const limitBoxs = 8
+const limitBoxs = 8;
 
 const Functionality = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null)
-  const [activeTextIndex, setActiveTextIndex] = useState(0)
-  const [clickedBoxIndex, setClickedBoxIndex] = useState(null)
-  const [closeBox, setCloseBox] = useState(false)
-  const [currentBoxIndex, setCurrentBookIndex] = useState(0)
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [activeTextIndex, setActiveTextIndex] = useState(0);
+  const [clickedBoxIndex, setClickedBoxIndex] = useState(null);
+  const [closeBox, setCloseBox] = useState(false);
+  const [currentBoxIndex, setCurrentBookIndex] = useState(0);
   const headerText = [
-    'Node',
-    'Supabase',
-    'React',
-    'Typescript',
-    'MongoDB',
-    'Express',
-    'SQL',
-  ]
-  const cardsRef = useRef<HTMLDivElement>(null)
+    "Node",
+    "Supabase",
+    "React",
+    "Typescript",
+    "MongoDB",
+    "Express",
+    "SQL",
+    "NoSQL",
+    "PhotoShop",
+    "Figma",
+    "Tailwind CSS",
+    "GSAP",
+    "Framer Motion",
+  ];
+  const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -124,69 +130,88 @@ const Functionality = () => {
         cardsRef.current &&
         !cardsRef.current.contains(event.target as Node)
       ) {
-        setClickedBoxIndex(null)
+        setClickedBoxIndex(null);
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [cardsRef, setClickedBoxIndex])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [cardsRef, setClickedBoxIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveTextIndex((prevIndex) => (prevIndex + 1) % headerText.length)
-    }, 6000)
+      setActiveTextIndex((prevIndex) => (prevIndex + 1) % headerText.length);
+    }, 6000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   const handleBoxClose = () => {
-    setClickedBoxIndex(null)
-  }
+    setClickedBoxIndex(null);
+  };
 
   const handleMouseEnter = (index: any) => {
-    setHoveredIndex(index)
-  }
+    setHoveredIndex(index);
+  };
 
   const handleMouseLeave = () => {
-    setHoveredIndex(null)
-  }
+    setHoveredIndex(null);
+  };
 
   const handleClick = (index: any) => {
     if (clickedBoxIndex === index) {
-      handleBoxClose()
-      setClickedBoxIndex(null)
+      handleBoxClose();
+      setClickedBoxIndex(null);
     } else {
-      setClickedBoxIndex(index)
+      setClickedBoxIndex(index);
     }
-  }
+  };
 
   const handleBoxNext = () => {
-    const nextIndex = currentBoxIndex + limitBoxs
+    const nextIndex = currentBoxIndex + limitBoxs;
     if (nextIndex < cardContent.length) {
-      setCurrentBookIndex(nextIndex)
+      setCurrentBookIndex(nextIndex);
     } else {
-      setCurrentBookIndex(cardContent.length - (cardContent.length % limitBoxs))
+      setCurrentBookIndex(
+        cardContent.length - (cardContent.length % limitBoxs)
+      );
     }
-  }
+  };
 
   const handleBoxBack = () => {
-    const prevIndex = currentBoxIndex - limitBoxs
+    const prevIndex = currentBoxIndex - limitBoxs;
     if (prevIndex >= 0) {
-      setCurrentBookIndex(prevIndex)
+      setCurrentBookIndex(prevIndex);
     } else {
-      setCurrentBookIndex(0)
+      setCurrentBookIndex(0);
     }
-  }
+  };
 
   return (
     <Container id="mini-projects">
       <div className="header-wrapper">
         <p className="header-text">Mini projects plus</p>
         <h1>
-          Used tech: <span>{headerText[activeTextIndex]}</span>
+          Used tech:{" "}
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={headerText[activeTextIndex]}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{
+                duration: 0.5,
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+              }}
+              className="inline-block text-green-400"
+            >
+              {headerText[activeTextIndex]}
+            </motion.span>
+          </AnimatePresence>
         </h1>
         <p className="desc">
           Set of backend and frontend functionalities. Uses API Rest and SQL and
@@ -196,7 +221,7 @@ const Functionality = () => {
 
       <CardTitles />
     </Container>
-  )
-}
+  );
+};
 
-export default Functionality
+export default Functionality;

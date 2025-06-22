@@ -142,6 +142,14 @@ import bg6 from "./cards-bg/bg6.png";
 import case1 from "./case.png";
 import devPortfolio from "./mini-projects/dev-portfolio.png";
 import aiMarket from "./mini-projects/ai-market.png";
+import mini1 from "./mini-projects/mini1.png";
+import mini2 from "./mini-projects/mini2.png";
+import mini3 from "./mini-projects/mini3.png";
+import mini4 from "./mini-projects/mini4.png";
+import mini5 from "./mini-projects/mini5.png";
+import mini6 from "./mini-projects/mini6.png";
+import mini7 from "./mini-projects/mini7.png";
+import mini8 from "./mini-projects/mini8.png";
 
 import frontIcon from "./services/front-icon.png";
 import backIcon from "./services/back-icon.png";
@@ -286,4 +294,12 @@ export {
   imgTwo,
   imgThree,
   imgFour,
+  mini1,
+  mini2,
+  mini3,
+  mini4,
+  mini5,
+  mini6,
+  mini7,
+  mini8,
 };
