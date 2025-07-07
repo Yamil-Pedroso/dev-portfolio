@@ -18,13 +18,18 @@ import {
   filePython,
   typescript,
   porfolioOne,
+  liminal,
   booki,
   porfolioThree,
   porfolioFour,
   portfolioFive,
 } from "../../../assets";
 import { FaReact, FaNodeJs } from "react-icons/fa";
-import { TbBrandTypescript, TbBrandRedux } from "react-icons/tb";
+import {
+  TbBrandTypescript,
+  TbBrandRedux,
+  TbBrandTailwind,
+} from "react-icons/tb";
 import { DiPhotoshop, DiIllustrator } from "react-icons/di";
 import { SiMongodb } from "react-icons/si";
 import { RiSupabaseLine } from "react-icons/ri";
@@ -38,6 +43,15 @@ const menu1 = [
     icons: [FaReact, TbBrandTypescript],
     link: "https://www.squib.app",
     image: porfolioOne,
+  },
+  {
+    title: "Liminal",
+    tech: "React-TypeScript-Tailwindcss",
+    icons: [FaReact, TbBrandTypescript, TbBrandTailwind],
+    content:
+      "A creative studio operating at the threshold of design and innovation crafting bold, immersive, and unconventional experiences.",
+    link: "https://liminal-devv1.netlify.app/",
+    image: liminal,
   },
   {
     title: "Booki-Booki",
